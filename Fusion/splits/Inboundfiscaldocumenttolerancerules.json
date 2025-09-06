@@ -1,0 +1,999 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Inboundfiscaldocumenttolerancerules",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Inboundfiscaldocumenttolerancerules",
+      "description": "",
+      "item": [
+        {
+          "name": "inboundFiscalDocumentToleranceRules",
+          "description": "",
+          "item": [
+            {
+              "id": "cbbc0faa-ffa1-4f61-ad25-0fa8fd979cc8",
+              "name": "Get all tolerance rules",
+              "request": {
+                "name": "Get all tolerance rules",
+                "description": {},
+                "url": {
+                  "path": [
+                    "inboundFiscalDocumentToleranceRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Stores the tolerance rule description for a specific row.</li><li>InactiveFlag; boolean; Flag identifying if the tolerance rule is inactive or not.</li><li>InventoryItemId; integer; Indicates the item to which tolerance rule is applicable.</li><li>InventoryItemNumber; string; Indicates the item name to which tolerance rule is applicable.</li><li>InventoryOrganizationId; integer; Indicates the inventory organization id to which tolerance rule is applicable.</li><li>InventoryOrganizationName; string; Indicates the inventory organization name to which tolerance rule is applicable.</li><li>LastUpdateDate; string; Indicates the date and time of the last update of the row.</li><li>Name; string; Stores the tolerance rule name for a specific row</li><li>PartyId; integer; Indicates the party id to which tolerance rule is applicable.</li><li>PartyName; string; Indicates the party name to which tolerance rule is applicable.</li><li>Status; string; Indicates the status of tolerance rule whether it is active or not</li><li>ToleranceRuleCode; string; Indicates the tolerance code of the tolerance.</li><li>ToleranceRuleId; integer; Indicates identifier for tolerance rules.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds a tolerance rule according to its primary key.<br>Finder Variables: <ul><li>ToleranceRuleId; integer; Value that uniquely identifies a tolerance rule.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "e9ec006e-a307-4717-8cca-754b483e79e9",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "inboundFiscalDocumentToleranceRules"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Stores the tolerance rule description for a specific row.</li><li>InactiveFlag; boolean; Flag identifying if the tolerance rule is inactive or not.</li><li>InventoryItemId; integer; Indicates the item to which tolerance rule is applicable.</li><li>InventoryItemNumber; string; Indicates the item name to which tolerance rule is applicable.</li><li>InventoryOrganizationId; integer; Indicates the inventory organization id to which tolerance rule is applicable.</li><li>InventoryOrganizationName; string; Indicates the inventory organization name to which tolerance rule is applicable.</li><li>LastUpdateDate; string; Indicates the date and time of the last update of the row.</li><li>Name; string; Stores the tolerance rule name for a specific row</li><li>PartyId; integer; Indicates the party id to which tolerance rule is applicable.</li><li>PartyName; string; Indicates the party name to which tolerance rule is applicable.</li><li>Status; string; Indicates the status of tolerance rule whether it is active or not</li><li>ToleranceRuleCode; string; Indicates the tolerance code of the tolerance.</li><li>ToleranceRuleId; integer; Indicates identifier for tolerance rules.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds a tolerance rule according to its primary key.<br>Finder Variables: <ul><li>ToleranceRuleId; integer; Value that uniquely identifies a tolerance rule.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"Description\": \"<string>\",\n      \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"InventoryOrganizationName\": \"<string>\",\n      \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"PartyName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n      \"InventoryOrganizationId\": \"<long>\",\n      \"ToleranceRuleId\": \"<long>\",\n      \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"InventoryItemNumber\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n      \"ToleranceRuleCode\": \"<string>\",\n      \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n      \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n      \"InventoryItemId\": \"<long>\",\n      \"InactiveFlag\": false,\n      \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"PartyId\": \"<long>\",\n      \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n      \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"Description\": \"<string>\",\n      \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"InventoryOrganizationName\": \"<string>\",\n      \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"PartyName\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n      \"InventoryOrganizationId\": \"<long>\",\n      \"ToleranceRuleId\": \"<long>\",\n      \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"InventoryItemNumber\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n      \"ToleranceRuleCode\": \"<string>\",\n      \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n      \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n      \"InventoryItemId\": \"<long>\",\n      \"InactiveFlag\": false,\n      \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"PartyId\": \"<long>\",\n      \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n      \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "0dfbc76d-f592-4565-aebd-b8f45d901948",
+              "name": "Create multiple tolerance rule",
+              "request": {
+                "name": "Create multiple tolerance rule",
+                "description": {},
+                "url": {
+                  "path": [
+                    "inboundFiscalDocumentToleranceRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"ToleranceRuleCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"PartyId\": \"<long>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ToleranceRuleId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "efd782c4-cacf-4052-9875-9920c21fc3bc",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "inboundFiscalDocumentToleranceRules"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"ToleranceRuleCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"PartyId\": \"<long>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ToleranceRuleId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"Description\": \"<string>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryOrganizationName\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ToleranceRuleId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryItemNumber\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"ToleranceRuleCode\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyId\": \"<long>\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "name": "{ToleranceRuleId}",
+              "description": "",
+              "item": [
+                {
+                  "id": "0a426c1e-453a-4e22-a847-4b0ac7822bda",
+                  "name": "Get one tolerance rule",
+                  "request": {
+                    "name": "Get one tolerance rule",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inboundFiscalDocumentToleranceRules",
+                        ":ToleranceRuleId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ToleranceRuleId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Indicates identifier for tolerance rules.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "8d0829df-d774-4eea-b638-aaf8ba9746b0",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inboundFiscalDocumentToleranceRules",
+                            ":ToleranceRuleId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"Description\": \"<string>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryOrganizationName\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ToleranceRuleId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryItemNumber\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"ToleranceRuleCode\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyId\": \"<long>\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "00096636-2e8e-4c30-a27f-fbf6de8828d4",
+                  "name": "Delete one tolerance rule",
+                  "request": {
+                    "name": "Delete one tolerance rule",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inboundFiscalDocumentToleranceRules",
+                        ":ToleranceRuleId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ToleranceRuleId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Indicates identifier for tolerance rules.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      }
+                    ],
+                    "method": "DELETE",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "3d93944b-ec92-41c0-9f0e-2cb08cc6e1b7",
+                      "name": "No Content. This task does not return elements in the response body.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inboundFiscalDocumentToleranceRules",
+                            ":ToleranceRuleId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          }
+                        ],
+                        "method": "DELETE",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [],
+                      "cookie": [],
+                      "_postman_previewlanguage": "text"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "717f58e3-d561-4335-bfe5-edcd5cf2e8ec",
+                  "name": "Patch one tolerance rule",
+                  "request": {
+                    "name": "Patch one tolerance rule",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inboundFiscalDocumentToleranceRules",
+                        ":ToleranceRuleId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ToleranceRuleId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Indicates identifier for tolerance rules.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"PartyId\": \"<long>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "93096c84-d13c-4128-b51c-005c5ba164fb",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inboundFiscalDocumentToleranceRules",
+                            ":ToleranceRuleId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"PartyId\": \"<long>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"Description\": \"<string>\",\n  \"SourceDocumentPriceToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryOrganizationName\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyName\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"SourceDocumentPriceToleranceHigherLimit\": \"<number>\",\n  \"InventoryOrganizationId\": \"<long>\",\n  \"ToleranceRuleId\": \"<long>\",\n  \"ReceivedQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"ReceivedQuantityToleranceHigherLimit\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"SourceDocumentQuantityToleranceHigherLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"InventoryItemNumber\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceDocumentQuantityToleranceLowerLimit\": \"<number>\",\n  \"ToleranceRuleCode\": \"<string>\",\n  \"ReceivedQuantityToleranceLowerLimit\": \"<number>\",\n  \"SourceDocumentPriceToleranceLowerLimit\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"InactiveFlag\": false,\n  \"ReceivedQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"PartyId\": \"<long>\",\n  \"SourceDocumentQuantityToleranceHigherLimit\": \"<number>\",\n  \"SourceDocumentQuantityToleranceLowerLimitAction\": \"ALLOW_DISCREPANCY\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

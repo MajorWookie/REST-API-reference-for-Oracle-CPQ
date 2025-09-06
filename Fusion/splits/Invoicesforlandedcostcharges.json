@@ -1,0 +1,1975 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Invoicesforlandedcostcharges",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Invoicesforlandedcostcharges",
+      "description": "",
+      "item": [
+        {
+          "name": "invoicesForLandedCostCharges",
+          "description": "",
+          "item": [
+            {
+              "name": "{invoicesForLandedCostChargesUniqID}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "landedCostChargeReferencesForInvoiceLines",
+                      "description": "",
+                      "item": [
+                        {
+                          "id": "da53ad6f-b38f-416d-9e7b-50ed2427c455",
+                          "name": "Get all charge references",
+                          "request": {
+                            "name": "Get all charge references",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "invoicesForLandedCostCharges",
+                                ":invoicesForLandedCostChargesUniqID",
+                                "child",
+                                "landedCostChargeReferencesForInvoiceLines"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ChargeReferenceName; string; Name of the charge reference type.</li><li>ChargeReferencePredefined; string; Contains one of the following values: true or false. If true, then the reference type is predefined in the default charge references setup. If false, then the reference type is not predefined. The default value is false.</li><li>ChargeReferenceTypeId; integer; Value that uniquely identifies the type of charge reference.</li><li>ChargeReferenceValueDataType; string; Value that identifies the type of input data for charge references.</li><li>InvoiceChargeReferenceId; integer; Value that uniquely identifies the invoice charge reference.</li><li>ProcurementBU; string; Value that indicates the procurement business unit on the charge reference.</li><li>ProcurementBUId; integer; Value that uniquely identifies the procurement business unit.</li><li>ReferenceValueDate; string; Date value of the charge reference.</li><li>ReferenceValueNumber; number; Number that identifies the charge reference.</li><li>ReferenceValueText; string; Text of the charge reference.</li><li>UserComment; string; Comments added by the user for the charge reference.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find references for landed cost charges according to the specified attributes.<br>Finder Variables: <ul><li>InvoiceChargeReferenceId; integer; Value that uniquely identifies the charge reference on the invoice.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<string>",
+                                  "key": "invoicesForLandedCostChargesUniqID",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "65a665a7-0df6-428f-8698-6877271ebbd8",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "invoicesForLandedCostCharges",
+                                    ":invoicesForLandedCostChargesUniqID",
+                                    "child",
+                                    "landedCostChargeReferencesForInvoiceLines"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ChargeReferenceName; string; Name of the charge reference type.</li><li>ChargeReferencePredefined; string; Contains one of the following values: true or false. If true, then the reference type is predefined in the default charge references setup. If false, then the reference type is not predefined. The default value is false.</li><li>ChargeReferenceTypeId; integer; Value that uniquely identifies the type of charge reference.</li><li>ChargeReferenceValueDataType; string; Value that identifies the type of input data for charge references.</li><li>InvoiceChargeReferenceId; integer; Value that uniquely identifies the invoice charge reference.</li><li>ProcurementBU; string; Value that indicates the procurement business unit on the charge reference.</li><li>ProcurementBUId; integer; Value that uniquely identifies the procurement business unit.</li><li>ReferenceValueDate; string; Date value of the charge reference.</li><li>ReferenceValueNumber; number; Number that identifies the charge reference.</li><li>ReferenceValueText; string; Text of the charge reference.</li><li>UserComment; string; Comments added by the user for the charge reference.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find references for landed cost charges according to the specified attributes.<br>Finder Variables: <ul><li>InvoiceChargeReferenceId; integer; Value that uniquely identifies the charge reference on the invoice.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "5ffcc72f-9e71-46ef-9603-687b1cbebbd6",
+                          "name": "Create a charge reference",
+                          "request": {
+                            "name": "Create a charge reference",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "invoicesForLandedCostCharges",
+                                ":invoicesForLandedCostChargesUniqID",
+                                "child",
+                                "landedCostChargeReferencesForInvoiceLines"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<string>",
+                                  "key": "invoicesForLandedCostChargesUniqID",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "ca990246-68de-4ac3-ad1c-001a0d732b5c",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "invoicesForLandedCostCharges",
+                                    ":invoicesForLandedCostChargesUniqID",
+                                    "child",
+                                    "landedCostChargeReferencesForInvoiceLines"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceValueDataType\": \"<string>\",\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ChargeReferencePredefined\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "name": "{InvoiceChargeReferenceId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "4b75df79-34c9-4366-a279-48ca0e9bc076",
+                              "name": "Get one charge reference",
+                              "request": {
+                                "name": "Get one charge reference",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "invoicesForLandedCostCharges",
+                                    ":invoicesForLandedCostChargesUniqID",
+                                    "child",
+                                    "landedCostChargeReferencesForInvoiceLines",
+                                    ":InvoiceChargeReferenceId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "invoicesForLandedCostChargesUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "InvoiceChargeReferenceId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the invoice charge reference.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "a0c538b5-3878-4ada-9519-7820d7f95f66",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "invoicesForLandedCostCharges",
+                                        ":invoicesForLandedCostChargesUniqID",
+                                        "child",
+                                        "landedCostChargeReferencesForInvoiceLines",
+                                        ":InvoiceChargeReferenceId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceValueDataType\": \"<string>\",\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ChargeReferencePredefined\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "796f65f0-939a-4e27-af42-2646adafddb3",
+                              "name": "Delete a charge reference",
+                              "request": {
+                                "name": "Delete a charge reference",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "invoicesForLandedCostCharges",
+                                    ":invoicesForLandedCostChargesUniqID",
+                                    "child",
+                                    "landedCostChargeReferencesForInvoiceLines",
+                                    ":InvoiceChargeReferenceId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "invoicesForLandedCostChargesUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "InvoiceChargeReferenceId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the invoice charge reference.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  }
+                                ],
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "de2e86d3-da14-428d-a5b8-17cc38b7ac98",
+                                  "name": "No Content. This task does not return elements in the response body.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "invoicesForLandedCostCharges",
+                                        ":invoicesForLandedCostChargesUniqID",
+                                        "child",
+                                        "landedCostChargeReferencesForInvoiceLines",
+                                        ":InvoiceChargeReferenceId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      }
+                                    ],
+                                    "method": "DELETE",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [],
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "text"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "dfafe96f-649d-4cd3-b115-dff0ed32bf06",
+                              "name": "Update a charge reference",
+                              "request": {
+                                "name": "Update a charge reference",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "invoicesForLandedCostCharges",
+                                    ":invoicesForLandedCostChargesUniqID",
+                                    "child",
+                                    "landedCostChargeReferencesForInvoiceLines",
+                                    ":InvoiceChargeReferenceId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "invoicesForLandedCostChargesUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "InvoiceChargeReferenceId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the invoice charge reference.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "fee11852-7660-4ecc-bc77-969e48cc74ca",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "invoicesForLandedCostCharges",
+                                        ":invoicesForLandedCostChargesUniqID",
+                                        "child",
+                                        "landedCostChargeReferencesForInvoiceLines",
+                                        ":InvoiceChargeReferenceId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ReferenceValueText\": \"<string>\",\n  \"ReferenceValueNumber\": \"<number>\",\n  \"UserComment\": \"<string>\",\n  \"InvoiceChargeReferenceId\": \"<long>\",\n  \"ChargeReferenceValueDataType\": \"<string>\",\n  \"ChargeReferenceTypeId\": \"<long>\",\n  \"ChargeReferenceDataType\": \"<string>\",\n  \"ChargeReferencePredefined\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ChargeReferenceName\": \"<string>\",\n  \"ReferenceValueDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "7f045484-19d9-4f74-82f1-d849b83d0fed",
+                  "name": "Get one invoice",
+                  "request": {
+                    "name": "Get one invoice",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "invoicesForLandedCostCharges",
+                        ":invoicesForLandedCostChargesUniqID"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "invoicesForLandedCostChargesUniqID",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "e29c500c-c49d-4ff2-9886-bc30579d91d2",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "invoicesForLandedCostCharges",
+                            ":invoicesForLandedCostChargesUniqID"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"InvoiceLineNumber\": \"<string>\",\n  \"InvoiceCreationDate\": \"<dateTime>\",\n  \"InvoiceLineType\": \"<string>\",\n  \"InvoiceAmount\": \"<number>\",\n  \"InvoiceId\": \"<long>\",\n  \"AssociationModeCode\": \"<number>\",\n  \"ChargeBU\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"Supplier\": \"<string>\",\n  \"InvoiceNumber\": \"<string>\",\n  \"AssociationStatus\": \"<string>\",\n  \"InvoiceCurrency\": \"<string>\",\n  \"MissingChargeReferences\": \"<string>\",\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"AssociationMode\": \"<string>\",\n  \"ChargeName\": \"<string>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ],\n  \"TradeOperationNumber\": \"<string>\",\n  \"ChargeBUId\": \"<long>\",\n  \"InvoiceNonrecoverableTaxAmount\": \"<number>\",\n  \"ChargeCode\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SupplierSite\": \"<string>\",\n  \"TradeOperationName\": \"<string>\",\n  \"ChargeId\": \"<long>\",\n  \"InvoiceCurrencyCode\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "de7ea259-cb2e-4969-9364-b8e9390ec65f",
+                  "name": "Update a landed cost charge",
+                  "request": {
+                    "name": "Update a landed cost charge",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "invoicesForLandedCostCharges",
+                        ":invoicesForLandedCostChargesUniqID"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "invoicesForLandedCostChargesUniqID",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) This is the hash key of the attributes which make up the composite key for the Invoices for Landed Cost Charges resource and used to uniquely identify an instance of Invoices for Landed Cost Charges. The client should not generate the hash key value. Instead, the client should query on the Invoices for Landed Cost Charges collection resource in order to navigate to a specific instance of Invoices for Landed Cost Charges to get the hash key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ChargeId\": \"<long>\",\n  \"ChargeBUId\": \"<long>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "67e5b19c-b5bb-42fb-9e69-fe90ed14af1e",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "invoicesForLandedCostCharges",
+                            ":invoicesForLandedCostChargesUniqID"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ChargeId\": \"<long>\",\n  \"ChargeBUId\": \"<long>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"InvoiceLineNumber\": \"<string>\",\n  \"InvoiceCreationDate\": \"<dateTime>\",\n  \"InvoiceLineType\": \"<string>\",\n  \"InvoiceAmount\": \"<number>\",\n  \"InvoiceId\": \"<long>\",\n  \"AssociationModeCode\": \"<number>\",\n  \"ChargeBU\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"Supplier\": \"<string>\",\n  \"InvoiceNumber\": \"<string>\",\n  \"AssociationStatus\": \"<string>\",\n  \"InvoiceCurrency\": \"<string>\",\n  \"MissingChargeReferences\": \"<string>\",\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"AssociationMode\": \"<string>\",\n  \"ChargeName\": \"<string>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ],\n  \"TradeOperationNumber\": \"<string>\",\n  \"ChargeBUId\": \"<long>\",\n  \"InvoiceNonrecoverableTaxAmount\": \"<number>\",\n  \"ChargeCode\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SupplierSite\": \"<string>\",\n  \"TradeOperationName\": \"<string>\",\n  \"ChargeId\": \"<long>\",\n  \"InvoiceCurrencyCode\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "05f48905-93f4-4841-ae3e-8ba35fe1934a",
+              "name": "Get all invoices",
+              "request": {
+                "name": "Get all invoices",
+                "description": {},
+                "url": {
+                  "path": [
+                    "invoicesForLandedCostCharges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssociationMode; string; Mode by which the invoice line is associated with the charge line. Valid values include Automatic and Manual.</li><li>AssociationModeCode; number; Value that identifies the mode of invoice association.</li><li>AssociationStatus; string; Abbreviation that uniquely identifies the status of the invoice association with the charge line. Valid values include Needs Review, Deleted, Rejected, and Associated.</li><li>ChargeBU; string; Value that indicates the requisitioning business unit that incurs the charge.</li><li>ChargeBUId; integer; Value that uniquely identifies the business unit associated with the trade operation charge.</li><li>ChargeCode; string; Abbreviation that identifies the landed cost charge.</li><li>ChargeId; integer; Value that uniquely identifies the trade operation charge.</li><li>ChargeName; string; Name of the charge given on the invoice line.</li><li>InvoiceAmount; number; Amount on the invoice distribution.</li><li>InvoiceCreationDate; string; Date when the supplier raised the invoice.</li><li>InvoiceCurrency; string; Currency on the invoice.</li><li>InvoiceCurrencyCode; string; Abbreviation that identifies the invoice currency.</li><li>InvoiceId; integer; Value that uniquely identifies the invoice.</li><li>InvoiceLineNumber; string; Number that identifies a line on the invoice.</li><li>InvoiceLineType; string; Value that identifies the type of invoice such as Standard Invoice, Credit memo, Debit memo, and so on.</li><li>InvoiceNonrecoverableTaxAmount; number; Amount of non-recoverable tax on the invoice distribution.</li><li>InvoiceNumber; string; Number that identifies the invoice.</li><li>MissingChargeReferences; string; Contains one of the following values: true or false. If true, then invoice lines are missing charge references. If false, then invoice lines contain charge references. The default value is null.</li><li>ProcurementBU; string; Value that indicates the procurement business unit on the invoice line.</li><li>ProcurementBUId; integer; Value that uniquely identifies the procurement business unit.</li><li>Supplier; string; Value that indicates the supplier on the invoice.</li><li>SupplierId; integer; Value that uniquely identifies the supplier rendering the service.</li><li>SupplierSite; string; Value that indicates the supplier site on the charge line.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site rendering the service.</li><li>TradeOperationName; string; Name of the trade operation associated with the charge invoice.</li><li>TradeOperationNumber; string; Number that indicates the trade operation associated with the charge invoice.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find invoices for landed cost charges according to the primary key.<br>Finder Variables: <ul><li>InvoiceId; integer; Value that uniquely identifies an invoice. This values is a composite key.</li><li>InvoiceLineNumber; string; Number that uniquely identifies an invoice. This values is a composite key.</li></ul></li><li>findInvoicesForCharges: Find invoices for landed cost charges according to the specified attributes.<br>Finder Variables: <ul><li>bindAssociationMode; string; Mode of association of invoice to a trade operation charge.</li><li>bindAssociationStatus; string; Status of the invoice association to the charge.</li><li>bindChargeBU; string; Business unit of charge associated with an invoice.</li><li>bindChargeName; string; Name of the charge associated with an invoice.</li><li>bindChargeReferenceName; string; Name of the charge reference type.</li><li>bindChargeReferencePredefined; string; Value that indicates whether a charge has a predefined charge reference or not.</li><li>bindInvoiceAmount; number; Amount incurred on the invoice.</li><li>bindInvoiceCreationDate; string; Date when the invoice was created.</li><li>bindInvoiceCurrency; string; Currency on the invoice amount.</li><li>bindInvoiceLineNumber; string; Number that identifies a line on the invoice.</li><li>bindInvoiceNrTaxAmount; number; Amount of non-recoverable tax incurred on the invoice.</li><li>bindInvoiceNumber; string; Number that identifies the invoice.</li><li>bindMissingChargeNames; string; Value that indicates the missing charge names on the invoice.</li><li>bindMissingChargeReferences; string; Value to show missing charge references on the invoice.</li><li>bindProcurementBU; string; Name of the procurement business unit on the invoice.</li><li>bindReferenceValueDate; string; Date value of the charge reference.</li><li>bindReferenceValueNumber; number; Number that identifies the charge reference.</li><li>bindReferenceValueText; string; Text of the charge reference.</li><li>bindSupplier; string; Name of the supplier on the invoice.</li><li>bindSupplierSite; string; Name of the supplier site on the invoice.</li><li>bindTradeOperationName; string; Name of the trade operation.</li><li>bindTradeOperationNumber; string; Number that identifies the trade operation within a procurement business unit.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "1afa53b7-1219-48db-bc8c-5cbcc8f2b35d",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "invoicesForLandedCostCharges"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssociationMode; string; Mode by which the invoice line is associated with the charge line. Valid values include Automatic and Manual.</li><li>AssociationModeCode; number; Value that identifies the mode of invoice association.</li><li>AssociationStatus; string; Abbreviation that uniquely identifies the status of the invoice association with the charge line. Valid values include Needs Review, Deleted, Rejected, and Associated.</li><li>ChargeBU; string; Value that indicates the requisitioning business unit that incurs the charge.</li><li>ChargeBUId; integer; Value that uniquely identifies the business unit associated with the trade operation charge.</li><li>ChargeCode; string; Abbreviation that identifies the landed cost charge.</li><li>ChargeId; integer; Value that uniquely identifies the trade operation charge.</li><li>ChargeName; string; Name of the charge given on the invoice line.</li><li>InvoiceAmount; number; Amount on the invoice distribution.</li><li>InvoiceCreationDate; string; Date when the supplier raised the invoice.</li><li>InvoiceCurrency; string; Currency on the invoice.</li><li>InvoiceCurrencyCode; string; Abbreviation that identifies the invoice currency.</li><li>InvoiceId; integer; Value that uniquely identifies the invoice.</li><li>InvoiceLineNumber; string; Number that identifies a line on the invoice.</li><li>InvoiceLineType; string; Value that identifies the type of invoice such as Standard Invoice, Credit memo, Debit memo, and so on.</li><li>InvoiceNonrecoverableTaxAmount; number; Amount of non-recoverable tax on the invoice distribution.</li><li>InvoiceNumber; string; Number that identifies the invoice.</li><li>MissingChargeReferences; string; Contains one of the following values: true or false. If true, then invoice lines are missing charge references. If false, then invoice lines contain charge references. The default value is null.</li><li>ProcurementBU; string; Value that indicates the procurement business unit on the invoice line.</li><li>ProcurementBUId; integer; Value that uniquely identifies the procurement business unit.</li><li>Supplier; string; Value that indicates the supplier on the invoice.</li><li>SupplierId; integer; Value that uniquely identifies the supplier rendering the service.</li><li>SupplierSite; string; Value that indicates the supplier site on the charge line.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site rendering the service.</li><li>TradeOperationName; string; Name of the trade operation associated with the charge invoice.</li><li>TradeOperationNumber; string; Number that indicates the trade operation associated with the charge invoice.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find invoices for landed cost charges according to the primary key.<br>Finder Variables: <ul><li>InvoiceId; integer; Value that uniquely identifies an invoice. This values is a composite key.</li><li>InvoiceLineNumber; string; Number that uniquely identifies an invoice. This values is a composite key.</li></ul></li><li>findInvoicesForCharges: Find invoices for landed cost charges according to the specified attributes.<br>Finder Variables: <ul><li>bindAssociationMode; string; Mode of association of invoice to a trade operation charge.</li><li>bindAssociationStatus; string; Status of the invoice association to the charge.</li><li>bindChargeBU; string; Business unit of charge associated with an invoice.</li><li>bindChargeName; string; Name of the charge associated with an invoice.</li><li>bindChargeReferenceName; string; Name of the charge reference type.</li><li>bindChargeReferencePredefined; string; Value that indicates whether a charge has a predefined charge reference or not.</li><li>bindInvoiceAmount; number; Amount incurred on the invoice.</li><li>bindInvoiceCreationDate; string; Date when the invoice was created.</li><li>bindInvoiceCurrency; string; Currency on the invoice amount.</li><li>bindInvoiceLineNumber; string; Number that identifies a line on the invoice.</li><li>bindInvoiceNrTaxAmount; number; Amount of non-recoverable tax incurred on the invoice.</li><li>bindInvoiceNumber; string; Number that identifies the invoice.</li><li>bindMissingChargeNames; string; Value that indicates the missing charge names on the invoice.</li><li>bindMissingChargeReferences; string; Value to show missing charge references on the invoice.</li><li>bindProcurementBU; string; Name of the procurement business unit on the invoice.</li><li>bindReferenceValueDate; string; Date value of the charge reference.</li><li>bindReferenceValueNumber; number; Number that identifies the charge reference.</li><li>bindReferenceValueText; string; Text of the charge reference.</li><li>bindSupplier; string; Name of the supplier on the invoice.</li><li>bindSupplierSite; string; Name of the supplier site on the invoice.</li><li>bindTradeOperationName; string; Name of the trade operation.</li><li>bindTradeOperationNumber; string; Number that identifies the trade operation within a procurement business unit.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"InvoiceLineNumber\": \"<string>\",\n      \"InvoiceCreationDate\": \"<dateTime>\",\n      \"InvoiceLineType\": \"<string>\",\n      \"InvoiceAmount\": \"<number>\",\n      \"InvoiceId\": \"<long>\",\n      \"AssociationModeCode\": \"<number>\",\n      \"ChargeBU\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"Supplier\": \"<string>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"AssociationStatus\": \"<string>\",\n      \"InvoiceCurrency\": \"<string>\",\n      \"MissingChargeReferences\": \"<string>\",\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"AssociationMode\": \"<string>\",\n      \"ChargeName\": \"<string>\",\n      \"landedCostChargeReferencesForInvoiceLines\": [\n        {\n          \"ProcurementBU\": \"<string>\",\n          \"ProcurementBUId\": \"<long>\",\n          \"ReferenceValueText\": \"<string>\",\n          \"ReferenceValueNumber\": \"<number>\",\n          \"UserComment\": \"<string>\",\n          \"InvoiceChargeReferenceId\": \"<long>\",\n          \"ChargeReferenceValueDataType\": \"<string>\",\n          \"ChargeReferenceTypeId\": \"<long>\",\n          \"ChargeReferenceDataType\": \"<string>\",\n          \"ChargeReferencePredefined\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ChargeReferenceName\": \"<string>\",\n          \"ReferenceValueDate\": \"<dateTime>\"\n        },\n        {\n          \"ProcurementBU\": \"<string>\",\n          \"ProcurementBUId\": \"<long>\",\n          \"ReferenceValueText\": \"<string>\",\n          \"ReferenceValueNumber\": \"<number>\",\n          \"UserComment\": \"<string>\",\n          \"InvoiceChargeReferenceId\": \"<long>\",\n          \"ChargeReferenceValueDataType\": \"<string>\",\n          \"ChargeReferenceTypeId\": \"<long>\",\n          \"ChargeReferenceDataType\": \"<string>\",\n          \"ChargeReferencePredefined\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ChargeReferenceName\": \"<string>\",\n          \"ReferenceValueDate\": \"<dateTime>\"\n        }\n      ],\n      \"TradeOperationNumber\": \"<string>\",\n      \"ChargeBUId\": \"<long>\",\n      \"InvoiceNonrecoverableTaxAmount\": \"<number>\",\n      \"ChargeCode\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"SupplierSite\": \"<string>\",\n      \"TradeOperationName\": \"<string>\",\n      \"ChargeId\": \"<long>\",\n      \"InvoiceCurrencyCode\": \"<string>\"\n    },\n    {\n      \"InvoiceLineNumber\": \"<string>\",\n      \"InvoiceCreationDate\": \"<dateTime>\",\n      \"InvoiceLineType\": \"<string>\",\n      \"InvoiceAmount\": \"<number>\",\n      \"InvoiceId\": \"<long>\",\n      \"AssociationModeCode\": \"<number>\",\n      \"ChargeBU\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"Supplier\": \"<string>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"AssociationStatus\": \"<string>\",\n      \"InvoiceCurrency\": \"<string>\",\n      \"MissingChargeReferences\": \"<string>\",\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"AssociationMode\": \"<string>\",\n      \"ChargeName\": \"<string>\",\n      \"landedCostChargeReferencesForInvoiceLines\": [\n        {\n          \"ProcurementBU\": \"<string>\",\n          \"ProcurementBUId\": \"<long>\",\n          \"ReferenceValueText\": \"<string>\",\n          \"ReferenceValueNumber\": \"<number>\",\n          \"UserComment\": \"<string>\",\n          \"InvoiceChargeReferenceId\": \"<long>\",\n          \"ChargeReferenceValueDataType\": \"<string>\",\n          \"ChargeReferenceTypeId\": \"<long>\",\n          \"ChargeReferenceDataType\": \"<string>\",\n          \"ChargeReferencePredefined\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ChargeReferenceName\": \"<string>\",\n          \"ReferenceValueDate\": \"<dateTime>\"\n        },\n        {\n          \"ProcurementBU\": \"<string>\",\n          \"ProcurementBUId\": \"<long>\",\n          \"ReferenceValueText\": \"<string>\",\n          \"ReferenceValueNumber\": \"<number>\",\n          \"UserComment\": \"<string>\",\n          \"InvoiceChargeReferenceId\": \"<long>\",\n          \"ChargeReferenceValueDataType\": \"<string>\",\n          \"ChargeReferenceTypeId\": \"<long>\",\n          \"ChargeReferenceDataType\": \"<string>\",\n          \"ChargeReferencePredefined\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ChargeReferenceName\": \"<string>\",\n          \"ReferenceValueDate\": \"<dateTime>\"\n        }\n      ],\n      \"TradeOperationNumber\": \"<string>\",\n      \"ChargeBUId\": \"<long>\",\n      \"InvoiceNonrecoverableTaxAmount\": \"<number>\",\n      \"ChargeCode\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"SupplierSite\": \"<string>\",\n      \"TradeOperationName\": \"<string>\",\n      \"ChargeId\": \"<long>\",\n      \"InvoiceCurrencyCode\": \"<string>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "60dc7917-e16a-46ab-a222-c98fa87c895c",
+              "name": "POST action not supported",
+              "request": {
+                "name": "POST action not supported",
+                "description": {},
+                "url": {
+                  "path": [
+                    "invoicesForLandedCostCharges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ChargeId\": \"<long>\",\n  \"ChargeBUId\": \"<long>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "dae9a8f8-9486-42f4-a602-bb4c15f90ddd",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "invoicesForLandedCostCharges"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ChargeId\": \"<long>\",\n  \"ChargeBUId\": \"<long>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"InvoiceLineNumber\": \"<string>\",\n  \"InvoiceCreationDate\": \"<dateTime>\",\n  \"InvoiceLineType\": \"<string>\",\n  \"InvoiceAmount\": \"<number>\",\n  \"InvoiceId\": \"<long>\",\n  \"AssociationModeCode\": \"<number>\",\n  \"ChargeBU\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"Supplier\": \"<string>\",\n  \"InvoiceNumber\": \"<string>\",\n  \"AssociationStatus\": \"<string>\",\n  \"InvoiceCurrency\": \"<string>\",\n  \"MissingChargeReferences\": \"<string>\",\n  \"ProcurementBU\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"AssociationMode\": \"<string>\",\n  \"ChargeName\": \"<string>\",\n  \"landedCostChargeReferencesForInvoiceLines\": [\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    },\n    {\n      \"ProcurementBU\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ReferenceValueText\": \"<string>\",\n      \"ReferenceValueNumber\": \"<number>\",\n      \"UserComment\": \"<string>\",\n      \"InvoiceChargeReferenceId\": \"<long>\",\n      \"ChargeReferenceValueDataType\": \"<string>\",\n      \"ChargeReferenceTypeId\": \"<long>\",\n      \"ChargeReferenceDataType\": \"<string>\",\n      \"ChargeReferencePredefined\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ChargeReferenceName\": \"<string>\",\n      \"ReferenceValueDate\": \"<dateTime>\"\n    }\n  ],\n  \"TradeOperationNumber\": \"<string>\",\n  \"ChargeBUId\": \"<long>\",\n  \"InvoiceNonrecoverableTaxAmount\": \"<number>\",\n  \"ChargeCode\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SupplierSite\": \"<string>\",\n  \"TradeOperationName\": \"<string>\",\n  \"ChargeId\": \"<long>\",\n  \"InvoiceCurrencyCode\": \"<string>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

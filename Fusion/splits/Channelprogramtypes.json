@@ -1,0 +1,2078 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Channelprogramtypes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Channelprogramtypes",
+      "description": "",
+      "item": [
+        {
+          "name": "channelProgramTypes",
+          "description": "",
+          "item": [
+            {
+              "name": "{ProgramTypeId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "qualifiers",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{QualifierId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "bfc5298a-8b06-4063-924a-5c7ec0c063d5",
+                              "name": "Get one qualifier",
+                              "request": {
+                                "name": "Get one qualifier",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "channelProgramTypes",
+                                    ":ProgramTypeId",
+                                    "child",
+                                    "qualifiers",
+                                    ":QualifierId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ProgramTypeId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "QualifierId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type qualifier. It's a primary key that the application generates when it creates the qualifier.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "696c3b1a-1981-4afe-8860-bbd81ac07a91",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "channelProgramTypes",
+                                        ":ProgramTypeId",
+                                        "child",
+                                        "qualifiers",
+                                        ":QualifierId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DateQualifierFlag\": \"<boolean>\",\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "62d24035-bc62-4efd-a26a-a772568f6db7",
+                              "name": "Delete one qualifier",
+                              "request": {
+                                "name": "Delete one qualifier",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "channelProgramTypes",
+                                    ":ProgramTypeId",
+                                    "child",
+                                    "qualifiers",
+                                    ":QualifierId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ProgramTypeId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "QualifierId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type qualifier. It's a primary key that the application generates when it creates the qualifier.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  }
+                                ],
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "9c10cbe1-e85c-47d6-bc7d-3a966c9c99c9",
+                                  "name": "No Content. This task does not return elements in the response body.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "channelProgramTypes",
+                                        ":ProgramTypeId",
+                                        "child",
+                                        "qualifiers",
+                                        ":QualifierId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      }
+                                    ],
+                                    "method": "DELETE",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [],
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "text"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "811f4bfd-50a4-4a4c-be38-ea2fbb57f837",
+                              "name": "Update one qualifier",
+                              "request": {
+                                "name": "Update one qualifier",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "channelProgramTypes",
+                                    ":ProgramTypeId",
+                                    "child",
+                                    "qualifiers",
+                                    ":QualifierId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ProgramTypeId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "QualifierId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel program type qualifier. It's a primary key that the application generates when it creates the qualifier.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"QualifierTypeCode\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "09eca484-d436-4f1f-9942-d96d688481fb",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "channelProgramTypes",
+                                        ":ProgramTypeId",
+                                        "child",
+                                        "qualifiers",
+                                        ":QualifierId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"QualifierTypeCode\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DateQualifierFlag\": \"<boolean>\",\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "5467bb62-d4c4-4bb9-a249-d121382ca1a0",
+                          "name": "Get all qualifiers",
+                          "request": {
+                            "name": "Get all qualifiers",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "channelProgramTypes",
+                                ":ProgramTypeId",
+                                "child",
+                                "qualifiers"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>DateQualifierFlag; boolean; Contains one of the following values: true or false. If true, then the qualifier is a date qualifier. If false, then the qualifier is not a date qualifier. The default value for this attribute is false.</li><li>DefaultQualifierFlag; boolean; Contains one of the following values: true or false. If true, then the date qualifier will be set to the default while creating a channel program. If false, then the date qualifier will not be set to the default while creating a channel program. This attribute doesn't not have a default value.</li><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type.</li><li>QualifierId; integer; Value that uniquely identifies the channel program type qualifier. It's a primary key that the application generates when it creates the qualifier.</li><li>QualifierType; string; Type of qualifier used to define the eligibility of the channel program. A list of accepted values is defined in the lookup type ORA_CJM_QUALIFIER_TYPE. Qualifier types added in program type can only be selected in channel program market rule, market rule conditions, and program rule.</li><li>QualifierTypeCode; string; Abbreviation that identifies the type of qualifier used to define the eligibility of the channel program. Qualifier types added in program type can only be selected in channel program market rule, market rule conditions, and program rule.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds channel program type qualifiers according to the primary key.<br>Finder Variables: <ul><li>QualifierId; integer; Value that uniquely identifies the channel program type qualifier.</li></ul></li><li>ProgramTypeQualifierVOAltKey: Finds channel program types according to the qualifier type code.<br>Finder Variables: <ul><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type qualifier during import and export.</li><li>QualifierTypeCode; string; Abbreviation that identifies the type of qualifier used to define the eligibility of the channel program.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "ProgramTypeId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "f157edfe-77ea-4e98-a01a-9e5ebd010ecd",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "channelProgramTypes",
+                                    ":ProgramTypeId",
+                                    "child",
+                                    "qualifiers"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>DateQualifierFlag; boolean; Contains one of the following values: true or false. If true, then the qualifier is a date qualifier. If false, then the qualifier is not a date qualifier. The default value for this attribute is false.</li><li>DefaultQualifierFlag; boolean; Contains one of the following values: true or false. If true, then the date qualifier will be set to the default while creating a channel program. If false, then the date qualifier will not be set to the default while creating a channel program. This attribute doesn't not have a default value.</li><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type.</li><li>QualifierId; integer; Value that uniquely identifies the channel program type qualifier. It's a primary key that the application generates when it creates the qualifier.</li><li>QualifierType; string; Type of qualifier used to define the eligibility of the channel program. A list of accepted values is defined in the lookup type ORA_CJM_QUALIFIER_TYPE. Qualifier types added in program type can only be selected in channel program market rule, market rule conditions, and program rule.</li><li>QualifierTypeCode; string; Abbreviation that identifies the type of qualifier used to define the eligibility of the channel program. Qualifier types added in program type can only be selected in channel program market rule, market rule conditions, and program rule.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds channel program type qualifiers according to the primary key.<br>Finder Variables: <ul><li>QualifierId; integer; Value that uniquely identifies the channel program type qualifier.</li></ul></li><li>ProgramTypeQualifierVOAltKey: Finds channel program types according to the qualifier type code.<br>Finder Variables: <ul><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type qualifier during import and export.</li><li>QualifierTypeCode; string; Abbreviation that identifies the type of qualifier used to define the eligibility of the channel program.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "7b452989-6e89-49bc-ae59-61828b69cc88",
+                          "name": "Create qualifiers",
+                          "request": {
+                            "name": "Create qualifiers",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "channelProgramTypes",
+                                ":ProgramTypeId",
+                                "child",
+                                "qualifiers"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "ProgramTypeId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"QualifierTypeCode\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "d24af957-05f9-476c-bc8f-f66739130e9d",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "channelProgramTypes",
+                                    ":ProgramTypeId",
+                                    "child",
+                                    "qualifiers"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"QualifierTypeCode\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"QualifierTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DateQualifierFlag\": \"<boolean>\",\n  \"DefaultQualifierFlag\": \"<boolean>\",\n  \"QualifierId\": \"<long>\",\n  \"QualifierType\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "d0dc0bc5-85f6-45aa-83c6-ed1061621af0",
+                  "name": "Get one program type",
+                  "request": {
+                    "name": "Get one program type",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "channelProgramTypes",
+                        ":ProgramTypeId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ProgramTypeId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "6842cc9c-798c-49da-923d-ace4454bf31e",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "channelProgramTypes",
+                            ":ProgramTypeId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"ProgramTypeCode\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"StatusId\": \"<long>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "0b29a6dc-650c-44e1-8808-ddd02e2923fc",
+                  "name": "Delete one program type",
+                  "request": {
+                    "name": "Delete one program type",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "channelProgramTypes",
+                        ":ProgramTypeId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ProgramTypeId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      }
+                    ],
+                    "method": "DELETE",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "0061bc36-f713-43ca-a821-0bbda4db2134",
+                      "name": "No Content. This task does not return elements in the response body.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "channelProgramTypes",
+                            ":ProgramTypeId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          }
+                        ],
+                        "method": "DELETE",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [],
+                      "cookie": [],
+                      "_postman_previewlanguage": "text"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "d8c7a185-6c2e-4af1-8dcf-4492550f92e6",
+                  "name": "Update one program type",
+                  "request": {
+                    "name": "Update one program type",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "channelProgramTypes",
+                        ":ProgramTypeId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ProgramTypeId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    },\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    }\n  ],\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"StatusId\": \"<long>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "2d2717e7-9465-4ff5-8d68-0438f45e23c4",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "channelProgramTypes",
+                            ":ProgramTypeId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    },\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    }\n  ],\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"StatusId\": \"<long>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"ProgramTypeCode\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"StatusId\": \"<long>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "e8b3c9d6-3327-44dd-96bd-a476869ed773",
+              "name": "Get all program types",
+              "request": {
+                "name": "Get all program types",
+                "description": {},
+                "url": {
+                  "path": [
+                    "channelProgramTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccrualNewCostBasis; string; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in a program is NEW COST.</li><li>AccrualNewCostBasisId; integer; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is NEW COST.</li><li>AccrualPercentBasis; string; Name of the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrualPercentBasisId; integer; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrualPercentBasisOnImportedTrx; string; Name that identifies the basis for pricing that's used to calculate accruals when the DISCOUNT TYPE in the program is PERCENTAGE. A list of accepted values is defined in the lookup type ORA_CJM_CUST_REB_PERCENT_BASIS.</li><li>AccrualPercentBasisOnImportedTrxCode; string; Abbreviation that identifies the basis for pricing that's used to calculate accruals when the DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrueBasedOnPointOfSalesDataFlag; boolean; Applicable only for special request agreements. Contains one of the following values: true or false. If true, then the special price agreement will accrue upon receipt of point of sale data. If false, then the special price agreement will create accruals upon activation.</li><li>ChargeSubtype; string; Subtype of charge for the pricing charge definition. Valid values include Price, Fee, and so on. A list of accepted values is defined in the lookup type ORA_QP_CHARGE_SUBTYPES.</li><li>ChargeSubtypeCode; string; Abbreviation that identifies the charge subtype in the channel program.</li><li>ChargeType; string; Type of charge for the pricing charge definition. Valid values include Sale, Service, Restocking, and so on. A list of accepted values is defined in the lookup type ORA_QP_CHARGE_TYPES.</li><li>ChargeTypeCode; string; Abbreviation that identifies the type of charge in the channel program.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the user created the record.</li><li>CustomerProgramFlag; boolean; Contains one of the following values: true or false. If true, then the channel program created based on this program type tracks sell-side accruals. If false, then the channel program tracks buy-side accruals. The default value for this attribute is from program template.</li><li>DefaultCalculationMethodCode; string; Abbreviation that identifies the default calculation method that's used when creating a channel program.</li><li>DefaultGroupAccrualsForClaimAccountingFlag; boolean; Contains one of the following values: true or false. If true, then the claim association lines will be grouped and passed to SLA. If false, the association lines won't be grouped when passing to SLA. The default value is populated from the program type.</li><li>DefaultProductDistributionType; string; Default distributon type used when creating a channel lump sum program. A list of accepted values is defined in the lookup type ORA_CJM_DISTRIBUTION_TYPE.</li><li>DefaultProductDistributionTypeCode; string; Abbreviation that identifies the default distribution type that's used when creating a channel lump sum program.</li><li>DefaultSpecialPriceRequestType; string; Default request type when creating a special price agreement program. A list of accepted values is defined in the lookup ORA_CJM_SPA_REQUEST_TYPE.</li><li>DefaultSpecialPriceRequestTypeCode; string; Abbreviation that identifies the default request type that's used when creating a special price agreement program.</li><li>DefaultTierTypeCode; string; Abbreviation that identifies the default tier type that's used when creating a channel program.</li><li>EffectiveDateType; string; Name of the sales order date type used for evaluating channel program eligibility. A list of accepted values is defined in the lookup type ORA_CJM_PRICING_APP_DATE_TYPE.\nThis attribute is not currently used.</li><li>EffectiveDateTypeCode; string; Abbreviation that identifies the sales order date type used for evaluating channel program eligibility. A list of accepted values is defined in the lookup type ORA_CJM_PRICING_APP_DATE_TYPE.\nThis attribute is not currently used.</li><li>EnableApprovalFlag; boolean; Contains one of the following values: true or false. If true, then approval rule is enabled for channel program. If false, then approval rule isn't enabled. The default value for this attribute is from program template.</li><li>EnableProgramBeneficiaryFlag; boolean; Contains one of the following values: true or false. If true, then a beneficiary can be added to the channel program. If false, then a beneficiary can't be added to the channel program. The default value for this attribute is taken from the predefined program template.???</li><li>LastUpdateDate; string; Date and time when the user most recently updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>ProgramTemplate; string; Name of the predefined channel program type on which the program type is based. A list of accepted values is defined in the lookup type ORA_CJM_PROGRAM_TYPE.</li><li>ProgramTemplateCode; string; Abbreviation that identifies the predefined channel program type.</li><li>ProgramTemplateId; integer; Value that uniquely identifies the predefined channel program type.</li><li>ProgramTypeCode; string; Abbreviation that identifies the channel program type.</li><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.</li><li>ProgramTypeName; string; Name of the channel program type.</li><li>SourceOfSales; string; Name that indicates whether the channel program is applicable to direct orders, indirect orders, or both. A list of accepted values is defined in the lookup type ORA_CJM_SALES_METHOD.</li><li>SourceOfSalesCode; string; Abbreviation that indicates whether the channel program is applicable to direct orders, indirect orders, or both.</li><li>Status; string; Status of the channel program type.</li><li>StatusCode; string; Abbreviation that identifies the status of the type of program.</li><li>StatusId; integer; Value that uniquely identifies the status of the channel program type.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>FindByProgramTemplate: Finds program types by program template code.<br>Finder Variables: <ul><li>bindProgramTemplateCode; string; Attribute to search by program template code.</li></ul></li><li>PrimaryKey: Finds channel program types according to the primary key.<br>Finder Variables: <ul><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type.</li></ul></li><li>ProgramTypeCodeAltKey: Finds channel program types according to the program type code.<br>Finder Variables: <ul><li>ProgramTypeCode; string; Abbreviation that identifies the channel program type during import and export.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "f4f2415a-e36c-4f48-98f6-e713830f1fc4",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "channelProgramTypes"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccrualNewCostBasis; string; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in a program is NEW COST.</li><li>AccrualNewCostBasisId; integer; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is NEW COST.</li><li>AccrualPercentBasis; string; Name of the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrualPercentBasisId; integer; Value that identifies the pricing basis that Oracle Pricing Cloud uses to calculate accruals when DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrualPercentBasisOnImportedTrx; string; Name that identifies the basis for pricing that's used to calculate accruals when the DISCOUNT TYPE in the program is PERCENTAGE. A list of accepted values is defined in the lookup type ORA_CJM_CUST_REB_PERCENT_BASIS.</li><li>AccrualPercentBasisOnImportedTrxCode; string; Abbreviation that identifies the basis for pricing that's used to calculate accruals when the DISCOUNT TYPE in the program is PERCENTAGE.</li><li>AccrueBasedOnPointOfSalesDataFlag; boolean; Applicable only for special request agreements. Contains one of the following values: true or false. If true, then the special price agreement will accrue upon receipt of point of sale data. If false, then the special price agreement will create accruals upon activation.</li><li>ChargeSubtype; string; Subtype of charge for the pricing charge definition. Valid values include Price, Fee, and so on. A list of accepted values is defined in the lookup type ORA_QP_CHARGE_SUBTYPES.</li><li>ChargeSubtypeCode; string; Abbreviation that identifies the charge subtype in the channel program.</li><li>ChargeType; string; Type of charge for the pricing charge definition. Valid values include Sale, Service, Restocking, and so on. A list of accepted values is defined in the lookup type ORA_QP_CHARGE_TYPES.</li><li>ChargeTypeCode; string; Abbreviation that identifies the type of charge in the channel program.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the user created the record.</li><li>CustomerProgramFlag; boolean; Contains one of the following values: true or false. If true, then the channel program created based on this program type tracks sell-side accruals. If false, then the channel program tracks buy-side accruals. The default value for this attribute is from program template.</li><li>DefaultCalculationMethodCode; string; Abbreviation that identifies the default calculation method that's used when creating a channel program.</li><li>DefaultGroupAccrualsForClaimAccountingFlag; boolean; Contains one of the following values: true or false. If true, then the claim association lines will be grouped and passed to SLA. If false, the association lines won't be grouped when passing to SLA. The default value is populated from the program type.</li><li>DefaultProductDistributionType; string; Default distributon type used when creating a channel lump sum program. A list of accepted values is defined in the lookup type ORA_CJM_DISTRIBUTION_TYPE.</li><li>DefaultProductDistributionTypeCode; string; Abbreviation that identifies the default distribution type that's used when creating a channel lump sum program.</li><li>DefaultSpecialPriceRequestType; string; Default request type when creating a special price agreement program. A list of accepted values is defined in the lookup ORA_CJM_SPA_REQUEST_TYPE.</li><li>DefaultSpecialPriceRequestTypeCode; string; Abbreviation that identifies the default request type that's used when creating a special price agreement program.</li><li>DefaultTierTypeCode; string; Abbreviation that identifies the default tier type that's used when creating a channel program.</li><li>EffectiveDateType; string; Name of the sales order date type used for evaluating channel program eligibility. A list of accepted values is defined in the lookup type ORA_CJM_PRICING_APP_DATE_TYPE.\nThis attribute is not currently used.</li><li>EffectiveDateTypeCode; string; Abbreviation that identifies the sales order date type used for evaluating channel program eligibility. A list of accepted values is defined in the lookup type ORA_CJM_PRICING_APP_DATE_TYPE.\nThis attribute is not currently used.</li><li>EnableApprovalFlag; boolean; Contains one of the following values: true or false. If true, then approval rule is enabled for channel program. If false, then approval rule isn't enabled. The default value for this attribute is from program template.</li><li>EnableProgramBeneficiaryFlag; boolean; Contains one of the following values: true or false. If true, then a beneficiary can be added to the channel program. If false, then a beneficiary can't be added to the channel program. The default value for this attribute is taken from the predefined program template.???</li><li>LastUpdateDate; string; Date and time when the user most recently updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>ProgramTemplate; string; Name of the predefined channel program type on which the program type is based. A list of accepted values is defined in the lookup type ORA_CJM_PROGRAM_TYPE.</li><li>ProgramTemplateCode; string; Abbreviation that identifies the predefined channel program type.</li><li>ProgramTemplateId; integer; Value that uniquely identifies the predefined channel program type.</li><li>ProgramTypeCode; string; Abbreviation that identifies the channel program type.</li><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type. It's a primary key that the application generates when it creates the program type.</li><li>ProgramTypeName; string; Name of the channel program type.</li><li>SourceOfSales; string; Name that indicates whether the channel program is applicable to direct orders, indirect orders, or both. A list of accepted values is defined in the lookup type ORA_CJM_SALES_METHOD.</li><li>SourceOfSalesCode; string; Abbreviation that indicates whether the channel program is applicable to direct orders, indirect orders, or both.</li><li>Status; string; Status of the channel program type.</li><li>StatusCode; string; Abbreviation that identifies the status of the type of program.</li><li>StatusId; integer; Value that uniquely identifies the status of the channel program type.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>FindByProgramTemplate: Finds program types by program template code.<br>Finder Variables: <ul><li>bindProgramTemplateCode; string; Attribute to search by program template code.</li></ul></li><li>PrimaryKey: Finds channel program types according to the primary key.<br>Finder Variables: <ul><li>ProgramTypeId; integer; Value that uniquely identifies the channel program type.</li></ul></li><li>ProgramTypeCodeAltKey: Finds channel program types according to the program type code.<br>Finder Variables: <ul><li>ProgramTypeCode; string; Abbreviation that identifies the channel program type during import and export.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n      \"DefaultTierTypeCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"DefaultTierType\": \"<string>\",\n      \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CustomerProgramFlag\": \"<boolean>\",\n      \"ProgramTypeName\": \"<string>\",\n      \"ChargeSubtype\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"SourceOfSalesCode\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"DefaultCalculationMethod\": \"<string>\",\n      \"ProgramTypeCode\": \"<string>\",\n      \"DefaultCurrency\": \"<string>\",\n      \"ProgramTemplateCode\": \"<string>\",\n      \"DefaultCalculationMethodCode\": \"<string>\",\n      \"DefaultDiscountTypeCode\": \"<string>\",\n      \"qualifiers\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"ProgramTypeId\": \"<long>\",\n          \"QualifierTypeCode\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DateQualifierFlag\": \"<boolean>\",\n          \"DefaultQualifierFlag\": \"<boolean>\",\n          \"QualifierId\": \"<long>\",\n          \"QualifierType\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"ProgramTypeId\": \"<long>\",\n          \"QualifierTypeCode\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DateQualifierFlag\": \"<boolean>\",\n          \"DefaultQualifierFlag\": \"<boolean>\",\n          \"QualifierId\": \"<long>\",\n          \"QualifierType\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ],\n      \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"StatusId\": \"<long>\",\n      \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n      \"EffectiveDateTypeCode\": \"<string>\",\n      \"AccrualNewCostBasis\": \"<string>\",\n      \"ProgramTemplateId\": \"<long>\",\n      \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n      \"DefaultSpecialPriceRequestType\": \"<string>\",\n      \"ChargeTypeCode\": \"<string>\",\n      \"DefaultOverrideProgramFlag\": \"<boolean>\",\n      \"DefaultProductDistributionType\": \"<string>\",\n      \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n      \"DefaultProductDistributionTypeCode\": \"<string>\",\n      \"DefaultDiscountType\": \"<string>\",\n      \"SourceOfSales\": \"<string>\",\n      \"AccrualNewCostBasisId\": \"<long>\",\n      \"EnableApprovalFlag\": \"<boolean>\",\n      \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n      \"ChargeSubtypeCode\": \"<string>\",\n      \"AccrualPercentBasis\": \"<string>\",\n      \"EffectiveDateType\": \"<string>\",\n      \"DefaultCurrencyCode\": \"<string>\",\n      \"ChargeType\": \"<string>\",\n      \"ProgramCodePrefix\": \"<string>\",\n      \"ProgramTemplate\": \"<string>\",\n      \"AccrualPercentBasisId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n      \"DefaultTierTypeCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"DefaultTierType\": \"<string>\",\n      \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CustomerProgramFlag\": \"<boolean>\",\n      \"ProgramTypeName\": \"<string>\",\n      \"ChargeSubtype\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"SourceOfSalesCode\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"DefaultCalculationMethod\": \"<string>\",\n      \"ProgramTypeCode\": \"<string>\",\n      \"DefaultCurrency\": \"<string>\",\n      \"ProgramTemplateCode\": \"<string>\",\n      \"DefaultCalculationMethodCode\": \"<string>\",\n      \"DefaultDiscountTypeCode\": \"<string>\",\n      \"qualifiers\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"ProgramTypeId\": \"<long>\",\n          \"QualifierTypeCode\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DateQualifierFlag\": \"<boolean>\",\n          \"DefaultQualifierFlag\": \"<boolean>\",\n          \"QualifierId\": \"<long>\",\n          \"QualifierType\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"ProgramTypeId\": \"<long>\",\n          \"QualifierTypeCode\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DateQualifierFlag\": \"<boolean>\",\n          \"DefaultQualifierFlag\": \"<boolean>\",\n          \"QualifierId\": \"<long>\",\n          \"QualifierType\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ],\n      \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"StatusId\": \"<long>\",\n      \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n      \"EffectiveDateTypeCode\": \"<string>\",\n      \"AccrualNewCostBasis\": \"<string>\",\n      \"ProgramTemplateId\": \"<long>\",\n      \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n      \"DefaultSpecialPriceRequestType\": \"<string>\",\n      \"ChargeTypeCode\": \"<string>\",\n      \"DefaultOverrideProgramFlag\": \"<boolean>\",\n      \"DefaultProductDistributionType\": \"<string>\",\n      \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n      \"DefaultProductDistributionTypeCode\": \"<string>\",\n      \"DefaultDiscountType\": \"<string>\",\n      \"SourceOfSales\": \"<string>\",\n      \"AccrualNewCostBasisId\": \"<long>\",\n      \"EnableApprovalFlag\": \"<boolean>\",\n      \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n      \"ChargeSubtypeCode\": \"<string>\",\n      \"AccrualPercentBasis\": \"<string>\",\n      \"EffectiveDateType\": \"<string>\",\n      \"DefaultCurrencyCode\": \"<string>\",\n      \"ChargeType\": \"<string>\",\n      \"ProgramCodePrefix\": \"<string>\",\n      \"ProgramTemplate\": \"<string>\",\n      \"AccrualPercentBasisId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "6abf31f2-c8bf-46de-ae9b-20327489d105",
+              "name": "Create program types",
+              "request": {
+                "name": "Create program types",
+                "description": {},
+                "url": {
+                  "path": [
+                    "channelProgramTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"ProgramTypeCode\": \"<string>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    },\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    }\n  ],\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"StatusId\": \"<long>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "6c7637a6-09fd-43c0-8acd-8f528dfcc9d5",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "channelProgramTypes"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"ProgramTypeCode\": \"<string>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    },\n    {\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"QualifierTypeCode\": \"<string>\"\n    }\n  ],\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"StatusId\": \"<long>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"AccrualPercentBasisOnImportedTrxCode\": \"<string>\",\n  \"DefaultTierTypeCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"DefaultTierType\": \"<string>\",\n  \"DefaultSpecialPriceRequestTypeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CustomerProgramFlag\": \"<boolean>\",\n  \"ProgramTypeName\": \"<string>\",\n  \"ChargeSubtype\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SourceOfSalesCode\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"DefaultCalculationMethod\": \"<string>\",\n  \"ProgramTypeCode\": \"<string>\",\n  \"DefaultCurrency\": \"<string>\",\n  \"ProgramTemplateCode\": \"<string>\",\n  \"DefaultCalculationMethodCode\": \"<string>\",\n  \"DefaultDiscountTypeCode\": \"<string>\",\n  \"qualifiers\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"ProgramTypeId\": \"<long>\",\n      \"QualifierTypeCode\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DateQualifierFlag\": \"<boolean>\",\n      \"DefaultQualifierFlag\": \"<boolean>\",\n      \"QualifierId\": \"<long>\",\n      \"QualifierType\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"EnableProgramBeneficiaryFlag\": \"<boolean>\",\n  \"ProgramTypeId\": \"<long>\",\n  \"StatusId\": \"<long>\",\n  \"AccrualPercentBasisOnImportedTrx\": \"<string>\",\n  \"EffectiveDateTypeCode\": \"<string>\",\n  \"AccrualNewCostBasis\": \"<string>\",\n  \"ProgramTemplateId\": \"<long>\",\n  \"AccrueBasedOnPointOfSalesDataFlag\": \"<boolean>\",\n  \"DefaultSpecialPriceRequestType\": \"<string>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"DefaultOverrideProgramFlag\": \"<boolean>\",\n  \"DefaultProductDistributionType\": \"<string>\",\n  \"DefaultGroupAccrualsForClaimAccountingFlag\": \"<boolean>\",\n  \"DefaultProductDistributionTypeCode\": \"<string>\",\n  \"DefaultDiscountType\": \"<string>\",\n  \"SourceOfSales\": \"<string>\",\n  \"AccrualNewCostBasisId\": \"<long>\",\n  \"EnableApprovalFlag\": \"<boolean>\",\n  \"DefaultApplyManuallyToOrderFlag\": \"<boolean>\",\n  \"ChargeSubtypeCode\": \"<string>\",\n  \"AccrualPercentBasis\": \"<string>\",\n  \"EffectiveDateType\": \"<string>\",\n  \"DefaultCurrencyCode\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"ProgramCodePrefix\": \"<string>\",\n  \"ProgramTemplate\": \"<string>\",\n  \"AccrualPercentBasisId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

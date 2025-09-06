@@ -1,0 +1,2078 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Inventoryattributetransactionrequests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Inventoryattributetransactionrequests",
+      "description": "",
+      "item": [
+        {
+          "name": "inventoryAttributeTransactionRequests",
+          "description": "",
+          "item": [
+            {
+              "name": "{HeaderId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "lines",
+                      "description": "",
+                      "item": [
+                        {
+                          "id": "ff8f0bb6-8bdd-4f76-b559-3fa8cfb67fb0",
+                          "name": "Get all inventory attribute update request document lines",
+                          "request": {
+                            "name": "Get all inventory attribute update request document lines",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "inventoryAttributeTransactionRequests",
+                                ":HeaderId",
+                                "child",
+                                "lines"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li><li>InventoryItemId; integer; Value that uniquely identifies the inventory item.</li><li>ItemNumber; string; Identifies the inventory item number.</li><li>LineId; integer; Value that identifies the inventory attribute transaction request line number.</li><li>LineNumber; integer; Number that identifies the inventory attribute transaction request line number.</li><li>OrganizationCode; string; Organization for which the project transfer transaction is requested.</li><li>OrganizationId; integer; Value that uniquely identifies the organization.</li><li>ProjectId; integer; Value that uniquely identifies the source project for the project transfer transactions.</li><li>ProjectNumber; string; Number that identifies the source project for the project transfer transactions.</li><li>RequestedQuantity; number; Quantity requested for project transfer.</li><li>RequestedUOMCode; string; Unit of measure for the requested quantity.</li><li>RequestedUnitOfMeasure; string; Quantity requested for the item in its primary unit of measure.</li><li>SecondaryRequestedQuantity; number; Quantity requested for project transfer in its secondary unit of measure.</li><li>SecondaryRequestedUnitOfMeasure; string; Secondary unit of measure in which an item can be transacted.</li><li>SecondaryTransferQuantity; number; Transferred quantity of an item in its secondary unit of measure.</li><li>SecondaryUOMCode; string; Abbreviation that identifies the secondary unit of measure that does not have a fixed conversion from the primary unit of measure. In accordance with dual unit of measure record-keeping, SecondaryUOMCode enables industries to maintain and use inventory in both quantity and weight units of measure, or in volume and length units of measure.\"</li><li>SourceLineId; integer; Value that uniquely identifies the project transfers initiated by Oracle Fusion Supply Chain Orchestration.</li><li>Status; string; Indicates the status of the inventory transaction attribution request line.</li><li>StatusCode; string; Indicates the status of the inventory transaction attribution request line. Valid values are Open and Closed.</li><li>TaskId; integer; Value that uniquely identifies the source task for the project transfer transactions.</li><li>TaskNumber; string; Number that identifies the source project for the project transfer transactions.</li><li>TransferProjectId; integer; Value that uniquely identifies the destination project for the project transfer transactions.</li><li>TransferProjectNumber; string; Number that identifies the destination project for the project transfer transactions.</li><li>TransferQuantity; number; Transferred quantity of the item.</li><li>TransferTaskId; integer; Value that uniquely identifies the destination task for the project transfer transactions.</li><li>TransferTaskNumber; string; Number that identifies the destination project for the project transfer transactions.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the inventory attribute update request line identifier.<br>Finder Variables: <ul><li>LineId; integer; Value that identifies the inventory attribute update request line identifier.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "HeaderId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "cb3b5ad6-841d-49bc-8a87-2365ab150105",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "inventoryAttributeTransactionRequests",
+                                    ":HeaderId",
+                                    "child",
+                                    "lines"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li><li>InventoryItemId; integer; Value that uniquely identifies the inventory item.</li><li>ItemNumber; string; Identifies the inventory item number.</li><li>LineId; integer; Value that identifies the inventory attribute transaction request line number.</li><li>LineNumber; integer; Number that identifies the inventory attribute transaction request line number.</li><li>OrganizationCode; string; Organization for which the project transfer transaction is requested.</li><li>OrganizationId; integer; Value that uniquely identifies the organization.</li><li>ProjectId; integer; Value that uniquely identifies the source project for the project transfer transactions.</li><li>ProjectNumber; string; Number that identifies the source project for the project transfer transactions.</li><li>RequestedQuantity; number; Quantity requested for project transfer.</li><li>RequestedUOMCode; string; Unit of measure for the requested quantity.</li><li>RequestedUnitOfMeasure; string; Quantity requested for the item in its primary unit of measure.</li><li>SecondaryRequestedQuantity; number; Quantity requested for project transfer in its secondary unit of measure.</li><li>SecondaryRequestedUnitOfMeasure; string; Secondary unit of measure in which an item can be transacted.</li><li>SecondaryTransferQuantity; number; Transferred quantity of an item in its secondary unit of measure.</li><li>SecondaryUOMCode; string; Abbreviation that identifies the secondary unit of measure that does not have a fixed conversion from the primary unit of measure. In accordance with dual unit of measure record-keeping, SecondaryUOMCode enables industries to maintain and use inventory in both quantity and weight units of measure, or in volume and length units of measure.\"</li><li>SourceLineId; integer; Value that uniquely identifies the project transfers initiated by Oracle Fusion Supply Chain Orchestration.</li><li>Status; string; Indicates the status of the inventory transaction attribution request line.</li><li>StatusCode; string; Indicates the status of the inventory transaction attribution request line. Valid values are Open and Closed.</li><li>TaskId; integer; Value that uniquely identifies the source task for the project transfer transactions.</li><li>TaskNumber; string; Number that identifies the source project for the project transfer transactions.</li><li>TransferProjectId; integer; Value that uniquely identifies the destination project for the project transfer transactions.</li><li>TransferProjectNumber; string; Number that identifies the destination project for the project transfer transactions.</li><li>TransferQuantity; number; Transferred quantity of the item.</li><li>TransferTaskId; integer; Value that uniquely identifies the destination task for the project transfer transactions.</li><li>TransferTaskNumber; string; Number that identifies the destination project for the project transfer transactions.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the inventory attribute update request line identifier.<br>Finder Variables: <ul><li>LineId; integer; Value that identifies the inventory attribute update request line identifier.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "b9be9b2d-2819-42a3-b33a-9bbe44da548c",
+                          "name": "Create inventory attribute update request documents",
+                          "request": {
+                            "name": "Create inventory attribute update request documents",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "inventoryAttributeTransactionRequests",
+                                ":HeaderId",
+                                "child",
+                                "lines"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "HeaderId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "6e7dcc1c-5ce3-48f3-b782-917be372949e",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "inventoryAttributeTransactionRequests",
+                                    ":HeaderId",
+                                    "child",
+                                    "lines"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "name": "{LineId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "2269d54b-2ba5-4040-9b13-99a2d888f4c7",
+                              "name": "Get one inventory attribute update request document line",
+                              "request": {
+                                "name": "Get one inventory attribute update request document line",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "inventoryAttributeTransactionRequests",
+                                    ":HeaderId",
+                                    "child",
+                                    "lines",
+                                    ":LineId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "HeaderId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "LineId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request line number.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "bde9925e-3344-473a-9dcc-6163cf9372f1",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "inventoryAttributeTransactionRequests",
+                                        ":HeaderId",
+                                        "child",
+                                        "lines",
+                                        ":LineId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "2687a6c7-fc99-476f-bcd6-92e7f3cd0830",
+                              "name": "Delete one inventory attribute update request document line",
+                              "request": {
+                                "name": "Delete one inventory attribute update request document line",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "inventoryAttributeTransactionRequests",
+                                    ":HeaderId",
+                                    "child",
+                                    "lines",
+                                    ":LineId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "HeaderId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "LineId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request line number.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  }
+                                ],
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "f0bfb631-4702-4c88-a4a7-55e8f233994d",
+                                  "name": "No Content. This task does not return elements in the response body.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "inventoryAttributeTransactionRequests",
+                                        ":HeaderId",
+                                        "child",
+                                        "lines",
+                                        ":LineId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      }
+                                    ],
+                                    "method": "DELETE",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [],
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "text"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "f939ac56-fab3-4a35-a867-b230716c17c6",
+                              "name": "Update one inventory attribute update request document line",
+                              "request": {
+                                "name": "Update one inventory attribute update request document line",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "inventoryAttributeTransactionRequests",
+                                    ":HeaderId",
+                                    "child",
+                                    "lines",
+                                    ":LineId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "HeaderId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "LineId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that identifies the inventory attribute transaction request line number.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "6c603814-d85b-4758-a50e-d6cfe195890d",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "inventoryAttributeTransactionRequests",
+                                        ":HeaderId",
+                                        "child",
+                                        "lines",
+                                        ":LineId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"TaskId\": \"<long>\",\n  \"HeaderId\": \"<long>\",\n  \"OrganizationId\": \"<long>\",\n  \"RequestedUOMCode\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"SecondaryUOMCode\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"TransferProjectId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"TransferTaskId\": \"<long>\",\n  \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"TransferTaskNumber\": \"<string>\",\n  \"LineId\": \"<long>\",\n  \"SecondaryRequestedQuantity\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ProjectId\": \"<long>\",\n  \"TaskNumber\": \"<string>\",\n  \"SourceLineId\": \"<long>\",\n  \"TransferProjectNumber\": \"<string>\",\n  \"SecondaryTransferQuantity\": \"<number>\",\n  \"RequestedUnitOfMeasure\": \"<string>\",\n  \"TransferQuantity\": \"<number>\",\n  \"RequestedQuantity\": \"<number>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "18ac3bee-1654-47fe-a2bd-f1cc89aa6664",
+                  "name": "Get one inventory attribute update request document",
+                  "request": {
+                    "name": "Get one inventory attribute update request document",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inventoryAttributeTransactionRequests",
+                        ":HeaderId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "HeaderId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "84d4b526-99ff-44ee-9723-1bf6f201f617",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inventoryAttributeTransactionRequests",
+                            ":HeaderId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"HeaderId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RequestedDate\": \"<date>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ],\n  \"HeaderNumber\": \"<string>\",\n  \"StatusCode\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "e43580b1-9466-4110-b781-8b2e194e9e97",
+                  "name": "Delete one inventory attribute update request document",
+                  "request": {
+                    "name": "Delete one inventory attribute update request document",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inventoryAttributeTransactionRequests",
+                        ":HeaderId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "HeaderId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      }
+                    ],
+                    "method": "DELETE",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "d877b5d5-3846-48f1-96e4-93a82ed5c0a7",
+                      "name": "No Content. This task does not return elements in the response body.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inventoryAttributeTransactionRequests",
+                            ":HeaderId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          }
+                        ],
+                        "method": "DELETE",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [],
+                      "cookie": [],
+                      "_postman_previewlanguage": "text"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "e1f89f70-bd1e-4530-b78d-b005f2d7c028",
+                  "name": "Update an inventory attribute update request document",
+                  "request": {
+                    "name": "Update an inventory attribute update request document",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "inventoryAttributeTransactionRequests",
+                        ":HeaderId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "HeaderId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that identifies the inventory attribute transaction request header number.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"HeaderId\": \"<long>\",\n  \"RequestedDate\": \"<date>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ],\n  \"HeaderNumber\": \"<string>\",\n  \"StatusCode\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "a81462ea-1649-4da5-af61-26db0eb990a2",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "inventoryAttributeTransactionRequests",
+                            ":HeaderId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"HeaderId\": \"<long>\",\n  \"RequestedDate\": \"<date>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ],\n  \"HeaderNumber\": \"<string>\",\n  \"StatusCode\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"HeaderId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RequestedDate\": \"<date>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ],\n  \"HeaderNumber\": \"<string>\",\n  \"StatusCode\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "20323265-fb7d-4402-bed9-9d5cb3f2497a",
+              "name": "Get all inventory attribute update request documents",
+              "request": {
+                "name": "Get all inventory attribute update request documents",
+                "description": {},
+                "url": {
+                  "path": [
+                    "inventoryAttributeTransactionRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Description of the inventory attribute transaction request header.</li><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li><li>HeaderNumber; string; Number that identifies the inventory attribute transaction request header number.</li><li>ProductCode; string; Values that indicates the source product that requested the project transfer transaction. Use Fusion Inventory Management or an external non-fusion system name.</li><li>RequestedDate; string; Indicates the date when the project transfer transaction is requested.</li><li>StatusCode; string; Value that indicates the status of the inventory transaction attribution request header. Valid values are Open and Closed.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the inventory attribute transaction request header number.<br>Finder Variables: <ul><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "b24c6899-1ab4-4afa-8805-5597a5b83f69",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "inventoryAttributeTransactionRequests"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Description of the inventory attribute transaction request header.</li><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li><li>HeaderNumber; string; Number that identifies the inventory attribute transaction request header number.</li><li>ProductCode; string; Values that indicates the source product that requested the project transfer transaction. Use Fusion Inventory Management or an external non-fusion system name.</li><li>RequestedDate; string; Indicates the date when the project transfer transaction is requested.</li><li>StatusCode; string; Value that indicates the status of the inventory transaction attribution request header. Valid values are Open and Closed.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the inventory attribute transaction request header number.<br>Finder Variables: <ul><li>HeaderId; integer; Value that identifies the inventory attribute transaction request header number.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"Status\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ProductCode\": \"<string>\",\n      \"HeaderId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RequestedDate\": \"<date>\",\n      \"ProcessMode\": \"<string>\",\n      \"lines\": [\n        {\n          \"TaskId\": \"<long>\",\n          \"HeaderId\": \"<long>\",\n          \"OrganizationId\": \"<long>\",\n          \"RequestedUOMCode\": \"<string>\",\n          \"StatusCode\": \"<string>\",\n          \"LineNumber\": \"<integer>\",\n          \"ItemNumber\": \"<string>\",\n          \"SecondaryUOMCode\": \"<string>\",\n          \"OrganizationCode\": \"<string>\",\n          \"TransferProjectId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"TransferTaskId\": \"<long>\",\n          \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"TransferTaskNumber\": \"<string>\",\n          \"LineId\": \"<long>\",\n          \"SecondaryRequestedQuantity\": \"<number>\",\n          \"ProjectNumber\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ProjectId\": \"<long>\",\n          \"TaskNumber\": \"<string>\",\n          \"SourceLineId\": \"<long>\",\n          \"TransferProjectNumber\": \"<string>\",\n          \"SecondaryTransferQuantity\": \"<number>\",\n          \"RequestedUnitOfMeasure\": \"<string>\",\n          \"TransferQuantity\": \"<number>\",\n          \"RequestedQuantity\": \"<number>\"\n        },\n        {\n          \"TaskId\": \"<long>\",\n          \"HeaderId\": \"<long>\",\n          \"OrganizationId\": \"<long>\",\n          \"RequestedUOMCode\": \"<string>\",\n          \"StatusCode\": \"<string>\",\n          \"LineNumber\": \"<integer>\",\n          \"ItemNumber\": \"<string>\",\n          \"SecondaryUOMCode\": \"<string>\",\n          \"OrganizationCode\": \"<string>\",\n          \"TransferProjectId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"TransferTaskId\": \"<long>\",\n          \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"TransferTaskNumber\": \"<string>\",\n          \"LineId\": \"<long>\",\n          \"SecondaryRequestedQuantity\": \"<number>\",\n          \"ProjectNumber\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ProjectId\": \"<long>\",\n          \"TaskNumber\": \"<string>\",\n          \"SourceLineId\": \"<long>\",\n          \"TransferProjectNumber\": \"<string>\",\n          \"SecondaryTransferQuantity\": \"<number>\",\n          \"RequestedUnitOfMeasure\": \"<string>\",\n          \"TransferQuantity\": \"<number>\",\n          \"RequestedQuantity\": \"<number>\"\n        }\n      ],\n      \"HeaderNumber\": \"<string>\",\n      \"StatusCode\": \"<string>\"\n    },\n    {\n      \"Status\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"ProductCode\": \"<string>\",\n      \"HeaderId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RequestedDate\": \"<date>\",\n      \"ProcessMode\": \"<string>\",\n      \"lines\": [\n        {\n          \"TaskId\": \"<long>\",\n          \"HeaderId\": \"<long>\",\n          \"OrganizationId\": \"<long>\",\n          \"RequestedUOMCode\": \"<string>\",\n          \"StatusCode\": \"<string>\",\n          \"LineNumber\": \"<integer>\",\n          \"ItemNumber\": \"<string>\",\n          \"SecondaryUOMCode\": \"<string>\",\n          \"OrganizationCode\": \"<string>\",\n          \"TransferProjectId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"TransferTaskId\": \"<long>\",\n          \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"TransferTaskNumber\": \"<string>\",\n          \"LineId\": \"<long>\",\n          \"SecondaryRequestedQuantity\": \"<number>\",\n          \"ProjectNumber\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ProjectId\": \"<long>\",\n          \"TaskNumber\": \"<string>\",\n          \"SourceLineId\": \"<long>\",\n          \"TransferProjectNumber\": \"<string>\",\n          \"SecondaryTransferQuantity\": \"<number>\",\n          \"RequestedUnitOfMeasure\": \"<string>\",\n          \"TransferQuantity\": \"<number>\",\n          \"RequestedQuantity\": \"<number>\"\n        },\n        {\n          \"TaskId\": \"<long>\",\n          \"HeaderId\": \"<long>\",\n          \"OrganizationId\": \"<long>\",\n          \"RequestedUOMCode\": \"<string>\",\n          \"StatusCode\": \"<string>\",\n          \"LineNumber\": \"<integer>\",\n          \"ItemNumber\": \"<string>\",\n          \"SecondaryUOMCode\": \"<string>\",\n          \"OrganizationCode\": \"<string>\",\n          \"TransferProjectId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"TransferTaskId\": \"<long>\",\n          \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n          \"Status\": \"<string>\",\n          \"TransferTaskNumber\": \"<string>\",\n          \"LineId\": \"<long>\",\n          \"SecondaryRequestedQuantity\": \"<number>\",\n          \"ProjectNumber\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ProjectId\": \"<long>\",\n          \"TaskNumber\": \"<string>\",\n          \"SourceLineId\": \"<long>\",\n          \"TransferProjectNumber\": \"<string>\",\n          \"SecondaryTransferQuantity\": \"<number>\",\n          \"RequestedUnitOfMeasure\": \"<string>\",\n          \"TransferQuantity\": \"<number>\",\n          \"RequestedQuantity\": \"<number>\"\n        }\n      ],\n      \"HeaderNumber\": \"<string>\",\n      \"StatusCode\": \"<string>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "21e02c1a-5875-49f2-8004-2b8747052d6f",
+              "name": "Create inventory attribute update request documents",
+              "request": {
+                "name": "Create inventory attribute update request documents",
+                "description": {},
+                "url": {
+                  "path": [
+                    "inventoryAttributeTransactionRequests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HeaderId\": \"<long>\",\n  \"HeaderNumber\": \"<string>\",\n  \"RequestedDate\": \"<date>\",\n  \"StatusCode\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "022bf5be-ef32-4fe6-95d4-ed3160f84b67",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "inventoryAttributeTransactionRequests"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"HeaderId\": \"<long>\",\n  \"HeaderNumber\": \"<string>\",\n  \"RequestedDate\": \"<date>\",\n  \"StatusCode\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"Status\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ProductCode\": \"<string>\",\n  \"HeaderId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RequestedDate\": \"<date>\",\n  \"ProcessMode\": \"<string>\",\n  \"lines\": [\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    },\n    {\n      \"TaskId\": \"<long>\",\n      \"HeaderId\": \"<long>\",\n      \"OrganizationId\": \"<long>\",\n      \"RequestedUOMCode\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"SecondaryUOMCode\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"TransferProjectId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"TransferTaskId\": \"<long>\",\n      \"SecondaryRequestedUnitOfMeasure\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"TransferTaskNumber\": \"<string>\",\n      \"LineId\": \"<long>\",\n      \"SecondaryRequestedQuantity\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ProjectId\": \"<long>\",\n      \"TaskNumber\": \"<string>\",\n      \"SourceLineId\": \"<long>\",\n      \"TransferProjectNumber\": \"<string>\",\n      \"SecondaryTransferQuantity\": \"<number>\",\n      \"RequestedUnitOfMeasure\": \"<string>\",\n      \"TransferQuantity\": \"<number>\",\n      \"RequestedQuantity\": \"<number>\"\n    }\n  ],\n  \"HeaderNumber\": \"<string>\",\n  \"StatusCode\": \"<string>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

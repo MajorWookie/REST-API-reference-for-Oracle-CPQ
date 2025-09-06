@@ -1,0 +1,1330 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Vmiitems",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Vmiitems",
+      "description": "",
+      "item": [
+        {
+          "name": "vmiItems",
+          "description": "",
+          "item": [
+            {
+              "name": "{VmiItemId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "minimumMaximumHistory",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{minimumMaximumHistoryUniqID}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "8e0ada32-90bd-4d64-be2d-61b77fe057a4",
+                              "name": "Get one history record",
+                              "request": {
+                                "name": "Get one history record",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "vmiItems",
+                                    ":VmiItemId",
+                                    "child",
+                                    "minimumMaximumHistory",
+                                    ":minimumMaximumHistoryUniqID"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "VmiItemId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "minimumMaximumHistoryUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Minimum-Maximum History resource and used to uniquely identify an instance of Minimum-Maximum History. The client should not generate the hash key value. Instead, the client should query on the Minimum-Maximum History collection resource in order to navigate to a specific instance of Minimum-Maximum History to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "b288e624-6112-4b0b-abc0-294138863d7a",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "vmiItems",
+                                        ":VmiItemId",
+                                        "child",
+                                        "minimumMaximumHistory",
+                                        ":minimumMaximumHistoryUniqID"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CreatedBy\": \"<string>\",\n  \"MaximumQuantity\": \"<number>\",\n  \"MinimumQuantity\": \"<number>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "a1544caa-5509-4b06-99fc-d4d984b5715d",
+                          "name": "Get all history records",
+                          "request": {
+                            "name": "Get all history records",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "vmiItems",
+                                ":VmiItemId",
+                                "child",
+                                "minimumMaximumHistory"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the minimum and maximum quantity.</li><li>CreationDate; string; Date and time when the user create the minimum and maximum quantity.</li><li>MaximumQuantity; number; Value that indicates the maximum quantity of the item that can't be exceeded in inventory.</li><li>MinimumQuantity; number; Value that indicates the minimum quantity of the item that must be maintained in inventory.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey :Find vendor-managed inventory items according to the primary key. <br>Finder Variables: <ul></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "VmiItemId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "064cb761-3b99-4939-8390-569bc60667e9",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "vmiItems",
+                                    ":VmiItemId",
+                                    "child",
+                                    "minimumMaximumHistory"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the minimum and maximum quantity.</li><li>CreationDate; string; Date and time when the user create the minimum and maximum quantity.</li><li>MaximumQuantity; number; Value that indicates the maximum quantity of the item that can't be exceeded in inventory.</li><li>MinimumQuantity; number; Value that indicates the minimum quantity of the item that must be maintained in inventory.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey :Find vendor-managed inventory items according to the primary key. <br>Finder Variables: <ul></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "dcca1891-1912-44ec-b575-57bebdcb0699",
+                  "name": "Get one item",
+                  "request": {
+                    "name": "Get one item",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "vmiItems",
+                        ":VmiItemId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "VmiItemId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "95a7baec-d250-4d9e-8c97-c73959dced02",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "vmiItems",
+                            ":VmiItemId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"InTransitQuantity\": \"<long>\",\n  \"SupplierItemId\": \"<integer>\",\n  \"MaximumQuantity\": \"<number>\",\n  \"StatusCode\": \"<string>\",\n  \"ItemCategory\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ProcurementBU\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"OnOrderQuantity\": \"<number>\",\n  \"RequiringReplenishment\": \"<string>\",\n  \"ReplenishmentQuantity\": \"<number>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"PurchaseOrderQuantity\": \"<number>\",\n  \"PendingAcknowledgmentQuantity\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ScopeCode\": \"<string>\",\n  \"LastRefreshDate\": \"<dateTime>\",\n  \"MinMaxQuantitySourceCode\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"RequiringReplenishmentCode\": \"<string>\",\n  \"MinMaxQuantitySource\": \"<string>\",\n  \"ItemPlanner\": \"<string>\",\n  \"DelivertoLocationId\": \"<integer>\",\n  \"OrganizationName\": \"<string>\",\n  \"DeliverToLocationName\": \"<string>\",\n  \"InventoryPlanningOwner\": \"<string>\",\n  \"Buyer\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"minimumMaximumHistory\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    }\n  ],\n  \"ItemDescription\": \"<string>\",\n  \"SubinventoryId\": \"<long>\",\n  \"InventoryPlanningOwnerCode\": \"<string>\",\n  \"VmiItemId\": \"<long>\",\n  \"OnHandQuantity\": \"<number>\",\n  \"ItemNumber\": \"<string>\",\n  \"ReceivedQuantity\": \"<long>\",\n  \"BuyerId\": \"<long>\",\n  \"OrganizationCode\": \"<string>\",\n  \"ShipToLocationId\": \"<long>\",\n  \"SupplierItemName\": \"<string>\",\n  \"SubinventoryName\": \"<string>\",\n  \"SubinventoryDescription\": \"<string>\",\n  \"MinimumQuantity\": \"<number>\",\n  \"ShipToLocationName\": \"<string>\",\n  \"Scope\": \"<string>\",\n  \"SupplierName\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "144efee8-0d3f-4d19-92bd-c54c25aecdbc",
+                  "name": "Update one item",
+                  "request": {
+                    "name": "Update one item",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "vmiItems",
+                        ":VmiItemId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "VmiItemId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"MaximumQuantity\": \"<number>\",\n  \"MinimumQuantity\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "c97cbf7e-214a-4642-9526-845a236d8eaf",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "vmiItems",
+                            ":VmiItemId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"MaximumQuantity\": \"<number>\",\n  \"MinimumQuantity\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"InTransitQuantity\": \"<long>\",\n  \"SupplierItemId\": \"<integer>\",\n  \"MaximumQuantity\": \"<number>\",\n  \"StatusCode\": \"<string>\",\n  \"ItemCategory\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"ProcurementBUId\": \"<long>\",\n  \"ProcurementBU\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"OnOrderQuantity\": \"<number>\",\n  \"RequiringReplenishment\": \"<string>\",\n  \"ReplenishmentQuantity\": \"<number>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"PurchaseOrderQuantity\": \"<number>\",\n  \"PendingAcknowledgmentQuantity\": \"<number>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ScopeCode\": \"<string>\",\n  \"LastRefreshDate\": \"<dateTime>\",\n  \"MinMaxQuantitySourceCode\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"RequiringReplenishmentCode\": \"<string>\",\n  \"MinMaxQuantitySource\": \"<string>\",\n  \"ItemPlanner\": \"<string>\",\n  \"DelivertoLocationId\": \"<integer>\",\n  \"OrganizationName\": \"<string>\",\n  \"DeliverToLocationName\": \"<string>\",\n  \"InventoryPlanningOwner\": \"<string>\",\n  \"Buyer\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"minimumMaximumHistory\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CreatedBy\": \"<string>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"MinimumQuantity\": \"<number>\"\n    }\n  ],\n  \"ItemDescription\": \"<string>\",\n  \"SubinventoryId\": \"<long>\",\n  \"InventoryPlanningOwnerCode\": \"<string>\",\n  \"VmiItemId\": \"<long>\",\n  \"OnHandQuantity\": \"<number>\",\n  \"ItemNumber\": \"<string>\",\n  \"ReceivedQuantity\": \"<long>\",\n  \"BuyerId\": \"<long>\",\n  \"OrganizationCode\": \"<string>\",\n  \"ShipToLocationId\": \"<long>\",\n  \"SupplierItemName\": \"<string>\",\n  \"SubinventoryName\": \"<string>\",\n  \"SubinventoryDescription\": \"<string>\",\n  \"MinimumQuantity\": \"<number>\",\n  \"ShipToLocationName\": \"<string>\",\n  \"Scope\": \"<string>\",\n  \"SupplierName\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "9738c490-6359-4f6b-8a4a-553fa4caa6cc",
+              "name": "Get all items",
+              "request": {
+                "name": "Get all items",
+                "description": {},
+                "url": {
+                  "path": [
+                    "vmiItems"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Buyer; string; Name of the person responsible for placing item resupply orders with suppliers and negotiating supplier contracts.</li><li>BuyerId; integer; Value that uniquely identifies the buyer.</li><li>CreatedBy; string; User who created the vendor-managed inventory item.</li><li>CreationDate; string; Date and time when the user created the vendor-managed inventory item.</li><li>DeliverToLocationName; string; Name of the deliver-to location. This attribute isn't available to suppliers.</li><li>DelivertoLocationId; integer; Value that uniquely identifies the location where the item is delivered. This attribute isn't available to suppliers.</li><li>InTransitQuantity; integer; Aggregated quantity of the shipments for the inventory item.</li><li>InventoryItemId; integer; Value that uniquely identifies the part, item, product, or service.</li><li>InventoryPlanningOwner; string; Value that indicates the owner who creates replenishment requests for vendor-managed inventory. Value can be supplier or enterprise.</li><li>InventoryPlanningOwnerCode; string; Abbreviation that identifies the inventory planning owner for the item.</li><li>ItemCategory; string; Category that the application assigns to the item from the default planning catalog.</li><li>ItemDescription; string; Description of the item.</li><li>ItemNumber; string; Number that identifies the part, item, product, or service.</li><li>ItemPlanner; string; Name of the person responsible for demand and supply planning. This attribute isn't available to suppliers.</li><li>LastRefreshDate; string; Date and time when the replenishment data was updated.</li><li>LastUpdateDate; string; User who most recently updated the vendor-managed inventory item.</li><li>LastUpdatedBy; string; Date and time when the user most recently updated the vendor-managed inventory item.</li><li>MaximumQuantity; number; Value that indicates the maximum quantity of the item that can't be exceeded in inventory.</li><li>MinMaxQuantitySource; string; Value that indicates the source of the minimum and maximum quantities used to manage vendor-managed inventory replenishments. Valid values include Enterprise and Supplier.</li><li>MinMaxQuantitySourceCode; string; Value that uniquely identifies the source of the minimum and maximum quantities used to manage vendor-managed inventory replenishments. Valid values include ORA_VCS_MIN_MAX_ORIGIN_ENT and ORA_VCS_MIN_MAX_ORIGIN_SUP.</li><li>MinimumQuantity; number; Value that indicates the minimum quantity of the item that must be maintained in inventory.</li><li>OnHandQuantity; number; Quantity of the on-hand inventory for the inventory item.</li><li>OnOrderQuantity; number; Aggregated quantity of the on-order inventory for the inventory item. On order is the summation of quantities for replenishment requests, purchase order, shipment, and receipt.</li><li>OrganizationCode; string; Abbreviation that identifies the organization that receives the item.</li><li>OrganizationId; integer; Value that uniquely identifies the organization in the relationship. This organization receives the shipment. It's a primary key that the application generates when it creates an organization.</li><li>OrganizationName; string; Name of the organization that receives the item.</li><li>PendingAcknowledgmentQuantity; number; Aggregated quantity of the purchase orders pending acknowledgment for the inventory item.</li><li>ProcurementBU; string; Name of the business unit. The application assigns the supplier to this business unit.</li><li>ProcurementBUId; integer; Value that uniquely identifies the business unit that manages and owns the purchasing document.</li><li>PurchaseOrderQuantity; number; Aggregated quantity of the purchase orders for the inventory item.</li><li>ReceivedQuantity; integer; Aggregated quantity of the shipments received for the inventory item.</li><li>ReplenishmentQuantity; number; Aggregated quantity of the replenishment requests for the inventory item.</li><li>RequiringReplenishment; string; Value that identifies if replenishment is needed. Values include Yes, No, and Missing min-max quantities.</li><li>RequiringReplenishmentCode; string; Value that uniquely identifies if replenishment is needed. A list of accepted values is defined in the lookup type ORA_VCS_VMI_REQ_REPL.</li><li>Scope; string; Value that identifies the level at which the replenishment process is managed. Values include Organization and Subinventory.</li><li>ScopeCode; string; Value that uniquely identifies the level at which the replenishment process is managed. A list of accepted values is defined in the lookup type ORA_VCS_VMI_RELATIONSHIP_SCOPE.</li><li>ShipToLocationId; integer; Value that uniquely identifies the location where the item is shipped.</li><li>ShipToLocationName; string; Name of the ship-to location.</li><li>Status; string; Status of the item. This value is calculated as the sum of on-hand and on-order quantities compared to the minimum and maximum quantities. Value can be Out of Stock, Stock Below Minimum, Stock Above Maximum, or In Stock.</li><li>StatusCode; string; Value that identifies the state of the replenishment item. A list of accepted values is defined in the lookup type ORA_VCS_VMI_ITEM_STATUS.</li><li>SubinventoryDescription; string; Description of the subinventory.</li><li>SubinventoryId; integer; Value that uniquely identifies the subinventory of the organization.</li><li>SubinventoryName; string; Name of the subinventory.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who ships the item. It's a primary key that the application generates when it creates the supplier.</li><li>SupplierItemId; integer; Value that uniquely identifies the supplier number or code for the goods ordered on the order line.</li><li>SupplierItemName; string; Name of the supplier item.</li><li>SupplierName; string; Name of the supplier that ships the item.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the item.</li><li>UnitOfMeasure; string; Unit of measure for the item.</li><li>VmiItemId; integer; Value that uniquely identifies the vendor-managed inventory item.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Find vendor-managed inventory items according to vendor-managed inventory item identifier. <br>Finder Variables <ul><li>VmiItemId; integer;  Value that uniquely identifies the vendor-managed inventory item. </li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "e56d50a7-7886-4356-9588-548fee040002",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "vmiItems"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Buyer; string; Name of the person responsible for placing item resupply orders with suppliers and negotiating supplier contracts.</li><li>BuyerId; integer; Value that uniquely identifies the buyer.</li><li>CreatedBy; string; User who created the vendor-managed inventory item.</li><li>CreationDate; string; Date and time when the user created the vendor-managed inventory item.</li><li>DeliverToLocationName; string; Name of the deliver-to location. This attribute isn't available to suppliers.</li><li>DelivertoLocationId; integer; Value that uniquely identifies the location where the item is delivered. This attribute isn't available to suppliers.</li><li>InTransitQuantity; integer; Aggregated quantity of the shipments for the inventory item.</li><li>InventoryItemId; integer; Value that uniquely identifies the part, item, product, or service.</li><li>InventoryPlanningOwner; string; Value that indicates the owner who creates replenishment requests for vendor-managed inventory. Value can be supplier or enterprise.</li><li>InventoryPlanningOwnerCode; string; Abbreviation that identifies the inventory planning owner for the item.</li><li>ItemCategory; string; Category that the application assigns to the item from the default planning catalog.</li><li>ItemDescription; string; Description of the item.</li><li>ItemNumber; string; Number that identifies the part, item, product, or service.</li><li>ItemPlanner; string; Name of the person responsible for demand and supply planning. This attribute isn't available to suppliers.</li><li>LastRefreshDate; string; Date and time when the replenishment data was updated.</li><li>LastUpdateDate; string; User who most recently updated the vendor-managed inventory item.</li><li>LastUpdatedBy; string; Date and time when the user most recently updated the vendor-managed inventory item.</li><li>MaximumQuantity; number; Value that indicates the maximum quantity of the item that can't be exceeded in inventory.</li><li>MinMaxQuantitySource; string; Value that indicates the source of the minimum and maximum quantities used to manage vendor-managed inventory replenishments. Valid values include Enterprise and Supplier.</li><li>MinMaxQuantitySourceCode; string; Value that uniquely identifies the source of the minimum and maximum quantities used to manage vendor-managed inventory replenishments. Valid values include ORA_VCS_MIN_MAX_ORIGIN_ENT and ORA_VCS_MIN_MAX_ORIGIN_SUP.</li><li>MinimumQuantity; number; Value that indicates the minimum quantity of the item that must be maintained in inventory.</li><li>OnHandQuantity; number; Quantity of the on-hand inventory for the inventory item.</li><li>OnOrderQuantity; number; Aggregated quantity of the on-order inventory for the inventory item. On order is the summation of quantities for replenishment requests, purchase order, shipment, and receipt.</li><li>OrganizationCode; string; Abbreviation that identifies the organization that receives the item.</li><li>OrganizationId; integer; Value that uniquely identifies the organization in the relationship. This organization receives the shipment. It's a primary key that the application generates when it creates an organization.</li><li>OrganizationName; string; Name of the organization that receives the item.</li><li>PendingAcknowledgmentQuantity; number; Aggregated quantity of the purchase orders pending acknowledgment for the inventory item.</li><li>ProcurementBU; string; Name of the business unit. The application assigns the supplier to this business unit.</li><li>ProcurementBUId; integer; Value that uniquely identifies the business unit that manages and owns the purchasing document.</li><li>PurchaseOrderQuantity; number; Aggregated quantity of the purchase orders for the inventory item.</li><li>ReceivedQuantity; integer; Aggregated quantity of the shipments received for the inventory item.</li><li>ReplenishmentQuantity; number; Aggregated quantity of the replenishment requests for the inventory item.</li><li>RequiringReplenishment; string; Value that identifies if replenishment is needed. Values include Yes, No, and Missing min-max quantities.</li><li>RequiringReplenishmentCode; string; Value that uniquely identifies if replenishment is needed. A list of accepted values is defined in the lookup type ORA_VCS_VMI_REQ_REPL.</li><li>Scope; string; Value that identifies the level at which the replenishment process is managed. Values include Organization and Subinventory.</li><li>ScopeCode; string; Value that uniquely identifies the level at which the replenishment process is managed. A list of accepted values is defined in the lookup type ORA_VCS_VMI_RELATIONSHIP_SCOPE.</li><li>ShipToLocationId; integer; Value that uniquely identifies the location where the item is shipped.</li><li>ShipToLocationName; string; Name of the ship-to location.</li><li>Status; string; Status of the item. This value is calculated as the sum of on-hand and on-order quantities compared to the minimum and maximum quantities. Value can be Out of Stock, Stock Below Minimum, Stock Above Maximum, or In Stock.</li><li>StatusCode; string; Value that identifies the state of the replenishment item. A list of accepted values is defined in the lookup type ORA_VCS_VMI_ITEM_STATUS.</li><li>SubinventoryDescription; string; Description of the subinventory.</li><li>SubinventoryId; integer; Value that uniquely identifies the subinventory of the organization.</li><li>SubinventoryName; string; Name of the subinventory.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who ships the item. It's a primary key that the application generates when it creates the supplier.</li><li>SupplierItemId; integer; Value that uniquely identifies the supplier number or code for the goods ordered on the order line.</li><li>SupplierItemName; string; Name of the supplier item.</li><li>SupplierName; string; Name of the supplier that ships the item.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the item.</li><li>UnitOfMeasure; string; Unit of measure for the item.</li><li>VmiItemId; integer; Value that uniquely identifies the vendor-managed inventory item.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Find vendor-managed inventory items according to vendor-managed inventory item identifier. <br>Finder Variables <ul><li>VmiItemId; integer;  Value that uniquely identifies the vendor-managed inventory item. </li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"InTransitQuantity\": \"<long>\",\n      \"SupplierItemId\": \"<integer>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"StatusCode\": \"<string>\",\n      \"ItemCategory\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ProcurementBU\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"OnOrderQuantity\": \"<number>\",\n      \"RequiringReplenishment\": \"<string>\",\n      \"ReplenishmentQuantity\": \"<number>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"PurchaseOrderQuantity\": \"<number>\",\n      \"PendingAcknowledgmentQuantity\": \"<number>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ScopeCode\": \"<string>\",\n      \"LastRefreshDate\": \"<dateTime>\",\n      \"MinMaxQuantitySourceCode\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"RequiringReplenishmentCode\": \"<string>\",\n      \"MinMaxQuantitySource\": \"<string>\",\n      \"ItemPlanner\": \"<string>\",\n      \"DelivertoLocationId\": \"<integer>\",\n      \"OrganizationName\": \"<string>\",\n      \"DeliverToLocationName\": \"<string>\",\n      \"InventoryPlanningOwner\": \"<string>\",\n      \"Buyer\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"minimumMaximumHistory\": [\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CreatedBy\": \"<string>\",\n          \"MaximumQuantity\": \"<number>\",\n          \"MinimumQuantity\": \"<number>\"\n        },\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CreatedBy\": \"<string>\",\n          \"MaximumQuantity\": \"<number>\",\n          \"MinimumQuantity\": \"<number>\"\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"SubinventoryId\": \"<long>\",\n      \"InventoryPlanningOwnerCode\": \"<string>\",\n      \"VmiItemId\": \"<long>\",\n      \"OnHandQuantity\": \"<number>\",\n      \"ItemNumber\": \"<string>\",\n      \"ReceivedQuantity\": \"<long>\",\n      \"BuyerId\": \"<long>\",\n      \"OrganizationCode\": \"<string>\",\n      \"ShipToLocationId\": \"<long>\",\n      \"SupplierItemName\": \"<string>\",\n      \"SubinventoryName\": \"<string>\",\n      \"SubinventoryDescription\": \"<string>\",\n      \"MinimumQuantity\": \"<number>\",\n      \"ShipToLocationName\": \"<string>\",\n      \"Scope\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"InTransitQuantity\": \"<long>\",\n      \"SupplierItemId\": \"<integer>\",\n      \"MaximumQuantity\": \"<number>\",\n      \"StatusCode\": \"<string>\",\n      \"ItemCategory\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"ProcurementBUId\": \"<long>\",\n      \"ProcurementBU\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"OnOrderQuantity\": \"<number>\",\n      \"RequiringReplenishment\": \"<string>\",\n      \"ReplenishmentQuantity\": \"<number>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"PurchaseOrderQuantity\": \"<number>\",\n      \"PendingAcknowledgmentQuantity\": \"<number>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ScopeCode\": \"<string>\",\n      \"LastRefreshDate\": \"<dateTime>\",\n      \"MinMaxQuantitySourceCode\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"RequiringReplenishmentCode\": \"<string>\",\n      \"MinMaxQuantitySource\": \"<string>\",\n      \"ItemPlanner\": \"<string>\",\n      \"DelivertoLocationId\": \"<integer>\",\n      \"OrganizationName\": \"<string>\",\n      \"DeliverToLocationName\": \"<string>\",\n      \"InventoryPlanningOwner\": \"<string>\",\n      \"Buyer\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"minimumMaximumHistory\": [\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CreatedBy\": \"<string>\",\n          \"MaximumQuantity\": \"<number>\",\n          \"MinimumQuantity\": \"<number>\"\n        },\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CreatedBy\": \"<string>\",\n          \"MaximumQuantity\": \"<number>\",\n          \"MinimumQuantity\": \"<number>\"\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"SubinventoryId\": \"<long>\",\n      \"InventoryPlanningOwnerCode\": \"<string>\",\n      \"VmiItemId\": \"<long>\",\n      \"OnHandQuantity\": \"<number>\",\n      \"ItemNumber\": \"<string>\",\n      \"ReceivedQuantity\": \"<long>\",\n      \"BuyerId\": \"<long>\",\n      \"OrganizationCode\": \"<string>\",\n      \"ShipToLocationId\": \"<long>\",\n      \"SupplierItemName\": \"<string>\",\n      \"SubinventoryName\": \"<string>\",\n      \"SubinventoryDescription\": \"<string>\",\n      \"MinimumQuantity\": \"<number>\",\n      \"ShipToLocationName\": \"<string>\",\n      \"Scope\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

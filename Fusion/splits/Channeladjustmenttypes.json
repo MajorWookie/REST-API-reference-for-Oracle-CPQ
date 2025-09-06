@@ -1,0 +1,1856 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Channeladjustmenttypes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Channeladjustmenttypes",
+      "description": "",
+      "item": [
+        {
+          "name": "channelAdjustmentTypes",
+          "description": "",
+          "item": [
+            {
+              "id": "bbe61e5f-779d-4be7-8283-eef05ca0bf6f",
+              "name": "Get all adjustment types",
+              "request": {
+                "name": "Get all adjustment types",
+                "description": {},
+                "url": {
+                  "path": [
+                    "channelAdjustmentTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustmentNumberPrefix; string; Prefix of the manual adjustment number when creating the manual adjustment. This attribute is not currently used.</li><li>AdjustmentTypeCode; string; Abbreviation that identifies the channel adjustment type.</li><li>AdjustmentTypeId; integer; Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.</li><li>BuySideFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment type will be enabled for the buy-side flows. If false, then the adjustment type will not be enabled for the buy-side flows. This attribute does not have a default value.</li><li>Name; string; Name of the channel adjustment type.</li><li>PredefinedAdjustmentType; string; Name of the predefined adjustment type. A list of accepted values is defined in the lookup type ORA_CJM_ADJUSTMENT_TYPE.</li><li>PredefinedAdjustmentTypeCode; string; Abbreviation that identifies the predefined adjustment type. A list of accepted values is defined in the lookup type ORA_CJM_ADJUSTMENT_TYPE.</li><li>SellSideFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment type will be enabled for the sell-side flows. If false, then the adjustment type will not be enabled for the sell-side flows. This attribute does not have a default value.</li><li>SetCode; string; Abbreviation that identifies the reference data set to which the channel adjustment type is assigned.</li><li>SetId; integer; Value that uniquely identifies the reference data set to which the channel adjustment type is assigned.</li><li>SetName; string; Name of the reference data set to which the channel adjustment type is assigned.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find channel adjustment types according to the primary key.<br>Finder Variables: <ul><li>AdjustmentTypeId; integer; Value that uniquely identifies the channel adjustment type.</li></ul></li><li>findActiveSellSideAdjustmentTypes: Finds all the active sell-side claim types based on the business unit.<br>Finder Variables: <ul><li>BusinessUnitId; string.</li><li>bindEffectiveDate; string; Specifies the date to be considered for an effective date check.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "10c25abc-d4fe-4b95-999e-3b88e386d2aa",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "channelAdjustmentTypes"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustmentNumberPrefix; string; Prefix of the manual adjustment number when creating the manual adjustment. This attribute is not currently used.</li><li>AdjustmentTypeCode; string; Abbreviation that identifies the channel adjustment type.</li><li>AdjustmentTypeId; integer; Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.</li><li>BuySideFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment type will be enabled for the buy-side flows. If false, then the adjustment type will not be enabled for the buy-side flows. This attribute does not have a default value.</li><li>Name; string; Name of the channel adjustment type.</li><li>PredefinedAdjustmentType; string; Name of the predefined adjustment type. A list of accepted values is defined in the lookup type ORA_CJM_ADJUSTMENT_TYPE.</li><li>PredefinedAdjustmentTypeCode; string; Abbreviation that identifies the predefined adjustment type. A list of accepted values is defined in the lookup type ORA_CJM_ADJUSTMENT_TYPE.</li><li>SellSideFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment type will be enabled for the sell-side flows. If false, then the adjustment type will not be enabled for the sell-side flows. This attribute does not have a default value.</li><li>SetCode; string; Abbreviation that identifies the reference data set to which the channel adjustment type is assigned.</li><li>SetId; integer; Value that uniquely identifies the reference data set to which the channel adjustment type is assigned.</li><li>SetName; string; Name of the reference data set to which the channel adjustment type is assigned.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find channel adjustment types according to the primary key.<br>Finder Variables: <ul><li>AdjustmentTypeId; integer; Value that uniquely identifies the channel adjustment type.</li></ul></li><li>findActiveSellSideAdjustmentTypes: Finds all the active sell-side claim types based on the business unit.<br>Finder Variables: <ul><li>BusinessUnitId; string.</li><li>bindEffectiveDate; string; Specifies the date to be considered for an effective date check.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"PredefinedAdjustmentType\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"SellSideFlag\": false,\n      \"SetName\": \"<string>\",\n      \"AdjustmentNumberPrefix\": \"<string>\",\n      \"BuySideFlag\": \"<boolean>\",\n      \"EndDate\": \"<date>\",\n      \"SetCode\": \"<string>\",\n      \"Reason\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentTypeCode\": \"<string>\",\n      \"StartDate\": \"<date>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"adjustmentReasons\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"AdjustmentReasonId\": \"<long>\",\n          \"ReasonCode\": \"<string>\",\n          \"AdjustmentTypeId\": \"<long>\",\n          \"AdjustmentReason\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DefaultFlag\": false,\n          \"EnabledFlag\": false,\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"AdjustmentReasonId\": \"<long>\",\n          \"ReasonCode\": \"<string>\",\n          \"AdjustmentTypeId\": \"<long>\",\n          \"AdjustmentReason\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DefaultFlag\": false,\n          \"EnabledFlag\": false,\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        }\n      ],\n      \"SetId\": \"<long>\",\n      \"PredefinedAdjustmentTypeCode\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"PredefinedAdjustmentType\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"SellSideFlag\": false,\n      \"SetName\": \"<string>\",\n      \"AdjustmentNumberPrefix\": \"<string>\",\n      \"BuySideFlag\": \"<boolean>\",\n      \"EndDate\": \"<date>\",\n      \"SetCode\": \"<string>\",\n      \"Reason\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentTypeCode\": \"<string>\",\n      \"StartDate\": \"<date>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"adjustmentReasons\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"AdjustmentReasonId\": \"<long>\",\n          \"ReasonCode\": \"<string>\",\n          \"AdjustmentTypeId\": \"<long>\",\n          \"AdjustmentReason\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DefaultFlag\": false,\n          \"EnabledFlag\": false,\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CreatedBy\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"AdjustmentReasonId\": \"<long>\",\n          \"ReasonCode\": \"<string>\",\n          \"AdjustmentTypeId\": \"<long>\",\n          \"AdjustmentReason\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"DefaultFlag\": false,\n          \"EnabledFlag\": false,\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        }\n      ],\n      \"SetId\": \"<long>\",\n      \"PredefinedAdjustmentTypeCode\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "337628a2-79b0-4903-b802-92af2f2592c6",
+              "name": "Create adjustment types",
+              "request": {
+                "name": "Create adjustment types",
+                "description": {},
+                "url": {
+                  "path": [
+                    "channelAdjustmentTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"AdjustmentTypeCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"PredefinedAdjustmentTypeCode\": \"<string>\",\n  \"SetId\": \"<long>\",\n  \"PredefinedAdjustmentType\": \"<string>\",\n  \"SellSideFlag\": false,\n  \"SetName\": \"<string>\",\n  \"BuySideFlag\": \"<boolean>\",\n  \"EndDate\": \"<date>\",\n  \"SetCode\": \"<string>\",\n  \"Reason\": \"<string>\",\n  \"StartDate\": \"<date>\",\n  \"adjustmentReasons\": [\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"ReasonCode\": \"<string>\"\n    },\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"ReasonCode\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "da881dea-1443-463d-9396-3e135b743992",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "channelAdjustmentTypes"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"AdjustmentTypeCode\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"PredefinedAdjustmentTypeCode\": \"<string>\",\n  \"SetId\": \"<long>\",\n  \"PredefinedAdjustmentType\": \"<string>\",\n  \"SellSideFlag\": false,\n  \"SetName\": \"<string>\",\n  \"BuySideFlag\": \"<boolean>\",\n  \"EndDate\": \"<date>\",\n  \"SetCode\": \"<string>\",\n  \"Reason\": \"<string>\",\n  \"StartDate\": \"<date>\",\n  \"adjustmentReasons\": [\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"ReasonCode\": \"<string>\"\n    },\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"ReasonCode\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"PredefinedAdjustmentType\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"SellSideFlag\": false,\n  \"SetName\": \"<string>\",\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"BuySideFlag\": \"<boolean>\",\n  \"EndDate\": \"<date>\",\n  \"SetCode\": \"<string>\",\n  \"Reason\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentTypeCode\": \"<string>\",\n  \"StartDate\": \"<date>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"adjustmentReasons\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ],\n  \"SetId\": \"<long>\",\n  \"PredefinedAdjustmentTypeCode\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "name": "{AdjustmentTypeId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "adjustmentReasons",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{AdjustmentReasonId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "7bb7afd8-7b75-4c7a-8ca8-eead9bce6737",
+                              "name": "Get one adjustment reason",
+                              "request": {
+                                "name": "Get one adjustment reason",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "channelAdjustmentTypes",
+                                    ":AdjustmentTypeId",
+                                    "child",
+                                    "adjustmentReasons",
+                                    ":AdjustmentReasonId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "AdjustmentTypeId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "AdjustmentReasonId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the adjustment reason. It is a primary key that the application generates when it creates the adjustment reason.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "3f8376f8-83e5-4071-9fa4-04a0fab70280",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "channelAdjustmentTypes",
+                                        ":AdjustmentTypeId",
+                                        "child",
+                                        "adjustmentReasons",
+                                        ":AdjustmentReasonId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"ReasonCode\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false,\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"LastUpdateLogin\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "31c50ac8-4f62-4721-bb98-1875aaed28c6",
+                              "name": "Update an adjustment reason",
+                              "request": {
+                                "name": "Update an adjustment reason",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "channelAdjustmentTypes",
+                                    ":AdjustmentTypeId",
+                                    "child",
+                                    "adjustmentReasons",
+                                    ":AdjustmentReasonId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "AdjustmentTypeId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "AdjustmentReasonId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the adjustment reason. It is a primary key that the application generates when it creates the adjustment reason.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"AdjustmentTypeId\": \"<long>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "c730b08f-3a9a-4adb-98da-ebda0f8f14c9",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "channelAdjustmentTypes",
+                                        ":AdjustmentTypeId",
+                                        "child",
+                                        "adjustmentReasons",
+                                        ":AdjustmentReasonId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"AdjustmentTypeId\": \"<long>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"ReasonCode\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false,\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"LastUpdateLogin\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "bd8c1a8a-ab00-4a0e-94b2-b71f2b181d1a",
+                          "name": "Get all adjustment reasons",
+                          "request": {
+                            "name": "Get all adjustment reasons",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "channelAdjustmentTypes",
+                                ":AdjustmentTypeId",
+                                "child",
+                                "adjustmentReasons"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustmentReason; string; Name of the adjustment reason.</li><li>AdjustmentReasonId; integer; Value that uniquely identifies the adjustment reason. It is a primary key that the application generates when it creates the adjustment reason.</li><li>AdjustmentTypeId; integer; Value that uniquely identifies the adjustment type.</li><li>DefaultFlag; boolean; Contains one of the following values: true or false. If true, then set the adjustment reason as the default for the adjustment type. This attribute does not have a default value.</li><li>EnabledFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment reason is enabled for the adjustment type. If false, then the adjustment reason is not enabled. This attribute does not have a default value.</li><li>LastUpdateLogin; string; Login details of user who most recently updated the record.</li><li>ReasonCode; string; Abbreviation that identifies the channel adjustment reason.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find adjustment reasons according to the Primary Key.<br>Finder Variables: <ul><li>AdjustmentReasonId; integer; Value that uniquely identifies the adjustment reason.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "AdjustmentTypeId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "9ead9797-3dc2-4da9-b195-a14c1215dfe4",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "channelAdjustmentTypes",
+                                    ":AdjustmentTypeId",
+                                    "child",
+                                    "adjustmentReasons"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustmentReason; string; Name of the adjustment reason.</li><li>AdjustmentReasonId; integer; Value that uniquely identifies the adjustment reason. It is a primary key that the application generates when it creates the adjustment reason.</li><li>AdjustmentTypeId; integer; Value that uniquely identifies the adjustment type.</li><li>DefaultFlag; boolean; Contains one of the following values: true or false. If true, then set the adjustment reason as the default for the adjustment type. This attribute does not have a default value.</li><li>EnabledFlag; boolean; Contains one of the following values: true or false. If true, then the adjustment reason is enabled for the adjustment type. If false, then the adjustment reason is not enabled. This attribute does not have a default value.</li><li>LastUpdateLogin; string; Login details of user who most recently updated the record.</li><li>ReasonCode; string; Abbreviation that identifies the channel adjustment reason.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find adjustment reasons according to the Primary Key.<br>Finder Variables: <ul><li>AdjustmentReasonId; integer; Value that uniquely identifies the adjustment reason.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "8f99d6e4-d2a3-45e0-aae3-e6ffafec815e",
+                          "name": "Create adjustment reasons",
+                          "request": {
+                            "name": "Create adjustment reasons",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "channelAdjustmentTypes",
+                                ":AdjustmentTypeId",
+                                "child",
+                                "adjustmentReasons"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "AdjustmentTypeId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"AdjustmentTypeId\": \"<long>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false,\n  \"ReasonCode\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "31443da9-4eca-4470-8e3a-165981518ba6",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "channelAdjustmentTypes",
+                                    ":AdjustmentTypeId",
+                                    "child",
+                                    "adjustmentReasons"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"AdjustmentTypeId\": \"<long>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false,\n  \"ReasonCode\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"AdjustmentReasonId\": \"<long>\",\n  \"ReasonCode\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentReason\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DefaultFlag\": false,\n  \"EnabledFlag\": false,\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"LastUpdateLogin\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "db061165-5390-4510-bee7-bff81b81ffca",
+                  "name": "Get one adjustment type",
+                  "request": {
+                    "name": "Get one adjustment type",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "channelAdjustmentTypes",
+                        ":AdjustmentTypeId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "AdjustmentTypeId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "ba1b4bf1-19df-4a50-9274-a1b8dd8972a0",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "channelAdjustmentTypes",
+                            ":AdjustmentTypeId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"PredefinedAdjustmentType\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"SellSideFlag\": false,\n  \"SetName\": \"<string>\",\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"BuySideFlag\": \"<boolean>\",\n  \"EndDate\": \"<date>\",\n  \"SetCode\": \"<string>\",\n  \"Reason\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentTypeCode\": \"<string>\",\n  \"StartDate\": \"<date>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"adjustmentReasons\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ],\n  \"SetId\": \"<long>\",\n  \"PredefinedAdjustmentTypeCode\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "3b8f85e1-1dfb-4591-8f09-cfeb4280e64a",
+                  "name": "Update an adjustment type",
+                  "request": {
+                    "name": "Update an adjustment type",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "channelAdjustmentTypes",
+                        ":AdjustmentTypeId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "AdjustmentTypeId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the channel adjustment type. It is a primary key that the application generates when it creates the adjustment type.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"StartDate\": \"<date>\",\n  \"adjustmentReasons\": [\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false\n    },\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false\n    }\n  ],\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"EndDate\": \"<date>\",\n  \"Reason\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "d48996d7-c157-41cb-b7f5-674e48b34921",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "channelAdjustmentTypes",
+                            ":AdjustmentTypeId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"StartDate\": \"<date>\",\n  \"adjustmentReasons\": [\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false\n    },\n    {\n      \"AdjustmentTypeId\": \"<long>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false\n    }\n  ],\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"EndDate\": \"<date>\",\n  \"Reason\": \"<string>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"PredefinedAdjustmentType\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"SellSideFlag\": false,\n  \"SetName\": \"<string>\",\n  \"AdjustmentNumberPrefix\": \"<string>\",\n  \"BuySideFlag\": \"<boolean>\",\n  \"EndDate\": \"<date>\",\n  \"SetCode\": \"<string>\",\n  \"Reason\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"AdjustmentTypeId\": \"<long>\",\n  \"AdjustmentTypeCode\": \"<string>\",\n  \"StartDate\": \"<date>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"adjustmentReasons\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"AdjustmentReasonId\": \"<long>\",\n      \"ReasonCode\": \"<string>\",\n      \"AdjustmentTypeId\": \"<long>\",\n      \"AdjustmentReason\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DefaultFlag\": false,\n      \"EnabledFlag\": false,\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ],\n  \"SetId\": \"<long>\",\n  \"PredefinedAdjustmentTypeCode\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

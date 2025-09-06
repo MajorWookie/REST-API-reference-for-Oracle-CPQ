@@ -1,0 +1,1856 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Assetwarrantycontracts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Assetwarrantycontracts",
+      "description": "",
+      "item": [
+        {
+          "name": "assetWarrantyContracts",
+          "description": "",
+          "item": [
+            {
+              "name": "{ContractId}",
+              "description": "",
+              "item": [
+                {
+                  "id": "48058f2f-e32e-4e80-8619-848ddb635376",
+                  "name": "Get one contract",
+                  "request": {
+                    "name": "Get one contract",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "assetWarrantyContracts",
+                        ":ContractId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ContractId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "757b29b8-eb82-4d89-8112-63c77fda5e0f",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "assetWarrantyContracts",
+                            ":ContractId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"RootAssetNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractStartDate\": \"<date>\",\n  \"contractMeters\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"CoverageName\": \"<string>\",\n  \"ObjectTypeCode\": \"<string>\",\n  \"CoverageDescription\": \"<string>\",\n  \"ContractStatus\": \"<string>\",\n  \"ContractNotes\": \"<string>\",\n  \"RootAssetId\": \"<long>\",\n  \"AssetNumber\": \"<string>\",\n  \"ObjectType\": \"<string>\",\n  \"ExternalReferenceNumber\": \"<string>\",\n  \"CoverageId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CoverageCode\": \"<string>\",\n  \"ObjectId\": \"<long>\",\n  \"ContractEndDate\": \"<date>\",\n  \"WarrantyProviderName\": \"<string>\",\n  \"ContractId\": \"<long>\",\n  \"WarrantyProviderNumber\": \"<string>\",\n  \"AssetSerialNumber\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"AssetId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "c8af17b6-f74c-45e1-8370-b3dd34280a32",
+                  "name": "Update one contract",
+                  "request": {
+                    "name": "Update one contract",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "assetWarrantyContracts",
+                        ":ContractId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "ContractId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ContractStartDate\": \"<date>\",\n  \"CoverageCode\": \"<string>\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"contractMeters\": [\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterIntervalValue\": \"<number>\"\n    },\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterIntervalValue\": \"<number>\"\n    }\n  ],\n  \"ContractEndDate\": \"<date>\",\n  \"ExternalReferenceNumber\": \"<string>\",\n  \"ContractNotes\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "0f6afa9d-c84e-4beb-8ed7-5fd0d97482f9",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "assetWarrantyContracts",
+                            ":ContractId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ContractStartDate\": \"<date>\",\n  \"CoverageCode\": \"<string>\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"contractMeters\": [\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterIntervalValue\": \"<number>\"\n    },\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterIntervalValue\": \"<number>\"\n    }\n  ],\n  \"ContractEndDate\": \"<date>\",\n  \"ExternalReferenceNumber\": \"<string>\",\n  \"ContractNotes\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"RootAssetNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractStartDate\": \"<date>\",\n  \"contractMeters\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"CoverageName\": \"<string>\",\n  \"ObjectTypeCode\": \"<string>\",\n  \"CoverageDescription\": \"<string>\",\n  \"ContractStatus\": \"<string>\",\n  \"ContractNotes\": \"<string>\",\n  \"RootAssetId\": \"<long>\",\n  \"AssetNumber\": \"<string>\",\n  \"ObjectType\": \"<string>\",\n  \"ExternalReferenceNumber\": \"<string>\",\n  \"CoverageId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CoverageCode\": \"<string>\",\n  \"ObjectId\": \"<long>\",\n  \"ContractEndDate\": \"<date>\",\n  \"WarrantyProviderName\": \"<string>\",\n  \"ContractId\": \"<long>\",\n  \"WarrantyProviderNumber\": \"<string>\",\n  \"AssetSerialNumber\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"AssetId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "contractMeters",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{ContractMeterId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "bc73f4a7-2ecc-4844-9290-fd56a3e0649c",
+                              "name": "Get one contract meter",
+                              "request": {
+                                "name": "Get one contract meter",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "assetWarrantyContracts",
+                                    ":ContractId",
+                                    "child",
+                                    "contractMeters",
+                                    ":ContractMeterId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ContractId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ContractMeterId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the warranty contract meter. The application creates this value when it creates the contract meter.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "72cc2ec8-e818-4901-b158-b6260f9ac1e0",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "assetWarrantyContracts",
+                                        ":ContractId",
+                                        "child",
+                                        "contractMeters",
+                                        ":ContractMeterId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CalculatedDueDate\": \"<date>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"ContractMeterId\": \"<long>\",\n  \"ContractId\": \"<long>\",\n  \"MeterDescription\": \"<string>\",\n  \"MeterId\": \"<long>\",\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterName\": \"<string>\",\n  \"MeterIntervalValue\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<date>\",\n  \"MeterEndValue\": \"<number>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "4b268785-1522-4a34-9f18-9d65bf2e8c36",
+                              "name": "Update a contract meter",
+                              "request": {
+                                "name": "Update a contract meter",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "assetWarrantyContracts",
+                                    ":ContractId",
+                                    "child",
+                                    "contractMeters",
+                                    ":ContractMeterId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ContractId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ContractMeterId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the warranty contract meter. The application creates this value when it creates the contract meter.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"MeterIntervalValue\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "1ce382e7-d8e0-4620-ade6-4501fabfa90f",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "assetWarrantyContracts",
+                                        ":ContractId",
+                                        "child",
+                                        "contractMeters",
+                                        ":ContractMeterId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"MeterIntervalValue\": \"<number>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CalculatedDueDate\": \"<date>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"ContractMeterId\": \"<long>\",\n  \"ContractId\": \"<long>\",\n  \"MeterDescription\": \"<string>\",\n  \"MeterId\": \"<long>\",\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterName\": \"<string>\",\n  \"MeterIntervalValue\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<date>\",\n  \"MeterEndValue\": \"<number>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "c2707cac-8545-4c4a-9ff3-6a240f346045",
+                          "name": "Get all contract meters",
+                          "request": {
+                            "name": "Get all contract meters",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "assetWarrantyContracts",
+                                ":ContractId",
+                                "child",
+                                "contractMeters"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date that indicates if a meter definition is disabled for a warranty contract.</li><li>CalculatedDueDate; string; The calculated contract due date value in a warranty contract.</li><li>ContractId; integer; Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractMeterId; integer; Value that uniquely identifies the warranty contract meter. The application creates this value when it creates the contract meter.</li><li>CreatedBy; string; Login user name of the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>DisabledFlag; boolean; Flag that is used to set the active end date of the contract meters.Valid values are Y and N.</li><li>LastUpdateDate; string; Date when the record was updated.</li><li>LastUpdatedBy; string; Login user name of the user who updated the record.</li><li>MeterCode; string; Abbreviation that uniquely identifies a meter definition in a warranty contract.</li><li>MeterDescription; string; The description of a meter definition.</li><li>MeterEndValue; number; End value for a meter in a warranty contract.</li><li>MeterId; integer; Value that uniquely identifies the meter definition in a warranty contract.  The meter must be active for the asset number referenced in the contract.</li><li>MeterIntervalValue; number; The interval value for a meter in a warranty contract.</li><li>MeterName; string; The name of a meter definition.</li><li>MeterStartValue; number; The start value for a meter in a warranty contract.</li><li>UOMCode; string; Abbreviation that uniquely identifies the unit of measure for the meter. A list of accepted values is defined in the lookup type TBD. This attribute is required if the Duration is defined, else it is optional.</li><li>UnitOfMeasure; string; Name of the unit of measure for the warranty.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds contract meters according to the contract meter identifier.<br>Finder Variables: <ul><li>ContractMeterId; integer; Value that uniquely identifies the contract meter.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "ContractId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "45bfbaf7-4d0c-4a98-b495-30c3bd9beed6",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "assetWarrantyContracts",
+                                    ":ContractId",
+                                    "child",
+                                    "contractMeters"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date that indicates if a meter definition is disabled for a warranty contract.</li><li>CalculatedDueDate; string; The calculated contract due date value in a warranty contract.</li><li>ContractId; integer; Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractMeterId; integer; Value that uniquely identifies the warranty contract meter. The application creates this value when it creates the contract meter.</li><li>CreatedBy; string; Login user name of the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>DisabledFlag; boolean; Flag that is used to set the active end date of the contract meters.Valid values are Y and N.</li><li>LastUpdateDate; string; Date when the record was updated.</li><li>LastUpdatedBy; string; Login user name of the user who updated the record.</li><li>MeterCode; string; Abbreviation that uniquely identifies a meter definition in a warranty contract.</li><li>MeterDescription; string; The description of a meter definition.</li><li>MeterEndValue; number; End value for a meter in a warranty contract.</li><li>MeterId; integer; Value that uniquely identifies the meter definition in a warranty contract.  The meter must be active for the asset number referenced in the contract.</li><li>MeterIntervalValue; number; The interval value for a meter in a warranty contract.</li><li>MeterName; string; The name of a meter definition.</li><li>MeterStartValue; number; The start value for a meter in a warranty contract.</li><li>UOMCode; string; Abbreviation that uniquely identifies the unit of measure for the meter. A list of accepted values is defined in the lookup type TBD. This attribute is required if the Duration is defined, else it is optional.</li><li>UnitOfMeasure; string; Name of the unit of measure for the warranty.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds contract meters according to the contract meter identifier.<br>Finder Variables: <ul><li>ContractMeterId; integer; Value that uniquely identifies the contract meter.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "ebd95a2b-2bbf-46e7-8973-a949806a8b45",
+                          "name": "Create one contract meter",
+                          "request": {
+                            "name": "Create one contract meter",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "assetWarrantyContracts",
+                                ":ContractId",
+                                "child",
+                                "contractMeters"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "ContractId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"MeterId\": \"<long>\",\n  \"MeterIntervalValue\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "d176d59b-ad42-4cc8-a0ad-8b0e62288287",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "assetWarrantyContracts",
+                                    ":ContractId",
+                                    "child",
+                                    "contractMeters"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"MeterId\": \"<long>\",\n  \"MeterIntervalValue\": \"<number>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CalculatedDueDate\": \"<date>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterStartValue\": \"<number>\",\n  \"ContractMeterId\": \"<long>\",\n  \"ContractId\": \"<long>\",\n  \"MeterDescription\": \"<string>\",\n  \"MeterId\": \"<long>\",\n  \"DisabledFlag\": \"<boolean>\",\n  \"MeterName\": \"<string>\",\n  \"MeterIntervalValue\": \"<number>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<date>\",\n  \"MeterEndValue\": \"<number>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "2b2ab776-8e2f-498b-87e9-af97e9d370fb",
+              "name": "Get all contracts",
+              "request": {
+                "name": "Get all contracts",
+                "description": {},
+                "url": {
+                  "path": [
+                    "assetWarrantyContracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssetId; integer; Value that uniquely identifies an asset.</li><li>AssetNumber; string; Number that uniquely identifies an asset.</li><li>AssetSerialNumber; string; Serial number of an asset.</li><li>CalculatedExpirationDate; string; Calculated expiration date of the warranty contract.  This attribute is the latest expiration date among the contract meters.</li><li>ContractEndDate; string; End Date of the warranty contract.</li><li>ContractId; integer; Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractNotes; string; Notes of the warranty contract.</li><li>ContractNumber; string; Number that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractStartDate; string; Start Date of the warranty contract. This attribute is required.</li><li>ContractStatus; string; Name of the status for the warranty coverage.</li><li>ContractStatusCode; string; Status of the warranty contract.  A list of accepted values is defined in the lookup type ORA_CSE_WTY_CONTRACT_STATUS. This attribute is required to create the coverage.</li><li>CoverageCode; string; Abbreviation that uniquely identifies the warranty coverage. This attribute is required to create the warranty contract.</li><li>CoverageDescription; string; Description of the warranty coverage.</li><li>CoverageId; integer; Value that uniquely identifies the warranty coverage.</li><li>CoverageName; string; Name of the warranty coverage.</li><li>CreatedBy; string; Login username of the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>ExternalReferenceNumber; string; Number of an external reference to the warranty contract.  This attribute is optinal.</li><li>LastUpdateDate; string; Date when the record was updated.</li><li>LastUpdatedBy; string; Login username of the user who updated the record.</li><li>ObjectId; integer; Value that uniquely identifies the object in a warranty contract. This attribute is required.</li><li>ObjectType; string; Name of the object type code.</li><li>ObjectTypeCode; string; Abbreviation that uniquely identifies the type of object for the warranty contract. A list of accepted values is defined in the lookup type ORA_CSE_WTY_CONTRACT_OBJECT. This attribute is required.</li><li>RootAssetId; integer; Value that uniquely identifies the root asset.</li><li>RootAssetNumber; string; Number that uniquely identifies the root asset.</li><li>WarrantyProviderName; string; Value that identifies the warranty provider name attribute for the contracts.</li><li>WarrantyProviderNumber; string; Value that identifies the warranty provider number attribute for the contracts.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ContractsByAssetId: Returns a list of contracts for an asset and its related assets in a hierarchy.<br>Finder Variables: <ul><li>AssetId; integer; Value that uniquely identifies the asset.</li></ul></li><li>ContractsByRootAssetId: Returns a list of Contracts by a common root asset id.<br>Finder Variables: <ul><li>RootAssetId; integer; Value that uniquely identifies a common root asset id.</li></ul></li><li>ContractsByRootAssetNumber: Returns a list of Contracts by a common root asset number.<br>Finder Variables: <ul><li>RootAssetNumber; string; Value that uniquely identifies a common root asset number.</li></ul></li><li>ContractsByTransactionCode: Returns a list of contracts by a common root asset ID and repair transaction code.<br>Finder Variables: <ul><li>BindRepairTransactionCode; string; Values that uniquely identifies a repair transaction code.</li><li>BindRootAssetId; integer; Values that uniquely identifies a common root asset ID.</li></ul></li><li>PrimaryKey: Finds contract definitions according to the contract number.<br>Finder Variables: <ul><li>ContractId; integer.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "a86e8554-edbb-4a0f-9d77-9ce113c8226a",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "assetWarrantyContracts"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssetId; integer; Value that uniquely identifies an asset.</li><li>AssetNumber; string; Number that uniquely identifies an asset.</li><li>AssetSerialNumber; string; Serial number of an asset.</li><li>CalculatedExpirationDate; string; Calculated expiration date of the warranty contract.  This attribute is the latest expiration date among the contract meters.</li><li>ContractEndDate; string; End Date of the warranty contract.</li><li>ContractId; integer; Value that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractNotes; string; Notes of the warranty contract.</li><li>ContractNumber; string; Number that uniquely identifies the warranty contract. The application creates this value when it creates the contract.</li><li>ContractStartDate; string; Start Date of the warranty contract. This attribute is required.</li><li>ContractStatus; string; Name of the status for the warranty coverage.</li><li>ContractStatusCode; string; Status of the warranty contract.  A list of accepted values is defined in the lookup type ORA_CSE_WTY_CONTRACT_STATUS. This attribute is required to create the coverage.</li><li>CoverageCode; string; Abbreviation that uniquely identifies the warranty coverage. This attribute is required to create the warranty contract.</li><li>CoverageDescription; string; Description of the warranty coverage.</li><li>CoverageId; integer; Value that uniquely identifies the warranty coverage.</li><li>CoverageName; string; Name of the warranty coverage.</li><li>CreatedBy; string; Login username of the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>ExternalReferenceNumber; string; Number of an external reference to the warranty contract.  This attribute is optinal.</li><li>LastUpdateDate; string; Date when the record was updated.</li><li>LastUpdatedBy; string; Login username of the user who updated the record.</li><li>ObjectId; integer; Value that uniquely identifies the object in a warranty contract. This attribute is required.</li><li>ObjectType; string; Name of the object type code.</li><li>ObjectTypeCode; string; Abbreviation that uniquely identifies the type of object for the warranty contract. A list of accepted values is defined in the lookup type ORA_CSE_WTY_CONTRACT_OBJECT. This attribute is required.</li><li>RootAssetId; integer; Value that uniquely identifies the root asset.</li><li>RootAssetNumber; string; Number that uniquely identifies the root asset.</li><li>WarrantyProviderName; string; Value that identifies the warranty provider name attribute for the contracts.</li><li>WarrantyProviderNumber; string; Value that identifies the warranty provider number attribute for the contracts.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ContractsByAssetId: Returns a list of contracts for an asset and its related assets in a hierarchy.<br>Finder Variables: <ul><li>AssetId; integer; Value that uniquely identifies the asset.</li></ul></li><li>ContractsByRootAssetId: Returns a list of Contracts by a common root asset id.<br>Finder Variables: <ul><li>RootAssetId; integer; Value that uniquely identifies a common root asset id.</li></ul></li><li>ContractsByRootAssetNumber: Returns a list of Contracts by a common root asset number.<br>Finder Variables: <ul><li>RootAssetNumber; string; Value that uniquely identifies a common root asset number.</li></ul></li><li>ContractsByTransactionCode: Returns a list of contracts by a common root asset ID and repair transaction code.<br>Finder Variables: <ul><li>BindRepairTransactionCode; string; Values that uniquely identifies a repair transaction code.</li><li>BindRootAssetId; integer; Values that uniquely identifies a common root asset ID.</li></ul></li><li>PrimaryKey: Finds contract definitions according to the contract number.<br>Finder Variables: <ul><li>ContractId; integer.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"RootAssetNumber\": \"<string>\",\n      \"ContractNumber\": \"<string>\",\n      \"ContractStartDate\": \"<date>\",\n      \"contractMeters\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CalculatedDueDate\": \"<date>\",\n          \"CreatedBy\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"MeterCode\": \"<string>\",\n          \"MeterStartValue\": \"<number>\",\n          \"ContractMeterId\": \"<long>\",\n          \"ContractId\": \"<long>\",\n          \"MeterDescription\": \"<string>\",\n          \"MeterId\": \"<long>\",\n          \"DisabledFlag\": \"<boolean>\",\n          \"MeterName\": \"<string>\",\n          \"MeterIntervalValue\": \"<number>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"UOMCode\": \"<string>\",\n          \"ActiveEndDate\": \"<date>\",\n          \"MeterEndValue\": \"<number>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CalculatedDueDate\": \"<date>\",\n          \"CreatedBy\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"MeterCode\": \"<string>\",\n          \"MeterStartValue\": \"<number>\",\n          \"ContractMeterId\": \"<long>\",\n          \"ContractId\": \"<long>\",\n          \"MeterDescription\": \"<string>\",\n          \"MeterId\": \"<long>\",\n          \"DisabledFlag\": \"<boolean>\",\n          \"MeterName\": \"<string>\",\n          \"MeterIntervalValue\": \"<number>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"UOMCode\": \"<string>\",\n          \"ActiveEndDate\": \"<date>\",\n          \"MeterEndValue\": \"<number>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ],\n      \"CoverageName\": \"<string>\",\n      \"ObjectTypeCode\": \"<string>\",\n      \"CoverageDescription\": \"<string>\",\n      \"ContractStatus\": \"<string>\",\n      \"ContractNotes\": \"<string>\",\n      \"RootAssetId\": \"<long>\",\n      \"AssetNumber\": \"<string>\",\n      \"ObjectType\": \"<string>\",\n      \"ExternalReferenceNumber\": \"<string>\",\n      \"CoverageId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"CoverageCode\": \"<string>\",\n      \"ObjectId\": \"<long>\",\n      \"ContractEndDate\": \"<date>\",\n      \"WarrantyProviderName\": \"<string>\",\n      \"ContractId\": \"<long>\",\n      \"WarrantyProviderNumber\": \"<string>\",\n      \"AssetSerialNumber\": \"<string>\",\n      \"ContractStatusCode\": \"ORA_READY\",\n      \"CalculatedExpirationDate\": \"<date>\",\n      \"AssetId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"RootAssetNumber\": \"<string>\",\n      \"ContractNumber\": \"<string>\",\n      \"ContractStartDate\": \"<date>\",\n      \"contractMeters\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CalculatedDueDate\": \"<date>\",\n          \"CreatedBy\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"MeterCode\": \"<string>\",\n          \"MeterStartValue\": \"<number>\",\n          \"ContractMeterId\": \"<long>\",\n          \"ContractId\": \"<long>\",\n          \"MeterDescription\": \"<string>\",\n          \"MeterId\": \"<long>\",\n          \"DisabledFlag\": \"<boolean>\",\n          \"MeterName\": \"<string>\",\n          \"MeterIntervalValue\": \"<number>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"UOMCode\": \"<string>\",\n          \"ActiveEndDate\": \"<date>\",\n          \"MeterEndValue\": \"<number>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"CalculatedDueDate\": \"<date>\",\n          \"CreatedBy\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"MeterCode\": \"<string>\",\n          \"MeterStartValue\": \"<number>\",\n          \"ContractMeterId\": \"<long>\",\n          \"ContractId\": \"<long>\",\n          \"MeterDescription\": \"<string>\",\n          \"MeterId\": \"<long>\",\n          \"DisabledFlag\": \"<boolean>\",\n          \"MeterName\": \"<string>\",\n          \"MeterIntervalValue\": \"<number>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"UOMCode\": \"<string>\",\n          \"ActiveEndDate\": \"<date>\",\n          \"MeterEndValue\": \"<number>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ],\n      \"CoverageName\": \"<string>\",\n      \"ObjectTypeCode\": \"<string>\",\n      \"CoverageDescription\": \"<string>\",\n      \"ContractStatus\": \"<string>\",\n      \"ContractNotes\": \"<string>\",\n      \"RootAssetId\": \"<long>\",\n      \"AssetNumber\": \"<string>\",\n      \"ObjectType\": \"<string>\",\n      \"ExternalReferenceNumber\": \"<string>\",\n      \"CoverageId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"CoverageCode\": \"<string>\",\n      \"ObjectId\": \"<long>\",\n      \"ContractEndDate\": \"<date>\",\n      \"WarrantyProviderName\": \"<string>\",\n      \"ContractId\": \"<long>\",\n      \"WarrantyProviderNumber\": \"<string>\",\n      \"AssetSerialNumber\": \"<string>\",\n      \"ContractStatusCode\": \"ORA_READY\",\n      \"CalculatedExpirationDate\": \"<date>\",\n      \"AssetId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "004bf536-4fa1-4015-816e-75ad366cc894",
+              "name": "Create one contract",
+              "request": {
+                "name": "Create one contract",
+                "description": {},
+                "url": {
+                  "path": [
+                    "assetWarrantyContracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AssetNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"CoverageId\": \"<long>\",\n  \"ObjectId\": \"<long>\",\n  \"ObjectTypeCode\": \"<string>\",\n  \"ContractStartDate\": \"<date>\",\n  \"CoverageCode\": \"<string>\",\n  \"contractMeters\": [\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterId\": \"<long>\",\n      \"MeterIntervalValue\": \"<number>\"\n    },\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterId\": \"<long>\",\n      \"MeterIntervalValue\": \"<number>\"\n    }\n  ],\n  \"ContractEndDate\": \"<date>\",\n  \"ContractNotes\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"ExternalReferenceNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "f9b26663-b3ae-40e1-ad57-cca061651cc3",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "assetWarrantyContracts"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"AssetNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"CoverageId\": \"<long>\",\n  \"ObjectId\": \"<long>\",\n  \"ObjectTypeCode\": \"<string>\",\n  \"ContractStartDate\": \"<date>\",\n  \"CoverageCode\": \"<string>\",\n  \"contractMeters\": [\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterId\": \"<long>\",\n      \"MeterIntervalValue\": \"<number>\"\n    },\n    {\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"MeterId\": \"<long>\",\n      \"MeterIntervalValue\": \"<number>\"\n    }\n  ],\n  \"ContractEndDate\": \"<date>\",\n  \"ContractNotes\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"ExternalReferenceNumber\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"RootAssetNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractStartDate\": \"<date>\",\n  \"contractMeters\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CalculatedDueDate\": \"<date>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MeterStartValue\": \"<number>\",\n      \"ContractMeterId\": \"<long>\",\n      \"ContractId\": \"<long>\",\n      \"MeterDescription\": \"<string>\",\n      \"MeterId\": \"<long>\",\n      \"DisabledFlag\": \"<boolean>\",\n      \"MeterName\": \"<string>\",\n      \"MeterIntervalValue\": \"<number>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<date>\",\n      \"MeterEndValue\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"CoverageName\": \"<string>\",\n  \"ObjectTypeCode\": \"<string>\",\n  \"CoverageDescription\": \"<string>\",\n  \"ContractStatus\": \"<string>\",\n  \"ContractNotes\": \"<string>\",\n  \"RootAssetId\": \"<long>\",\n  \"AssetNumber\": \"<string>\",\n  \"ObjectType\": \"<string>\",\n  \"ExternalReferenceNumber\": \"<string>\",\n  \"CoverageId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CoverageCode\": \"<string>\",\n  \"ObjectId\": \"<long>\",\n  \"ContractEndDate\": \"<date>\",\n  \"WarrantyProviderName\": \"<string>\",\n  \"ContractId\": \"<long>\",\n  \"WarrantyProviderNumber\": \"<string>\",\n  \"AssetSerialNumber\": \"<string>\",\n  \"ContractStatusCode\": \"ORA_READY\",\n  \"CalculatedExpirationDate\": \"<date>\",\n  \"AssetId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

@@ -1,0 +1,2005 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Metertemplates",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Metertemplates",
+      "description": "",
+      "item": [
+        {
+          "name": "meterTemplates",
+          "description": "",
+          "item": [
+            {
+              "name": "{MeterDefinitionId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "MeterApplicability",
+                      "description": "",
+                      "item": [
+                        {
+                          "id": "d7bb448e-d403-4307-90e9-b397d92370e8",
+                          "name": "Get all applicabilities",
+                          "request": {
+                            "name": "Get all applicabilities",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "meterTemplates",
+                                ":MeterDefinitionId",
+                                "child",
+                                "MeterApplicability"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date when to stop using the item to create a meter for a new asset.</li><li>ActiveStartDate; string; Date when to start using the item to create a meter for a new asset.</li><li>ApplicabilityId; integer; Value that uniquely identifies the meter applicability.</li><li>ItemDescription; string; Description of the item that the meter measures.</li><li>ItemId; integer; Value that uniquely identifies the item that the meter measures.</li><li>ItemNumber; string; Number that identifies the item.</li><li>MasterOrganizationCode; string; Abbreviation that identifies the organization where the work order creates the item.</li><li>MasterOrganizationId; integer; Value that uniquely identifies the organization where the work order creates the item.</li><li>MeterDefinitionId; integer; Value that uniquely identifies the meter.</li><li>ObjectVersionNumber; integer; Number that identifies the object version.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ItemAssoByItemAndOrg: Find the applicability according to item identifier and organization identifier.<br>Finder Variables: <ul><li>MasterOrganizationId; integer; Value that uniquely identifies the item.</li><li>ObjectId; integer; Value that uniquely identifies the organization.</li></ul></li><li>ItemByApplicabilityId: Find the applicability according to the value that identifies the applicability as the primary key.<br>Finder Variables: <ul><li>ApplicabilityId; integer; Value that uniquely identifies the applicability. </li></ul></li><li>PrimaryKey: Find the applicability according to the value that identifies the applicability.<br>Finder Variables: <ul><li>ApplicabilityId; integer; Value that uniquely identifies the applicability.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "MeterDefinitionId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "4577485d-cf68-4b4b-8feb-713d0cba2244",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "meterTemplates",
+                                    ":MeterDefinitionId",
+                                    "child",
+                                    "MeterApplicability"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date when to stop using the item to create a meter for a new asset.</li><li>ActiveStartDate; string; Date when to start using the item to create a meter for a new asset.</li><li>ApplicabilityId; integer; Value that uniquely identifies the meter applicability.</li><li>ItemDescription; string; Description of the item that the meter measures.</li><li>ItemId; integer; Value that uniquely identifies the item that the meter measures.</li><li>ItemNumber; string; Number that identifies the item.</li><li>MasterOrganizationCode; string; Abbreviation that identifies the organization where the work order creates the item.</li><li>MasterOrganizationId; integer; Value that uniquely identifies the organization where the work order creates the item.</li><li>MeterDefinitionId; integer; Value that uniquely identifies the meter.</li><li>ObjectVersionNumber; integer; Number that identifies the object version.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ItemAssoByItemAndOrg: Find the applicability according to item identifier and organization identifier.<br>Finder Variables: <ul><li>MasterOrganizationId; integer; Value that uniquely identifies the item.</li><li>ObjectId; integer; Value that uniquely identifies the organization.</li></ul></li><li>ItemByApplicabilityId: Find the applicability according to the value that identifies the applicability as the primary key.<br>Finder Variables: <ul><li>ApplicabilityId; integer; Value that uniquely identifies the applicability. </li></ul></li><li>PrimaryKey: Find the applicability according to the value that identifies the applicability.<br>Finder Variables: <ul><li>ApplicabilityId; integer; Value that uniquely identifies the applicability.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "84204566-aed0-42ad-90ef-413b0882a2c3",
+                          "name": "Create applicabilities",
+                          "request": {
+                            "name": "Create applicabilities",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "meterTemplates",
+                                ":MeterDefinitionId",
+                                "child",
+                                "MeterApplicability"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "MeterDefinitionId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"MasterOrganizationCode\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"MasterOrganizationId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"ItemId\": \"<long>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "7beaaa45-6432-45c5-bbe3-9a3eee9ae455",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "meterTemplates",
+                                    ":MeterDefinitionId",
+                                    "child",
+                                    "MeterApplicability"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"MasterOrganizationCode\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"MasterOrganizationId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"ItemId\": \"<long>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"MasterOrganizationCode\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"MasterOrganizationId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ItemDescription\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "name": "{ApplicabilityId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "ddf47898-2389-48a2-b266-6b62cd5de6f3",
+                              "name": "Get one applicability",
+                              "request": {
+                                "name": "Get one applicability",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "meterTemplates",
+                                    ":MeterDefinitionId",
+                                    "child",
+                                    "MeterApplicability",
+                                    ":ApplicabilityId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "MeterDefinitionId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ApplicabilityId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the meter applicability.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "a7731ce2-85f8-4d25-8cc6-a1dc63c7d7ba",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "meterTemplates",
+                                        ":MeterDefinitionId",
+                                        "child",
+                                        "MeterApplicability",
+                                        ":ApplicabilityId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"MasterOrganizationCode\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"MasterOrganizationId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ItemDescription\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "f26a014a-6f4a-4068-b0f8-135a31d013ea",
+                              "name": "Update one applicability",
+                              "request": {
+                                "name": "Update one applicability",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "meterTemplates",
+                                    ":MeterDefinitionId",
+                                    "child",
+                                    "MeterApplicability",
+                                    ":ApplicabilityId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "MeterDefinitionId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "ApplicabilityId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the meter applicability.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "75e87d46-d666-4ca2-b6f3-029105d632f9",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "meterTemplates",
+                                        ":MeterDefinitionId",
+                                        "child",
+                                        "MeterApplicability",
+                                        ":ApplicabilityId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"MasterOrganizationCode\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"MasterOrganizationId\": \"<long>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ItemDescription\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"ApplicabilityId\": \"<long>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "4db3494f-c370-4345-babe-b3e788450ac2",
+                  "name": "Get one template",
+                  "request": {
+                    "name": "Get one template",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "meterTemplates",
+                        ":MeterDefinitionId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "MeterDefinitionId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "3bb0efbc-ddf4-43b2-a5bd-781ff8a9df54",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "meterTemplates",
+                            ":MeterDefinitionId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"MeterType\": \"<string>\",\n  \"MeterTypeCode\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterDescription\": \"<string>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ReadingType\": \"<string>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"MeterName\": \"<string>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ResetValue\": \"<number>\",\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"Status\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingTypeCode\": \"<string>\",\n  \"ReadingMaximumValue\": \"<number>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"RecordAtWoCompletion\": \"<string>\",\n  \"RolloverAllowed\": \"<string>\",\n  \"MeterApplicability\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"ReadingDirection\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"ResetAllowed\": \"<string>\",\n  \"InitialReadingValue\": \"<number>\",\n  \"ReadingDirectionMeaning\": \"<string>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "f26f180b-82ad-4073-92fa-1861fa19a62e",
+                  "name": "Update one template",
+                  "request": {
+                    "name": "Update one template",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "meterTemplates",
+                        ":MeterDefinitionId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "MeterDefinitionId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Status\": \"<string>\",\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingMaximumValue\": \"<number>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterApplicability\": [\n    {\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"MeterDescription\": \"<string>\",\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"InitialReadingValue\": \"<number>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"ResetValue\": \"<number>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "8303d8c9-5209-4cda-b6ab-7fd627d3a840",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "meterTemplates",
+                            ":MeterDefinitionId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Status\": \"<string>\",\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingMaximumValue\": \"<number>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterApplicability\": [\n    {\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"MeterDescription\": \"<string>\",\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"InitialReadingValue\": \"<number>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"ResetValue\": \"<number>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"MeterType\": \"<string>\",\n  \"MeterTypeCode\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterDescription\": \"<string>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ReadingType\": \"<string>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"MeterName\": \"<string>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ResetValue\": \"<number>\",\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"Status\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingTypeCode\": \"<string>\",\n  \"ReadingMaximumValue\": \"<number>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"RecordAtWoCompletion\": \"<string>\",\n  \"RolloverAllowed\": \"<string>\",\n  \"MeterApplicability\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"ReadingDirection\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"ResetAllowed\": \"<string>\",\n  \"InitialReadingValue\": \"<number>\",\n  \"ReadingDirectionMeaning\": \"<string>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "9412599d-d442-410d-bc04-51087dfdb562",
+              "name": "Get all templates",
+              "request": {
+                "name": "Get all templates",
+                "description": {},
+                "url": {
+                  "path": [
+                    "meterTemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date when a meter template definition can no longer be associated to an asset. It is also used as the default active end date for the associated meters created for an asset. The date must be equal to or greater than the system date, greater than the active start date, and can be updated only for the meter template definition.</li><li>ActiveStartDate; string; Date when a meter template definition can be associated to an asset. It is also used as the default active start date for the associated meters created for an asset. The date must be equal to or greater than the system date, less than the active end date, and can be updated only for the meter template definition.</li><li>AllowInMaintProgramFlag; boolean; Determines whether you can use the meter for maintenance.</li><li>DailyUtilizationRate; number; Base utilization rate for each day. The application uses this attribute only if it does not calculate the daily utilization rate for the meter.</li><li>InitialReadingValue; number; Value of the initial reading in the meter template definition. It is used to default the initial reading for the associated meters created for an asset. The value can be updated only for the meter template definition.</li><li>MeterCode; string; Abbreviation that uniquely identifies a meter template definition. The code must be an alphanumeric value that includes uppercase alphabets. This value is referenced by the associated meters created for an asset. The code cannot be updated after creation.</li><li>MeterDefinitionId; integer; Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.</li><li>MeterDescription; string; Description of the meter template definition. This value is displayed in the contextual action region for the associated meters created for an asset. The description cannot be updated after creation.</li><li>MeterName; string; Name of the meter template definition. The combination of name and code provides a unique identification of a meter template definition in user interfaces. This value is referenced by the associated meters created for an asset. The name cannot be updated after creation.</li><li>MeterType; string; Descriptive meaning of the meter type code for the meter template definition that is returned after creation or retrieval. A list of accepted values is defined in the lookup ORA_CSE_METER_TYPE_CODE.</li><li>MeterTypeCode; string; Type of meter in the meter template definition. This value is referenced by the associated meters created for an asset. It identifies whether the meter is a continuous (for example, an odometer) or gauge (for example a thermometer) type. A list of accepted values is defined in the lookup ORA_CSE_METER_TYPE_CODE. The meter type cannot be updated in the list of values or after creation in the meter template definition.</li><li>MetersCreatedFlag; boolean; Indicates if the meter template has been used to create one or more meters for an asset.</li><li>ReadingDirection; string; Direction of a meter in the meter template definition. This value is referenced by the associated meters created for an asset. Depending on the meter type, it identifies whether the meter direction is ascending, descending, or bidirectional. A list of accepted values is defined in the lookup ORA_CSE_DIRECTION. The direction cannot be updated in the list of values or after creation in the meter template definition.</li><li>ReadingDirectionMeaning; string; Descriptive meaning of the reading type code for the meter template definition that is returned after creation or retrieval. The meaning is from the seeded lookup code definition. A list of accepted values is defined in the lookup ORA_CSE_DIRECTION.</li><li>ReadingMaximumValue; number; Value of the maximum meter reading in the meter template definition.  It is referenced by the associated meters created for an asset. It can be defined only for a gauge absolute or a continuous change meter, as it is used to validate new readings recorded in the meter reading history. The value must be greater than zero and can be updated for the meter template definition after creation.</li><li>ReadingMinimumValue; number; Value of the minimum meter reading in the meter template definition.  It is referenced by the associated meters created for an asset. It can be defined only for a gauge absolute or a continuous change meter, as it is used to validate new readings recorded in the meter reading history. The value must be greater than zero and can be updated for the meter template definition after creation. If the meter template definition allows a rollover, then the value must be less than the rollover maximum value.</li><li>ReadingType; string; Descriptive reading type of the reading type code for the meter template definition that is returned after creation or retrieval. The meaning is from the seeded lookup code definition. A list of accepted values is defined in the lookup ORA_CSE_READING_TYPE_CODE.</li><li>ReadingTypeCode; string; Type of reading of a meter in the meter template definition. This value is referenced by the associated meters created for an asset. Depending on the meter type, it identifies whether the meter reading is recorded as an absolute value or a change (delta) value between the last and current value. A list of accepted values is defined in the lookup ORA_CSE_READING_TYPE_CODE. The reading type cannot be updated in the list of values or after creation in the meter template definition.</li><li>RecordAtWoComplCode; string; Abbreviation that identifies whether the application requires the meter recording while completing the work order.</li><li>RecordAtWoCompletion; string; Meaning that identifies if the application requires the meter recording while completing the work order.</li><li>ResetAllowed; string; Meaning of the reset allowed flag that is returned after creation or retrieval. If the flag is set to True, the value returned is Yes. If the flag is set to False, the value returned is No.</li><li>ResetAllowedFlag; boolean; Contains one of the following values: true or false. If true, then the asset meter is allowed to be reset when recording a new reading in the meter reading history. If false, then the asset meter is not allowed to be reset when recording a new reading in the meter reading history. The default value is false. It is referenced by the associated meters created for an asset. It cannot be defined for a gauge meter, and if set to true, then the reset value must also be defined. The flag can be updated after initial creation for the meter template definition.</li><li>ResetValue; number; Value of the reading that will be used for a reset event while recording the meter reading history. It is referenced by the associated meters created for an asset. The value must be greater than zero and should be equal to the lowest allowable reading value on a physical meter for an asset.</li><li>RolloverAllowed; string; Meaning of the rollover allowed flag that is returned after creation or retrieval.  If the flag is set to True, the value returned is Yes.  If the flag is set to False, the value returned is No.</li><li>RolloverAllowedFlag; boolean; Contains one of the following values: true or false. If true, then the asset meter is allowed to rollover when recording a new reading in the meter reading history. If false, then the asset meter is not allowed to rollover when recording a new reading in the meter reading history. The default value is false. It is referenced by the associated meters created for an asset. It can defined only for a continuous absolute or change ascending meter that may reach a maximum value before rolling over to a reset value and continuing recording. If set to true, then the rollover maximum and reset values must also be defined. The flag can be updated after initial creation for the meter template definition.</li><li>RolloverMaximumValue; number; Maximum value that will be used in the validations of a rollover event while recording meter reading history. It is referenced by the associated meters created for an asset. The value must be greater than zero and should equal the maximum allowable reading value on a physical meter for an asset, before the meter rolls over to a reset value and continues recording. The value can be updated after initial creation for the meter template definition.</li><li>RolloverResetValue; number; Minimum value that will be used in the validations of a rollover event while recording meter reading history. It is referenced by the associated meters created for an asset. the value should equal the minimum allowable reading value on a physical meter for an asset, after the meter rolls over to a reset value and continues recording. The value can be updated after initial creation for the meter template definition.</li><li>Status; string; Value that identifies if the meter is ready or expired.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure of the meter template definition. This value is referenced by the associated meters created for an asset. It provides a context for the defining, recording, and viewing the meter reading history. A list of accepted values is defined in the lookup ORA_CSE_UOM_CODE. The unit of measure cannot be updated after creation in the meter template definition.</li><li>UnitOfMeasure; string; Associated descriptive name of the unit of measure code for the meter template definition that is returned after creation or retrieval.</li><li>UtilizationRateComputedAt; integer; Number of readings to consider when calculating the utilization rate.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>MeterDefnByMeterDefnId: Find the meter according to the value that identifies the meter.<br>Finder Variables: <ul><li>MeterDefinitionId; integer; Value that uniquely identifies the meter.</li></ul></li><li>PrimaryKey: Find the meter according to the value that identifies the meter as the primary key.<br>Finder Variables: <ul><li>MeterDefinitionId; integer; Value that uniquely identifies the meter. </li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "e95ef10a-3e37-47e9-963b-6090b5897989",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "meterTemplates"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActiveEndDate; string; Date when a meter template definition can no longer be associated to an asset. It is also used as the default active end date for the associated meters created for an asset. The date must be equal to or greater than the system date, greater than the active start date, and can be updated only for the meter template definition.</li><li>ActiveStartDate; string; Date when a meter template definition can be associated to an asset. It is also used as the default active start date for the associated meters created for an asset. The date must be equal to or greater than the system date, less than the active end date, and can be updated only for the meter template definition.</li><li>AllowInMaintProgramFlag; boolean; Determines whether you can use the meter for maintenance.</li><li>DailyUtilizationRate; number; Base utilization rate for each day. The application uses this attribute only if it does not calculate the daily utilization rate for the meter.</li><li>InitialReadingValue; number; Value of the initial reading in the meter template definition. It is used to default the initial reading for the associated meters created for an asset. The value can be updated only for the meter template definition.</li><li>MeterCode; string; Abbreviation that uniquely identifies a meter template definition. The code must be an alphanumeric value that includes uppercase alphabets. This value is referenced by the associated meters created for an asset. The code cannot be updated after creation.</li><li>MeterDefinitionId; integer; Value that uniquely identifies a meter template definition. It is a value that the application generates when it creates a meter template definition. This value is referenced during retrieval and update of a meter template definition. This value cannot be updated after creation.</li><li>MeterDescription; string; Description of the meter template definition. This value is displayed in the contextual action region for the associated meters created for an asset. The description cannot be updated after creation.</li><li>MeterName; string; Name of the meter template definition. The combination of name and code provides a unique identification of a meter template definition in user interfaces. This value is referenced by the associated meters created for an asset. The name cannot be updated after creation.</li><li>MeterType; string; Descriptive meaning of the meter type code for the meter template definition that is returned after creation or retrieval. A list of accepted values is defined in the lookup ORA_CSE_METER_TYPE_CODE.</li><li>MeterTypeCode; string; Type of meter in the meter template definition. This value is referenced by the associated meters created for an asset. It identifies whether the meter is a continuous (for example, an odometer) or gauge (for example a thermometer) type. A list of accepted values is defined in the lookup ORA_CSE_METER_TYPE_CODE. The meter type cannot be updated in the list of values or after creation in the meter template definition.</li><li>MetersCreatedFlag; boolean; Indicates if the meter template has been used to create one or more meters for an asset.</li><li>ReadingDirection; string; Direction of a meter in the meter template definition. This value is referenced by the associated meters created for an asset. Depending on the meter type, it identifies whether the meter direction is ascending, descending, or bidirectional. A list of accepted values is defined in the lookup ORA_CSE_DIRECTION. The direction cannot be updated in the list of values or after creation in the meter template definition.</li><li>ReadingDirectionMeaning; string; Descriptive meaning of the reading type code for the meter template definition that is returned after creation or retrieval. The meaning is from the seeded lookup code definition. A list of accepted values is defined in the lookup ORA_CSE_DIRECTION.</li><li>ReadingMaximumValue; number; Value of the maximum meter reading in the meter template definition.  It is referenced by the associated meters created for an asset. It can be defined only for a gauge absolute or a continuous change meter, as it is used to validate new readings recorded in the meter reading history. The value must be greater than zero and can be updated for the meter template definition after creation.</li><li>ReadingMinimumValue; number; Value of the minimum meter reading in the meter template definition.  It is referenced by the associated meters created for an asset. It can be defined only for a gauge absolute or a continuous change meter, as it is used to validate new readings recorded in the meter reading history. The value must be greater than zero and can be updated for the meter template definition after creation. If the meter template definition allows a rollover, then the value must be less than the rollover maximum value.</li><li>ReadingType; string; Descriptive reading type of the reading type code for the meter template definition that is returned after creation or retrieval. The meaning is from the seeded lookup code definition. A list of accepted values is defined in the lookup ORA_CSE_READING_TYPE_CODE.</li><li>ReadingTypeCode; string; Type of reading of a meter in the meter template definition. This value is referenced by the associated meters created for an asset. Depending on the meter type, it identifies whether the meter reading is recorded as an absolute value or a change (delta) value between the last and current value. A list of accepted values is defined in the lookup ORA_CSE_READING_TYPE_CODE. The reading type cannot be updated in the list of values or after creation in the meter template definition.</li><li>RecordAtWoComplCode; string; Abbreviation that identifies whether the application requires the meter recording while completing the work order.</li><li>RecordAtWoCompletion; string; Meaning that identifies if the application requires the meter recording while completing the work order.</li><li>ResetAllowed; string; Meaning of the reset allowed flag that is returned after creation or retrieval. If the flag is set to True, the value returned is Yes. If the flag is set to False, the value returned is No.</li><li>ResetAllowedFlag; boolean; Contains one of the following values: true or false. If true, then the asset meter is allowed to be reset when recording a new reading in the meter reading history. If false, then the asset meter is not allowed to be reset when recording a new reading in the meter reading history. The default value is false. It is referenced by the associated meters created for an asset. It cannot be defined for a gauge meter, and if set to true, then the reset value must also be defined. The flag can be updated after initial creation for the meter template definition.</li><li>ResetValue; number; Value of the reading that will be used for a reset event while recording the meter reading history. It is referenced by the associated meters created for an asset. The value must be greater than zero and should be equal to the lowest allowable reading value on a physical meter for an asset.</li><li>RolloverAllowed; string; Meaning of the rollover allowed flag that is returned after creation or retrieval.  If the flag is set to True, the value returned is Yes.  If the flag is set to False, the value returned is No.</li><li>RolloverAllowedFlag; boolean; Contains one of the following values: true or false. If true, then the asset meter is allowed to rollover when recording a new reading in the meter reading history. If false, then the asset meter is not allowed to rollover when recording a new reading in the meter reading history. The default value is false. It is referenced by the associated meters created for an asset. It can defined only for a continuous absolute or change ascending meter that may reach a maximum value before rolling over to a reset value and continuing recording. If set to true, then the rollover maximum and reset values must also be defined. The flag can be updated after initial creation for the meter template definition.</li><li>RolloverMaximumValue; number; Maximum value that will be used in the validations of a rollover event while recording meter reading history. It is referenced by the associated meters created for an asset. The value must be greater than zero and should equal the maximum allowable reading value on a physical meter for an asset, before the meter rolls over to a reset value and continues recording. The value can be updated after initial creation for the meter template definition.</li><li>RolloverResetValue; number; Minimum value that will be used in the validations of a rollover event while recording meter reading history. It is referenced by the associated meters created for an asset. the value should equal the minimum allowable reading value on a physical meter for an asset, after the meter rolls over to a reset value and continues recording. The value can be updated after initial creation for the meter template definition.</li><li>Status; string; Value that identifies if the meter is ready or expired.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure of the meter template definition. This value is referenced by the associated meters created for an asset. It provides a context for the defining, recording, and viewing the meter reading history. A list of accepted values is defined in the lookup ORA_CSE_UOM_CODE. The unit of measure cannot be updated after creation in the meter template definition.</li><li>UnitOfMeasure; string; Associated descriptive name of the unit of measure code for the meter template definition that is returned after creation or retrieval.</li><li>UtilizationRateComputedAt; integer; Number of readings to consider when calculating the utilization rate.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>MeterDefnByMeterDefnId: Find the meter according to the value that identifies the meter.<br>Finder Variables: <ul><li>MeterDefinitionId; integer; Value that uniquely identifies the meter.</li></ul></li><li>PrimaryKey: Find the meter according to the value that identifies the meter as the primary key.<br>Finder Variables: <ul><li>MeterDefinitionId; integer; Value that uniquely identifies the meter. </li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"RolloverAllowedFlag\": \"<boolean>\",\n      \"MeterType\": \"<string>\",\n      \"MeterTypeCode\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MetersCreatedFlag\": false,\n      \"MeterDescription\": \"<string>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ReadingType\": \"<string>\",\n      \"ReadingMinimumValue\": \"<number>\",\n      \"MeterName\": \"<string>\",\n      \"UtilizationRateComputedAt\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ResetValue\": \"<number>\",\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"Status\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"RolloverResetValue\": \"<number>\",\n      \"AllowInMaintProgramFlag\": false,\n      \"ReadingTypeCode\": \"<string>\",\n      \"ReadingMaximumValue\": \"<number>\",\n      \"ResetAllowedFlag\": \"<boolean>\",\n      \"RecordAtWoCompletion\": \"<string>\",\n      \"RolloverAllowed\": \"<string>\",\n      \"MeterApplicability\": [\n        {\n          \"MasterOrganizationCode\": \"<string>\",\n          \"ActiveStartDate\": \"<dateTime>\",\n          \"MeterDefinitionId\": \"<long>\",\n          \"ItemNumber\": \"<string>\",\n          \"MasterOrganizationId\": \"<long>\",\n          \"ObjectVersionNumber\": \"<integer>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ItemDescription\": \"<string>\",\n          \"ItemId\": \"<long>\",\n          \"ActiveEndDate\": \"<dateTime>\",\n          \"ApplicabilityId\": \"<long>\"\n        },\n        {\n          \"MasterOrganizationCode\": \"<string>\",\n          \"ActiveStartDate\": \"<dateTime>\",\n          \"MeterDefinitionId\": \"<long>\",\n          \"ItemNumber\": \"<string>\",\n          \"MasterOrganizationId\": \"<long>\",\n          \"ObjectVersionNumber\": \"<integer>\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ItemDescription\": \"<string>\",\n          \"ItemId\": \"<long>\",\n          \"ActiveEndDate\": \"<dateTime>\",\n          \"ApplicabilityId\": \"<long>\"\n        }\n      ],\n      \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n      \"ReadingDirection\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"ResetAllowed\": \"<string>\",\n      \"InitialReadingValue\": \"<number>\",\n      \"ReadingDirectionMeaning\": \"<string>\",\n      \"RolloverMaximumValue\": \"<number>\",\n      \"DailyUtilizationRate\": \"<number>\"\n    },\n    {\n      \"RolloverAllowedFlag\": \"<boolean>\",\n      \"MeterType\": \"<string>\",\n      \"MeterTypeCode\": \"<string>\",\n      \"MeterCode\": \"<string>\",\n      \"MetersCreatedFlag\": false,\n      \"MeterDescription\": \"<string>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ReadingType\": \"<string>\",\n      \"ReadingMinimumValue\": \"<number>\",\n      \"MeterName\": \"<string>\",\n      \"UtilizationRateComputedAt\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ResetValue\": \"<number>\",\n      \"UOMCode\": \"<string>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"Status\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"RolloverResetValue\": \"<number>\",\n      \"AllowInMaintProgramFlag\": false,\n      \"ReadingTypeCode\": \"<string>\",\n      \"ReadingMaximumValue\": \"<number>\",\n      \"ResetAllowedFlag\": \"<boolean>\",\n      \"RecordAtWoCompletion\": \"<string>\",\n      \"RolloverAllowed\": \"<string>\",\n      \"MeterApplicability\": [\n        {\n          \"MasterOrganizationCode\": \"<string>\",\n          \"ActiveStartDate\": \"<dateTime>\",\n          \"MeterDefinitionId\": \"<long>\",\n          \"ItemNumber\": \"<string>\",\n          \"MasterOrganizationId\": \"<long>\",\n          \"ObjectVersionNumber\": \"<integer>\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ItemDescription\": \"<string>\",\n          \"ItemId\": \"<long>\",\n          \"ActiveEndDate\": \"<dateTime>\",\n          \"ApplicabilityId\": \"<long>\"\n        },\n        {\n          \"MasterOrganizationCode\": \"<string>\",\n          \"ActiveStartDate\": \"<dateTime>\",\n          \"MeterDefinitionId\": \"<long>\",\n          \"ItemNumber\": \"<string>\",\n          \"MasterOrganizationId\": \"<long>\",\n          \"ObjectVersionNumber\": \"<integer>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"ItemDescription\": \"<string>\",\n          \"ItemId\": \"<long>\",\n          \"ActiveEndDate\": \"<dateTime>\",\n          \"ApplicabilityId\": \"<long>\"\n        }\n      ],\n      \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n      \"ReadingDirection\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"ResetAllowed\": \"<string>\",\n      \"InitialReadingValue\": \"<number>\",\n      \"ReadingDirectionMeaning\": \"<string>\",\n      \"RolloverMaximumValue\": \"<number>\",\n      \"DailyUtilizationRate\": \"<number>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "b411dba0-a354-4c77-947b-0b15ec3eea69",
+              "name": "Create templates",
+              "request": {
+                "name": "Create templates",
+                "description": {},
+                "url": {
+                  "path": [
+                    "meterTemplates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterName\": \"<string>\",\n  \"MeterTypeCode\": \"<string>\",\n  \"ReadingDirection\": \"<string>\",\n  \"ReadingTypeCode\": \"<string>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"UOMCode\": \"<string>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterDescription\": \"<string>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"ResetValue\": \"<number>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"Status\": \"<string>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingMaximumValue\": \"<number>\",\n  \"MeterApplicability\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"InitialReadingValue\": \"<number>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "483d1cc1-ae79-4c4c-a1af-77de36a7167c",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "meterTemplates"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"MeterCode\": \"<string>\",\n  \"MeterName\": \"<string>\",\n  \"MeterTypeCode\": \"<string>\",\n  \"ReadingDirection\": \"<string>\",\n  \"ReadingTypeCode\": \"<string>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"UOMCode\": \"<string>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterDescription\": \"<string>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"ResetValue\": \"<number>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"Status\": \"<string>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingMaximumValue\": \"<number>\",\n  \"MeterApplicability\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"InitialReadingValue\": \"<number>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"RolloverAllowedFlag\": \"<boolean>\",\n  \"MeterType\": \"<string>\",\n  \"MeterTypeCode\": \"<string>\",\n  \"MeterCode\": \"<string>\",\n  \"MetersCreatedFlag\": false,\n  \"MeterDescription\": \"<string>\",\n  \"MeterDefinitionId\": \"<long>\",\n  \"ReadingType\": \"<string>\",\n  \"ReadingMinimumValue\": \"<number>\",\n  \"MeterName\": \"<string>\",\n  \"UtilizationRateComputedAt\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ResetValue\": \"<number>\",\n  \"UOMCode\": \"<string>\",\n  \"ActiveEndDate\": \"<dateTime>\",\n  \"Status\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"RolloverResetValue\": \"<number>\",\n  \"AllowInMaintProgramFlag\": false,\n  \"ReadingTypeCode\": \"<string>\",\n  \"ReadingMaximumValue\": \"<number>\",\n  \"ResetAllowedFlag\": \"<boolean>\",\n  \"RecordAtWoCompletion\": \"<string>\",\n  \"RolloverAllowed\": \"<string>\",\n  \"MeterApplicability\": [\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    },\n    {\n      \"MasterOrganizationCode\": \"<string>\",\n      \"ActiveStartDate\": \"<dateTime>\",\n      \"MeterDefinitionId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"MasterOrganizationId\": \"<long>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ItemDescription\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"ActiveEndDate\": \"<dateTime>\",\n      \"ApplicabilityId\": \"<long>\"\n    }\n  ],\n  \"RecordAtWoComplCode\": \"ORA_DO_NOT_ALLOW\",\n  \"ReadingDirection\": \"<string>\",\n  \"ActiveStartDate\": \"<dateTime>\",\n  \"ResetAllowed\": \"<string>\",\n  \"InitialReadingValue\": \"<number>\",\n  \"ReadingDirectionMeaning\": \"<string>\",\n  \"RolloverMaximumValue\": \"<number>\",\n  \"DailyUtilizationRate\": \"<number>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "name": "action",
+              "description": "",
+              "item": [
+                {
+                  "name": "associateMeterToAsset",
+                  "description": "",
+                  "item": [
+                    {
+                      "id": "1e4eec04-0198-45a1-8b6a-3b3056dd61d8",
+                      "name": "Associate meter template to assets",
+                      "request": {
+                        "name": "Associate meter template to assets",
+                        "description": {
+                          "content": "This is primarily to support the export feature from meter templates Ui,where user performs a association of meter template to assets. This method will collect meter definition id and It will schedule the ESS job for the association of the meter template to assets.",
+                          "type": "text/plain"
+                        },
+                        "url": {
+                          "path": [
+                            "meterTemplates",
+                            "action",
+                            "associateMeterToAsset"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.oracle.adf.action+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "POST",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"meterDefinitionId\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "auth": null
+                      },
+                      "response": [
+                        {
+                          "id": "58ad2a75-1bbd-4483-93b0-fbf8bcebc3f4",
+                          "name": "The following table describes the default response for this task.",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "meterTemplates",
+                                "action",
+                                "associateMeterToAsset"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/vnd.oracle.adf.action+json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"meterDefinitionId\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"result\": \"<number>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        }
+                      ],
+                      "event": [],
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

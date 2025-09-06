@@ -1,0 +1,1661 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Genealogyobjects",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Genealogyobjects",
+      "description": "",
+      "item": [
+        {
+          "name": "genealogyObjects",
+          "description": "",
+          "item": [
+            {
+              "name": "{GenealogyInstanceId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "genealogyTransactions",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{genealogyTransactionsUniqID}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "ea4dda60-4d89-4e7c-b3f4-f07be21eea7f",
+                              "name": "Get one transaction",
+                              "request": {
+                                "name": "Get one transaction",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "genealogyObjects",
+                                    ":GenealogyInstanceId",
+                                    "child",
+                                    "genealogyTransactions",
+                                    ":genealogyTransactionsUniqID"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "GenealogyInstanceId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies a genealogy object instance. This is a primary key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "genealogyTransactionsUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Genealogy Transactions resource and used to uniquely identify an instance of Genealogy Transactions. The client should not generate the hash key value. Instead, the client should query on the Genealogy Transactions collection resource in order to navigate to a specific instance of Genealogy Transactions to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "d8a04379-87d6-4eb9-b85b-e21e64fcec5b",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "genealogyObjects",
+                                        ":GenealogyInstanceId",
+                                        "child",
+                                        "genealogyTransactions",
+                                        ":genealogyTransactionsUniqID"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"Document\": \"<string>\",\n  \"SourceSystemType\": \"<string>\",\n  \"CustomerNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"WorkCenterCode\": \"<string>\",\n  \"UOMCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"LocationCode\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SourceTransactionTypeId\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"Organization\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"GenealogyTransactionId\": \"<long>\",\n  \"SourceSystemId\": \"<long>\",\n  \"SourceTransactionType\": \"<string>\",\n  \"LocationName\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"ExternalLocation\": \"<string>\",\n  \"SourceTransactionDate\": \"<dateTime>\",\n  \"OrganizationCode\": \"<string>\",\n  \"SourceTransactionId\": \"<number>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerSiteParty\": \"<string>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"WorkCenterName\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"LocationId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"DocumentType\": \"<string>\",\n  \"SupplierNumber\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"SupplierName\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"Subinventory\": \"<string>\",\n  \"LocationOrganization\": \"<string>\",\n  \"LocationContext\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "c01d985c-43a7-43d8-b96f-212d0e16cf34",
+                          "name": "Get all transactions",
+                          "request": {
+                            "name": "Get all transactions",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "genealogyObjects",
+                                ":GenealogyInstanceId",
+                                "child",
+                                "genealogyTransactions"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CustomerId; integer; Value that uniquely identifies the customer who bought the genealogy object instance.</li><li>CustomerName; string; Name of the customer who bought the genealogy object instance.</li><li>CustomerNumber; string; Number that identifies the customer who bought the genealogy object instance.</li><li>CustomerSiteId; integer; Value that uniquely identifies the customer site that is the location of the transaction.</li><li>CustomerSiteName; string; Name of the customer site that is the location of the transaction.</li><li>CustomerSiteNumber; string; Number that uniquely identifies the customer site that is the location of the transaction.</li><li>CustomerSiteParty; string; Name of the customer party site that is the location of the transaction.</li><li>CustomerSitePartyId; integer; Value that uniquely identifies the customer party site that is the location of the transaction.</li><li>CustomerSitePartyNumber; string; Number that uniquely identifies the customer party site that is the location of the transaction.</li><li>Document; string; Name that identifies the document that the transaction references.</li><li>DocumentType; string; Value that identifies the document type that the transaction references.</li><li>ExternalLocation; string; Value that identifies the location of the transaction. This location can be an external address location or a value that is not validated against any location types defined in the application.</li><li>GenealogyTransactionId; integer; Value that uniquely identifies a genealogy transaction.</li><li>InventoryLocatorId; integer; Value that uniquely identifies the locator of the transaction subinventory.</li><li>LocationCode; string; Abbreviation that identifies the location of the transaction.</li><li>LocationContext; string; Description of the location of the transaction.</li><li>LocationId; integer; Value that uniquely identifies the location of the transaction.</li><li>LocationName; string; Name of the location of the transaction.</li><li>LocationOrganization; string; Name of the transaction location organization.</li><li>LocationOrganizationCode; string; Abbreviation that identifies the transaction location organization.</li><li>LocationOrganizationId; integer; Value that uniquely identifier the transaction location organization.</li><li>Organization; string; Name of the organization where the transaction occurs.</li><li>OrganizationCode; string; Abbreviation that identifies the organization where the transaction occurs.</li><li>OrganizationId; integer; Value that uniquely identifies the organization where the transaction occurs.</li><li>Quantity; number; Quantity of transaction of the genealogy object instance.</li><li>SourceSystem; string; Name of the source application that is the origin of the transaction.</li><li>SourceSystemId; integer; Value that uniquely identifies the source application that is the origin of the transaction. This attribute is read-only.</li><li>SourceSystemType; string; Description of the type of source application. This attribute is read-only.</li><li>SourceSystemTypeCode; string; Abbreviation that identifies the type of source application that is the origin of the transaction. A list of accepted values is defined in the lookup type ORA_CSE_SOURCE_SYSTEM_TYPE. Valid value is ORA_EXTERNAL.</li><li>SourceTransactionDate; string; Date when the source transaction occurred.</li><li>SourceTransactionId; number; Value that identifies the source transaction.</li><li>SourceTransactionType; string; Name of the type of source transaction.</li><li>SourceTransactionTypeId; string; Value that uniquely identifies the type of source transaction.</li><li>Subinventory; string; Name of the transaction subinventory.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who sold the genealogy object instance.</li><li>SupplierName; string; Name of the supplier who sold the genealogy object instance.</li><li>SupplierNumber; string; Number that identifies the supplier who sold the genealogy object instance.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site that is the location of the transaction.</li><li>SupplierSiteName; string; Name of the supplier site that is the location of the transaction.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the quantity of the transaction.</li><li>UnitOfMeasure; string; Unit of measure for the quantity of the transaction.</li><li>WorkCenterCode; string; Abbreviation that identifies the work center that is the location of the transaction.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center that is the location of the transaction.</li><li>WorkCenterName; string; Name of the work center.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order that is the location of the transaction.</li><li>WorkOrderNumber; string; Number that identifies the work order.</li><li>WorkOrderOperation; string; Name of the work order operation.</li><li>WorkOrderOperationId; integer; Value that uniquely identifies the work order operation.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find genealogy transactions according to the genealogy transaction identifier.<br>Finder Variables: <ul><li>GenealogyTransactionId; integer; Value that uniquely identifies the genealogy transaction.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "GenealogyInstanceId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies a genealogy object instance. This is a primary key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "5d8648a2-0757-425d-b42d-a599c0c802f5",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "genealogyObjects",
+                                    ":GenealogyInstanceId",
+                                    "child",
+                                    "genealogyTransactions"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CustomerId; integer; Value that uniquely identifies the customer who bought the genealogy object instance.</li><li>CustomerName; string; Name of the customer who bought the genealogy object instance.</li><li>CustomerNumber; string; Number that identifies the customer who bought the genealogy object instance.</li><li>CustomerSiteId; integer; Value that uniquely identifies the customer site that is the location of the transaction.</li><li>CustomerSiteName; string; Name of the customer site that is the location of the transaction.</li><li>CustomerSiteNumber; string; Number that uniquely identifies the customer site that is the location of the transaction.</li><li>CustomerSiteParty; string; Name of the customer party site that is the location of the transaction.</li><li>CustomerSitePartyId; integer; Value that uniquely identifies the customer party site that is the location of the transaction.</li><li>CustomerSitePartyNumber; string; Number that uniquely identifies the customer party site that is the location of the transaction.</li><li>Document; string; Name that identifies the document that the transaction references.</li><li>DocumentType; string; Value that identifies the document type that the transaction references.</li><li>ExternalLocation; string; Value that identifies the location of the transaction. This location can be an external address location or a value that is not validated against any location types defined in the application.</li><li>GenealogyTransactionId; integer; Value that uniquely identifies a genealogy transaction.</li><li>InventoryLocatorId; integer; Value that uniquely identifies the locator of the transaction subinventory.</li><li>LocationCode; string; Abbreviation that identifies the location of the transaction.</li><li>LocationContext; string; Description of the location of the transaction.</li><li>LocationId; integer; Value that uniquely identifies the location of the transaction.</li><li>LocationName; string; Name of the location of the transaction.</li><li>LocationOrganization; string; Name of the transaction location organization.</li><li>LocationOrganizationCode; string; Abbreviation that identifies the transaction location organization.</li><li>LocationOrganizationId; integer; Value that uniquely identifier the transaction location organization.</li><li>Organization; string; Name of the organization where the transaction occurs.</li><li>OrganizationCode; string; Abbreviation that identifies the organization where the transaction occurs.</li><li>OrganizationId; integer; Value that uniquely identifies the organization where the transaction occurs.</li><li>Quantity; number; Quantity of transaction of the genealogy object instance.</li><li>SourceSystem; string; Name of the source application that is the origin of the transaction.</li><li>SourceSystemId; integer; Value that uniquely identifies the source application that is the origin of the transaction. This attribute is read-only.</li><li>SourceSystemType; string; Description of the type of source application. This attribute is read-only.</li><li>SourceSystemTypeCode; string; Abbreviation that identifies the type of source application that is the origin of the transaction. A list of accepted values is defined in the lookup type ORA_CSE_SOURCE_SYSTEM_TYPE. Valid value is ORA_EXTERNAL.</li><li>SourceTransactionDate; string; Date when the source transaction occurred.</li><li>SourceTransactionId; number; Value that identifies the source transaction.</li><li>SourceTransactionType; string; Name of the type of source transaction.</li><li>SourceTransactionTypeId; string; Value that uniquely identifies the type of source transaction.</li><li>Subinventory; string; Name of the transaction subinventory.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who sold the genealogy object instance.</li><li>SupplierName; string; Name of the supplier who sold the genealogy object instance.</li><li>SupplierNumber; string; Number that identifies the supplier who sold the genealogy object instance.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site that is the location of the transaction.</li><li>SupplierSiteName; string; Name of the supplier site that is the location of the transaction.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the quantity of the transaction.</li><li>UnitOfMeasure; string; Unit of measure for the quantity of the transaction.</li><li>WorkCenterCode; string; Abbreviation that identifies the work center that is the location of the transaction.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center that is the location of the transaction.</li><li>WorkCenterName; string; Name of the work center.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order that is the location of the transaction.</li><li>WorkOrderNumber; string; Number that identifies the work order.</li><li>WorkOrderOperation; string; Name of the work order operation.</li><li>WorkOrderOperationId; integer; Value that uniquely identifies the work order operation.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find genealogy transactions according to the genealogy transaction identifier.<br>Finder Variables: <ul><li>GenealogyTransactionId; integer; Value that uniquely identifies the genealogy transaction.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    },\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "6b1933f5-4386-4fa8-94ef-e8167792ac76",
+                          "name": "Create transactions",
+                          "request": {
+                            "name": "Create transactions",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "genealogyObjects",
+                                ":GenealogyInstanceId",
+                                "child",
+                                "genealogyTransactions"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "GenealogyInstanceId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies a genealogy object instance. This is a primary key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"WorkOrderOperationId\": \"<long>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"DocumentType\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"GenealogyTransactionId\": \"<long>\",\n  \"SourceSystemId\": \"<long>\",\n  \"SourceTransactionType\": \"<string>\",\n  \"Document\": \"<string>\",\n  \"SourceTransactionTypeId\": \"<string>\",\n  \"LocationName\": \"<string>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"Subinventory\": \"<string>\",\n  \"SourceTransactionDate\": \"<dateTime>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceTransactionId\": \"<number>\",\n  \"LocationContext\": \"<string>\",\n  \"SourceSystem\": \"<string>\",\n  \"UOMCode\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "93814144-6b0f-4017-b9df-0af790025caa",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "genealogyObjects",
+                                    ":GenealogyInstanceId",
+                                    "child",
+                                    "genealogyTransactions"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"WorkOrderOperationId\": \"<long>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"DocumentType\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"GenealogyTransactionId\": \"<long>\",\n  \"SourceSystemId\": \"<long>\",\n  \"SourceTransactionType\": \"<string>\",\n  \"Document\": \"<string>\",\n  \"SourceTransactionTypeId\": \"<string>\",\n  \"LocationName\": \"<string>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"Subinventory\": \"<string>\",\n  \"SourceTransactionDate\": \"<dateTime>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceTransactionId\": \"<number>\",\n  \"LocationContext\": \"<string>\",\n  \"SourceSystem\": \"<string>\",\n  \"UOMCode\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"Document\": \"<string>\",\n  \"SourceSystemType\": \"<string>\",\n  \"CustomerNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"WorkCenterCode\": \"<string>\",\n  \"UOMCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"LocationCode\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SourceTransactionTypeId\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"Organization\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"GenealogyTransactionId\": \"<long>\",\n  \"SourceSystemId\": \"<long>\",\n  \"SourceTransactionType\": \"<string>\",\n  \"LocationName\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"ExternalLocation\": \"<string>\",\n  \"SourceTransactionDate\": \"<dateTime>\",\n  \"OrganizationCode\": \"<string>\",\n  \"SourceTransactionId\": \"<number>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerSiteParty\": \"<string>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"WorkCenterName\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"LocationId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"DocumentType\": \"<string>\",\n  \"SupplierNumber\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"SupplierName\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"Subinventory\": \"<string>\",\n  \"LocationOrganization\": \"<string>\",\n  \"LocationContext\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "4e03da1b-e47e-47ae-bcb8-342d70683fd6",
+                  "name": "Get one object",
+                  "request": {
+                    "name": "Get one object",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "genealogyObjects",
+                        ":GenealogyInstanceId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "GenealogyInstanceId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies a genealogy object instance. This is a primary key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "ee850e83-feae-454f-85c8-ac6774ea8cce",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "genealogyObjects",
+                            ":GenealogyInstanceId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CustomerSitePartyName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"CustomerNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"OperatingOrganizationCode\": \"<string>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"OperatingOrganizationId\": \"<long>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"CurrentLocationName\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SerialNumber\": \"<string>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    },\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    }\n  ],\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"OriginationQuantity\": \"<number>\",\n  \"CurrentLocationContext\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"OperatingOrganization\": \"<string>\",\n  \"LocationOrganizationCodeNU\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"LotNumber\": \"<string>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkCenterName\": \"<string>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"SupplierNumber\": \"<string>\",\n  \"GenealogyInstanceId\": \"<long>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"LocationOrganization\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "b1448174-9994-4853-91ba-5c52f50d2865",
+                  "name": "Update an object",
+                  "request": {
+                    "name": "Update an object",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "genealogyObjects",
+                        ":GenealogyInstanceId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "GenealogyInstanceId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies a genealogy object instance. This is a primary key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"WorkCenterId\": \"<long>\",\n  \"CustomerSitePartyName\": \"<string>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"CustomerNumber\": \"<string>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    },\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    }\n  ],\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "90ba0d9c-25c8-4d85-807d-059b7d0483af",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "genealogyObjects",
+                            ":GenealogyInstanceId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"WorkCenterId\": \"<long>\",\n  \"CustomerSitePartyName\": \"<string>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"CustomerNumber\": \"<string>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    },\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    }\n  ],\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CustomerSitePartyName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"CustomerNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"OperatingOrganizationCode\": \"<string>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"OperatingOrganizationId\": \"<long>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"CurrentLocationName\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SerialNumber\": \"<string>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    },\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    }\n  ],\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"OriginationQuantity\": \"<number>\",\n  \"CurrentLocationContext\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"OperatingOrganization\": \"<string>\",\n  \"LocationOrganizationCodeNU\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"LotNumber\": \"<string>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkCenterName\": \"<string>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"SupplierNumber\": \"<string>\",\n  \"GenealogyInstanceId\": \"<long>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"LocationOrganization\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "f65a7e4d-994e-436f-b4a8-2bfeb288abd7",
+              "name": "Get all objects",
+              "request": {
+                "name": "Get all objects",
+                "description": {},
+                "url": {
+                  "path": [
+                    "genealogyObjects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CurrentLocationCode; string; Abbreviation that identifies the internal location where the genealogy object instance is located.</li><li>CurrentLocationContext; string; Description of the location context where the genealogy object instance is located.</li><li>CurrentLocationId; integer; Value that uniquely identifies the location where the genealogy object instance is located.</li><li>CurrentLocationName; string; Name of an internal location or value that uniquely identifies the address location where the genealogy object instance is located.</li><li>CustomerId; integer; Value that uniquely identifies the customer who receives the genealogy object instance.</li><li>CustomerName; string; Name of the customer who receives the genealogy object instance.</li><li>CustomerNumber; string; Number of the customer who receives the genealogy object instance.</li><li>CustomerSiteId; integer; Value that uniquely identifies the customer site where the genealogy object instance is located.</li><li>CustomerSiteName; string; Name of the customer site where the genealogy object instance is located.</li><li>CustomerSiteNumber; string; Number of the customer site where the genealogy object instance is located.</li><li>CustomerSitePartyId; integer; Value that uniquely identifies the customer party site where the genealogy object instance is located.</li><li>CustomerSitePartyName; string; Name of the customer party site party where the genealogy object instance is located.</li><li>CustomerSitePartyNumber; string; Number of the customer party site where the genealogy object instance is located.</li><li>ExternalLocation; string; Value that identifies the external location where the genealogy object instance is located. This location can be an external address location or a value that is not validated against any location types defined in the application.</li><li>ExternalSystemPackingUnit; string; Value of the packing unit or license plate number that the transaction references. The packing unit or license plate reference is from an external source.</li><li>GenealogyInstanceId; integer; Value that uniquely identifies a genealogy object instance. This is a primary key.</li><li>InventoryLocatorId; integer; Value that uniquely identifies the locator in a subinventory where the genealogy object instance is located.</li><li>ItemId; integer; Value that uniquely identifies the item of the genealogy object instance. Either item identifier or item number can be used during the POST, PATCH, or GET actions.</li><li>ItemNumber; string; Number that uniquely identifies the item of the genealogy object instance. Either item identifier or item number can be used during the POST, PATCH, or GET actions.</li><li>LocationOrganization; string; Name of the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationCode; string; Abbreviation that identifies the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationCodeNU; string; Name of the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationId; integer; Value that uniquely identifier the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LotNumber; string; Number that uniquely identifies the lot that the genealogy object instance references to control the item in inventory. This attribute is used when the item is lot-controlled.</li><li>OperatingOrganization; string; Name of the organization that creates or operates the genealogy object instance.</li><li>OperatingOrganizationCode; string; Abbreviation that identifies the organization that creates or operates the genealogy object instance. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>OperatingOrganizationId; integer; Value that uniquely identifies the organization that creates or operates the genealogy object instance. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>OriginationDate; string; Date when the user created the genealogy object instance.</li><li>OriginationDocumentNumber; string; Number that identifies the document reference when the user created the genealogy object instance.</li><li>OriginationDocumentType; string; Value that identifies the document reference type when the user created the genealogy object instance. A list of accepted values is defined in the lookup type ORA_CSE_DOCUMENT_TYPE.</li><li>OriginationQuantity; number; Quantity of the genealogy object instance when it is created.</li><li>Quantity; number; Quantity for the item that the genealogy object instance references. If the item is serial-controlled, then the quantity cannot exceed one.</li><li>SerialNumber; string; Number that uniquely identifies the serial that the genealogy object instance references. This attribute is used when the item is serial-controlled.</li><li>SourceSystemId; integer; Value that uniquely identifies the source application that is the origin of the genealogy object. This attribute is read-only.</li><li>SourceSystemType; string; Description of the type of source application. This attribute is read-only.</li><li>Subinventory; string; Value that identifies the subinventory where the genealogy object instance is located.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who ships the genealogy object instance.</li><li>SupplierName; string; Name of the supplier who ships the genealogy object instance.</li><li>SupplierNumber; string; Number that identifies the supplier who ships the genealogy object instance.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site where the genealogy object instance is currently located.</li><li>SupplierSiteName; string; Name of the supplier site where the genealogy object instance is currently located.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the quantity of the genealogy object instance. This attribute must use the same unit of measure that the item uses as the primary unit of measure.</li><li>UnitOfMeasure; string; Name of the unit of measure for the quantity of the genealogy object instance. This attribute must use the same unit of measure that the item uses as the primary unit of measure.</li><li>WorkCenterCode; string; Abbreviation that identifies the work center where the genealogy object instance is located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center where the genealogy object instance is currently located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkCenterName; string; Name of the work center where the genealogy object instance is located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order at the location of the current genealogy object instance.</li><li>WorkOrderNumber; string; Number that identifies the work order at the location of the current genealogy object instance.</li><li>WorkOrderOperation; string; Name of the work order operation reference at the location of the current genealogy object instance.</li><li>WorkOrderOperationId; integer; Value that uniquely identifies the work order operation reference at the location of the current genealogy object instance.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find genealogy instances according to the genealogy instance identifier.<br>Finder Variables: <ul><li>GenealogyInstanceId; integer; Value that uniquely identifies the genealogy instance.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "ed428eae-1f11-4ab8-83f3-eb6718f77f0e",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "genealogyObjects"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CurrentLocationCode; string; Abbreviation that identifies the internal location where the genealogy object instance is located.</li><li>CurrentLocationContext; string; Description of the location context where the genealogy object instance is located.</li><li>CurrentLocationId; integer; Value that uniquely identifies the location where the genealogy object instance is located.</li><li>CurrentLocationName; string; Name of an internal location or value that uniquely identifies the address location where the genealogy object instance is located.</li><li>CustomerId; integer; Value that uniquely identifies the customer who receives the genealogy object instance.</li><li>CustomerName; string; Name of the customer who receives the genealogy object instance.</li><li>CustomerNumber; string; Number of the customer who receives the genealogy object instance.</li><li>CustomerSiteId; integer; Value that uniquely identifies the customer site where the genealogy object instance is located.</li><li>CustomerSiteName; string; Name of the customer site where the genealogy object instance is located.</li><li>CustomerSiteNumber; string; Number of the customer site where the genealogy object instance is located.</li><li>CustomerSitePartyId; integer; Value that uniquely identifies the customer party site where the genealogy object instance is located.</li><li>CustomerSitePartyName; string; Name of the customer party site party where the genealogy object instance is located.</li><li>CustomerSitePartyNumber; string; Number of the customer party site where the genealogy object instance is located.</li><li>ExternalLocation; string; Value that identifies the external location where the genealogy object instance is located. This location can be an external address location or a value that is not validated against any location types defined in the application.</li><li>ExternalSystemPackingUnit; string; Value of the packing unit or license plate number that the transaction references. The packing unit or license plate reference is from an external source.</li><li>GenealogyInstanceId; integer; Value that uniquely identifies a genealogy object instance. This is a primary key.</li><li>InventoryLocatorId; integer; Value that uniquely identifies the locator in a subinventory where the genealogy object instance is located.</li><li>ItemId; integer; Value that uniquely identifies the item of the genealogy object instance. Either item identifier or item number can be used during the POST, PATCH, or GET actions.</li><li>ItemNumber; string; Number that uniquely identifies the item of the genealogy object instance. Either item identifier or item number can be used during the POST, PATCH, or GET actions.</li><li>LocationOrganization; string; Name of the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationCode; string; Abbreviation that identifies the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationCodeNU; string; Name of the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LocationOrganizationId; integer; Value that uniquely identifier the organization where the genealogy object instance is currently located. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>LotNumber; string; Number that uniquely identifies the lot that the genealogy object instance references to control the item in inventory. This attribute is used when the item is lot-controlled.</li><li>OperatingOrganization; string; Name of the organization that creates or operates the genealogy object instance.</li><li>OperatingOrganizationCode; string; Abbreviation that identifies the organization that creates or operates the genealogy object instance. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>OperatingOrganizationId; integer; Value that uniquely identifies the organization that creates or operates the genealogy object instance. Either organization identifier or organization code can be provided during the POST, PATCH, or GET actions.</li><li>OriginationDate; string; Date when the user created the genealogy object instance.</li><li>OriginationDocumentNumber; string; Number that identifies the document reference when the user created the genealogy object instance.</li><li>OriginationDocumentType; string; Value that identifies the document reference type when the user created the genealogy object instance. A list of accepted values is defined in the lookup type ORA_CSE_DOCUMENT_TYPE.</li><li>OriginationQuantity; number; Quantity of the genealogy object instance when it is created.</li><li>Quantity; number; Quantity for the item that the genealogy object instance references. If the item is serial-controlled, then the quantity cannot exceed one.</li><li>SerialNumber; string; Number that uniquely identifies the serial that the genealogy object instance references. This attribute is used when the item is serial-controlled.</li><li>SourceSystemId; integer; Value that uniquely identifies the source application that is the origin of the genealogy object. This attribute is read-only.</li><li>SourceSystemType; string; Description of the type of source application. This attribute is read-only.</li><li>Subinventory; string; Value that identifies the subinventory where the genealogy object instance is located.</li><li>SupplierId; integer; Value that uniquely identifies the supplier who ships the genealogy object instance.</li><li>SupplierName; string; Name of the supplier who ships the genealogy object instance.</li><li>SupplierNumber; string; Number that identifies the supplier who ships the genealogy object instance.</li><li>SupplierSiteId; integer; Value that uniquely identifies the supplier site where the genealogy object instance is currently located.</li><li>SupplierSiteName; string; Name of the supplier site where the genealogy object instance is currently located.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure for the quantity of the genealogy object instance. This attribute must use the same unit of measure that the item uses as the primary unit of measure.</li><li>UnitOfMeasure; string; Name of the unit of measure for the quantity of the genealogy object instance. This attribute must use the same unit of measure that the item uses as the primary unit of measure.</li><li>WorkCenterCode; string; Abbreviation that identifies the work center where the genealogy object instance is located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center where the genealogy object instance is currently located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkCenterName; string; Name of the work center where the genealogy object instance is located. Either the work center identifier or the work center code can be provided during the POST, PATCH, or GET actions.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order at the location of the current genealogy object instance.</li><li>WorkOrderNumber; string; Number that identifies the work order at the location of the current genealogy object instance.</li><li>WorkOrderOperation; string; Name of the work order operation reference at the location of the current genealogy object instance.</li><li>WorkOrderOperationId; integer; Value that uniquely identifies the work order operation reference at the location of the current genealogy object instance.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Find genealogy instances according to the genealogy instance identifier.<br>Finder Variables: <ul><li>GenealogyInstanceId; integer; Value that uniquely identifies the genealogy instance.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CustomerSitePartyName\": \"<string>\",\n      \"ExternalSystemPackingUnit\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"CurrentLocationId\": \"<long>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"WorkCenterCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"OperatingOrganizationCode\": \"<string>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"OperatingOrganizationId\": \"<long>\",\n      \"OriginationDocumentType\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"CurrentLocationName\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"SerialNumber\": \"<string>\",\n      \"OriginationDate\": \"<dateTime>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"genealogyTransactions\": [\n        {\n          \"Document\": \"<string>\",\n          \"SourceSystemType\": \"<string>\",\n          \"CustomerNumber\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"WorkCenterCode\": \"<string>\",\n          \"UOMCode\": \"<string>\",\n          \"LocationOrganizationId\": \"<long>\",\n          \"WorkOrderOperationId\": \"<long>\",\n          \"CustomerSitePartyNumber\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"LocationCode\": \"<string>\",\n          \"CustomerId\": \"<long>\",\n          \"CustomerSiteNumber\": \"<string>\",\n          \"SourceTransactionTypeId\": \"<string>\",\n          \"SupplierId\": \"<long>\",\n          \"CustomerSiteId\": \"<long>\",\n          \"WorkOrderNumber\": \"<string>\",\n          \"SourceSystemTypeCode\": \"<string>\",\n          \"Organization\": \"<string>\",\n          \"WorkCenterId\": \"<long>\",\n          \"WorkOrderOperation\": \"<string>\",\n          \"InventoryLocatorId\": \"<long>\",\n          \"SupplierSiteName\": \"<string>\",\n          \"OrganizationId\": \"<long>\",\n          \"GenealogyTransactionId\": \"<long>\",\n          \"SourceSystemId\": \"<long>\",\n          \"SourceTransactionType\": \"<string>\",\n          \"LocationName\": \"<string>\",\n          \"SupplierSiteId\": \"<long>\",\n          \"ExternalLocation\": \"<string>\",\n          \"SourceTransactionDate\": \"<dateTime>\",\n          \"OrganizationCode\": \"<string>\",\n          \"SourceTransactionId\": \"<number>\",\n          \"CustomerName\": \"<string>\",\n          \"CustomerSiteParty\": \"<string>\",\n          \"CustomerSitePartyId\": \"<long>\",\n          \"WorkCenterName\": \"<string>\",\n          \"LocationOrganizationCode\": \"<string>\",\n          \"LocationId\": \"<long>\",\n          \"Quantity\": \"<number>\",\n          \"DocumentType\": \"<string>\",\n          \"SupplierNumber\": \"<string>\",\n          \"CustomerSiteName\": \"<string>\",\n          \"SupplierName\": \"<string>\",\n          \"WorkOrderId\": \"<long>\",\n          \"Subinventory\": \"<string>\",\n          \"LocationOrganization\": \"<string>\",\n          \"LocationContext\": \"<string>\",\n          \"SourceSystem\": \"<string>\"\n        },\n        {\n          \"Document\": \"<string>\",\n          \"SourceSystemType\": \"<string>\",\n          \"CustomerNumber\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"WorkCenterCode\": \"<string>\",\n          \"UOMCode\": \"<string>\",\n          \"LocationOrganizationId\": \"<long>\",\n          \"WorkOrderOperationId\": \"<long>\",\n          \"CustomerSitePartyNumber\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"LocationCode\": \"<string>\",\n          \"CustomerId\": \"<long>\",\n          \"CustomerSiteNumber\": \"<string>\",\n          \"SourceTransactionTypeId\": \"<string>\",\n          \"SupplierId\": \"<long>\",\n          \"CustomerSiteId\": \"<long>\",\n          \"WorkOrderNumber\": \"<string>\",\n          \"SourceSystemTypeCode\": \"<string>\",\n          \"Organization\": \"<string>\",\n          \"WorkCenterId\": \"<long>\",\n          \"WorkOrderOperation\": \"<string>\",\n          \"InventoryLocatorId\": \"<long>\",\n          \"SupplierSiteName\": \"<string>\",\n          \"OrganizationId\": \"<long>\",\n          \"GenealogyTransactionId\": \"<long>\",\n          \"SourceSystemId\": \"<long>\",\n          \"SourceTransactionType\": \"<string>\",\n          \"LocationName\": \"<string>\",\n          \"SupplierSiteId\": \"<long>\",\n          \"ExternalLocation\": \"<string>\",\n          \"SourceTransactionDate\": \"<dateTime>\",\n          \"OrganizationCode\": \"<string>\",\n          \"SourceTransactionId\": \"<number>\",\n          \"CustomerName\": \"<string>\",\n          \"CustomerSiteParty\": \"<string>\",\n          \"CustomerSitePartyId\": \"<long>\",\n          \"WorkCenterName\": \"<string>\",\n          \"LocationOrganizationCode\": \"<string>\",\n          \"LocationId\": \"<long>\",\n          \"Quantity\": \"<number>\",\n          \"DocumentType\": \"<string>\",\n          \"SupplierNumber\": \"<string>\",\n          \"CustomerSiteName\": \"<string>\",\n          \"SupplierName\": \"<string>\",\n          \"WorkOrderId\": \"<long>\",\n          \"Subinventory\": \"<string>\",\n          \"LocationOrganization\": \"<string>\",\n          \"LocationContext\": \"<string>\",\n          \"SourceSystem\": \"<string>\"\n        }\n      ],\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"OriginationQuantity\": \"<number>\",\n      \"CurrentLocationContext\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"SourceSystemId\": \"<integer>\",\n      \"OperatingOrganization\": \"<string>\",\n      \"LocationOrganizationCodeNU\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"CustomerName\": \"<string>\",\n      \"LotNumber\": \"<string>\",\n      \"CurrentLocationCode\": \"<string>\",\n      \"WorkCenterName\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"Quantity\": \"<number>\",\n      \"SupplierNumber\": \"<string>\",\n      \"GenealogyInstanceId\": \"<long>\",\n      \"WorkOrderId\": \"<long>\",\n      \"SupplierName\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"Subinventory\": \"<string>\",\n      \"OriginationDocumentNumber\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    },\n    {\n      \"CustomerSitePartyName\": \"<string>\",\n      \"ExternalSystemPackingUnit\": \"<string>\",\n      \"ItemId\": \"<long>\",\n      \"CurrentLocationId\": \"<long>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"WorkCenterCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"OperatingOrganizationCode\": \"<string>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"OperatingOrganizationId\": \"<long>\",\n      \"OriginationDocumentType\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"CurrentLocationName\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"SerialNumber\": \"<string>\",\n      \"OriginationDate\": \"<dateTime>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"genealogyTransactions\": [\n        {\n          \"Document\": \"<string>\",\n          \"SourceSystemType\": \"<string>\",\n          \"CustomerNumber\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"WorkCenterCode\": \"<string>\",\n          \"UOMCode\": \"<string>\",\n          \"LocationOrganizationId\": \"<long>\",\n          \"WorkOrderOperationId\": \"<long>\",\n          \"CustomerSitePartyNumber\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"LocationCode\": \"<string>\",\n          \"CustomerId\": \"<long>\",\n          \"CustomerSiteNumber\": \"<string>\",\n          \"SourceTransactionTypeId\": \"<string>\",\n          \"SupplierId\": \"<long>\",\n          \"CustomerSiteId\": \"<long>\",\n          \"WorkOrderNumber\": \"<string>\",\n          \"SourceSystemTypeCode\": \"<string>\",\n          \"Organization\": \"<string>\",\n          \"WorkCenterId\": \"<long>\",\n          \"WorkOrderOperation\": \"<string>\",\n          \"InventoryLocatorId\": \"<long>\",\n          \"SupplierSiteName\": \"<string>\",\n          \"OrganizationId\": \"<long>\",\n          \"GenealogyTransactionId\": \"<long>\",\n          \"SourceSystemId\": \"<long>\",\n          \"SourceTransactionType\": \"<string>\",\n          \"LocationName\": \"<string>\",\n          \"SupplierSiteId\": \"<long>\",\n          \"ExternalLocation\": \"<string>\",\n          \"SourceTransactionDate\": \"<dateTime>\",\n          \"OrganizationCode\": \"<string>\",\n          \"SourceTransactionId\": \"<number>\",\n          \"CustomerName\": \"<string>\",\n          \"CustomerSiteParty\": \"<string>\",\n          \"CustomerSitePartyId\": \"<long>\",\n          \"WorkCenterName\": \"<string>\",\n          \"LocationOrganizationCode\": \"<string>\",\n          \"LocationId\": \"<long>\",\n          \"Quantity\": \"<number>\",\n          \"DocumentType\": \"<string>\",\n          \"SupplierNumber\": \"<string>\",\n          \"CustomerSiteName\": \"<string>\",\n          \"SupplierName\": \"<string>\",\n          \"WorkOrderId\": \"<long>\",\n          \"Subinventory\": \"<string>\",\n          \"LocationOrganization\": \"<string>\",\n          \"LocationContext\": \"<string>\",\n          \"SourceSystem\": \"<string>\"\n        },\n        {\n          \"Document\": \"<string>\",\n          \"SourceSystemType\": \"<string>\",\n          \"CustomerNumber\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"WorkCenterCode\": \"<string>\",\n          \"UOMCode\": \"<string>\",\n          \"LocationOrganizationId\": \"<long>\",\n          \"WorkOrderOperationId\": \"<long>\",\n          \"CustomerSitePartyNumber\": \"<string>\",\n          \"UnitOfMeasure\": \"<string>\",\n          \"LocationCode\": \"<string>\",\n          \"CustomerId\": \"<long>\",\n          \"CustomerSiteNumber\": \"<string>\",\n          \"SourceTransactionTypeId\": \"<string>\",\n          \"SupplierId\": \"<long>\",\n          \"CustomerSiteId\": \"<long>\",\n          \"WorkOrderNumber\": \"<string>\",\n          \"SourceSystemTypeCode\": \"<string>\",\n          \"Organization\": \"<string>\",\n          \"WorkCenterId\": \"<long>\",\n          \"WorkOrderOperation\": \"<string>\",\n          \"InventoryLocatorId\": \"<long>\",\n          \"SupplierSiteName\": \"<string>\",\n          \"OrganizationId\": \"<long>\",\n          \"GenealogyTransactionId\": \"<long>\",\n          \"SourceSystemId\": \"<long>\",\n          \"SourceTransactionType\": \"<string>\",\n          \"LocationName\": \"<string>\",\n          \"SupplierSiteId\": \"<long>\",\n          \"ExternalLocation\": \"<string>\",\n          \"SourceTransactionDate\": \"<dateTime>\",\n          \"OrganizationCode\": \"<string>\",\n          \"SourceTransactionId\": \"<number>\",\n          \"CustomerName\": \"<string>\",\n          \"CustomerSiteParty\": \"<string>\",\n          \"CustomerSitePartyId\": \"<long>\",\n          \"WorkCenterName\": \"<string>\",\n          \"LocationOrganizationCode\": \"<string>\",\n          \"LocationId\": \"<long>\",\n          \"Quantity\": \"<number>\",\n          \"DocumentType\": \"<string>\",\n          \"SupplierNumber\": \"<string>\",\n          \"CustomerSiteName\": \"<string>\",\n          \"SupplierName\": \"<string>\",\n          \"WorkOrderId\": \"<long>\",\n          \"Subinventory\": \"<string>\",\n          \"LocationOrganization\": \"<string>\",\n          \"LocationContext\": \"<string>\",\n          \"SourceSystem\": \"<string>\"\n        }\n      ],\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"OriginationQuantity\": \"<number>\",\n      \"CurrentLocationContext\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"SourceSystemId\": \"<integer>\",\n      \"OperatingOrganization\": \"<string>\",\n      \"LocationOrganizationCodeNU\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"CustomerName\": \"<string>\",\n      \"LotNumber\": \"<string>\",\n      \"CurrentLocationCode\": \"<string>\",\n      \"WorkCenterName\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"Quantity\": \"<number>\",\n      \"SupplierNumber\": \"<string>\",\n      \"GenealogyInstanceId\": \"<long>\",\n      \"WorkOrderId\": \"<long>\",\n      \"SupplierName\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"Subinventory\": \"<string>\",\n      \"OriginationDocumentNumber\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "cd4f36d2-ebc7-489f-b8c6-cd0ac4ce3929",
+              "name": "Create objects",
+              "request": {
+                "name": "Create objects",
+                "description": {},
+                "url": {
+                  "path": [
+                    "genealogyObjects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CurrentLocationContext\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"OperatingOrganizationId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"UOMCode\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"CustomerSitePartyName\": \"<string>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"CustomerNumber\": \"<string>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LotNumber\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"OperatingOrganizationCode\": \"<string>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"GenealogyInstanceId\": \"<long>\",\n  \"SerialNumber\": \"<string>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    },\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    }\n  ],\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "145c1751-5cbc-4374-9c25-61db77492f60",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "genealogyObjects"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"CurrentLocationContext\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"OperatingOrganizationId\": \"<long>\",\n  \"Quantity\": \"<number>\",\n  \"UOMCode\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"CustomerSitePartyName\": \"<string>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"CustomerNumber\": \"<string>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LotNumber\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"OperatingOrganizationCode\": \"<string>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"GenealogyInstanceId\": \"<long>\",\n  \"SerialNumber\": \"<string>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    },\n    {\n      \"WorkOrderOperationId\": \"<long>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"Document\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\",\n      \"UOMCode\": \"<string>\"\n    }\n  ],\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"CustomerSitePartyName\": \"<string>\",\n  \"ExternalSystemPackingUnit\": \"<string>\",\n  \"ItemId\": \"<long>\",\n  \"CurrentLocationId\": \"<long>\",\n  \"SourceSystemType\": \"<string>\",\n  \"CustomerNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"WorkCenterCode\": \"<string>\",\n  \"LocationOrganizationId\": \"<long>\",\n  \"WorkOrderOperationId\": \"<long>\",\n  \"OperatingOrganizationCode\": \"<string>\",\n  \"CustomerSitePartyNumber\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"OperatingOrganizationId\": \"<long>\",\n  \"OriginationDocumentType\": \"<string>\",\n  \"CustomerId\": \"<long>\",\n  \"CustomerSiteNumber\": \"<string>\",\n  \"CurrentLocationName\": \"<string>\",\n  \"SupplierId\": \"<long>\",\n  \"SerialNumber\": \"<string>\",\n  \"OriginationDate\": \"<dateTime>\",\n  \"CustomerSiteId\": \"<long>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"genealogyTransactions\": [\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    },\n    {\n      \"Document\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"CustomerNumber\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"WorkCenterCode\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"LocationOrganizationId\": \"<long>\",\n      \"WorkOrderOperationId\": \"<long>\",\n      \"CustomerSitePartyNumber\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"LocationCode\": \"<string>\",\n      \"CustomerId\": \"<long>\",\n      \"CustomerSiteNumber\": \"<string>\",\n      \"SourceTransactionTypeId\": \"<string>\",\n      \"SupplierId\": \"<long>\",\n      \"CustomerSiteId\": \"<long>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"SourceSystemTypeCode\": \"<string>\",\n      \"Organization\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"WorkOrderOperation\": \"<string>\",\n      \"InventoryLocatorId\": \"<long>\",\n      \"SupplierSiteName\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"GenealogyTransactionId\": \"<long>\",\n      \"SourceSystemId\": \"<long>\",\n      \"SourceTransactionType\": \"<string>\",\n      \"LocationName\": \"<string>\",\n      \"SupplierSiteId\": \"<long>\",\n      \"ExternalLocation\": \"<string>\",\n      \"SourceTransactionDate\": \"<dateTime>\",\n      \"OrganizationCode\": \"<string>\",\n      \"SourceTransactionId\": \"<number>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerSiteParty\": \"<string>\",\n      \"CustomerSitePartyId\": \"<long>\",\n      \"WorkCenterName\": \"<string>\",\n      \"LocationOrganizationCode\": \"<string>\",\n      \"LocationId\": \"<long>\",\n      \"Quantity\": \"<number>\",\n      \"DocumentType\": \"<string>\",\n      \"SupplierNumber\": \"<string>\",\n      \"CustomerSiteName\": \"<string>\",\n      \"SupplierName\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"Subinventory\": \"<string>\",\n      \"LocationOrganization\": \"<string>\",\n      \"LocationContext\": \"<string>\",\n      \"SourceSystem\": \"<string>\"\n    }\n  ],\n  \"SourceSystemTypeCode\": \"<string>\",\n  \"OriginationQuantity\": \"<number>\",\n  \"CurrentLocationContext\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"WorkOrderOperation\": \"<string>\",\n  \"InventoryLocatorId\": \"<long>\",\n  \"SupplierSiteName\": \"<string>\",\n  \"SourceSystemId\": \"<integer>\",\n  \"OperatingOrganization\": \"<string>\",\n  \"LocationOrganizationCodeNU\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"SupplierSiteId\": \"<long>\",\n  \"ExternalLocation\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"LotNumber\": \"<string>\",\n  \"CurrentLocationCode\": \"<string>\",\n  \"WorkCenterName\": \"<string>\",\n  \"CustomerSitePartyId\": \"<long>\",\n  \"LocationOrganizationCode\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"SupplierNumber\": \"<string>\",\n  \"GenealogyInstanceId\": \"<long>\",\n  \"WorkOrderId\": \"<long>\",\n  \"SupplierName\": \"<string>\",\n  \"CustomerSiteName\": \"<string>\",\n  \"Subinventory\": \"<string>\",\n  \"OriginationDocumentNumber\": \"<string>\",\n  \"LocationOrganization\": \"<string>\",\n  \"SourceSystem\": \"<string>\"\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

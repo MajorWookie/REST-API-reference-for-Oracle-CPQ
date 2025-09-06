@@ -1,0 +1,569 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Activelocators",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Activelocators",
+      "description": "",
+      "item": [
+        {
+          "name": "activeLocators",
+          "description": "",
+          "item": [
+            {
+              "id": "598efa6f-2b9a-417a-a371-09cb95d51784",
+              "name": "Get all locators",
+              "request": {
+                "name": "Get all locators",
+                "description": {},
+                "url": {
+                  "path": [
+                    "activeLocators"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Description of the locator.</li><li>DisableDate; string; Date when the warehouse disabled the locator.</li><li>InventoryLocationId; integer; Value that uniquely identifies the inventory locator.</li><li>InventoryLocationType; string; Value that identifies the type of location. Valid values include 1,2,3, and so on. A list of accepted values is defined in the lookup INV_LOCATOR_TYPES. There is no default value for this attribute.</li><li>LPNControl; integer; Indicates whether the subinventory holds loose materials or LPNs.</li><li>Locator; string; Physical area in the subinventory, such as a row, aisle, bin, or shelf, that stores the item.</li><li>LocatorType; string; Name of the type of locator. Valid values include Dock door, Staging lane, and so on. A list of accepted values is defined in the lookup INV_LOCATOR_TYPES. There is no default value for this attribute.</li><li>OrganizationCode; string; Abbreviation that identifies the organization.</li><li>OrganizationId; integer; Value that uniquely identifies the organization.</li><li>OrganizationName; string; Name of the organization.</li><li>ParLocation; integer; Determines whether the locator belongs to a subinventory enabled as a Periodic Automatic Replenishment location. Contains one of the following values. 1: Yes 2: No. The default value is 2.</li><li>PickingOrder; number; Sequence to use when picking the item.</li><li>StatusCode; string; Abbreviation that identifies the status.</li><li>StatusId; integer; Value that uniquely identifies the status.</li><li>SubinventoryCode; string; Name of the subinventory.</li><li>SubinventoryId; integer; Value that uniquely identifies the subinventory.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds active locators according to the inventory location identifier.<br>Finder Variables: <ul><li>InventoryLocationId; integer; Value that uniquely identifies the inventory location.</li></ul></li><li>filterByOpenCounts: Finds the cycle count definitions that have open count sequences.<br>Finder Variables: <ul><li>param_CycleCountHeaderId; integer; Finds the cycle count definitions that have open count sequences by cycle count headers.</li><li>param_Subinventory; string; Finds the cycle count definitions that have open count sequences by subinventory.</li></ul></li><li>filterByZoneTask: Finds the locators in the subinventory for a task within a zone.<br>Finder Variables: <ul><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByCountedLocators: Finds the counted or uncounted locators in the subinventory for a physical inventory.<br>Finder Variables: <ul><li>bindCountedLocatorFlag; string; Value that indicates whether the locators are counted or uncounted. If true, then locators fetched are counted. If false, then the locators fetched are uncounted.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindPhysicalInventoryId; string; Value that uniquely identifies the physical inventory.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByCycleCountCountedLocators: Finds the counted or uncounted locators in the subinventory for a cycle count.<br>Finder Variables: <ul><li>bindCycleCountCountedLocatorFlag; string; Value that indicates whether the locators are counted or uncounted. If true, then locators fetched are counted. If false, then the locators fetched are uncounted.</li><li>bindCycleCountHeaderId; string; Value that uniquely identifies the cycle count.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByOrganizationSubinventory: Finds the locator.<br>Finder Variables: <ul><li>bindItem; string; Name of the inventory item.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li></ul></li><li>findItemRestrictedLocators: Finds the locator based on the restricted locators setup defined at the item organization.<br>Finder Variables: <ul><li>bindItem; string; Name of the inventory item.</li></ul></li><li>findOnhand: Finds on-hand inventory.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findPendingTransactions: Finds pending inventory transactions.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findPendingTransferTransactions: Finds pending inventory transfer transactions.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findRestrictedLocators: Finds inventory locators that the warehouse can use to fulfill the item and meet the requirements of the transaction type.<br>Finder Variables: <ul><li>bindItemId; integer; Value that uniquely identifies the item.</li><li>bindTransactionTypeId; integer; Value that uniquely identifies the transaction type.</li></ul></li><li>findTransactableLocators: Name of the transactable locator.<br>Finder Variables: <ul><li>bindItemId; integer; Value that uniquely identifies the item.</li><li>bindTransactionTypeId; integer; Value that uniquely identifies the transactable locator.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "bf3863f1-6712-44c0-a791-5fb93772fa15",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "activeLocators"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Description; string; Description of the locator.</li><li>DisableDate; string; Date when the warehouse disabled the locator.</li><li>InventoryLocationId; integer; Value that uniquely identifies the inventory locator.</li><li>InventoryLocationType; string; Value that identifies the type of location. Valid values include 1,2,3, and so on. A list of accepted values is defined in the lookup INV_LOCATOR_TYPES. There is no default value for this attribute.</li><li>LPNControl; integer; Indicates whether the subinventory holds loose materials or LPNs.</li><li>Locator; string; Physical area in the subinventory, such as a row, aisle, bin, or shelf, that stores the item.</li><li>LocatorType; string; Name of the type of locator. Valid values include Dock door, Staging lane, and so on. A list of accepted values is defined in the lookup INV_LOCATOR_TYPES. There is no default value for this attribute.</li><li>OrganizationCode; string; Abbreviation that identifies the organization.</li><li>OrganizationId; integer; Value that uniquely identifies the organization.</li><li>OrganizationName; string; Name of the organization.</li><li>ParLocation; integer; Determines whether the locator belongs to a subinventory enabled as a Periodic Automatic Replenishment location. Contains one of the following values. 1: Yes 2: No. The default value is 2.</li><li>PickingOrder; number; Sequence to use when picking the item.</li><li>StatusCode; string; Abbreviation that identifies the status.</li><li>StatusId; integer; Value that uniquely identifies the status.</li><li>SubinventoryCode; string; Name of the subinventory.</li><li>SubinventoryId; integer; Value that uniquely identifies the subinventory.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds active locators according to the inventory location identifier.<br>Finder Variables: <ul><li>InventoryLocationId; integer; Value that uniquely identifies the inventory location.</li></ul></li><li>filterByOpenCounts: Finds the cycle count definitions that have open count sequences.<br>Finder Variables: <ul><li>param_CycleCountHeaderId; integer; Finds the cycle count definitions that have open count sequences by cycle count headers.</li><li>param_Subinventory; string; Finds the cycle count definitions that have open count sequences by subinventory.</li></ul></li><li>filterByZoneTask: Finds the locators in the subinventory for a task within a zone.<br>Finder Variables: <ul><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByCountedLocators: Finds the counted or uncounted locators in the subinventory for a physical inventory.<br>Finder Variables: <ul><li>bindCountedLocatorFlag; string; Value that indicates whether the locators are counted or uncounted. If true, then locators fetched are counted. If false, then the locators fetched are uncounted.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindPhysicalInventoryId; string; Value that uniquely identifies the physical inventory.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByCycleCountCountedLocators: Finds the counted or uncounted locators in the subinventory for a cycle count.<br>Finder Variables: <ul><li>bindCycleCountCountedLocatorFlag; string; Value that indicates whether the locators are counted or uncounted. If true, then locators fetched are counted. If false, then the locators fetched are uncounted.</li><li>bindCycleCountHeaderId; string; Value that uniquely identifies the cycle count.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li><li>bindZoneTaskId; integer; Value that uniquely identifies the task within a zone.</li></ul></li><li>findByOrganizationSubinventory: Finds the locator.<br>Finder Variables: <ul><li>bindItem; string; Name of the inventory item.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Value that uniquely identifies the subinventory.</li></ul></li><li>findItemRestrictedLocators: Finds the locator based on the restricted locators setup defined at the item organization.<br>Finder Variables: <ul><li>bindItem; string; Name of the inventory item.</li></ul></li><li>findOnhand: Finds on-hand inventory.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findPendingTransactions: Finds pending inventory transactions.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findPendingTransferTransactions: Finds pending inventory transfer transactions.<br>Finder Variables: <ul><li>bindLocatorId; integer; Value that uniquely identifies the locator.</li><li>bindOrgId; integer; Value that uniquely identifies the organization.</li><li>bindSubinventory; string; Name of the subinventory.</li></ul></li><li>findRestrictedLocators: Finds inventory locators that the warehouse can use to fulfill the item and meet the requirements of the transaction type.<br>Finder Variables: <ul><li>bindItemId; integer; Value that uniquely identifies the item.</li><li>bindTransactionTypeId; integer; Value that uniquely identifies the transaction type.</li></ul></li><li>findTransactableLocators: Name of the transactable locator.<br>Finder Variables: <ul><li>bindItemId; integer; Value that uniquely identifies the item.</li><li>bindTransactionTypeId; integer; Value that uniquely identifies the transactable locator.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"OrganizationName\": \"<string>\",\n      \"LocatorType\": \"<string>\",\n      \"PickingOrder\": \"<number>\",\n      \"Description\": \"<string>\",\n      \"LPNControl\": \"<integer>\",\n      \"OrganizationId\": \"<long>\",\n      \"SubinventoryCode\": \"<string>\",\n      \"InventoryLocationId\": \"<long>\",\n      \"SubinventoryId\": \"<long>\",\n      \"StatusCode\": \"<string>\",\n      \"Locator\": \"<string>\",\n      \"InventoryLocationType\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"StatusId\": \"<long>\",\n      \"ParLocation\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DisableDate\": \"<date>\"\n    },\n    {\n      \"OrganizationName\": \"<string>\",\n      \"LocatorType\": \"<string>\",\n      \"PickingOrder\": \"<number>\",\n      \"Description\": \"<string>\",\n      \"LPNControl\": \"<integer>\",\n      \"OrganizationId\": \"<long>\",\n      \"SubinventoryCode\": \"<string>\",\n      \"InventoryLocationId\": \"<long>\",\n      \"SubinventoryId\": \"<long>\",\n      \"StatusCode\": \"<string>\",\n      \"Locator\": \"<string>\",\n      \"InventoryLocationType\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"StatusId\": \"<long>\",\n      \"ParLocation\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"DisableDate\": \"<date>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "name": "{InventoryLocationId}",
+              "description": "",
+              "item": [
+                {
+                  "id": "4f366390-1d8e-47ec-9604-cf98735e9dba",
+                  "name": "Get one locator",
+                  "request": {
+                    "name": "Get one locator",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "activeLocators",
+                        ":InventoryLocationId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "InventoryLocationId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the inventory locator.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "67842865-539f-4319-8a99-c0ddeac6b981",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "activeLocators",
+                            ":InventoryLocationId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"OrganizationName\": \"<string>\",\n  \"LocatorType\": \"<string>\",\n  \"PickingOrder\": \"<number>\",\n  \"Description\": \"<string>\",\n  \"LPNControl\": \"<integer>\",\n  \"OrganizationId\": \"<long>\",\n  \"SubinventoryCode\": \"<string>\",\n  \"InventoryLocationId\": \"<long>\",\n  \"SubinventoryId\": \"<long>\",\n  \"StatusCode\": \"<string>\",\n  \"Locator\": \"<string>\",\n  \"InventoryLocationType\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"StatusId\": \"<long>\",\n  \"ParLocation\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"DisableDate\": \"<date>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

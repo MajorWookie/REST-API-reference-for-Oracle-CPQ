@@ -1,0 +1,569 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Plans",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Plans",
+      "description": "",
+      "item": [
+        {
+          "name": "plans",
+          "description": "",
+          "item": [
+            {
+              "id": "feba3a24-d96c-4073-8c61-37a87510e3a2",
+              "name": "Get details of all plans",
+              "request": {
+                "name": "Get details of all plans",
+                "description": {},
+                "url": {
+                  "path": [
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Approved; integer; Contains one of the following values: 1 or null. If 1, then the plan is approved. If null, then the plan isn't approved. The default value is null.</li><li>AutoReleaseRp; integer; Contains one of the following values: 1 or 2. If 1, then release planning recommendations. If 2, then don't release. The default value is 2.</li><li>BaseCompileDesignator; string; Name of the base plan that this plan was copied from.</li><li>BasePlanId; integer; ID of the base plan that this plan was copied from.</li><li>CalSsQuantEndItems; integer; Contains one of the following values: 1 or 2. If 1, then calculate a new safety stock level for each end item when running the plan. If 2, then don't do this calculation.</li><li>CompileDesignator; string; Name of the plan.</li><li>CreatedBy; string; User who created the plan.</li><li>CreationDate; string; Date when the user created the plan.</li><li>DailyCutoffBucket; integer; Date when the day buckets ends in a planning horizon.</li><li>DataCompletionDate; string; Date on which the snapshot process in the plan run completed.</li><li>DemandPlanCompletionDate; string; Date and time when demand planning finished running the plan.</li><li>DemandPlanStartDate; string; Date and time when demand planning started running the plan.</li><li>Description; string; Description of the plan.</li><li>EnableArchive; integer; Contains one of the following values: 1 or 2. If 1, then archive measure values in the plan. If 2, then don't archive these values. The default value is 2.</li><li>EnableWelcomePage; integer; Indicates whether plan is enabled for the welcome page. Valid Values: 1:True and 2:False.</li><li>ForecastTimeLevel; integer; Forecasting time level code used in the plan. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_TIME_LEVEL. Valid values are 1, 2, 3, or 4. This attribute doesn't have a default value.</li><li>ForecastTimeLevelMeaning; string; Forecasting time level name used in the plan. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_TIME_LEVEL. Valid values are 1 - Days, 2 - Weeks, 3 - Periods, or 4 - Months. This attribute doesn't have a default value.</li><li>ForecastingCalendar; string; Calendar used in the plan for forecasting.</li><li>HasRun; integer; Contains one of the following values:1,0,or Empty. If 1, then the most recent plan run finished successfully. If 0, then the most recent plan run failed. If Empty, then the application hasn't run the plan. This attribute has no default value.</li><li>LastApprovedBy; string; User who performed the most recent approval on the plan.</li><li>LastApprovedDate; string; Date the user most recently approved the plan.</li><li>LastRunDate; string; Date the plan ran successfully most recently.</li><li>LastUpdateDate; string; Date the user most recently updated the plan.</li><li>LastUpdateLogin; string; Date the user most recently updated the plan.</li><li>LastUpdatedBy; string; User who performed the most recent plan update.</li><li>Loaded; integer; Contains one of the following values: 1, 2 or 3. If 1, then the plan is loaded in memory. If 2, then the plan isn't loaded in memory for demand plans. If 3, then the plan isn't loaded in memory for replenishment plans. This attribute doesn't have a default value.</li><li>LoadedMeaning; string; Contains one of the following values: Yes, No, or NA. If Yes, then the plan is loaded in memory. If No, then the plan isn't loaded in memory for demand plans. If NA, then the plan isn't loaded in memory for replenishment plans. This attribute doesn't have a default value.</li><li>MeasureCatalog; string; Measure catalog that the plan references. The measure catalog determines the measures that you can use in each plan.</li><li>MeasureCatalogBicc; integer; Name of the measure catalog used in BICC integration.</li><li>MeasureCatalogId; integer; Measure catalog that the plan references. The measure catalog determines the measures that you can use in each plan.</li><li>NotesCount; integer; Value that represents the number of notes created for a plan.</li><li>OSNObjectPublished; integer; Contains one of the following values: 1 or 2. If 1, then the plan is published in Oracle Social Network. If 2, then the plan isn't published in Oracle Social Network. The default value is 2.</li><li>ObjectVersionNumber; integer; Implements optimistic locking by incrementing this number each time the row is updated. At the start and end of a transaction, the number is compared to detect if another session has updated the row since it was last queried.</li><li>PlanApprovalStatusMeaning; string; Contains one of the following values: Approved or null. If Approved, then the plan is approved. If null, then the plan isn't approved. The default value is null.</li><li>PlanCompletionDate; string; Date and time the plan run was completed.</li><li>PlanId; integer; Value that uniquely identifies the plan.</li><li>PlanOwner; string; Name of the user who owns the plan.</li><li>PlanOwnerName; string; Name of the user who owns the plan.</li><li>PlanPrivilegeMeaning; string; Access type of the plan. If it's public, then all users can access the plan. If it's private, only the plan owner or users that the plan references can access the plan.</li><li>PlanStartDate; string; Start date of the plan.</li><li>PlanTimeLevel; integer; Planning time level code used in the plan. A list of accepted values is defined in the lookup types ORA_MSC_TIME_LEVELS_MFG, ORA_MSC_TIME_LEVELS_FISCAL, and ORA_MSC_TIME_LEVELS_WTM. Valid values are 1, 2, 3, 4, 5, 6, and 7. This attribute doesn't have a default value.</li><li>PlanTimeLevelMeaning; string; Planning time level name used in the plan. A list of accepted values is defined in the lookup types ORA_MSC_TIME_LEVELS_MFG, ORA_MSC_TIME_LEVELS_FISCAL, and ORA_MSC_TIME_LEVELS_WTM. Valid values are Day, Week, Period Month, Quarter, Year, and Hybrid Time Level. This attribute doesn't have a default value.</li><li>PlanType; integer; Type of plan. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_TYPE. Valid values include 1, 2, 3, 4, and 5. This attribute doesn't have a default value.</li><li>PlanTypeMeaning; string; Type of plan. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_TYPE. Valid values include 1 - Demand Plan, 2 - Supply Plan, 3 - Demand and Supply Plan, 4 - Sales and Operations Plan, and 5 - Replenishment Plan. This attribute doesn't have a default value.</li><li>PlanningMode; integer; Mode used for supply planning. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_MODE. Valid values are 1, 2, and 3. If 1, then the supply planning mode is constrained. If 2, then supply planning mode is unconstrained. If 3, then supply planning mode is aggregated. This attribute doesn't have a default value.</li><li>PrivatePlan; integer; Contains one of the following values: 1 or 2. If 1, then the access type of the plan is public. If 2, then the access type of the plan is private. Only the plan owner or users that the plan references can view a private plan. The default value is 1. A list of accepted values is defined in the lookup type ORA_MSC_ACCESS.</li><li>RecalculateSafetyStock; integer; Contains one of the following values: 1 or 2. If 1, then recalculate safety stock quantity the next time the plan runs. If 2, then don't recalculate.</li><li>ReferencePlanForExecution; integer; Indicates whether the current plan is used as a reference plan for execution systems.</li><li>Release; integer; Contains one of the following values: 1 or null. If 1, then plan recommendations are released from the plan. If null, then plan recommendations aren't released from plan.</li><li>SaveToDb; integer; Contains one of the following values: 2, 3 and null. If 2, then plan is saved without calculating totals, 3 indicates plan is saved calculating totals. Null will be plans where calculating totals during save isn't applicable. Note - this is default flushed as 2 currently, and not used in any process. However, this is still updated and retained since there can be customers who would be using this for custom flows.</li><li>Saved; integer; Contains one of the following values : 0 and 3. If 0, then plan is run with interactive mode and saved to the database. If 3 , plan is run with batch mode and saved to the database.</li><li>SopLoadFromDemandPlan; integer; Loads measure values from demand plan to shipments forecast.</li><li>SrInstanceCode; string; Reference code of the source application instance for an organization included in the plan scope.</li><li>SrInstanceId; integer; Value identifier of the source application instance of an organization included in plan scope.</li><li>Status; integer; Status of most recently completed plan run. Contains one of the following values. 0: completed, 1: processing, 2: error, or 3: warning. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_STATUS_TYPE. This attribute doesn't have a default value.</li><li>StatusMeaning; string; Status of most recently completed plan run. Contains one of the following values. 0: completed, 1: processing, 2: error, or 3: warning. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_STATUS_TYPE. This attribute doesn't have a default value.</li><li>SupplyPlanningModeMeaning; string; Mode used for supply planning. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_MODE. Valid values are 1, 2, or 3. If 1, then the supply planning mode is constrained. If 2, then supply planning mode is unconstrained. If 3, then the supply planning mode is aggregated. This attribute doesn't have a default value.</li><li>WorkAreaType; integer; Value that identifies the associated work area type.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds a plan based on the unique identifier of the plan. <br>Finder Variables <ul><li>PlanId; integer;  Value that uniquely identifies the plan. </li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "59366a04-1e8e-4fdc-bb22-2dbdcda634f8",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "plans"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>Approved; integer; Contains one of the following values: 1 or null. If 1, then the plan is approved. If null, then the plan isn't approved. The default value is null.</li><li>AutoReleaseRp; integer; Contains one of the following values: 1 or 2. If 1, then release planning recommendations. If 2, then don't release. The default value is 2.</li><li>BaseCompileDesignator; string; Name of the base plan that this plan was copied from.</li><li>BasePlanId; integer; ID of the base plan that this plan was copied from.</li><li>CalSsQuantEndItems; integer; Contains one of the following values: 1 or 2. If 1, then calculate a new safety stock level for each end item when running the plan. If 2, then don't do this calculation.</li><li>CompileDesignator; string; Name of the plan.</li><li>CreatedBy; string; User who created the plan.</li><li>CreationDate; string; Date when the user created the plan.</li><li>DailyCutoffBucket; integer; Date when the day buckets ends in a planning horizon.</li><li>DataCompletionDate; string; Date on which the snapshot process in the plan run completed.</li><li>DemandPlanCompletionDate; string; Date and time when demand planning finished running the plan.</li><li>DemandPlanStartDate; string; Date and time when demand planning started running the plan.</li><li>Description; string; Description of the plan.</li><li>EnableArchive; integer; Contains one of the following values: 1 or 2. If 1, then archive measure values in the plan. If 2, then don't archive these values. The default value is 2.</li><li>EnableWelcomePage; integer; Indicates whether plan is enabled for the welcome page. Valid Values: 1:True and 2:False.</li><li>ForecastTimeLevel; integer; Forecasting time level code used in the plan. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_TIME_LEVEL. Valid values are 1, 2, 3, or 4. This attribute doesn't have a default value.</li><li>ForecastTimeLevelMeaning; string; Forecasting time level name used in the plan. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_TIME_LEVEL. Valid values are 1 - Days, 2 - Weeks, 3 - Periods, or 4 - Months. This attribute doesn't have a default value.</li><li>ForecastingCalendar; string; Calendar used in the plan for forecasting.</li><li>HasRun; integer; Contains one of the following values:1,0,or Empty. If 1, then the most recent plan run finished successfully. If 0, then the most recent plan run failed. If Empty, then the application hasn't run the plan. This attribute has no default value.</li><li>LastApprovedBy; string; User who performed the most recent approval on the plan.</li><li>LastApprovedDate; string; Date the user most recently approved the plan.</li><li>LastRunDate; string; Date the plan ran successfully most recently.</li><li>LastUpdateDate; string; Date the user most recently updated the plan.</li><li>LastUpdateLogin; string; Date the user most recently updated the plan.</li><li>LastUpdatedBy; string; User who performed the most recent plan update.</li><li>Loaded; integer; Contains one of the following values: 1, 2 or 3. If 1, then the plan is loaded in memory. If 2, then the plan isn't loaded in memory for demand plans. If 3, then the plan isn't loaded in memory for replenishment plans. This attribute doesn't have a default value.</li><li>LoadedMeaning; string; Contains one of the following values: Yes, No, or NA. If Yes, then the plan is loaded in memory. If No, then the plan isn't loaded in memory for demand plans. If NA, then the plan isn't loaded in memory for replenishment plans. This attribute doesn't have a default value.</li><li>MeasureCatalog; string; Measure catalog that the plan references. The measure catalog determines the measures that you can use in each plan.</li><li>MeasureCatalogBicc; integer; Name of the measure catalog used in BICC integration.</li><li>MeasureCatalogId; integer; Measure catalog that the plan references. The measure catalog determines the measures that you can use in each plan.</li><li>NotesCount; integer; Value that represents the number of notes created for a plan.</li><li>OSNObjectPublished; integer; Contains one of the following values: 1 or 2. If 1, then the plan is published in Oracle Social Network. If 2, then the plan isn't published in Oracle Social Network. The default value is 2.</li><li>ObjectVersionNumber; integer; Implements optimistic locking by incrementing this number each time the row is updated. At the start and end of a transaction, the number is compared to detect if another session has updated the row since it was last queried.</li><li>PlanApprovalStatusMeaning; string; Contains one of the following values: Approved or null. If Approved, then the plan is approved. If null, then the plan isn't approved. The default value is null.</li><li>PlanCompletionDate; string; Date and time the plan run was completed.</li><li>PlanId; integer; Value that uniquely identifies the plan.</li><li>PlanOwner; string; Name of the user who owns the plan.</li><li>PlanOwnerName; string; Name of the user who owns the plan.</li><li>PlanPrivilegeMeaning; string; Access type of the plan. If it's public, then all users can access the plan. If it's private, only the plan owner or users that the plan references can access the plan.</li><li>PlanStartDate; string; Start date of the plan.</li><li>PlanTimeLevel; integer; Planning time level code used in the plan. A list of accepted values is defined in the lookup types ORA_MSC_TIME_LEVELS_MFG, ORA_MSC_TIME_LEVELS_FISCAL, and ORA_MSC_TIME_LEVELS_WTM. Valid values are 1, 2, 3, 4, 5, 6, and 7. This attribute doesn't have a default value.</li><li>PlanTimeLevelMeaning; string; Planning time level name used in the plan. A list of accepted values is defined in the lookup types ORA_MSC_TIME_LEVELS_MFG, ORA_MSC_TIME_LEVELS_FISCAL, and ORA_MSC_TIME_LEVELS_WTM. Valid values are Day, Week, Period Month, Quarter, Year, and Hybrid Time Level. This attribute doesn't have a default value.</li><li>PlanType; integer; Type of plan. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_TYPE. Valid values include 1, 2, 3, 4, and 5. This attribute doesn't have a default value.</li><li>PlanTypeMeaning; string; Type of plan. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_TYPE. Valid values include 1 - Demand Plan, 2 - Supply Plan, 3 - Demand and Supply Plan, 4 - Sales and Operations Plan, and 5 - Replenishment Plan. This attribute doesn't have a default value.</li><li>PlanningMode; integer; Mode used for supply planning. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_MODE. Valid values are 1, 2, and 3. If 1, then the supply planning mode is constrained. If 2, then supply planning mode is unconstrained. If 3, then supply planning mode is aggregated. This attribute doesn't have a default value.</li><li>PrivatePlan; integer; Contains one of the following values: 1 or 2. If 1, then the access type of the plan is public. If 2, then the access type of the plan is private. Only the plan owner or users that the plan references can view a private plan. The default value is 1. A list of accepted values is defined in the lookup type ORA_MSC_ACCESS.</li><li>RecalculateSafetyStock; integer; Contains one of the following values: 1 or 2. If 1, then recalculate safety stock quantity the next time the plan runs. If 2, then don't recalculate.</li><li>ReferencePlanForExecution; integer; Indicates whether the current plan is used as a reference plan for execution systems.</li><li>Release; integer; Contains one of the following values: 1 or null. If 1, then plan recommendations are released from the plan. If null, then plan recommendations aren't released from plan.</li><li>SaveToDb; integer; Contains one of the following values: 2, 3 and null. If 2, then plan is saved without calculating totals, 3 indicates plan is saved calculating totals. Null will be plans where calculating totals during save isn't applicable. Note - this is default flushed as 2 currently, and not used in any process. However, this is still updated and retained since there can be customers who would be using this for custom flows.</li><li>Saved; integer; Contains one of the following values : 0 and 3. If 0, then plan is run with interactive mode and saved to the database. If 3 , plan is run with batch mode and saved to the database.</li><li>SopLoadFromDemandPlan; integer; Loads measure values from demand plan to shipments forecast.</li><li>SrInstanceCode; string; Reference code of the source application instance for an organization included in the plan scope.</li><li>SrInstanceId; integer; Value identifier of the source application instance of an organization included in plan scope.</li><li>Status; integer; Status of most recently completed plan run. Contains one of the following values. 0: completed, 1: processing, 2: error, or 3: warning. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_STATUS_TYPE. This attribute doesn't have a default value.</li><li>StatusMeaning; string; Status of most recently completed plan run. Contains one of the following values. 0: completed, 1: processing, 2: error, or 3: warning. A list of accepted values is defined in the lookup type ORA_MSC_PLAN_STATUS_TYPE. This attribute doesn't have a default value.</li><li>SupplyPlanningModeMeaning; string; Mode used for supply planning. A list of accepted values is defined in the lookup type ORA_MSC_PLANNING_MODE. Valid values are 1, 2, or 3. If 1, then the supply planning mode is constrained. If 2, then supply planning mode is unconstrained. If 3, then the supply planning mode is aggregated. This attribute doesn't have a default value.</li><li>WorkAreaType; integer; Value that identifies the associated work area type.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds a plan based on the unique identifier of the plan. <br>Finder Variables <ul><li>PlanId; integer;  Value that uniquely identifies the plan. </li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"RecalculateSafetyStock\": \"<integer>\",\n      \"PlanOwnerName\": \"<string>\",\n      \"PlanTimeLevelMeaning\": \"<string>\",\n      \"BasePlanId\": \"<long>\",\n      \"PlanOwner\": \"<string>\",\n      \"PlanTypeMeaning\": \"<string>\",\n      \"PlanType\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ForecastingCalendar\": \"<string>\",\n      \"Status\": \"<integer>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"DemandPlanCompletionDate\": \"<dateTime>\",\n      \"AutoReleaseRp\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"Approved\": \"<integer>\",\n      \"ForecastTimeLevel\": \"<integer>\",\n      \"LastApprovedDate\": \"<dateTime>\",\n      \"CompileDesignator\": \"<string>\",\n      \"PlanningMode\": \"<integer>\",\n      \"DemandPlanStartDate\": \"<dateTime>\",\n      \"BaseCompileDesignator\": \"<string>\",\n      \"PlanCompletionDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"PrivatePlan\": \"<integer>\",\n      \"PlanPrivilegeMeaning\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"LoadedMeaning\": \"<string>\",\n      \"SaveToDb\": \"<integer>\",\n      \"PlanTimeLevel\": \"<integer>\",\n      \"OSNObjectPublished\": \"<integer>\",\n      \"CalSsQuantEndItems\": \"<integer>\",\n      \"SrInstanceCode\": \"<string>\",\n      \"MeasureCatalog\": \"<string>\",\n      \"LastRunDate\": \"<dateTime>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"HasRun\": \"<integer>\",\n      \"Saved\": \"<integer>\",\n      \"WorkAreaType\": \"<integer>\",\n      \"DailyCutoffBucket\": \"<integer>\",\n      \"EnableArchive\": \"<integer>\",\n      \"Release\": \"<integer>\",\n      \"Loaded\": \"<integer>\",\n      \"LastApprovedBy\": \"<string>\",\n      \"EnableWelcomePage\": \"<integer>\",\n      \"MeasureCatalogBicc\": \"<long>\",\n      \"DataCompletionDate\": \"<dateTime>\",\n      \"NotesCount\": \"<integer>\",\n      \"SupplyPlanningModeMeaning\": \"<string>\",\n      \"PlanApprovalStatusMeaning\": \"<string>\",\n      \"SopLoadFromDemandPlan\": \"<integer>\",\n      \"MeasureCatalogId\": \"<long>\",\n      \"PlanId\": \"<long>\",\n      \"SrInstanceId\": \"<integer>\",\n      \"ForecastTimeLevelMeaning\": \"<string>\",\n      \"StatusMeaning\": \"<string>\",\n      \"ReferencePlanForExecution\": \"<integer>\",\n      \"PlanStartDate\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"RecalculateSafetyStock\": \"<integer>\",\n      \"PlanOwnerName\": \"<string>\",\n      \"PlanTimeLevelMeaning\": \"<string>\",\n      \"BasePlanId\": \"<long>\",\n      \"PlanOwner\": \"<string>\",\n      \"PlanTypeMeaning\": \"<string>\",\n      \"PlanType\": \"<integer>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"ForecastingCalendar\": \"<string>\",\n      \"Status\": \"<integer>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"DemandPlanCompletionDate\": \"<dateTime>\",\n      \"AutoReleaseRp\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"Approved\": \"<integer>\",\n      \"ForecastTimeLevel\": \"<integer>\",\n      \"LastApprovedDate\": \"<dateTime>\",\n      \"CompileDesignator\": \"<string>\",\n      \"PlanningMode\": \"<integer>\",\n      \"DemandPlanStartDate\": \"<dateTime>\",\n      \"BaseCompileDesignator\": \"<string>\",\n      \"PlanCompletionDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"PrivatePlan\": \"<integer>\",\n      \"PlanPrivilegeMeaning\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"LoadedMeaning\": \"<string>\",\n      \"SaveToDb\": \"<integer>\",\n      \"PlanTimeLevel\": \"<integer>\",\n      \"OSNObjectPublished\": \"<integer>\",\n      \"CalSsQuantEndItems\": \"<integer>\",\n      \"SrInstanceCode\": \"<string>\",\n      \"MeasureCatalog\": \"<string>\",\n      \"LastRunDate\": \"<dateTime>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"HasRun\": \"<integer>\",\n      \"Saved\": \"<integer>\",\n      \"WorkAreaType\": \"<integer>\",\n      \"DailyCutoffBucket\": \"<integer>\",\n      \"EnableArchive\": \"<integer>\",\n      \"Release\": \"<integer>\",\n      \"Loaded\": \"<integer>\",\n      \"LastApprovedBy\": \"<string>\",\n      \"EnableWelcomePage\": \"<integer>\",\n      \"MeasureCatalogBicc\": \"<long>\",\n      \"DataCompletionDate\": \"<dateTime>\",\n      \"NotesCount\": \"<integer>\",\n      \"SupplyPlanningModeMeaning\": \"<string>\",\n      \"PlanApprovalStatusMeaning\": \"<string>\",\n      \"SopLoadFromDemandPlan\": \"<integer>\",\n      \"MeasureCatalogId\": \"<long>\",\n      \"PlanId\": \"<long>\",\n      \"SrInstanceId\": \"<integer>\",\n      \"ForecastTimeLevelMeaning\": \"<string>\",\n      \"StatusMeaning\": \"<string>\",\n      \"ReferencePlanForExecution\": \"<integer>\",\n      \"PlanStartDate\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "name": "{PlanId}",
+              "description": "",
+              "item": [
+                {
+                  "id": "1bfa2d62-a3fb-4fe2-98d3-c36222f83ee1",
+                  "name": "Get details of one plan",
+                  "request": {
+                    "name": "Get details of one plan",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "plans",
+                        ":PlanId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "PlanId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "d6c950d6-5557-4d4f-a591-7c2d7a74a583",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "plans",
+                            ":PlanId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"RecalculateSafetyStock\": \"<integer>\",\n  \"PlanOwnerName\": \"<string>\",\n  \"PlanTimeLevelMeaning\": \"<string>\",\n  \"BasePlanId\": \"<long>\",\n  \"PlanOwner\": \"<string>\",\n  \"PlanTypeMeaning\": \"<string>\",\n  \"PlanType\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"ForecastingCalendar\": \"<string>\",\n  \"Status\": \"<integer>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"DemandPlanCompletionDate\": \"<dateTime>\",\n  \"AutoReleaseRp\": \"<integer>\",\n  \"CreatedBy\": \"<string>\",\n  \"Approved\": \"<integer>\",\n  \"ForecastTimeLevel\": \"<integer>\",\n  \"LastApprovedDate\": \"<dateTime>\",\n  \"CompileDesignator\": \"<string>\",\n  \"PlanningMode\": \"<integer>\",\n  \"DemandPlanStartDate\": \"<dateTime>\",\n  \"BaseCompileDesignator\": \"<string>\",\n  \"PlanCompletionDate\": \"<dateTime>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"PrivatePlan\": \"<integer>\",\n  \"PlanPrivilegeMeaning\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"LoadedMeaning\": \"<string>\",\n  \"SaveToDb\": \"<integer>\",\n  \"PlanTimeLevel\": \"<integer>\",\n  \"OSNObjectPublished\": \"<integer>\",\n  \"CalSsQuantEndItems\": \"<integer>\",\n  \"SrInstanceCode\": \"<string>\",\n  \"MeasureCatalog\": \"<string>\",\n  \"LastRunDate\": \"<dateTime>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"HasRun\": \"<integer>\",\n  \"Saved\": \"<integer>\",\n  \"WorkAreaType\": \"<integer>\",\n  \"DailyCutoffBucket\": \"<integer>\",\n  \"EnableArchive\": \"<integer>\",\n  \"Release\": \"<integer>\",\n  \"Loaded\": \"<integer>\",\n  \"LastApprovedBy\": \"<string>\",\n  \"EnableWelcomePage\": \"<integer>\",\n  \"MeasureCatalogBicc\": \"<long>\",\n  \"DataCompletionDate\": \"<dateTime>\",\n  \"NotesCount\": \"<integer>\",\n  \"SupplyPlanningModeMeaning\": \"<string>\",\n  \"PlanApprovalStatusMeaning\": \"<string>\",\n  \"SopLoadFromDemandPlan\": \"<integer>\",\n  \"MeasureCatalogId\": \"<long>\",\n  \"PlanId\": \"<long>\",\n  \"SrInstanceId\": \"<integer>\",\n  \"ForecastTimeLevelMeaning\": \"<string>\",\n  \"StatusMeaning\": \"<string>\",\n  \"ReferencePlanForExecution\": \"<integer>\",\n  \"PlanStartDate\": \"<dateTime>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

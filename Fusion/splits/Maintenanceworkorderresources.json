@@ -1,0 +1,569 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Maintenanceworkorderresources",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Maintenanceworkorderresources",
+      "description": "",
+      "item": [
+        {
+          "name": "maintenanceWorkOrderResources",
+          "description": "",
+          "item": [
+            {
+              "name": "{WoOperationResourceId}",
+              "description": "",
+              "item": [
+                {
+                  "id": "5e838d62-e901-4155-8270-af38aa4f980e",
+                  "name": "Get one work order resource",
+                  "request": {
+                    "name": "Get one work order resource",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "maintenanceWorkOrderResources",
+                        ":WoOperationResourceId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "WoOperationResourceId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the resource for work order operation. This attribute is read-only. The value of this attribute is generated when the application creates the operation resource.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "10ad5533-30f3-4ba1-9383-9f469951f4df",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "maintenanceWorkOrderResources",
+                            ":WoOperationResourceId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"ProfileId\": \"<long>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"WorkCenterDescription\": \"<string>\",\n  \"ResourceActivityCode\": \"<string>\",\n  \"ResourceName\": \"<string>\",\n  \"ResourceActivityMeaning\": \"<string>\",\n  \"UsageRate\": \"<number>\",\n  \"PrincipalFlag\": \"<boolean>\",\n  \"CountPointOperationFlag\": \"<boolean>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"UOMCode\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"StandardOperationCode\": \"<string>\",\n  \"WorkAccomplishedName\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"UnitOfMeasure\": \"<string>\",\n  \"ResourceSequenceNumber\": \"<number>\",\n  \"WoOperationResourceId\": \"<long>\",\n  \"WoOperationName\": \"<string>\",\n  \"AutoTransactFlag\": \"<boolean>\",\n  \"ScheduledIndicator\": \"<string>\",\n  \"AssignedUnits\": \"<number>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"BasisTypeCode\": \"<string>\",\n  \"WorkAccomplishedCode\": \"<string>\",\n  \"OperationSequenceNumber\": \"<number>\",\n  \"RepairTransactionCodeId\": \"<long>\",\n  \"ReportedUsage\": \"<number>\",\n  \"RepairTransactionName\": \"<string>\",\n  \"WorkAccomplishedCodeId\": \"<long>\",\n  \"ReasonForRepairCode\": \"<string>\",\n  \"WorkCenterId\": \"<long>\",\n  \"ReasonForRepairCodeId\": \"<long>\",\n  \"StandardOperationId\": \"<long>\",\n  \"PlannedCompletionDate\": \"<dateTime>\",\n  \"ChargeTypeCode\": \"<string>\",\n  \"OrganizationId\": \"<long>\",\n  \"ScheduledFlag\": \"<boolean>\",\n  \"WoOperationDescription\": \"<string>\",\n  \"PlannedStartDate\": \"<dateTime>\",\n  \"EqpQualProfileId\": \"<long>\",\n  \"MntResourceAssignedFlag\": \"<boolean>\",\n  \"MntResourceQualifiedFlag\": \"<boolean>\",\n  \"OpenUsage\": \"<number>\",\n  \"ReasonForRepairName\": \"<string>\",\n  \"OrganizationCode\": \"<string>\",\n  \"EqpQualProfileCode\": \"<string>\",\n  \"ResourceExceptionFlag\": \"<boolean>\",\n  \"ActualResourceUsage\": \"<number>\",\n  \"RequestMaintenanceFlag\": \"<boolean>\",\n  \"ResourceCode\": \"<string>\",\n  \"WorkCenterName\": \"<string>\",\n  \"RepairTransactionCode\": \"<string>\",\n  \"RequiredUsage\": \"<number>\",\n  \"ResourceType\": \"<string>\",\n  \"WorkMethodCode\": \"<string>\",\n  \"ProfileCode\": \"<string>\",\n  \"ResourceInstanceNames\": \"<string>\",\n  \"BasisType\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"ResourceId\": \"<long>\",\n  \"ResourceDescription\": \"<string>\",\n  \"ChargeType\": \"<string>\",\n  \"WoOperationId\": \"<long>\",\n  \"ReportedUsagePerAsset\": \"<number>\",\n  \"InverseRequiredUsage\": \"<number>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "db4fe63f-00e8-43aa-8ebb-54db677211fb",
+              "name": "Get all work order resources",
+              "request": {
+                "name": "Get all work order resources",
+                "description": {},
+                "url": {
+                  "path": [
+                    "maintenanceWorkOrderResources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActualResourceUsage; number; Actual resource usage recorded for the assigned resources.</li><li>AssignedUnits; number; Number of resource units required to perform the operation.</li><li>AutoTransactFlag; boolean; Contains one of the following values: true or false. If true, then automatically report the operation when the operation occurs on the shop floor. If false, then don't report this operation automatically. If the operation isn't significant, it's recommended that you set AutoTransactFlag to true. The Count Point attribute and the Automatically Transact attribute are mutually exclusive. You must make sure that each of these attributes do not both contain true. If the Count Point and Automatically Transact attributes each contain false, then the operation is optional. Note that the user can manually report component usage and resource usage for an optional operation. The default value is false.</li><li>BasisType; string; Contains one of the following values: 1 or 2. If 1, then the resource consumption is fixed. It does not change according to work order quantity. If 2, then the resource consumption is not fixed. It might change according to work order quantity. The default value is 2. A list of accepted values is defined in the lookup type EGP_BOM_BASIS_TYPE. For maintenance work orders the work order quantity is always one.</li><li>BasisTypeCode; string; Abbreviation for the basis type of material defined for the work order operation. Valid values are contained in the lookup EGP_BOM_BASIS_TYPE.</li><li>ChargeType; string; Abbreviation that identifies how the resource is charged. A list of accepted values is defined in the lookup type ORA_WIS_CHARGE_TYPE. The charge type is required. Valid values include MANUAL or AUTOMATIC. For a count point operation, the value must be AUTOMATIC for automatic transact operations and MANUAL for optional operations.</li><li>ChargeTypeCode; string; Abbreviation for the charge type of material defined for the work order operation. Valid values are contained in the lookup ORA_WIS_CHARGE_TYPE.</li><li>CountPointOperationFlag; boolean; Contains one of the following values: true or false. If true, then make this operation a count point operation. If an operation occurs on the shop floor, the user must manually report it in the application when the operation occurs. If false, then don't make this operation a count point operation. The user doesn't need to report the operation. It's recommended that you configure each work order so that it includes at least one count point operation, and to make sure that the last operation that the work order performs is a count point operation. The default value is true.</li><li>CreatedBy; string; Session login associated with the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>EqpQualProfileId; integer; Value that uniquely identifies the qualification profile. Values are predefined and created for equipment qualifications. This attribute is applicable only for equipment type resources. When it's specified, only those equipment resource instances that meet the qualifications can be reported for resource transactions. It's a non-mandatory attribute for a work order operation resource.</li><li>InverseRequiredUsage; number; Inverse of the usage rate. The application uses this inverse when the resource usage rate is a fraction, but the inverse of this rate is an integer.</li><li>LastUpdateDate; string; Date when the record was most recently updated.</li><li>LastUpdatedBy; string; Session login associated with the user who most recently updated the record.</li><li>MntResourceAssignedFlag; boolean; Contains one of the following values: YES or NO. If YES, then the logged in user is assigned to the resource. If NO, the user is not assigned to the resource.</li><li>MntResourceQualifiedFlag; boolean; Contains one of the following values: YES or NO. If YES, then the logged in user is qualified to report resource usage for the resource. If NO, the user is not qualified for the resource.</li><li>OpenUsage; number; Value that is the difference between the required usage and the reported usage.</li><li>OperationSequenceNumber; number; Number that identifies the sequence to use when performing the work order operations. The operation sequence is required to create an operation. It must be a positive integer. Its value must be unique within the work order operations. If it isn't provided, then the last operation sequence incremented by 10 is used as sequence to create an operation.</li><li>OrganizationCode; string; Abbreviation for the maintenance organization of the work order.</li><li>OrganizationId; integer; Value that uniquely identifies the maintenance organization of the work order.</li><li>PlannedCompletionDate; string; Date when the resource is planned to finish. The scheduling application sets this date. The planned completion date must not occur before the operation start date or after the operation finish date. This attribute is required. The default value is the operation end date.</li><li>PlannedStartDate; string; Date when the resource is planned to start. The scheduling application sets this date. The planned start date must not occur before the operation start date or after the operation finish date. This attribute is required. The default value is the operation start date.</li><li>PrincipalFlag; boolean; Contains one of the following values: true or false. If true, then this resource is the principal resource among the group of simultaneous resources. If false, then this resource is not the principal resource. Note that one of the simultaneous resources must be a principal resource. The default value is false.</li><li>ProfileId; integer; Value that uniquely identifies the work order operation resource's job profile. The application generates this key value.</li><li>ReasonForRepairCode; string; Abbreviation that identifies the reason for repair of the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>ReasonForRepairCodeId; integer; Value that uniquely identifies the reason for repair of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>ReasonForRepairName; string; Name of the reason for the repair code.</li><li>RepairTransactionCode; string; Abbreviation that identifies the repair transaction for the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Repair Transaction.</li><li>RepairTransactionCodeId; integer; Value that uniquely identifies the repair transaction of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Transaction code.</li><li>RepairTransactionName; string; Name of the repair transaction code.</li><li>RequiredUsage; number; Resource usage that the plant requires to make the required work order quantity. The application calculates this value depending on whether the basis type is fixed or variable. Fixed: the required usage equals the usage rate. Variable: the required usage is the product of the usage rate and the work order quantity. For maintenance work orders the work order quantity is always one.</li><li>ResourceActivityCode; string; Code for the activity to be performed by this operation resource.</li><li>ResourceActivityMeaning; string; Definition of the task to be performed by this operational resource.</li><li>ResourceCode; string; Abbreviation that identifies the resource assigned to the work order operation. You must provide either the resource identifier or the resource code to create an operation resource.</li><li>ResourceDescription; string; Description of the operation of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ResourceExceptionFlag; boolean; Value that indicates the presence of open resource type exceptions for a resource requirement in a work order operation.</li><li>ResourceId; integer; Value that uniquely identifies the resource assigned to the work order operation. You must provide either the resource identifier or the resource code to create a work order operation resource.</li><li>ResourceInstanceNames; string; List of comma separated resource instance names. Restricted to the first 50 characters.</li><li>ResourceName; string; Name of the operation of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ResourceSequenceNumber; number; Number that identifies the sequence of the resource in the work order operation. The sequence is required to create an operation resource. The last operation resource sequence incremented by 10 is used as sequence to create an operation resource.</li><li>ResourceType; string; Abbreviation that identifies the type of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ScheduledFlag; boolean; This attribute is not currently used for Oracle Maintenance Cloud. You must use the ScheduledIndicator attribute instead.</li><li>ScheduledIndicator; string; Contains one of the following values: YES or NO. If YES, then scheduling schedules the resource and computes the start date and completion dates. If NO, then scheduling does not schedule the resource and it sets the start date equal to the completion date. A list of accepted values is defined in the lookup type ORA_WIS_RESOURCE_SCHEDULE. The default value is YES.</li><li>StandardOperationCode; string; Abbreviation that identifies the standard operation for work order operation. This attribute is read-only.</li><li>StandardOperationId; integer; Value that uniquely identifies the standard operation for work order operation. This attribute is read-only.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure of the operation material quantity.</li><li>UnitOfMeasure; string; Unit of measure of the material component quantity to be issued. It is the primary unit of measure of the item. This attribute is read-only. The value of this attribute is derived from the material component item.</li><li>UsageRate; number; Resource usage rate that the plant requires to make the required work order quantity. The resource usage rate is used to calculate the required usage based on the basis type and the work order quantity. For maintenance work orders the work order quantity is always one.</li><li>WoOperationDescription; string; Description of the operation to be performed during the work order execution. The operation description is optional to create the work order operation.</li><li>WoOperationId; integer; Value that uniquely identifies the work order operation. This attribute is read-only. The value of this attribute is generated when the application creates the work order operation.</li><li>WoOperationName; string; Name of the work order operation. The operation name is required to create an operation.</li><li>WoOperationResourceId; integer; Value that uniquely identifies the resource for work order operation. This attribute is read-only. The value of this attribute is generated when the application creates the operation resource.</li><li>WorkAccomplishedCode; string; Abbreviation that identifies the work accomplished against the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>WorkAccomplishedCodeId; integer; Value that uniquely identifies the work accomplished of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Work accomplished.</li><li>WorkAccomplishedName; string; Name of the work accomplished code.</li><li>WorkCenterDescription; string; Description of the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the work center identifier.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the operation.</li><li>WorkCenterName; string; Name of the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the operation.</li><li>WorkMethodCode; string; Abbreviation that identifies the method that the work order uses such as DISCRETE_MANUFACTURING or MAINTENANCE.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order. This attribute is read-only. The value of this attribute is derived from the work order number when the application creates the work order.</li><li>WorkOrderNumber; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds resources according to the primary key.<br>Finder Variables: <ul><li>WoOperationResourceId; integer; Value that uniquely identifies the resource.</li></ul></li><li>WorkOrderResourceByWorkMethodWorkOrderAndWorkCenter: Finds work order materials according to the provided work order, work method, asset, and work center identifiers.<br>Finder Variables: <ul><li>BindAssetId; integer; Value that uniquely identifies the asset.</li><li>BindWorkCenterId; integer; Value that uniquely identifies the work center.</li><li>BindWorkMethodCode; string; Value that uniquely identifies the work method code.</li><li>BindWorkOrderId; integer; Value that uniquely identifies the work order.</li></ul></li><li>WorkOrderResourcesByAsset: Finds work order resources according to provided asset and workorder identifiers.<br>Finder Variables: <ul><li>BindAssetId; integer; Value that uniquely identifies the asset.</li><li>BindWorkOrderId; integer; Value that uniquely identifies the work order.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "4ec05e83-1aa8-4f95-9c1d-71ced894f9a6",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "maintenanceWorkOrderResources"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ActualResourceUsage; number; Actual resource usage recorded for the assigned resources.</li><li>AssignedUnits; number; Number of resource units required to perform the operation.</li><li>AutoTransactFlag; boolean; Contains one of the following values: true or false. If true, then automatically report the operation when the operation occurs on the shop floor. If false, then don't report this operation automatically. If the operation isn't significant, it's recommended that you set AutoTransactFlag to true. The Count Point attribute and the Automatically Transact attribute are mutually exclusive. You must make sure that each of these attributes do not both contain true. If the Count Point and Automatically Transact attributes each contain false, then the operation is optional. Note that the user can manually report component usage and resource usage for an optional operation. The default value is false.</li><li>BasisType; string; Contains one of the following values: 1 or 2. If 1, then the resource consumption is fixed. It does not change according to work order quantity. If 2, then the resource consumption is not fixed. It might change according to work order quantity. The default value is 2. A list of accepted values is defined in the lookup type EGP_BOM_BASIS_TYPE. For maintenance work orders the work order quantity is always one.</li><li>BasisTypeCode; string; Abbreviation for the basis type of material defined for the work order operation. Valid values are contained in the lookup EGP_BOM_BASIS_TYPE.</li><li>ChargeType; string; Abbreviation that identifies how the resource is charged. A list of accepted values is defined in the lookup type ORA_WIS_CHARGE_TYPE. The charge type is required. Valid values include MANUAL or AUTOMATIC. For a count point operation, the value must be AUTOMATIC for automatic transact operations and MANUAL for optional operations.</li><li>ChargeTypeCode; string; Abbreviation for the charge type of material defined for the work order operation. Valid values are contained in the lookup ORA_WIS_CHARGE_TYPE.</li><li>CountPointOperationFlag; boolean; Contains one of the following values: true or false. If true, then make this operation a count point operation. If an operation occurs on the shop floor, the user must manually report it in the application when the operation occurs. If false, then don't make this operation a count point operation. The user doesn't need to report the operation. It's recommended that you configure each work order so that it includes at least one count point operation, and to make sure that the last operation that the work order performs is a count point operation. The default value is true.</li><li>CreatedBy; string; Session login associated with the user who created the record.</li><li>CreationDate; string; Date when the record was created.</li><li>EqpQualProfileId; integer; Value that uniquely identifies the qualification profile. Values are predefined and created for equipment qualifications. This attribute is applicable only for equipment type resources. When it's specified, only those equipment resource instances that meet the qualifications can be reported for resource transactions. It's a non-mandatory attribute for a work order operation resource.</li><li>InverseRequiredUsage; number; Inverse of the usage rate. The application uses this inverse when the resource usage rate is a fraction, but the inverse of this rate is an integer.</li><li>LastUpdateDate; string; Date when the record was most recently updated.</li><li>LastUpdatedBy; string; Session login associated with the user who most recently updated the record.</li><li>MntResourceAssignedFlag; boolean; Contains one of the following values: YES or NO. If YES, then the logged in user is assigned to the resource. If NO, the user is not assigned to the resource.</li><li>MntResourceQualifiedFlag; boolean; Contains one of the following values: YES or NO. If YES, then the logged in user is qualified to report resource usage for the resource. If NO, the user is not qualified for the resource.</li><li>OpenUsage; number; Value that is the difference between the required usage and the reported usage.</li><li>OperationSequenceNumber; number; Number that identifies the sequence to use when performing the work order operations. The operation sequence is required to create an operation. It must be a positive integer. Its value must be unique within the work order operations. If it isn't provided, then the last operation sequence incremented by 10 is used as sequence to create an operation.</li><li>OrganizationCode; string; Abbreviation for the maintenance organization of the work order.</li><li>OrganizationId; integer; Value that uniquely identifies the maintenance organization of the work order.</li><li>PlannedCompletionDate; string; Date when the resource is planned to finish. The scheduling application sets this date. The planned completion date must not occur before the operation start date or after the operation finish date. This attribute is required. The default value is the operation end date.</li><li>PlannedStartDate; string; Date when the resource is planned to start. The scheduling application sets this date. The planned start date must not occur before the operation start date or after the operation finish date. This attribute is required. The default value is the operation start date.</li><li>PrincipalFlag; boolean; Contains one of the following values: true or false. If true, then this resource is the principal resource among the group of simultaneous resources. If false, then this resource is not the principal resource. Note that one of the simultaneous resources must be a principal resource. The default value is false.</li><li>ProfileId; integer; Value that uniquely identifies the work order operation resource's job profile. The application generates this key value.</li><li>ReasonForRepairCode; string; Abbreviation that identifies the reason for repair of the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>ReasonForRepairCodeId; integer; Value that uniquely identifies the reason for repair of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>ReasonForRepairName; string; Name of the reason for the repair code.</li><li>RepairTransactionCode; string; Abbreviation that identifies the repair transaction for the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Repair Transaction.</li><li>RepairTransactionCodeId; integer; Value that uniquely identifies the repair transaction of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Transaction code.</li><li>RepairTransactionName; string; Name of the repair transaction code.</li><li>RequiredUsage; number; Resource usage that the plant requires to make the required work order quantity. The application calculates this value depending on whether the basis type is fixed or variable. Fixed: the required usage equals the usage rate. Variable: the required usage is the product of the usage rate and the work order quantity. For maintenance work orders the work order quantity is always one.</li><li>ResourceActivityCode; string; Code for the activity to be performed by this operation resource.</li><li>ResourceActivityMeaning; string; Definition of the task to be performed by this operational resource.</li><li>ResourceCode; string; Abbreviation that identifies the resource assigned to the work order operation. You must provide either the resource identifier or the resource code to create an operation resource.</li><li>ResourceDescription; string; Description of the operation of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ResourceExceptionFlag; boolean; Value that indicates the presence of open resource type exceptions for a resource requirement in a work order operation.</li><li>ResourceId; integer; Value that uniquely identifies the resource assigned to the work order operation. You must provide either the resource identifier or the resource code to create a work order operation resource.</li><li>ResourceInstanceNames; string; List of comma separated resource instance names. Restricted to the first 50 characters.</li><li>ResourceName; string; Name of the operation of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ResourceSequenceNumber; number; Number that identifies the sequence of the resource in the work order operation. The sequence is required to create an operation resource. The last operation resource sequence incremented by 10 is used as sequence to create an operation resource.</li><li>ResourceType; string; Abbreviation that identifies the type of the resource assigned to the work order operation such as labor or equipment. This attribute is read-only. The value of this attribute is derived from the resource.</li><li>ScheduledFlag; boolean; This attribute is not currently used for Oracle Maintenance Cloud. You must use the ScheduledIndicator attribute instead.</li><li>ScheduledIndicator; string; Contains one of the following values: YES or NO. If YES, then scheduling schedules the resource and computes the start date and completion dates. If NO, then scheduling does not schedule the resource and it sets the start date equal to the completion date. A list of accepted values is defined in the lookup type ORA_WIS_RESOURCE_SCHEDULE. The default value is YES.</li><li>StandardOperationCode; string; Abbreviation that identifies the standard operation for work order operation. This attribute is read-only.</li><li>StandardOperationId; integer; Value that uniquely identifies the standard operation for work order operation. This attribute is read-only.</li><li>UOMCode; string; Abbreviation that identifies the unit of measure of the operation material quantity.</li><li>UnitOfMeasure; string; Unit of measure of the material component quantity to be issued. It is the primary unit of measure of the item. This attribute is read-only. The value of this attribute is derived from the material component item.</li><li>UsageRate; number; Resource usage rate that the plant requires to make the required work order quantity. The resource usage rate is used to calculate the required usage based on the basis type and the work order quantity. For maintenance work orders the work order quantity is always one.</li><li>WoOperationDescription; string; Description of the operation to be performed during the work order execution. The operation description is optional to create the work order operation.</li><li>WoOperationId; integer; Value that uniquely identifies the work order operation. This attribute is read-only. The value of this attribute is generated when the application creates the work order operation.</li><li>WoOperationName; string; Name of the work order operation. The operation name is required to create an operation.</li><li>WoOperationResourceId; integer; Value that uniquely identifies the resource for work order operation. This attribute is read-only. The value of this attribute is generated when the application creates the operation resource.</li><li>WorkAccomplishedCode; string; Abbreviation that identifies the work accomplished against the maintenance work order operation resource. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Reason for repair.</li><li>WorkAccomplishedCodeId; integer; Value that uniquely identifies the work accomplished of the maintenance work order operation material. This attribute is read-only. The list of values comes from the user-defined condition event codes with the transaction type Work accomplished.</li><li>WorkAccomplishedName; string; Name of the work accomplished code.</li><li>WorkCenterDescription; string; Description of the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the work center identifier.</li><li>WorkCenterId; integer; Value that uniquely identifies the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the operation.</li><li>WorkCenterName; string; Name of the work center in which the operation is performed. This attribute is read-only. The value of this attribute is derived from the operation.</li><li>WorkMethodCode; string; Abbreviation that identifies the method that the work order uses such as DISCRETE_MANUFACTURING or MAINTENANCE.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order. This attribute is read-only. The value of this attribute is derived from the work order number when the application creates the work order.</li><li>WorkOrderNumber; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds resources according to the primary key.<br>Finder Variables: <ul><li>WoOperationResourceId; integer; Value that uniquely identifies the resource.</li></ul></li><li>WorkOrderResourceByWorkMethodWorkOrderAndWorkCenter: Finds work order materials according to the provided work order, work method, asset, and work center identifiers.<br>Finder Variables: <ul><li>BindAssetId; integer; Value that uniquely identifies the asset.</li><li>BindWorkCenterId; integer; Value that uniquely identifies the work center.</li><li>BindWorkMethodCode; string; Value that uniquely identifies the work method code.</li><li>BindWorkOrderId; integer; Value that uniquely identifies the work order.</li></ul></li><li>WorkOrderResourcesByAsset: Finds work order resources according to provided asset and workorder identifiers.<br>Finder Variables: <ul><li>BindAssetId; integer; Value that uniquely identifies the asset.</li><li>BindWorkOrderId; integer; Value that uniquely identifies the work order.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"ProfileId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"WorkCenterDescription\": \"<string>\",\n      \"ResourceActivityCode\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"ResourceActivityMeaning\": \"<string>\",\n      \"UsageRate\": \"<number>\",\n      \"PrincipalFlag\": \"<boolean>\",\n      \"CountPointOperationFlag\": \"<boolean>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"StandardOperationCode\": \"<string>\",\n      \"WorkAccomplishedName\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"ResourceSequenceNumber\": \"<number>\",\n      \"WoOperationResourceId\": \"<long>\",\n      \"WoOperationName\": \"<string>\",\n      \"AutoTransactFlag\": \"<boolean>\",\n      \"ScheduledIndicator\": \"<string>\",\n      \"AssignedUnits\": \"<number>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"BasisTypeCode\": \"<string>\",\n      \"WorkAccomplishedCode\": \"<string>\",\n      \"OperationSequenceNumber\": \"<number>\",\n      \"RepairTransactionCodeId\": \"<long>\",\n      \"ReportedUsage\": \"<number>\",\n      \"RepairTransactionName\": \"<string>\",\n      \"WorkAccomplishedCodeId\": \"<long>\",\n      \"ReasonForRepairCode\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"ReasonForRepairCodeId\": \"<long>\",\n      \"StandardOperationId\": \"<long>\",\n      \"PlannedCompletionDate\": \"<dateTime>\",\n      \"ChargeTypeCode\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"ScheduledFlag\": \"<boolean>\",\n      \"WoOperationDescription\": \"<string>\",\n      \"PlannedStartDate\": \"<dateTime>\",\n      \"EqpQualProfileId\": \"<long>\",\n      \"MntResourceAssignedFlag\": \"<boolean>\",\n      \"MntResourceQualifiedFlag\": \"<boolean>\",\n      \"OpenUsage\": \"<number>\",\n      \"ReasonForRepairName\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"EqpQualProfileCode\": \"<string>\",\n      \"ResourceExceptionFlag\": \"<boolean>\",\n      \"ActualResourceUsage\": \"<number>\",\n      \"RequestMaintenanceFlag\": \"<boolean>\",\n      \"ResourceCode\": \"<string>\",\n      \"WorkCenterName\": \"<string>\",\n      \"RepairTransactionCode\": \"<string>\",\n      \"RequiredUsage\": \"<number>\",\n      \"ResourceType\": \"<string>\",\n      \"WorkMethodCode\": \"<string>\",\n      \"ProfileCode\": \"<string>\",\n      \"ResourceInstanceNames\": \"<string>\",\n      \"BasisType\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceDescription\": \"<string>\",\n      \"ChargeType\": \"<string>\",\n      \"WoOperationId\": \"<long>\",\n      \"ReportedUsagePerAsset\": \"<number>\",\n      \"InverseRequiredUsage\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"ProfileId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"WorkCenterDescription\": \"<string>\",\n      \"ResourceActivityCode\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"ResourceActivityMeaning\": \"<string>\",\n      \"UsageRate\": \"<number>\",\n      \"PrincipalFlag\": \"<boolean>\",\n      \"CountPointOperationFlag\": \"<boolean>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"UOMCode\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"StandardOperationCode\": \"<string>\",\n      \"WorkAccomplishedName\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"UnitOfMeasure\": \"<string>\",\n      \"ResourceSequenceNumber\": \"<number>\",\n      \"WoOperationResourceId\": \"<long>\",\n      \"WoOperationName\": \"<string>\",\n      \"AutoTransactFlag\": \"<boolean>\",\n      \"ScheduledIndicator\": \"<string>\",\n      \"AssignedUnits\": \"<number>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"BasisTypeCode\": \"<string>\",\n      \"WorkAccomplishedCode\": \"<string>\",\n      \"OperationSequenceNumber\": \"<number>\",\n      \"RepairTransactionCodeId\": \"<long>\",\n      \"ReportedUsage\": \"<number>\",\n      \"RepairTransactionName\": \"<string>\",\n      \"WorkAccomplishedCodeId\": \"<long>\",\n      \"ReasonForRepairCode\": \"<string>\",\n      \"WorkCenterId\": \"<long>\",\n      \"ReasonForRepairCodeId\": \"<long>\",\n      \"StandardOperationId\": \"<long>\",\n      \"PlannedCompletionDate\": \"<dateTime>\",\n      \"ChargeTypeCode\": \"<string>\",\n      \"OrganizationId\": \"<long>\",\n      \"ScheduledFlag\": \"<boolean>\",\n      \"WoOperationDescription\": \"<string>\",\n      \"PlannedStartDate\": \"<dateTime>\",\n      \"EqpQualProfileId\": \"<long>\",\n      \"MntResourceAssignedFlag\": \"<boolean>\",\n      \"MntResourceQualifiedFlag\": \"<boolean>\",\n      \"OpenUsage\": \"<number>\",\n      \"ReasonForRepairName\": \"<string>\",\n      \"OrganizationCode\": \"<string>\",\n      \"EqpQualProfileCode\": \"<string>\",\n      \"ResourceExceptionFlag\": \"<boolean>\",\n      \"ActualResourceUsage\": \"<number>\",\n      \"RequestMaintenanceFlag\": \"<boolean>\",\n      \"ResourceCode\": \"<string>\",\n      \"WorkCenterName\": \"<string>\",\n      \"RepairTransactionCode\": \"<string>\",\n      \"RequiredUsage\": \"<number>\",\n      \"ResourceType\": \"<string>\",\n      \"WorkMethodCode\": \"<string>\",\n      \"ProfileCode\": \"<string>\",\n      \"ResourceInstanceNames\": \"<string>\",\n      \"BasisType\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceDescription\": \"<string>\",\n      \"ChargeType\": \"<string>\",\n      \"WoOperationId\": \"<long>\",\n      \"ReportedUsagePerAsset\": \"<number>\",\n      \"InverseRequiredUsage\": \"<number>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

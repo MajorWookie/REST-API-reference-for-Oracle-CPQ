@@ -1,0 +1,1975 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Costscenarios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Costscenarios",
+      "description": "",
+      "item": [
+        {
+          "name": "costScenarios",
+          "description": "",
+          "item": [
+            {
+              "name": "{costScenariosUniqID}",
+              "description": "",
+              "item": [
+                {
+                  "id": "fb1748be-a965-4a30-b136-c7b1456e2833",
+                  "name": "Get one single cost scenario",
+                  "request": {
+                    "name": "Get one single cost scenario",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "costScenarios",
+                        ":costScenariosUniqID"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "costScenariosUniqID",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "cad903b5-098c-4c6a-80b1-3c89df517b8a",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "costScenarios",
+                            ":costScenariosUniqID"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"EventStatusCode\": \"SUCCESS\",\n  \"CreationDate\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"CostOrgId\": -1,\n  \"CompletedCount\": \"<integer>\",\n  \"PrimaryBookFlag\": \"<boolean>\",\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupDescription\": \"<string>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"ScenarioEventDate\": \"<dateTime>\",\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"LastUpdatedBy\": \"<string>\",\n  \"ScenarioId\": \"<long>\",\n  \"CreatedBy\": \"<string>\",\n  \"ScenarioEventNumber\": \"CREATE\",\n  \"Comments\": \"<string>\",\n  \"StartTime\": \"<dateTime>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"ScenarioNumber\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"PeriodicAverageFlag\": \"<boolean>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"ScenarioEventType\": \"CREATE\",\n  \"SingleLevelRollupFlag\": false,\n  \"FailedCount\": \"<integer>\",\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"EffectiveStartDate\": \"<date>\",\n  \"ScenarioType\": \"STANDARD\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"CostBookId\": -1\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "id": "a3cdb8fa-cd58-4b70-bc5d-22f1692492a7",
+                  "name": "Update one cost scenario",
+                  "request": {
+                    "name": "Update one cost scenario",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "costScenarios",
+                        ":costScenariosUniqID"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "costScenariosUniqID",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "PATCH",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"CostOrgId\": -1,\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"Comments\": \"<string>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"SingleLevelRollupFlag\": false,\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"EffectiveStartDate\": \"<date>\",\n  \"CostBookId\": -1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "a5f54f38-f0e2-4825-b411-7f5c6468e08a",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "costScenarios",
+                            ":costScenariosUniqID"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "PATCH",
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"CostOrgId\": -1,\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"Comments\": \"<string>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"SingleLevelRollupFlag\": false,\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"EffectiveStartDate\": \"<date>\",\n  \"CostBookId\": -1\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"EventStatusCode\": \"SUCCESS\",\n  \"CreationDate\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"CostOrgId\": -1,\n  \"CompletedCount\": \"<integer>\",\n  \"PrimaryBookFlag\": \"<boolean>\",\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupDescription\": \"<string>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"ScenarioEventDate\": \"<dateTime>\",\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"LastUpdatedBy\": \"<string>\",\n  \"ScenarioId\": \"<long>\",\n  \"CreatedBy\": \"<string>\",\n  \"ScenarioEventNumber\": \"CREATE\",\n  \"Comments\": \"<string>\",\n  \"StartTime\": \"<dateTime>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"ScenarioNumber\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"PeriodicAverageFlag\": \"<boolean>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"ScenarioEventType\": \"CREATE\",\n  \"SingleLevelRollupFlag\": false,\n  \"FailedCount\": \"<integer>\",\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"EffectiveStartDate\": \"<date>\",\n  \"ScenarioType\": \"STANDARD\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"CostBookId\": -1\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                },
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "WorkDefinitionCriteriaDetails",
+                      "description": "",
+                      "item": [
+                        {
+                          "id": "26cba6d1-0af0-4a4f-88a1-e300aa5eb5cb",
+                          "name": "Get all work definition criteria detail for a scenario",
+                          "request": {
+                            "name": "Get all work definition criteria detail for a scenario",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "costScenarios",
+                                ":costScenariosUniqID",
+                                "child",
+                                "WorkDefinitionCriteriaDetails"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CategoryDescription; string; Description of the item category where items would be rolled up within the scenario.</li><li>CategoryId; integer; Uniquely identifies the item category for which the overhead rates are displayed.</li><li>CategoryName; string; Name of the item category where items would be rolled up within the scenario.</li><li>CategorySetDescription; string; Description of the item catalog.</li><li>CategorySetId; integer; Unique identifier for item catalog.</li><li>CategorySetName; string; Name of the item catalog.</li><li>InventoryItemId; integer; Indicates the unique identifier of the selected item to be rolled up within the scenario.</li><li>ItemDescription; string; Description of the selected item to be rolled up within the scenario.</li><li>ItemNumber; string; Indicates the unique name of the selected item to be rolled up within the scenario.</li><li>ResourceCode; string; Code for the resource used to set the scope of a type of configured item cost scenario.</li><li>ResourceId; integer; Indicates the resource to be used for identifying the work definitions used for rolling up cost in a cost planning scenario.</li><li>ResourceName; string; Name of the resource used to set the scope of a type of configured item cost scenario.</li><li>ResourceType; string; Contains the resource type.</li><li>WdCriterionDetailId; integer; Surrogate key and unique identifier for criteria detail.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the work definition criteria detail that matches the primary key criteria specified.<br>Finder Variables: <ul><li>WdCriterionDetailId; integer; Unique work definition criteria detail identifier.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<string>",
+                                  "key": "costScenariosUniqID",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "32153700-b01f-4cc0-9e8c-1dd14dccfdf0",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "costScenarios",
+                                    ":costScenariosUniqID",
+                                    "child",
+                                    "WorkDefinitionCriteriaDetails"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CategoryDescription; string; Description of the item category where items would be rolled up within the scenario.</li><li>CategoryId; integer; Uniquely identifies the item category for which the overhead rates are displayed.</li><li>CategoryName; string; Name of the item category where items would be rolled up within the scenario.</li><li>CategorySetDescription; string; Description of the item catalog.</li><li>CategorySetId; integer; Unique identifier for item catalog.</li><li>CategorySetName; string; Name of the item catalog.</li><li>InventoryItemId; integer; Indicates the unique identifier of the selected item to be rolled up within the scenario.</li><li>ItemDescription; string; Description of the selected item to be rolled up within the scenario.</li><li>ItemNumber; string; Indicates the unique name of the selected item to be rolled up within the scenario.</li><li>ResourceCode; string; Code for the resource used to set the scope of a type of configured item cost scenario.</li><li>ResourceId; integer; Indicates the resource to be used for identifying the work definitions used for rolling up cost in a cost planning scenario.</li><li>ResourceName; string; Name of the resource used to set the scope of a type of configured item cost scenario.</li><li>ResourceType; string; Contains the resource type.</li><li>WdCriterionDetailId; integer; Surrogate key and unique identifier for criteria detail.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the work definition criteria detail that matches the primary key criteria specified.<br>Finder Variables: <ul><li>WdCriterionDetailId; integer; Unique work definition criteria detail identifier.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"parent\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "id": "68d35bc6-a0a0-4e63-8b1b-526d2600f31a",
+                          "name": "Create a multiple work definition criteria detail for a scenario",
+                          "request": {
+                            "name": "Create a multiple work definition criteria detail for a scenario",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "costScenarios",
+                                ":costScenariosUniqID",
+                                "child",
+                                "WorkDefinitionCriteriaDetails"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<string>",
+                                  "key": "costScenariosUniqID",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                  "type": "text/plain"
+                                },
+                                "key": "Upsert-Mode",
+                                "value": "true"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "8f4d7c45-324a-4ea5-95ba-895f1a3710b2",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "costScenarios",
+                                    ":costScenariosUniqID",
+                                    "child",
+                                    "WorkDefinitionCriteriaDetails"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Upsert-Mode",
+                                    "value": "true"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"WdCriterionDetailId\": \"<long>\",\n  \"CategorySetDescription\": \"<string>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ResourceType\": \"<string>\",\n  \"ItemDescription\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CategoryDescription\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "name": "{WdCriterionDetailId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "a1ded7ce-947d-44a7-9a02-b6e0cfdcb2dd",
+                              "name": "Get a single work definition criteria detail for a scenario",
+                              "request": {
+                                "name": "Get a single work definition criteria detail for a scenario",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "costScenarios",
+                                    ":costScenariosUniqID",
+                                    "child",
+                                    "WorkDefinitionCriteriaDetails",
+                                    ":WdCriterionDetailId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "costScenariosUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "WdCriterionDetailId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Surrogate key and unique identifier for criteria detail.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "d097a42e-f293-4826-8d6b-043bae4a614b",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "costScenarios",
+                                        ":costScenariosUniqID",
+                                        "child",
+                                        "WorkDefinitionCriteriaDetails",
+                                        ":WdCriterionDetailId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"WdCriterionDetailId\": \"<long>\",\n  \"CategorySetDescription\": \"<string>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ResourceType\": \"<string>\",\n  \"ItemDescription\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CategoryDescription\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "cefe69a3-1bde-4276-876a-89cf5c8cb2f4",
+                              "name": "Delete a single work definition criteria detail for a scenario",
+                              "request": {
+                                "name": "Delete a single work definition criteria detail for a scenario",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "costScenarios",
+                                    ":costScenariosUniqID",
+                                    "child",
+                                    "WorkDefinitionCriteriaDetails",
+                                    ":WdCriterionDetailId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "costScenariosUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "WdCriterionDetailId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Surrogate key and unique identifier for criteria detail.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  }
+                                ],
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "cff55649-f903-43cf-8b3d-f763fa752afe",
+                                  "name": "No Content. This task does not return elements in the response body.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "costScenarios",
+                                        ":costScenariosUniqID",
+                                        "child",
+                                        "WorkDefinitionCriteriaDetails",
+                                        ":WdCriterionDetailId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      }
+                                    ],
+                                    "method": "DELETE",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [],
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "text"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            },
+                            {
+                              "id": "728aa606-7d06-45b9-9f92-4bde75e69fc2",
+                              "name": "Update a single work definition criteria detail for a scenario",
+                              "request": {
+                                "name": "Update a single work definition criteria detail for a scenario",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "costScenarios",
+                                    ":costScenariosUniqID",
+                                    "child",
+                                    "WorkDefinitionCriteriaDetails",
+                                    ":WdCriterionDetailId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "costScenariosUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Cost Scenarios resource and used to uniquely identify an instance of Cost Scenarios. The client should not generate the hash key value. Instead, the client should query on the Cost Scenarios collection resource in order to navigate to a specific instance of Cost Scenarios to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "WdCriterionDetailId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Surrogate key and unique identifier for criteria detail.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "PATCH",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "1b48fc92-8fda-48d2-8a23-577f84b76810",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "costScenarios",
+                                        ":costScenariosUniqID",
+                                        "child",
+                                        "WorkDefinitionCriteriaDetails",
+                                        ":WdCriterionDetailId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "PATCH",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"CategoryId\": \"<long>\",\n  \"ResourceCode\": \"<string>\",\n  \"WdCriterionDetailId\": \"<long>\",\n  \"CategorySetDescription\": \"<string>\",\n  \"ResourceName\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"ResourceType\": \"<string>\",\n  \"ItemDescription\": \"<string>\",\n  \"ItemNumber\": \"<string>\",\n  \"ResourceId\": \"<long>\",\n  \"CategoryName\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CategoryDescription\": \"<string>\",\n  \"CategorySetName\": \"<string>\",\n  \"CategorySetId\": \"<long>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "f280ae3b-4851-4d39-8487-32f802aa857d",
+              "name": "Get all cost scenarios",
+              "request": {
+                "name": "Get all cost scenarios",
+                "description": {},
+                "url": {
+                  "path": [
+                    "costScenarios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssignmentSetName; string; Indicates the name of the sourcing assignment set. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>Comments; string; Indicates the detailed information or comments about the cost scenario.</li><li>CompletedCount; integer; Indicates the total count of rows successfully completed for the scenario event.</li><li>CostBookCode; string; Code that identifies the cost book associated with the cost scenario.</li><li>CostBookDescription; string; Description of the cost book.</li><li>CostBookId; integer; Indicates the accounting cost book associated with the cost scenario.</li><li>CostOrgCode; string; Code that identifies cost organization associated with the cost scenario.</li><li>CostOrgId; integer; Value that uniquely identifies the cost organization.</li><li>CostOrgName; string; Name of the cost organization associated with the cost scenario.</li><li>CreatedBy; string; Indicates the user who created the row.</li><li>CreationDate; string; Indicates the date and time of the creation of the row.</li><li>EffectiveStartDate; string; Indicates the date for which the scenario becomes effective.</li><li>EndTime; string; Indicates the end time of the scenario event.</li><li>EventStatusCode; string; Indicates the status of the scenario event. Valid values are NOT_STARTED, PROCESSING, SUCCESS, WARNING, ERROR, CANCELED.</li><li>ExplosionBasis; string; Indicates the explosion basis to be used for work definition explosion in the scenario.</li><li>ExplosionSequence; string; Indicates the order in which the explosion logic would apply the priorities during the work definition explosion in a cost planning scenario. Valid values are:\nWD Name - Costing Priority - Planning Priority (NCP)\nWD Name - Planning Priority - Costing Priority (NPC)\nCosting Priority - Planning Priority - WD Name (CPN)\nCosting Priority - WD Name - Planning Priority (CNP)\nPlanning Priority - Costing Priority - WD Name (PCN)\nPlanning Priority - WD Name - Costing Priority (PNC).</li><li>FailedCount; integer; Indicates the total count of rows failed for the scenario event.</li><li>LastUpdateDate; string; Indicates the date and time of the last update of the row.</li><li>LastUpdatedBy; string; Indicates the user who last updated the row.</li><li>PeriodName; string; Indicates the period for periodic average cost book based scenarios.</li><li>PeriodicAverageFlag; boolean; Indicates if the Cost Book is a periodic average cost-enabled cost book.</li><li>ReasonCode; string; Indicates the reason code of why the scenario became modified.</li><li>RefreshWdFlag; boolean; Indicates whether during the build and rollup process, the work definition snapshots should be refreshed from the manufacturing tables or should the last used work definition for the item and plant combination from a previous scenario be used. Valid values are 'Y' and 'N'. Default is 'Y' indicating the work definitions would be refreshed.</li><li>RollupGroupDescription; string; Indicates the cost rollup group description. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupGroupId; integer; Primary key that uniquely identifies the cost rollup group specified on the scenario. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupGroupName; string; Indicates the cost rollup group name. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupScope; string; Indicates the scope of the data to roll up.</li><li>RuleSetName; string; Indicates the transfer charge rule set referenced in the cost scenario. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>ScenarioEventDate; string; Indicates the date and time in which the event occurred.</li><li>ScenarioEventNumber; string; Indicates the user defined event number for scenario events. Value is defaulted based on the event type as follows:\nCREATE\nBUILD-1\nBUILD-2\nROLLUP-1\nROLLUP-2\nPUBLISH-1\nPUBLISH-2 and so on.</li><li>ScenarioEventType; string; Indicates the type of scenario event. Valid values are CREATE, BUILD, ROLLUP, PUBLISH.</li><li>ScenarioId; integer; Surrogate key and unique identifier for each cost scenario.</li><li>ScenarioNumber; string; User defined number to identify the cost scenario.</li><li>ScenarioType; string; Indicates the type of the scenario.</li><li>SingleLevelRollupFlag; boolean; Indicates that only the first level of the item structure for the selected items will be rolled up.</li><li>StartTime; string; Indicates the start time of the scenario event.</li><li>StateCode; string; Indicates the state of the scenario.</li><li>StatusCode; string; Indicates the status of the scenario.</li><li>TotalCount; integer; Indicates the total count of rows processed for the scenario event.</li><li>WorkDefName; string; Indicates the name of the work definition.</li><li>WorkDefinitionNameId; integer; Indicates the work definition name identifier that would be used during the work definition explosion in the cost scenario, when the work definition name option is considered.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the cost scenario that matches the primary key criteria specified.<br>Finder Variables: <ul><li>ScenarioId; integer; Unique cost-scenario identifier.</li></ul></li><li>findByCostOrgCostBook: Finds the cost scenario based on cost organization and cost book.<br>Finder Variables: <ul><li>bindCostBookCode; string; Code of the cost book associated with the cost scenario.</li><li>bindCostOrgName; string; Name of the cost organization associated with the cost scenario.</li></ul></li><li>findByScenarioNumber: Finds the cost scenario based on the cost-scenario number.<br>Finder Variables: <ul><li>bindScenarioNumber; string; Cost scenario number.</li></ul></li><li>findUnpublishedByCostOrgCostBook: Finds the unpublished cost scenario based on cost organization and cost book.<br>Finder Variables: <ul><li>bindCostBookCode; string; Code of the cost book associated with the unpublished cost scenario.</li><li>bindCostOrgName; string; Name of the cost organization associated with the unpublished cost scenario.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "cfa48866-8858-49f2-bfde-77c2e3d04290",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "costScenarios"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssignmentSetName; string; Indicates the name of the sourcing assignment set. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>Comments; string; Indicates the detailed information or comments about the cost scenario.</li><li>CompletedCount; integer; Indicates the total count of rows successfully completed for the scenario event.</li><li>CostBookCode; string; Code that identifies the cost book associated with the cost scenario.</li><li>CostBookDescription; string; Description of the cost book.</li><li>CostBookId; integer; Indicates the accounting cost book associated with the cost scenario.</li><li>CostOrgCode; string; Code that identifies cost organization associated with the cost scenario.</li><li>CostOrgId; integer; Value that uniquely identifies the cost organization.</li><li>CostOrgName; string; Name of the cost organization associated with the cost scenario.</li><li>CreatedBy; string; Indicates the user who created the row.</li><li>CreationDate; string; Indicates the date and time of the creation of the row.</li><li>EffectiveStartDate; string; Indicates the date for which the scenario becomes effective.</li><li>EndTime; string; Indicates the end time of the scenario event.</li><li>EventStatusCode; string; Indicates the status of the scenario event. Valid values are NOT_STARTED, PROCESSING, SUCCESS, WARNING, ERROR, CANCELED.</li><li>ExplosionBasis; string; Indicates the explosion basis to be used for work definition explosion in the scenario.</li><li>ExplosionSequence; string; Indicates the order in which the explosion logic would apply the priorities during the work definition explosion in a cost planning scenario. Valid values are:\nWD Name - Costing Priority - Planning Priority (NCP)\nWD Name - Planning Priority - Costing Priority (NPC)\nCosting Priority - Planning Priority - WD Name (CPN)\nCosting Priority - WD Name - Planning Priority (CNP)\nPlanning Priority - Costing Priority - WD Name (PCN)\nPlanning Priority - WD Name - Costing Priority (PNC).</li><li>FailedCount; integer; Indicates the total count of rows failed for the scenario event.</li><li>LastUpdateDate; string; Indicates the date and time of the last update of the row.</li><li>LastUpdatedBy; string; Indicates the user who last updated the row.</li><li>PeriodName; string; Indicates the period for periodic average cost book based scenarios.</li><li>PeriodicAverageFlag; boolean; Indicates if the Cost Book is a periodic average cost-enabled cost book.</li><li>ReasonCode; string; Indicates the reason code of why the scenario became modified.</li><li>RefreshWdFlag; boolean; Indicates whether during the build and rollup process, the work definition snapshots should be refreshed from the manufacturing tables or should the last used work definition for the item and plant combination from a previous scenario be used. Valid values are 'Y' and 'N'. Default is 'Y' indicating the work definitions would be refreshed.</li><li>RollupGroupDescription; string; Indicates the cost rollup group description. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupGroupId; integer; Primary key that uniquely identifies the cost rollup group specified on the scenario. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupGroupName; string; Indicates the cost rollup group name. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>RollupScope; string; Indicates the scope of the data to roll up.</li><li>RuleSetName; string; Indicates the transfer charge rule set referenced in the cost scenario. This attribute is only applicable for cost scenarios enabled for supply chain cost rollup.</li><li>ScenarioEventDate; string; Indicates the date and time in which the event occurred.</li><li>ScenarioEventNumber; string; Indicates the user defined event number for scenario events. Value is defaulted based on the event type as follows:\nCREATE\nBUILD-1\nBUILD-2\nROLLUP-1\nROLLUP-2\nPUBLISH-1\nPUBLISH-2 and so on.</li><li>ScenarioEventType; string; Indicates the type of scenario event. Valid values are CREATE, BUILD, ROLLUP, PUBLISH.</li><li>ScenarioId; integer; Surrogate key and unique identifier for each cost scenario.</li><li>ScenarioNumber; string; User defined number to identify the cost scenario.</li><li>ScenarioType; string; Indicates the type of the scenario.</li><li>SingleLevelRollupFlag; boolean; Indicates that only the first level of the item structure for the selected items will be rolled up.</li><li>StartTime; string; Indicates the start time of the scenario event.</li><li>StateCode; string; Indicates the state of the scenario.</li><li>StatusCode; string; Indicates the status of the scenario.</li><li>TotalCount; integer; Indicates the total count of rows processed for the scenario event.</li><li>WorkDefName; string; Indicates the name of the work definition.</li><li>WorkDefinitionNameId; integer; Indicates the work definition name identifier that would be used during the work definition explosion in the cost scenario, when the work definition name option is considered.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the cost scenario that matches the primary key criteria specified.<br>Finder Variables: <ul><li>ScenarioId; integer; Unique cost-scenario identifier.</li></ul></li><li>findByCostOrgCostBook: Finds the cost scenario based on cost organization and cost book.<br>Finder Variables: <ul><li>bindCostBookCode; string; Code of the cost book associated with the cost scenario.</li><li>bindCostOrgName; string; Name of the cost organization associated with the cost scenario.</li></ul></li><li>findByScenarioNumber: Finds the cost scenario based on the cost-scenario number.<br>Finder Variables: <ul><li>bindScenarioNumber; string; Cost scenario number.</li></ul></li><li>findUnpublishedByCostOrgCostBook: Finds the unpublished cost scenario based on cost organization and cost book.<br>Finder Variables: <ul><li>bindCostBookCode; string; Code of the cost book associated with the unpublished cost scenario.</li><li>bindCostOrgName; string; Name of the cost organization associated with the unpublished cost scenario.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"EventStatusCode\": \"SUCCESS\",\n      \"CreationDate\": \"<dateTime>\",\n      \"EndTime\": \"<dateTime>\",\n      \"CostOrgId\": -1,\n      \"CompletedCount\": \"<integer>\",\n      \"PrimaryBookFlag\": \"<boolean>\",\n      \"CostBookDescription\": \"<string>\",\n      \"StatusCode\": \"NEW\",\n      \"AssignmentSetId\": \"<long>\",\n      \"RollupGroupDescription\": \"<string>\",\n      \"RollupGroupName\": \"<string>\",\n      \"TransferCostRuleSetId\": \"<long>\",\n      \"WorkDefinitionCriteriaDetails\": [\n        {\n          \"CategoryId\": \"<long>\",\n          \"ResourceCode\": \"<string>\",\n          \"WdCriterionDetailId\": \"<long>\",\n          \"CategorySetDescription\": \"<string>\",\n          \"ResourceName\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ResourceType\": \"<string>\",\n          \"ItemDescription\": \"<string>\",\n          \"ItemNumber\": \"<string>\",\n          \"ResourceId\": \"<long>\",\n          \"CategoryName\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CategoryDescription\": \"<string>\",\n          \"CategorySetName\": \"<string>\",\n          \"CategorySetId\": \"<long>\"\n        },\n        {\n          \"CategoryId\": \"<long>\",\n          \"ResourceCode\": \"<string>\",\n          \"WdCriterionDetailId\": \"<long>\",\n          \"CategorySetDescription\": \"<string>\",\n          \"ResourceName\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ResourceType\": \"<string>\",\n          \"ItemDescription\": \"<string>\",\n          \"ItemNumber\": \"<string>\",\n          \"ResourceId\": \"<long>\",\n          \"CategoryName\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CategoryDescription\": \"<string>\",\n          \"CategorySetName\": \"<string>\",\n          \"CategorySetId\": \"<long>\"\n        }\n      ],\n      \"ScenarioEventDate\": \"<dateTime>\",\n      \"WorkDefName\": \"<string>\",\n      \"RollupGroupId\": -1,\n      \"OrganizationContext\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RuleSetName\": \"<string>\",\n      \"CostOrgCode\": \"<string>\",\n      \"RefreshWdFlag\": true,\n      \"LastUpdatedBy\": \"<string>\",\n      \"ScenarioId\": \"<long>\",\n      \"CreatedBy\": \"<string>\",\n      \"ScenarioEventNumber\": \"CREATE\",\n      \"Comments\": \"<string>\",\n      \"StartTime\": \"<dateTime>\",\n      \"StateCode\": \"NEW\",\n      \"SupplyChainRollupFlag\": false,\n      \"ReasonCode\": \"<string>\",\n      \"AssignmentSetName\": \"<string>\",\n      \"ScenarioNumber\": \"<string>\",\n      \"TotalCount\": \"<integer>\",\n      \"PeriodicAverageFlag\": \"<boolean>\",\n      \"RollupScope\": \"ALL_ITEMS\",\n      \"CostBookCode\": \"<string>\",\n      \"ScenarioEventType\": \"CREATE\",\n      \"SingleLevelRollupFlag\": false,\n      \"FailedCount\": \"<integer>\",\n      \"ExplosionBasis\": \"TOP_DOWN\",\n      \"PeriodName\": \"<string>\",\n      \"ExplosionSequence\": \"PCN\",\n      \"WorkDefinitionNameId\": \"<long>\",\n      \"CostOrgName\": \"<string>\",\n      \"EffectiveStartDate\": \"<date>\",\n      \"ScenarioType\": \"STANDARD\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"CostBookId\": -1\n    },\n    {\n      \"EventStatusCode\": \"SUCCESS\",\n      \"CreationDate\": \"<dateTime>\",\n      \"EndTime\": \"<dateTime>\",\n      \"CostOrgId\": -1,\n      \"CompletedCount\": \"<integer>\",\n      \"PrimaryBookFlag\": \"<boolean>\",\n      \"CostBookDescription\": \"<string>\",\n      \"StatusCode\": \"NEW\",\n      \"AssignmentSetId\": \"<long>\",\n      \"RollupGroupDescription\": \"<string>\",\n      \"RollupGroupName\": \"<string>\",\n      \"TransferCostRuleSetId\": \"<long>\",\n      \"WorkDefinitionCriteriaDetails\": [\n        {\n          \"CategoryId\": \"<long>\",\n          \"ResourceCode\": \"<string>\",\n          \"WdCriterionDetailId\": \"<long>\",\n          \"CategorySetDescription\": \"<string>\",\n          \"ResourceName\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ResourceType\": \"<string>\",\n          \"ItemDescription\": \"<string>\",\n          \"ItemNumber\": \"<string>\",\n          \"ResourceId\": \"<long>\",\n          \"CategoryName\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CategoryDescription\": \"<string>\",\n          \"CategorySetName\": \"<string>\",\n          \"CategorySetId\": \"<long>\"\n        },\n        {\n          \"CategoryId\": \"<long>\",\n          \"ResourceCode\": \"<string>\",\n          \"WdCriterionDetailId\": \"<long>\",\n          \"CategorySetDescription\": \"<string>\",\n          \"ResourceName\": \"<string>\",\n          \"InventoryItemId\": \"<long>\",\n          \"ResourceType\": \"<string>\",\n          \"ItemDescription\": \"<string>\",\n          \"ItemNumber\": \"<string>\",\n          \"ResourceId\": \"<long>\",\n          \"CategoryName\": \"<string>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"action\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"item\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CategoryDescription\": \"<string>\",\n          \"CategorySetName\": \"<string>\",\n          \"CategorySetId\": \"<long>\"\n        }\n      ],\n      \"ScenarioEventDate\": \"<dateTime>\",\n      \"WorkDefName\": \"<string>\",\n      \"RollupGroupId\": -1,\n      \"OrganizationContext\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RuleSetName\": \"<string>\",\n      \"CostOrgCode\": \"<string>\",\n      \"RefreshWdFlag\": true,\n      \"LastUpdatedBy\": \"<string>\",\n      \"ScenarioId\": \"<long>\",\n      \"CreatedBy\": \"<string>\",\n      \"ScenarioEventNumber\": \"CREATE\",\n      \"Comments\": \"<string>\",\n      \"StartTime\": \"<dateTime>\",\n      \"StateCode\": \"NEW\",\n      \"SupplyChainRollupFlag\": false,\n      \"ReasonCode\": \"<string>\",\n      \"AssignmentSetName\": \"<string>\",\n      \"ScenarioNumber\": \"<string>\",\n      \"TotalCount\": \"<integer>\",\n      \"PeriodicAverageFlag\": \"<boolean>\",\n      \"RollupScope\": \"ALL_ITEMS\",\n      \"CostBookCode\": \"<string>\",\n      \"ScenarioEventType\": \"CREATE\",\n      \"SingleLevelRollupFlag\": false,\n      \"FailedCount\": \"<integer>\",\n      \"ExplosionBasis\": \"TOP_DOWN\",\n      \"PeriodName\": \"<string>\",\n      \"ExplosionSequence\": \"PCN\",\n      \"WorkDefinitionNameId\": \"<long>\",\n      \"CostOrgName\": \"<string>\",\n      \"EffectiveStartDate\": \"<date>\",\n      \"ScenarioType\": \"STANDARD\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"CostBookId\": -1\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            },
+            {
+              "id": "30495967-4b01-43a4-9b96-bb7266da2cf1",
+              "name": "Create multiple cost scenarios",
+              "request": {
+                "name": "Create multiple cost scenarios",
+                "description": {},
+                "url": {
+                  "path": [
+                    "costScenarios"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                      "type": "text/plain"
+                    },
+                    "key": "Upsert-Mode",
+                    "value": "true"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"EffectiveStartDate\": \"<date>\",\n  \"ScenarioNumber\": \"<string>\",\n  \"EndTime\": \"<dateTime>\",\n  \"CostOrgId\": -1,\n  \"CompletedCount\": \"<integer>\",\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"ScenarioEventDate\": \"<dateTime>\",\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"Comments\": \"<string>\",\n  \"StartTime\": \"<dateTime>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"SingleLevelRollupFlag\": false,\n  \"FailedCount\": \"<integer>\",\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"CostBookId\": -1\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "4d7f32dd-b8c3-4707-9eac-d91b220c8836",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "costScenarios"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources.",
+                          "type": "text/plain"
+                        },
+                        "key": "Upsert-Mode",
+                        "value": "true"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "POST",
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"EffectiveStartDate\": \"<date>\",\n  \"ScenarioNumber\": \"<string>\",\n  \"EndTime\": \"<dateTime>\",\n  \"CostOrgId\": -1,\n  \"CompletedCount\": \"<integer>\",\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"ScenarioEventDate\": \"<dateTime>\",\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"Comments\": \"<string>\",\n  \"StartTime\": \"<dateTime>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"SingleLevelRollupFlag\": false,\n  \"FailedCount\": \"<integer>\",\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"CostBookId\": -1\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"EventStatusCode\": \"SUCCESS\",\n  \"CreationDate\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"CostOrgId\": -1,\n  \"CompletedCount\": \"<integer>\",\n  \"PrimaryBookFlag\": \"<boolean>\",\n  \"CostBookDescription\": \"<string>\",\n  \"StatusCode\": \"NEW\",\n  \"AssignmentSetId\": \"<long>\",\n  \"RollupGroupDescription\": \"<string>\",\n  \"RollupGroupName\": \"<string>\",\n  \"TransferCostRuleSetId\": \"<long>\",\n  \"WorkDefinitionCriteriaDetails\": [\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    },\n    {\n      \"CategoryId\": \"<long>\",\n      \"ResourceCode\": \"<string>\",\n      \"WdCriterionDetailId\": \"<long>\",\n      \"CategorySetDescription\": \"<string>\",\n      \"ResourceName\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"ResourceType\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemNumber\": \"<string>\",\n      \"ResourceId\": \"<long>\",\n      \"CategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CategoryDescription\": \"<string>\",\n      \"CategorySetName\": \"<string>\",\n      \"CategorySetId\": \"<long>\"\n    }\n  ],\n  \"ScenarioEventDate\": \"<dateTime>\",\n  \"WorkDefName\": \"<string>\",\n  \"RollupGroupId\": -1,\n  \"OrganizationContext\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RuleSetName\": \"<string>\",\n  \"CostOrgCode\": \"<string>\",\n  \"RefreshWdFlag\": true,\n  \"LastUpdatedBy\": \"<string>\",\n  \"ScenarioId\": \"<long>\",\n  \"CreatedBy\": \"<string>\",\n  \"ScenarioEventNumber\": \"CREATE\",\n  \"Comments\": \"<string>\",\n  \"StartTime\": \"<dateTime>\",\n  \"StateCode\": \"NEW\",\n  \"SupplyChainRollupFlag\": false,\n  \"ReasonCode\": \"<string>\",\n  \"AssignmentSetName\": \"<string>\",\n  \"ScenarioNumber\": \"<string>\",\n  \"TotalCount\": \"<integer>\",\n  \"PeriodicAverageFlag\": \"<boolean>\",\n  \"RollupScope\": \"ALL_ITEMS\",\n  \"CostBookCode\": \"<string>\",\n  \"ScenarioEventType\": \"CREATE\",\n  \"SingleLevelRollupFlag\": false,\n  \"FailedCount\": \"<integer>\",\n  \"ExplosionBasis\": \"TOP_DOWN\",\n  \"PeriodName\": \"<string>\",\n  \"ExplosionSequence\": \"PCN\",\n  \"WorkDefinitionNameId\": \"<long>\",\n  \"CostOrgName\": \"<string>\",\n  \"EffectiveStartDate\": \"<date>\",\n  \"ScenarioType\": \"STANDARD\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"CostBookId\": -1\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

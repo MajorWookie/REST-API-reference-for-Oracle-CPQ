@@ -1,0 +1,1169 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Assetfailureeventinstances",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Assetfailureeventinstances",
+      "description": "",
+      "item": [
+        {
+          "name": "assetFailureEventInstances",
+          "description": "",
+          "item": [
+            {
+              "name": "{FailureInstanceId}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "rootCauses",
+                      "description": "",
+                      "item": [
+                        {
+                          "id": "69d901d2-670c-4f1e-b174-8ca681f7c0f0",
+                          "name": "Get all failure root causes",
+                          "request": {
+                            "name": "Get all failure root causes",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "assetFailureEventInstances",
+                                ":FailureInstanceId",
+                                "child",
+                                "rootCauses"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CauseCodeId; integer; Value that uniquely identifies the root cause code. The value is system generated and read-only.</li><li>CreatedBy; string; User who created the failure root cause. The application automatically sets this value during creation. This attribute is read-only.</li><li>CreationDate; string; Date when the failure root cause is created. The application automatically sets this value during creation. This attribute is read-only.</li><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance. The value is system generated and read-only.</li><li>LastUpdateDate; string; Date when the user most recently updated the failure root cause. The application automatically sets this value during creation. This attribute is read-only.</li><li>LastUpdateLogin; string; Login that the user used when updating the failure root cause. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>LastUpdatedBy; string; User who most recently updated the failure root cause. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>RootCauseCategoryCode; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseCategoryName; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseCode; string; Abbreviation that uniquely identifies the root cause of failure. The root cause code is required and if entered must be a valid code. The code must use uppercase letters and alphanumeric.</li><li>RootCauseComments; string; Notes captured with free-text details about the causes and root cause of failure, or any other relevant data. This value is optional.</li><li>RootCauseDescription; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseId; integer; Value that uniquely identifies the root cause. The value is system generated and read-only.</li><li>RootCauseName; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds failure root causes according to the failure root cause identifier.<br>Finder Variables: <ul><li>RootCauseId; integer; Value that uniquely identifies the failure root cause.</li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<long>",
+                                  "key": "FailureInstanceId",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) Value that uniquely identifies the failure instance. The value is system generated and read-only.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "eb4553b0-0aa5-4df1-ba8e-65048bc20531",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "assetFailureEventInstances",
+                                    ":FailureInstanceId",
+                                    "child",
+                                    "rootCauses"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CauseCodeId; integer; Value that uniquely identifies the root cause code. The value is system generated and read-only.</li><li>CreatedBy; string; User who created the failure root cause. The application automatically sets this value during creation. This attribute is read-only.</li><li>CreationDate; string; Date when the failure root cause is created. The application automatically sets this value during creation. This attribute is read-only.</li><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance. The value is system generated and read-only.</li><li>LastUpdateDate; string; Date when the user most recently updated the failure root cause. The application automatically sets this value during creation. This attribute is read-only.</li><li>LastUpdateLogin; string; Login that the user used when updating the failure root cause. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>LastUpdatedBy; string; User who most recently updated the failure root cause. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>RootCauseCategoryCode; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseCategoryName; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseCode; string; Abbreviation that uniquely identifies the root cause of failure. The root cause code is required and if entered must be a valid code. The code must use uppercase letters and alphanumeric.</li><li>RootCauseComments; string; Notes captured with free-text details about the causes and root cause of failure, or any other relevant data. This value is optional.</li><li>RootCauseDescription; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li><li>RootCauseId; integer; Value that uniquely identifies the root cause. The value is system generated and read-only.</li><li>RootCauseName; string; Number that identifies the work order. This number is unique in the organization. The user can manually assign the number when creating the work order, or allow the application to create a unique number from the numbering scheme that the following Plant parameters define: Work Order Prefix or Work Order Starting Number.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds failure root causes according to the failure root cause identifier.<br>Finder Variables: <ul><li>RootCauseId; integer; Value that uniquely identifies the failure root cause.</li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"canonical\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"RootCauseComments\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"RootCauseCode\": \"<string>\",\n      \"RootCauseName\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"RootCauseCategoryCode\": \"<string>\",\n      \"RootCauseId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RootCauseDescription\": \"<string>\",\n      \"RootCauseCategoryName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"RootCauseComments\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"RootCauseCode\": \"<string>\",\n      \"RootCauseName\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"RootCauseCategoryCode\": \"<string>\",\n      \"RootCauseId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RootCauseDescription\": \"<string>\",\n      \"RootCauseCategoryName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        },
+                        {
+                          "name": "{RootCauseId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "eab98d82-2ba3-4ce5-899a-1435963a27e5",
+                              "name": "Get one failure root cause",
+                              "request": {
+                                "name": "Get one failure root cause",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "assetFailureEventInstances",
+                                    ":FailureInstanceId",
+                                    "child",
+                                    "rootCauses",
+                                    ":RootCauseId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "FailureInstanceId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the failure instance. The value is system generated and read-only.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "RootCauseId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) Value that uniquely identifies the root cause. The value is system generated and read-only.",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "79d9e15f-cbd8-4e30-9e01-ec9f3d48e8fe",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "assetFailureEventInstances",
+                                        ":FailureInstanceId",
+                                        "child",
+                                        "rootCauses",
+                                        ":RootCauseId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CauseCodeId\": \"<long>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"RootCauseComments\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"RootCauseCode\": \"<string>\",\n  \"RootCauseName\": \"<string>\",\n  \"FailureInstanceId\": \"<long>\",\n  \"RootCauseCategoryCode\": \"<string>\",\n  \"RootCauseId\": \"<long>\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"RootCauseDescription\": \"<string>\",\n  \"RootCauseCategoryName\": \"<string>\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"LastUpdateLogin\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "9abc4e54-adc9-421e-9033-745f7c63aa10",
+                  "name": "Get one asset failure event instance",
+                  "request": {
+                    "name": "Get one asset failure event instance",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "assetFailureEventInstances",
+                        ":FailureInstanceId"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<long>",
+                          "key": "FailureInstanceId",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) Value that uniquely identifies the failure instance. The value is system generated and read-only.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "2e0258b6-db8a-43d5-9ea1-ff294fdfd605",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "assetFailureEventInstances",
+                            ":FailureInstanceId"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"CauseCodeId\": \"<long>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"WorkOrderDescription\": \"<string>\",\n  \"ItemCategoryName\": \"<string>\",\n  \"AssetDescription\": \"<string>\",\n  \"MeterUnitsBetweenFailure\": \"<number>\",\n  \"FailedComponentAssetDescription\": \"<string>\",\n  \"AssetNumber\": \"<string>\",\n  \"FailureInstanceId\": \"<long>\",\n  \"ResolutionDescription\": \"<string>\",\n  \"CauseName\": \"<string>\",\n  \"SourceSystemType\": \"<string>\",\n  \"rootCauses\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"RootCauseComments\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"RootCauseCode\": \"<string>\",\n      \"RootCauseName\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"RootCauseCategoryCode\": \"<string>\",\n      \"RootCauseId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"canonical\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RootCauseDescription\": \"<string>\",\n      \"RootCauseCategoryName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"RootCauseComments\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"RootCauseCode\": \"<string>\",\n      \"RootCauseName\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"RootCauseCategoryCode\": \"<string>\",\n      \"RootCauseId\": \"<long>\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"RootCauseDescription\": \"<string>\",\n      \"RootCauseCategoryName\": \"<string>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"LastUpdateLogin\": \"<string>\"\n    }\n  ],\n  \"FailedComponentItemLongDescription\": \"<string>\",\n  \"FailedAssetId\": \"<long>\",\n  \"CauseCategoryName\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"FailureComments\": \"<string>\",\n  \"FailureStatusCode\": \"<string>\",\n  \"FailureCodeId\": \"<long>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"FailureDescription\": \"<string>\",\n  \"ItemCategoryCode\": \"<string>\",\n  \"InventoryItemId\": \"<long>\",\n  \"FailureCode\": \"<string>\",\n  \"FailedComponentSerialNumber\": \"<string>\",\n  \"ItemLongDescription\": \"<string>\",\n  \"AssetDownFlag\": \"<boolean>\",\n  \"FailureStatusName\": \"<string>\",\n  \"AssetCriticalityCode\": \"<string>\",\n  \"SourceDocumentTypeCode\": \"<string>\",\n  \"FailureCategoryName\": \"<string>\",\n  \"WorkOrderNumber\": \"<string>\",\n  \"CauseCode\": \"<string>\",\n  \"OperationSequenceNumber\": \"<number>\",\n  \"ResolutionCategoryName\": \"<string>\",\n  \"FailureEventId\": \"<long>\",\n  \"AssetId\": \"<long>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"FailedComponentItemNumber\": \"<string>\",\n  \"MeterUnitOfMeasure\": \"<string>\",\n  \"RepairCost\": \"<number>\",\n  \"FailureSeverityName\": \"<string>\",\n  \"DaysBetweenFailure\": \"<number>\",\n  \"AvailableDate\": \"<dateTime>\",\n  \"SourceSystemId\": \"<long>\",\n  \"CauseDescription\": \"<string>\",\n  \"ItemDescription\": \"<string>\",\n  \"ItemOrganizationId\": \"<long>\",\n  \"ItemNumber\": \"<string>\",\n  \"FailedComponentItemId\": \"<long>\",\n  \"CompletionDate\": \"<dateTime>\",\n  \"ResolutionCategoryCode\": \"<string>\",\n  \"ResolutionCode\": \"<string>\",\n  \"SourceDocumentId\": \"<string>\",\n  \"ItemCategoryId\": \"<long>\",\n  \"OperationName\": \"<string>\",\n  \"FailureDate\": \"<dateTime>\",\n  \"ItemOrganizationCode\": \"<string>\",\n  \"FailedComponentAssetNumber\": \"<string>\",\n  \"AssetCriticalityName\": \"<string>\",\n  \"FailureCategoryCode\": \"<string>\",\n  \"ResolutionCodeId\": \"<number>\",\n  \"FailedComponentItemDescription\": \"<string>\",\n  \"CauseCategoryCode\": \"<string>\",\n  \"WorkOrderId\": \"<long>\",\n  \"FailureName\": \"<string>\",\n  \"FailureSeverityCode\": \"<string>\",\n  \"WoOperationId\": \"<long>\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"ResolutionName\": \"<string>\"\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "45927a58-d75e-4cd7-af91-3414ff0949f6",
+              "name": "Get all asset failure event instances",
+              "request": {
+                "name": "Get all asset failure event instances",
+                "description": {},
+                "url": {
+                  "path": [
+                    "assetFailureEventInstances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssetCriticalityCode; string; Abbreviation that uniquely identifies the asset criticality. The code is not required but if entered must be a valid code. The code must use uppercase letters and be alphanumeric.</li><li>AssetCriticalityName; string; Name that uniquely identifies the criticality of the asset. The name is optional but if defined must be unique.</li><li>AssetDescription; string; Description of the asset. This optional attribute provides a brief user-defined text providing information on the asset's use and characteristics.</li><li>AssetDownFlag; boolean; Contains one of the following values: true or false. If true, then the asset is deemed non-functional and downtime is accrued for that asset. If false, then the asset is still considered functional and no downtime is accrued for that asset; for example, an asset may have redundant systems that allow it to remain functional despite a failure. The default value is true. The response payload translates Y to true and N to false.</li><li>AssetId; integer; Value that uniquely identifies the asset that failed. This is generally the asset on the work order. The value is system generated and read-only. This attribute is optional.</li><li>AssetNumber; string; Name that uniquely identifies the asset-tracked component that failed. This attribute is optional.</li><li>AvailableDate; string; Date and time when a failed asset is determined to be available to use again after failure. The available date must occur after the failure date. This attribute is optional. If you do not provide a value, the application uses the work order completion date.</li><li>CauseCategoryCode; string; Abbreviation that uniquely identifies the category of failure cause. The code must use uppercase letters and it can be alphanumeric.</li><li>CauseCategoryName; string; Name of the failure cause category. The name is optional but if defined must be unique.</li><li>CauseCode; string; Abbreviation that uniquely identifies the cause of failure. The cause code is not required but if entered must be a valid code. The code must use uppercase letters and be alphanumeric.</li><li>CauseCodeId; integer; Unique identifier for the cause Code.</li><li>CauseDescription; string; Description of the cause code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>CauseName; string; Name of the cause code. The cause code name is optional but if defined must be unique.</li><li>CompletionDate; string; Date and time when the work order for resolving the failure was completed. The work order completion date must occur after the failure date. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>CreatedBy; string; User who created the asset failure event instance. The application automatically sets this value during creation. This attribute is read-only.</li><li>CreationDate; string; Date when the asset failure event instance is created. The application automatically sets this value during creation. This attribute is read-only.</li><li>DaysBetweenFailure; number; The number of calendar days between the current failure date and the prior available date. If there was no prior failure, then the number of calendar days between the current failure date and the asset in-service date. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>FailedAssetId; integer; Value that uniquely identifies the asset that failed. This is generally the asset on the work order. The value is system generated and read-only. This attribute is optional.</li><li>FailedComponentAssetDescription; string; Description of the asset-tracked component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentAssetNumber; string; Description of the asset-tracked component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemDescription; string; Description of the component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemId; integer; Unique identifier for the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>FailedComponentItemLongDescription; string; Long description of the component item that failed. This optional attribute provides a more detailed user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemNumber; string; Name that uniquely identifies the component that failed. This attribute is optional.</li><li>FailedComponentSerialNumber; string; Serial number that uniquely identifies the component that failed. This attribute is optional. This attribute is only valid if the FailedItemId is a serial controlled item.</li><li>FailureCategoryCode; string; Abbreviation that uniquely identifies the category of failure. The code must use uppercase letters and it can be alphanumeric.</li><li>FailureCategoryName; string; Name of the failure category. The name is optional but if defined must be unique.</li><li>FailureCode; string; Abbreviation that uniquely identifies the failure mode. The failure code is not required but if entered must be a valid code. The code must use uppercase letters and it can be alphanumeric.</li><li>FailureCodeId; integer; Unique identifier for the failure Code.</li><li>FailureComments; string; Notes captured with free-text details about the causes and root cause of failure, or any other relevant data. This value is optional.</li><li>FailureDate; string; Date and time when an asset failed. The failed date must occur before the failure date. This attribute is mandatory.</li><li>FailureDescription; string; Description of the failure code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>FailureEventId; integer; Value that uniquely identifies the failure event. The value is system generated and read-only.</li><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance. The value is system generated and read-only.</li><li>FailureName; string; Name of the failure code. The failure code name is optional but if defined must be unique.</li><li>FailureSeverityCode; string; Abbreviation that uniquely identifies the severity of failure. The severity code is not required but if entered must be a valid code. The code must be alphanumeric.</li><li>FailureSeverityName; string; Name that uniquely identifies the severity of the failure. The name is optional but if defined must be unique.</li><li>FailureStatusCode; string; Abbreviation that uniquely identifies the status of the failure. The status code is not required but if entered must be a valid code. The code must be alphanumeric.</li><li>FailureStatusName; string; Name that uniquely identifies the status of the failure. The name is optional but if defined must be unique.</li><li>InventoryItemId; integer; Unique identifier for the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>ItemCategoryCode; string; Abbreviation that uniquely identifies the item category to which the failed component is assigned. The code must be alphanumeric and must validate against the catalog assigned to the profile option \" ORA_CSE_ITEM_CATALOG\".</li><li>ItemCategoryId; integer; Value that uniquely identifies the item category to which the failed component is assigned. The value is system generated and read-only.</li><li>ItemCategoryName; string; Name of the item category to which the failed component is assigned. The item category name is optional but if defined must be unique.</li><li>ItemDescription; string; Description of the item. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>ItemLongDescription; string; Long description of the item. This optional attribute provides a more detailed user-defined text providing information on the item's use and characteristics.</li><li>ItemNumber; string; Name that uniquely identifies the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>ItemOrganizationCode; string; Value that uniquely identifies the item Organization. This is generally the item on the work order.</li><li>ItemOrganizationId; integer; Unique identifier for the item Organization. This is generally the item on the work order.</li><li>LastUpdateDate; string; Date when the user most recently updated the asset failure event instance. The application automatically sets this value during creation. This attribute is read-only.</li><li>LastUpdateLogin; string; Login that the user used when updating the asset failure event instance. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>LastUpdatedBy; string; User who most recently updated the asset failure event instance. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>MeterUnitOfMeasure; string; MeterUnitOfMeasure must be a valid Meter UOM Code lookup. This attribute is populated only in cases where failure records are imported from an external system, an in such cases is optional.</li><li>MeterUnitsBetweenFailure; number; The number of meter units between the current failure date and the prior available date. If there was no prior failure, then the number of meter units between the current failure date and the asset in-service date. The unit of measure for the meter units is defined by the attribute MeterUnitOfMeasure. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is optional.</li><li>OperationName; string; Name that identifies the operation within a work order.</li><li>OperationSequenceNumber; number; Number that identifies the sequence of the operation within a work order. The operation sequence is required attribute for a work order operation. It must be a positive integer and unique within a work order.</li><li>RepairCost; number; The total cost to repair the asset. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>ResolutionCategoryCode; string; Abbreviation that uniquely identifies the category of resolution. The code must use uppercase letters and it can be alphanumeric.</li><li>ResolutionCategoryName; string; Name of the resolution category. The name is optional but if defined must be unique.</li><li>ResolutionCode; string; Abbreviation that uniquely identifies the resolution of the failure. The resolution code is not required but if entered must be a valid code. The code must use uppercase letters and it can be alphanumeric.</li><li>ResolutionCodeId; number; Unique identifier for the resolution of the failure.</li><li>ResolutionDescription; string; Description of the resolution code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>ResolutionName; string; Name of the resolution code. The resolution code name is optional but if defined must be unique.</li><li>SourceDocumentId; string; Value that uniquely identifies the source document.  The value is system generated and read-only.</li><li>SourceDocumentTypeCode; string; Abbreviation that uniquely identifies the source document type. The source document type code is required only for failure records imported from an external system.  The code must be alphanumeric and must validate against fnd_lookup \"ORA_CSE_DOCUMENT_TYPE\".</li><li>SourceSystemId; integer; Value that uniquely identifies the source system. The value is system generated and read-only.</li><li>SourceSystemType; string; Contains one of the following values: ORA_INTERNAL (failure records generated from the Failure Capture UI) or ORA_EXTERNAL (failure records from another system, often historical failure records). If ORA_INTERNAL, then either workOrderNumber or workOrderId is mandatory and values passed for assetId will be ignored (Asset ID will be queried from the workOrderId). If ORA_EXTERNAL, then assetId, sourceSystemType, sourceDocTypeCode, and sourceDocId are mandatory. sourceSystemId must validate against hz_orig_systems_vl.ORIG_SYSTEM_ID. sourceDocTypeCode must validate against fnd_lookup \"ORA_CSE_DOCUMENT_TYPE\". Values passed for trackingObjectCode, workOrderNumber, and workOrderId will be ignored. The default value is ORA_EXTERNAL.</li><li>WoOperationId; integer; Value that uniquely identifies the work order operation associated with the failure instance.</li><li>WorkOrderDescription; string; Description of the work order. This optional attribute provides a brief user-defined text providing information on the work order's use and characteristics.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order. The value is system generated and read-only.</li><li>WorkOrderNumber; string; Number the uniquely identifies the work order within an organization.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>CauseCodeFinder: Finds asset failure events according to the cause code on the failure event instance.<br>Finder Variables: <ul><li>BindCauseCode; string; Value that uniquely identifies the cause.</li></ul></li><li>FailedComponentAssetNumberFinder: Finds asset failure events according to the failed component asset on the failure event instance.<br>Finder Variables: <ul><li>BindFailedComponentAssetNumber; string; Number that identifies the failed component asset.</li></ul></li><li>FailedComponentItemNumberFinder: Finds asset failure events according to the failed component item on the failure event instance.<br>Finder Variables: <ul><li>BindFailedComponentItemNumber; string; Number that identifies the failed component.</li></ul></li><li>FailureCodeFinder: Finds asset failure events according to the failure code on the failure event instance.<br>Finder Variables: <ul><li>BindFailureCode; string; Value that uniquely identifies the failure.</li></ul></li><li>PrimaryKey: Finds failure instances according to the failure instance identifier.<br>Finder Variables: <ul><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance.</li></ul></li><li>ResolutionCodeFinder: Finds asset failure events according to the resolution code on the failure event instance.<br>Finder Variables: <ul><li>BindResolutionCode; string; Value that uniquely identifies the resolution.</li></ul></li><li>RootCauseCodeFinder: Finds asset failure event instances according to the root cause code linked to the failure event instance.<br>Finder Variables: <ul><li>BindRootCause; string; Value that uniquely identifies the root cause.</li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "90fdedfc-24eb-405d-89c2-3722871a905d",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "assetFailureEventInstances"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AssetCriticalityCode; string; Abbreviation that uniquely identifies the asset criticality. The code is not required but if entered must be a valid code. The code must use uppercase letters and be alphanumeric.</li><li>AssetCriticalityName; string; Name that uniquely identifies the criticality of the asset. The name is optional but if defined must be unique.</li><li>AssetDescription; string; Description of the asset. This optional attribute provides a brief user-defined text providing information on the asset's use and characteristics.</li><li>AssetDownFlag; boolean; Contains one of the following values: true or false. If true, then the asset is deemed non-functional and downtime is accrued for that asset. If false, then the asset is still considered functional and no downtime is accrued for that asset; for example, an asset may have redundant systems that allow it to remain functional despite a failure. The default value is true. The response payload translates Y to true and N to false.</li><li>AssetId; integer; Value that uniquely identifies the asset that failed. This is generally the asset on the work order. The value is system generated and read-only. This attribute is optional.</li><li>AssetNumber; string; Name that uniquely identifies the asset-tracked component that failed. This attribute is optional.</li><li>AvailableDate; string; Date and time when a failed asset is determined to be available to use again after failure. The available date must occur after the failure date. This attribute is optional. If you do not provide a value, the application uses the work order completion date.</li><li>CauseCategoryCode; string; Abbreviation that uniquely identifies the category of failure cause. The code must use uppercase letters and it can be alphanumeric.</li><li>CauseCategoryName; string; Name of the failure cause category. The name is optional but if defined must be unique.</li><li>CauseCode; string; Abbreviation that uniquely identifies the cause of failure. The cause code is not required but if entered must be a valid code. The code must use uppercase letters and be alphanumeric.</li><li>CauseCodeId; integer; Unique identifier for the cause Code.</li><li>CauseDescription; string; Description of the cause code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>CauseName; string; Name of the cause code. The cause code name is optional but if defined must be unique.</li><li>CompletionDate; string; Date and time when the work order for resolving the failure was completed. The work order completion date must occur after the failure date. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>CreatedBy; string; User who created the asset failure event instance. The application automatically sets this value during creation. This attribute is read-only.</li><li>CreationDate; string; Date when the asset failure event instance is created. The application automatically sets this value during creation. This attribute is read-only.</li><li>DaysBetweenFailure; number; The number of calendar days between the current failure date and the prior available date. If there was no prior failure, then the number of calendar days between the current failure date and the asset in-service date. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>FailedAssetId; integer; Value that uniquely identifies the asset that failed. This is generally the asset on the work order. The value is system generated and read-only. This attribute is optional.</li><li>FailedComponentAssetDescription; string; Description of the asset-tracked component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentAssetNumber; string; Description of the asset-tracked component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemDescription; string; Description of the component item that failed. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemId; integer; Unique identifier for the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>FailedComponentItemLongDescription; string; Long description of the component item that failed. This optional attribute provides a more detailed user-defined text providing information on the item's use and characteristics.</li><li>FailedComponentItemNumber; string; Name that uniquely identifies the component that failed. This attribute is optional.</li><li>FailedComponentSerialNumber; string; Serial number that uniquely identifies the component that failed. This attribute is optional. This attribute is only valid if the FailedItemId is a serial controlled item.</li><li>FailureCategoryCode; string; Abbreviation that uniquely identifies the category of failure. The code must use uppercase letters and it can be alphanumeric.</li><li>FailureCategoryName; string; Name of the failure category. The name is optional but if defined must be unique.</li><li>FailureCode; string; Abbreviation that uniquely identifies the failure mode. The failure code is not required but if entered must be a valid code. The code must use uppercase letters and it can be alphanumeric.</li><li>FailureCodeId; integer; Unique identifier for the failure Code.</li><li>FailureComments; string; Notes captured with free-text details about the causes and root cause of failure, or any other relevant data. This value is optional.</li><li>FailureDate; string; Date and time when an asset failed. The failed date must occur before the failure date. This attribute is mandatory.</li><li>FailureDescription; string; Description of the failure code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>FailureEventId; integer; Value that uniquely identifies the failure event. The value is system generated and read-only.</li><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance. The value is system generated and read-only.</li><li>FailureName; string; Name of the failure code. The failure code name is optional but if defined must be unique.</li><li>FailureSeverityCode; string; Abbreviation that uniquely identifies the severity of failure. The severity code is not required but if entered must be a valid code. The code must be alphanumeric.</li><li>FailureSeverityName; string; Name that uniquely identifies the severity of the failure. The name is optional but if defined must be unique.</li><li>FailureStatusCode; string; Abbreviation that uniquely identifies the status of the failure. The status code is not required but if entered must be a valid code. The code must be alphanumeric.</li><li>FailureStatusName; string; Name that uniquely identifies the status of the failure. The name is optional but if defined must be unique.</li><li>InventoryItemId; integer; Unique identifier for the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>ItemCategoryCode; string; Abbreviation that uniquely identifies the item category to which the failed component is assigned. The code must be alphanumeric and must validate against the catalog assigned to the profile option \" ORA_CSE_ITEM_CATALOG\".</li><li>ItemCategoryId; integer; Value that uniquely identifies the item category to which the failed component is assigned. The value is system generated and read-only.</li><li>ItemCategoryName; string; Name of the item category to which the failed component is assigned. The item category name is optional but if defined must be unique.</li><li>ItemDescription; string; Description of the item. This optional attribute provides a brief user-defined text providing information on the item's use and characteristics.</li><li>ItemLongDescription; string; Long description of the item. This optional attribute provides a more detailed user-defined text providing information on the item's use and characteristics.</li><li>ItemNumber; string; Name that uniquely identifies the item that failed. This is generally the item on the work order. This attribute is optional.</li><li>ItemOrganizationCode; string; Value that uniquely identifies the item Organization. This is generally the item on the work order.</li><li>ItemOrganizationId; integer; Unique identifier for the item Organization. This is generally the item on the work order.</li><li>LastUpdateDate; string; Date when the user most recently updated the asset failure event instance. The application automatically sets this value during creation. This attribute is read-only.</li><li>LastUpdateLogin; string; Login that the user used when updating the asset failure event instance. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>LastUpdatedBy; string; User who most recently updated the asset failure event instance. The application assigns a value to this attribute during creation. This attribute is read-only.</li><li>MeterUnitOfMeasure; string; MeterUnitOfMeasure must be a valid Meter UOM Code lookup. This attribute is populated only in cases where failure records are imported from an external system, an in such cases is optional.</li><li>MeterUnitsBetweenFailure; number; The number of meter units between the current failure date and the prior available date. If there was no prior failure, then the number of meter units between the current failure date and the asset in-service date. The unit of measure for the meter units is defined by the attribute MeterUnitOfMeasure. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is optional.</li><li>OperationName; string; Name that identifies the operation within a work order.</li><li>OperationSequenceNumber; number; Number that identifies the sequence of the operation within a work order. The operation sequence is required attribute for a work order operation. It must be a positive integer and unique within a work order.</li><li>RepairCost; number; The total cost to repair the asset. This attribute is populated only in cases where failure records are imported from an external system, and in such cases is mandatory.</li><li>ResolutionCategoryCode; string; Abbreviation that uniquely identifies the category of resolution. The code must use uppercase letters and it can be alphanumeric.</li><li>ResolutionCategoryName; string; Name of the resolution category. The name is optional but if defined must be unique.</li><li>ResolutionCode; string; Abbreviation that uniquely identifies the resolution of the failure. The resolution code is not required but if entered must be a valid code. The code must use uppercase letters and it can be alphanumeric.</li><li>ResolutionCodeId; number; Unique identifier for the resolution of the failure.</li><li>ResolutionDescription; string; Description of the resolution code. This optional attribute provides a brief user-defined text providing information on the code's use and characteristics.</li><li>ResolutionName; string; Name of the resolution code. The resolution code name is optional but if defined must be unique.</li><li>SourceDocumentId; string; Value that uniquely identifies the source document.  The value is system generated and read-only.</li><li>SourceDocumentTypeCode; string; Abbreviation that uniquely identifies the source document type. The source document type code is required only for failure records imported from an external system.  The code must be alphanumeric and must validate against fnd_lookup \"ORA_CSE_DOCUMENT_TYPE\".</li><li>SourceSystemId; integer; Value that uniquely identifies the source system. The value is system generated and read-only.</li><li>SourceSystemType; string; Contains one of the following values: ORA_INTERNAL (failure records generated from the Failure Capture UI) or ORA_EXTERNAL (failure records from another system, often historical failure records). If ORA_INTERNAL, then either workOrderNumber or workOrderId is mandatory and values passed for assetId will be ignored (Asset ID will be queried from the workOrderId). If ORA_EXTERNAL, then assetId, sourceSystemType, sourceDocTypeCode, and sourceDocId are mandatory. sourceSystemId must validate against hz_orig_systems_vl.ORIG_SYSTEM_ID. sourceDocTypeCode must validate against fnd_lookup \"ORA_CSE_DOCUMENT_TYPE\". Values passed for trackingObjectCode, workOrderNumber, and workOrderId will be ignored. The default value is ORA_EXTERNAL.</li><li>WoOperationId; integer; Value that uniquely identifies the work order operation associated with the failure instance.</li><li>WorkOrderDescription; string; Description of the work order. This optional attribute provides a brief user-defined text providing information on the work order's use and characteristics.</li><li>WorkOrderId; integer; Value that uniquely identifies the work order. The value is system generated and read-only.</li><li>WorkOrderNumber; string; Number the uniquely identifies the work order within an organization.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>CauseCodeFinder: Finds asset failure events according to the cause code on the failure event instance.<br>Finder Variables: <ul><li>BindCauseCode; string; Value that uniquely identifies the cause.</li></ul></li><li>FailedComponentAssetNumberFinder: Finds asset failure events according to the failed component asset on the failure event instance.<br>Finder Variables: <ul><li>BindFailedComponentAssetNumber; string; Number that identifies the failed component asset.</li></ul></li><li>FailedComponentItemNumberFinder: Finds asset failure events according to the failed component item on the failure event instance.<br>Finder Variables: <ul><li>BindFailedComponentItemNumber; string; Number that identifies the failed component.</li></ul></li><li>FailureCodeFinder: Finds asset failure events according to the failure code on the failure event instance.<br>Finder Variables: <ul><li>BindFailureCode; string; Value that uniquely identifies the failure.</li></ul></li><li>PrimaryKey: Finds failure instances according to the failure instance identifier.<br>Finder Variables: <ul><li>FailureInstanceId; integer; Value that uniquely identifies the failure instance.</li></ul></li><li>ResolutionCodeFinder: Finds asset failure events according to the resolution code on the failure event instance.<br>Finder Variables: <ul><li>BindResolutionCode; string; Value that uniquely identifies the resolution.</li></ul></li><li>RootCauseCodeFinder: Finds asset failure event instances according to the root cause code linked to the failure event instance.<br>Finder Variables: <ul><li>BindRootCause; string; Value that uniquely identifies the root cause.</li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"enclosure\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"WorkOrderDescription\": \"<string>\",\n      \"ItemCategoryName\": \"<string>\",\n      \"AssetDescription\": \"<string>\",\n      \"MeterUnitsBetweenFailure\": \"<number>\",\n      \"FailedComponentAssetDescription\": \"<string>\",\n      \"AssetNumber\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"ResolutionDescription\": \"<string>\",\n      \"CauseName\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"rootCauses\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CauseCodeId\": \"<long>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"RootCauseComments\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"RootCauseCode\": \"<string>\",\n          \"RootCauseName\": \"<string>\",\n          \"FailureInstanceId\": \"<long>\",\n          \"RootCauseCategoryCode\": \"<string>\",\n          \"RootCauseId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"RootCauseDescription\": \"<string>\",\n          \"RootCauseCategoryName\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CauseCodeId\": \"<long>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"RootCauseComments\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"RootCauseCode\": \"<string>\",\n          \"RootCauseName\": \"<string>\",\n          \"FailureInstanceId\": \"<long>\",\n          \"RootCauseCategoryCode\": \"<string>\",\n          \"RootCauseId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"RootCauseDescription\": \"<string>\",\n          \"RootCauseCategoryName\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        }\n      ],\n      \"FailedComponentItemLongDescription\": \"<string>\",\n      \"FailedAssetId\": \"<long>\",\n      \"CauseCategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"FailureComments\": \"<string>\",\n      \"FailureStatusCode\": \"<string>\",\n      \"FailureCodeId\": \"<long>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"FailureDescription\": \"<string>\",\n      \"ItemCategoryCode\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"FailureCode\": \"<string>\",\n      \"FailedComponentSerialNumber\": \"<string>\",\n      \"ItemLongDescription\": \"<string>\",\n      \"AssetDownFlag\": \"<boolean>\",\n      \"FailureStatusName\": \"<string>\",\n      \"AssetCriticalityCode\": \"<string>\",\n      \"SourceDocumentTypeCode\": \"<string>\",\n      \"FailureCategoryName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"CauseCode\": \"<string>\",\n      \"OperationSequenceNumber\": \"<number>\",\n      \"ResolutionCategoryName\": \"<string>\",\n      \"FailureEventId\": \"<long>\",\n      \"AssetId\": \"<long>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"FailedComponentItemNumber\": \"<string>\",\n      \"MeterUnitOfMeasure\": \"<string>\",\n      \"RepairCost\": \"<number>\",\n      \"FailureSeverityName\": \"<string>\",\n      \"DaysBetweenFailure\": \"<number>\",\n      \"AvailableDate\": \"<dateTime>\",\n      \"SourceSystemId\": \"<long>\",\n      \"CauseDescription\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemOrganizationId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"FailedComponentItemId\": \"<long>\",\n      \"CompletionDate\": \"<dateTime>\",\n      \"ResolutionCategoryCode\": \"<string>\",\n      \"ResolutionCode\": \"<string>\",\n      \"SourceDocumentId\": \"<string>\",\n      \"ItemCategoryId\": \"<long>\",\n      \"OperationName\": \"<string>\",\n      \"FailureDate\": \"<dateTime>\",\n      \"ItemOrganizationCode\": \"<string>\",\n      \"FailedComponentAssetNumber\": \"<string>\",\n      \"AssetCriticalityName\": \"<string>\",\n      \"FailureCategoryCode\": \"<string>\",\n      \"ResolutionCodeId\": \"<number>\",\n      \"FailedComponentItemDescription\": \"<string>\",\n      \"CauseCategoryCode\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"FailureName\": \"<string>\",\n      \"FailureSeverityCode\": \"<string>\",\n      \"WoOperationId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"ResolutionName\": \"<string>\"\n    },\n    {\n      \"CauseCodeId\": \"<long>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"WorkOrderDescription\": \"<string>\",\n      \"ItemCategoryName\": \"<string>\",\n      \"AssetDescription\": \"<string>\",\n      \"MeterUnitsBetweenFailure\": \"<number>\",\n      \"FailedComponentAssetDescription\": \"<string>\",\n      \"AssetNumber\": \"<string>\",\n      \"FailureInstanceId\": \"<long>\",\n      \"ResolutionDescription\": \"<string>\",\n      \"CauseName\": \"<string>\",\n      \"SourceSystemType\": \"<string>\",\n      \"rootCauses\": [\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CauseCodeId\": \"<long>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"RootCauseComments\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"RootCauseCode\": \"<string>\",\n          \"RootCauseName\": \"<string>\",\n          \"FailureInstanceId\": \"<long>\",\n          \"RootCauseCategoryCode\": \"<string>\",\n          \"RootCauseId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"child\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"RootCauseDescription\": \"<string>\",\n          \"RootCauseCategoryName\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        },\n        {\n          \"LastUpdatedBy\": \"<string>\",\n          \"CauseCodeId\": \"<long>\",\n          \"CreationDate\": \"<dateTime>\",\n          \"RootCauseComments\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"RootCauseCode\": \"<string>\",\n          \"RootCauseName\": \"<string>\",\n          \"FailureInstanceId\": \"<long>\",\n          \"RootCauseCategoryCode\": \"<string>\",\n          \"RootCauseId\": \"<long>\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"parent\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"RootCauseDescription\": \"<string>\",\n          \"RootCauseCategoryName\": \"<string>\",\n          \"LastUpdateDate\": \"<dateTime>\",\n          \"LastUpdateLogin\": \"<string>\"\n        }\n      ],\n      \"FailedComponentItemLongDescription\": \"<string>\",\n      \"FailedAssetId\": \"<long>\",\n      \"CauseCategoryName\": \"<string>\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"custom\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"FailureComments\": \"<string>\",\n      \"FailureStatusCode\": \"<string>\",\n      \"FailureCodeId\": \"<long>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"FailureDescription\": \"<string>\",\n      \"ItemCategoryCode\": \"<string>\",\n      \"InventoryItemId\": \"<long>\",\n      \"FailureCode\": \"<string>\",\n      \"FailedComponentSerialNumber\": \"<string>\",\n      \"ItemLongDescription\": \"<string>\",\n      \"AssetDownFlag\": \"<boolean>\",\n      \"FailureStatusName\": \"<string>\",\n      \"AssetCriticalityCode\": \"<string>\",\n      \"SourceDocumentTypeCode\": \"<string>\",\n      \"FailureCategoryName\": \"<string>\",\n      \"WorkOrderNumber\": \"<string>\",\n      \"CauseCode\": \"<string>\",\n      \"OperationSequenceNumber\": \"<number>\",\n      \"ResolutionCategoryName\": \"<string>\",\n      \"FailureEventId\": \"<long>\",\n      \"AssetId\": \"<long>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"FailedComponentItemNumber\": \"<string>\",\n      \"MeterUnitOfMeasure\": \"<string>\",\n      \"RepairCost\": \"<number>\",\n      \"FailureSeverityName\": \"<string>\",\n      \"DaysBetweenFailure\": \"<number>\",\n      \"AvailableDate\": \"<dateTime>\",\n      \"SourceSystemId\": \"<long>\",\n      \"CauseDescription\": \"<string>\",\n      \"ItemDescription\": \"<string>\",\n      \"ItemOrganizationId\": \"<long>\",\n      \"ItemNumber\": \"<string>\",\n      \"FailedComponentItemId\": \"<long>\",\n      \"CompletionDate\": \"<dateTime>\",\n      \"ResolutionCategoryCode\": \"<string>\",\n      \"ResolutionCode\": \"<string>\",\n      \"SourceDocumentId\": \"<string>\",\n      \"ItemCategoryId\": \"<long>\",\n      \"OperationName\": \"<string>\",\n      \"FailureDate\": \"<dateTime>\",\n      \"ItemOrganizationCode\": \"<string>\",\n      \"FailedComponentAssetNumber\": \"<string>\",\n      \"AssetCriticalityName\": \"<string>\",\n      \"FailureCategoryCode\": \"<string>\",\n      \"ResolutionCodeId\": \"<number>\",\n      \"FailedComponentItemDescription\": \"<string>\",\n      \"CauseCategoryCode\": \"<string>\",\n      \"WorkOrderId\": \"<long>\",\n      \"FailureName\": \"<string>\",\n      \"FailureSeverityCode\": \"<string>\",\n      \"WoOperationId\": \"<long>\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"ResolutionName\": \"<string>\"\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}

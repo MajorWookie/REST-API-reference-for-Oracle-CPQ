@@ -1,0 +1,1169 @@
+{
+  "info": {
+    "_postman_id": "78a3a941-c817-45ff-b48a-fd1d96ce4eb1",
+    "name": "Pricingmatrixclasses",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "<div>\n<span style=\"color: #c74634\">Last Updated July 2025</span><br><br>\n<p>You can use Oracle REST APIs to view and manage data stored in Oracle Supply Chain Management Cloud.</p><p>Whether you're experienced with or new to REST, use this guide to find what you need, including:</p><ul><li>A quick start that walks you through a simple request example.</li><li>Detailed descriptions for each REST API resource.</li></ul></div>\n",
+      "type": "text/plain"
+    }
+  },
+  "item": [
+    {
+      "name": "Pricingmatrixclasses",
+      "description": "",
+      "item": [
+        {
+          "name": "pricingMatrixClasses",
+          "description": "",
+          "item": [
+            {
+              "name": "{pricingMatrixClassesUniqID}",
+              "description": "",
+              "item": [
+                {
+                  "name": "child",
+                  "description": "",
+                  "item": [
+                    {
+                      "name": "dimensions",
+                      "description": "",
+                      "item": [
+                        {
+                          "name": "{MatrixDimensionId}",
+                          "description": "",
+                          "item": [
+                            {
+                              "id": "17c5eb8a-ecdc-4eb4-9c52-3d7f6b29577d",
+                              "name": "Get one matrix dimension associated with the matrix class",
+                              "request": {
+                                "name": "Get one matrix dimension associated with the matrix class",
+                                "description": {},
+                                "url": {
+                                  "path": [
+                                    "pricingMatrixClasses",
+                                    ":pricingMatrixClassesUniqID",
+                                    "child",
+                                    "dimensions",
+                                    ":MatrixDimensionId"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "type": "any",
+                                      "value": "<string>",
+                                      "key": "pricingMatrixClassesUniqID",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) This is the hash key of the attributes which make up the composite key for the Pricing Matrix Classes resource and used to uniquely identify an instance of Pricing Matrix Classes. The client should not generate the hash key value. Instead, the client should query on the Pricing Matrix Classes collection resource in order to navigate to a specific instance of Pricing Matrix Classes to get the hash key.",
+                                        "type": "text/plain"
+                                      }
+                                    },
+                                    {
+                                      "type": "any",
+                                      "value": "<long>",
+                                      "key": "MatrixDimensionId",
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>",
+                                        "type": "text/plain"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                              },
+                              "response": [
+                                {
+                                  "id": "d5f4128e-3ade-480b-a5c4-799c4560e8eb",
+                                  "name": "The following table describes the default response for this task.",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "pricingMatrixClasses",
+                                        ":pricingMatrixClassesUniqID",
+                                        "child",
+                                        "dimensions",
+                                        ":MatrixDimensionId"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "expand",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "fields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "onlyData",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "dependency",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "disabled": false,
+                                          "description": {
+                                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "type": "text/plain"
+                                          },
+                                          "key": "links",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "REST-Framework-Version",
+                                        "value": "5"
+                                      },
+                                      {
+                                        "disabled": false,
+                                        "description": {
+                                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Metadata-Context",
+                                        "value": "<string>"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "method": "GET",
+                                    "body": {}
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "Metadata-Context",
+                                      "value": ""
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "REST-Framework-Version",
+                                      "value": ""
+                                    }
+                                  ],
+                                  "body": "{\n  \"CreationDate\": \"<dateTime>\",\n  \"DimensionType\": \"<string>\",\n  \"ComparisonOperator\": \"E\",\n  \"DisplaySequence\": \"<integer>\",\n  \"NullInRuleIsWildCard\": \"N\",\n  \"CompareToEntity\": \"<string>\",\n  \"MatrixDimensionId\": \"<long>\",\n  \"DomainType\": \"NONE\",\n  \"IsRequired\": \"N\",\n  \"DefaultValueDate\": \"<date>\",\n  \"MatrixClassId\": \"<long>\",\n  \"DefaultValueNumber\": \"<number>\",\n  \"DataType\": \"STRING\",\n  \"links\": [\n    {\n      \"kind\": \"other\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"CompareToAttr\": \"<string>\",\n  \"DefaultIsFixedValue\": \"N\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"IsNullable\": \"N\",\n  \"DefaultValueString\": \"<string>\",\n  \"ShowDefaultValueDimensionInRules\": \"N\",\n  \"SourceCodeName\": \"<string>\",\n  \"MatrixDimensionName\": \"<string>\",\n  \"DefaultValueTimestamp\": \"<dateTime>\",\n  \"LastUpdateDate\": \"<dateTime>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                }
+                              ],
+                              "event": [],
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "9ecda587-3dab-446f-929e-855c494e7933",
+                          "name": "Get all matrix dimensions associated with the matrix class",
+                          "request": {
+                            "name": "Get all matrix dimensions associated with the matrix class",
+                            "description": {},
+                            "url": {
+                              "path": [
+                                "pricingMatrixClasses",
+                                ":pricingMatrixClassesUniqID",
+                                "child",
+                                "dimensions"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "expand",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "onlyData",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "dependency",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "links",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "offset",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "totalResults",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CompareToAttr; string; Attribute that's used along with the Compare To Entity for comparison during matrix dimension evaluation.</li><li>CompareToEntity; string; Entity that's used along with the Compare To Attribute for comparison for the matrix dimension evaluation.</li><li>ComparisonOperator; string; Comparison operator for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_OPERATORS.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the record was created.</li><li>DataType; string; Type of data for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_DIMN_DATA_TYPES.</li><li>DefaultIsFixedValue; string; Contains one of the following values. Y: default value for the matrix dimension is fixed and can't be changed. N: default value for the matrix dimension isn't fixed and can be changed. This attribute doesn't have a default value.</li><li>DefaultValueDate; string; Default date for the matrix dimension.</li><li>DefaultValueNumber; number; Default number for the matrix dimension.</li><li>DefaultValueString; string; Default string for the matrix dimension.</li><li>DefaultValueTimestamp; string; Default timestamp value for the matrix dimension.</li><li>DimensionType; string; Dimension type for a matrix dimension.</li><li>DisplaySequence; integer; Display sequence for the matrix dimension.</li><li>DomainType; string; Type of domain for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_DIMN_DOMAIN_TYPES.</li><li>IsNullable; string; Contains one of the following values. Y: matrix dimension can be null. N: matrix dimension can't be null. This attribute doesn't have a default value.</li><li>IsRequired; string; Contains one of the following values. Y: matrix dimension is required. N: matrix dimension isn't required. This attribute doesn't have a default value.</li><li>LastUpdateDate; string; Most recent date and time when the application updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>MatrixClassId; integer; Value that uniquely identifies the matrix class for the matrix dimension.</li><li>MatrixDimensionId; integer; Value that uniquely identifies the matrix dimension.</li><li>MatrixDimensionName; string; Name of the matrix dimension associated with the matrix class.</li><li>NullInRuleIsWildCard; string; Contains one of the following values. Y: empty value is evaluated as any match. N: empty value isn't evaluated as any match. This attribute doesn't have a default value.</li><li>ShowDefaultValueDimensionInRules; string; Value that indicates whether the dimension with a fixed default value must be displayed in the matrix rules user interface. The default value is N.</li><li>SourceCodeName; string; Name of the source code for the matrix dimension.</li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "q",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds matrix dimensions according to the primary key. <br>Finder Variables <ul><li>MatrixDimensionId; integer;  Value that identifies the matrix dimension of a pricing matrix class. </li></ul></li></ul>",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "finder",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "type": "any",
+                                  "value": "<string>",
+                                  "key": "pricingMatrixClassesUniqID",
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "(Required) This is the hash key of the attributes which make up the composite key for the Pricing Matrix Classes resource and used to uniquely identify an instance of Pricing Matrix Classes. The client should not generate the hash key value. Instead, the client should query on the Pricing Matrix Classes collection resource in order to navigate to a specific instance of Pricing Matrix Classes to get the hash key.",
+                                    "type": "text/plain"
+                                  }
+                                }
+                              ]
+                            },
+                            "header": [
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                  "type": "text/plain"
+                                },
+                                "key": "REST-Framework-Version",
+                                "value": "5"
+                              },
+                              {
+                                "disabled": false,
+                                "description": {
+                                  "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                  "type": "text/plain"
+                                },
+                                "key": "Metadata-Context",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "method": "GET",
+                            "body": {},
+                            "auth": null
+                          },
+                          "response": [
+                            {
+                              "id": "6c42325c-5184-475f-a716-f9014a4d85c2",
+                              "name": "The following table describes the default response for this task.",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "pricingMatrixClasses",
+                                    ":pricingMatrixClassesUniqID",
+                                    "child",
+                                    "dimensions"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "expand",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "fields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "onlyData",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "dependency",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "links",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "offset",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "totalResults",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CompareToAttr; string; Attribute that's used along with the Compare To Entity for comparison during matrix dimension evaluation.</li><li>CompareToEntity; string; Entity that's used along with the Compare To Attribute for comparison for the matrix dimension evaluation.</li><li>ComparisonOperator; string; Comparison operator for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_OPERATORS.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the record was created.</li><li>DataType; string; Type of data for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_DIMN_DATA_TYPES.</li><li>DefaultIsFixedValue; string; Contains one of the following values. Y: default value for the matrix dimension is fixed and can't be changed. N: default value for the matrix dimension isn't fixed and can be changed. This attribute doesn't have a default value.</li><li>DefaultValueDate; string; Default date for the matrix dimension.</li><li>DefaultValueNumber; number; Default number for the matrix dimension.</li><li>DefaultValueString; string; Default string for the matrix dimension.</li><li>DefaultValueTimestamp; string; Default timestamp value for the matrix dimension.</li><li>DimensionType; string; Dimension type for a matrix dimension.</li><li>DisplaySequence; integer; Display sequence for the matrix dimension.</li><li>DomainType; string; Type of domain for the matrix dimension. A list of accepted values is defined in the lookup type ORA_QP_MTRXR_DIMN_DOMAIN_TYPES.</li><li>IsNullable; string; Contains one of the following values. Y: matrix dimension can be null. N: matrix dimension can't be null. This attribute doesn't have a default value.</li><li>IsRequired; string; Contains one of the following values. Y: matrix dimension is required. N: matrix dimension isn't required. This attribute doesn't have a default value.</li><li>LastUpdateDate; string; Most recent date and time when the application updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>MatrixClassId; integer; Value that uniquely identifies the matrix class for the matrix dimension.</li><li>MatrixDimensionId; integer; Value that uniquely identifies the matrix dimension.</li><li>MatrixDimensionName; string; Name of the matrix dimension associated with the matrix class.</li><li>NullInRuleIsWildCard; string; Contains one of the following values. Y: empty value is evaluated as any match. N: empty value isn't evaluated as any match. This attribute doesn't have a default value.</li><li>ShowDefaultValueDimensionInRules; string; Value that indicates whether the dimension with a fixed default value must be displayed in the matrix rules user interface. The default value is N.</li><li>SourceCodeName; string; Name of the source code for the matrix dimension.</li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "q",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds matrix dimensions according to the primary key. <br>Finder Variables <ul><li>MatrixDimensionId; integer;  Value that identifies the matrix dimension of a pricing matrix class. </li></ul></li></ul>",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "finder",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "REST-Framework-Version",
+                                    "value": "5"
+                                  },
+                                  {
+                                    "disabled": false,
+                                    "description": {
+                                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Metadata-Context",
+                                    "value": "<string>"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "method": "GET",
+                                "body": {}
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Metadata-Context",
+                                  "value": ""
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "REST-Framework-Version",
+                                  "value": ""
+                                }
+                              ],
+                              "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"item\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"item\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"DimensionType\": \"<string>\",\n      \"ComparisonOperator\": \"E\",\n      \"DisplaySequence\": \"<integer>\",\n      \"NullInRuleIsWildCard\": \"N\",\n      \"CompareToEntity\": \"<string>\",\n      \"MatrixDimensionId\": \"<long>\",\n      \"DomainType\": \"NONE\",\n      \"IsRequired\": \"N\",\n      \"DefaultValueDate\": \"<date>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DefaultValueNumber\": \"<number>\",\n      \"DataType\": \"STRING\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"self\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CompareToAttr\": \"<string>\",\n      \"DefaultIsFixedValue\": \"N\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"IsNullable\": \"N\",\n      \"DefaultValueString\": \"<string>\",\n      \"ShowDefaultValueDimensionInRules\": \"N\",\n      \"SourceCodeName\": \"<string>\",\n      \"MatrixDimensionName\": \"<string>\",\n      \"DefaultValueTimestamp\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"DimensionType\": \"<string>\",\n      \"ComparisonOperator\": \"E\",\n      \"DisplaySequence\": \"<integer>\",\n      \"NullInRuleIsWildCard\": \"N\",\n      \"CompareToEntity\": \"<string>\",\n      \"MatrixDimensionId\": \"<long>\",\n      \"DomainType\": \"NONE\",\n      \"IsRequired\": \"N\",\n      \"DefaultValueDate\": \"<date>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DefaultValueNumber\": \"<number>\",\n      \"DataType\": \"STRING\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"other\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CompareToAttr\": \"<string>\",\n      \"DefaultIsFixedValue\": \"N\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"IsNullable\": \"N\",\n      \"DefaultValueString\": \"<string>\",\n      \"ShowDefaultValueDimensionInRules\": \"N\",\n      \"SourceCodeName\": \"<string>\",\n      \"MatrixDimensionName\": \"<string>\",\n      \"DefaultValueTimestamp\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            }
+                          ],
+                          "event": [],
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "1ed72a79-5874-462d-b8b7-660d2e577b8f",
+                  "name": "Get one pricing matrix class",
+                  "request": {
+                    "name": "Get one pricing matrix class",
+                    "description": {},
+                    "url": {
+                      "path": [
+                        "pricingMatrixClasses",
+                        ":pricingMatrixClassesUniqID"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                            "type": "text/plain"
+                          },
+                          "key": "dependency",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "type": "any",
+                          "value": "<string>",
+                          "key": "pricingMatrixClassesUniqID",
+                          "disabled": false,
+                          "description": {
+                            "content": "(Required) This is the hash key of the attributes which make up the composite key for the Pricing Matrix Classes resource and used to uniquely identify an instance of Pricing Matrix Classes. The client should not generate the hash key value. Instead, the client should query on the Pricing Matrix Classes collection resource in order to navigate to a specific instance of Pricing Matrix Classes to get the hash key.",
+                            "type": "text/plain"
+                          }
+                        }
+                      ]
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {},
+                    "auth": null
+                  },
+                  "response": [
+                    {
+                      "id": "8c006a86-4f2a-469f-a102-c42fb0d037db",
+                      "name": "The following table describes the default response for this task.",
+                      "originalRequest": {
+                        "url": {
+                          "path": [
+                            "pricingMatrixClasses",
+                            ":pricingMatrixClassesUniqID"
+                          ],
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "query": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                "type": "text/plain"
+                              },
+                              "key": "expand",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                "type": "text/plain"
+                              },
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                "type": "text/plain"
+                              },
+                              "key": "onlyData",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                "type": "text/plain"
+                              },
+                              "key": "dependency",
+                              "value": "<string>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                "type": "text/plain"
+                              },
+                              "key": "links",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": []
+                        },
+                        "header": [
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                              "type": "text/plain"
+                            },
+                            "key": "REST-Framework-Version",
+                            "value": "5"
+                          },
+                          {
+                            "disabled": false,
+                            "description": {
+                              "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                              "type": "text/plain"
+                            },
+                            "key": "Metadata-Context",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "method": "GET",
+                        "body": {}
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "Metadata-Context",
+                          "value": ""
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "",
+                            "type": "text/plain"
+                          },
+                          "key": "REST-Framework-Version",
+                          "value": ""
+                        }
+                      ],
+                      "body": "{\n  \"LastUpdatedBy\": \"<string>\",\n  \"CreationDate\": \"<dateTime>\",\n  \"CreatedBy\": \"<string>\",\n  \"MatrixClassId\": \"<long>\",\n  \"DateEffectivityEnabled\": \"N\",\n  \"IsPublic\": \"N\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"action\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"child\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"MatrixClassName\": \"<string>\",\n  \"ContextConsumer\": \"<string>\",\n  \"CanAddNewDimensions\": \"N\",\n  \"LastUpdateDate\": \"<dateTime>\",\n  \"dimensions\": [\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"DimensionType\": \"<string>\",\n      \"ComparisonOperator\": \"E\",\n      \"DisplaySequence\": \"<integer>\",\n      \"NullInRuleIsWildCard\": \"N\",\n      \"CompareToEntity\": \"<string>\",\n      \"MatrixDimensionId\": \"<long>\",\n      \"DomainType\": \"NONE\",\n      \"IsRequired\": \"N\",\n      \"DefaultValueDate\": \"<date>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DefaultValueNumber\": \"<number>\",\n      \"DataType\": \"STRING\",\n      \"links\": [\n        {\n          \"kind\": \"other\",\n          \"rel\": \"parent\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CompareToAttr\": \"<string>\",\n      \"DefaultIsFixedValue\": \"N\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"IsNullable\": \"N\",\n      \"DefaultValueString\": \"<string>\",\n      \"ShowDefaultValueDimensionInRules\": \"N\",\n      \"SourceCodeName\": \"<string>\",\n      \"MatrixDimensionName\": \"<string>\",\n      \"DefaultValueTimestamp\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"CreationDate\": \"<dateTime>\",\n      \"DimensionType\": \"<string>\",\n      \"ComparisonOperator\": \"E\",\n      \"DisplaySequence\": \"<integer>\",\n      \"NullInRuleIsWildCard\": \"N\",\n      \"CompareToEntity\": \"<string>\",\n      \"MatrixDimensionId\": \"<long>\",\n      \"DomainType\": \"NONE\",\n      \"IsRequired\": \"N\",\n      \"DefaultValueDate\": \"<date>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DefaultValueNumber\": \"<number>\",\n      \"DataType\": \"STRING\",\n      \"links\": [\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"child\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"CompareToAttr\": \"<string>\",\n      \"DefaultIsFixedValue\": \"N\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"IsNullable\": \"N\",\n      \"DefaultValueString\": \"<string>\",\n      \"ShowDefaultValueDimensionInRules\": \"N\",\n      \"SourceCodeName\": \"<string>\",\n      \"MatrixDimensionName\": \"<string>\",\n      \"DefaultValueTimestamp\": \"<dateTime>\",\n      \"LastUpdateDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "cookie": [],
+                      "_postman_previewlanguage": "json"
+                    }
+                  ],
+                  "event": [],
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  }
+                }
+              ]
+            },
+            {
+              "id": "34c40ead-aae9-4a98-9f8e-32fcd89fbda2",
+              "name": "Get all pricing matrix classes",
+              "request": {
+                "name": "Get all pricing matrix classes",
+                "description": {},
+                "url": {
+                  "path": [
+                    "pricingMatrixClasses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                        "type": "text/plain"
+                      },
+                      "key": "expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                        "type": "text/plain"
+                      },
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                        "type": "text/plain"
+                      },
+                      "key": "onlyData",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                        "type": "text/plain"
+                      },
+                      "key": "links",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                        "type": "text/plain"
+                      },
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                        "type": "text/plain"
+                      },
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                        "type": "text/plain"
+                      },
+                      "key": "totalResults",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CanAddNewDimensions; string; Contains one of the following values. Y: pricing matrix class allows for new matrix dimensions. N: pricing matrix class doesn't allow for new matrix dimensions. This attribute doesn't have a default value.</li><li>ContextConsumer; string; Context consumer service for the pricing matrix class.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the record was created.</li><li>DateEffectivityEnabled; string; Contains one of the following values. Y: pricing matrix class is date effectivity enabled. N: pricing matrix class isn't date effectivity enabled. This attribute doesn't have a default value.</li><li>IsPublic; string; Contains one of the following values. Y: pricing matrix class is public and is shared. N: pricing matrix class isn't public and can't be shared. This attribute doesn't have a default value.</li><li>LastUpdateDate; string; Most recent date and time when the application updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>MatrixClassId; integer; Value that uniquely identifies the pricing matrix class.</li><li>MatrixClassName; string; Name of the pricing matrix class.</li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                        "type": "text/plain"
+                      },
+                      "key": "orderBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds pricing matrix classes according to the primary key. <br>Finder Variables <ul><li>MatrixClassId; integer;  Value that uniquely identifies the pricing matrix class. </li></ul></li><li>findByMatrixClassName Finds pricing matrix classes according to the matrix class name. <br>Finder Variables <ul><li>MatrixClassName; string;  Value that identifies the matrix class name of a pricing matrix class. </li></ul></li></ul>",
+                        "type": "text/plain"
+                      },
+                      "key": "finder",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                      "type": "text/plain"
+                    },
+                    "key": "REST-Framework-Version",
+                    "value": "5"
+                  },
+                  {
+                    "disabled": false,
+                    "description": {
+                      "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                      "type": "text/plain"
+                    },
+                    "key": "Metadata-Context",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {},
+                "auth": null
+              },
+              "response": [
+                {
+                  "id": "18fa890d-7ef3-44f3-b772-681e0b0c2f2e",
+                  "name": "The following table describes the default response for this task.",
+                  "originalRequest": {
+                    "url": {
+                      "path": [
+                        "pricingMatrixClasses"
+                      ],
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "query": [
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                            "type": "text/plain"
+                          },
+                          "key": "expand",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                            "type": "text/plain"
+                          },
+                          "key": "fields",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                            "type": "text/plain"
+                          },
+                          "key": "onlyData",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                            "type": "text/plain"
+                          },
+                          "key": "links",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                            "type": "text/plain"
+                          },
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                            "type": "text/plain"
+                          },
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                            "type": "text/plain"
+                          },
+                          "key": "totalResults",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CanAddNewDimensions; string; Contains one of the following values. Y: pricing matrix class allows for new matrix dimensions. N: pricing matrix class doesn't allow for new matrix dimensions. This attribute doesn't have a default value.</li><li>ContextConsumer; string; Context consumer service for the pricing matrix class.</li><li>CreatedBy; string; User who created the record.</li><li>CreationDate; string; Date and time when the record was created.</li><li>DateEffectivityEnabled; string; Contains one of the following values. Y: pricing matrix class is date effectivity enabled. N: pricing matrix class isn't date effectivity enabled. This attribute doesn't have a default value.</li><li>IsPublic; string; Contains one of the following values. Y: pricing matrix class is public and is shared. N: pricing matrix class isn't public and can't be shared. This attribute doesn't have a default value.</li><li>LastUpdateDate; string; Most recent date and time when the application updated the record.</li><li>LastUpdatedBy; string; User who most recently updated the record.</li><li>MatrixClassId; integer; Value that uniquely identifies the pricing matrix class.</li><li>MatrixClassName; string; Name of the pricing matrix class.</li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "q",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                            "type": "text/plain"
+                          },
+                          "key": "orderBy",
+                          "value": "<string>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds pricing matrix classes according to the primary key. <br>Finder Variables <ul><li>MatrixClassId; integer;  Value that uniquely identifies the pricing matrix class. </li></ul></li><li>findByMatrixClassName Finds pricing matrix classes according to the matrix class name. <br>Finder Variables <ul><li>MatrixClassName; string;  Value that identifies the matrix class name of a pricing matrix class. </li></ul></li></ul>",
+                            "type": "text/plain"
+                          },
+                          "key": "finder",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": []
+                    },
+                    "header": [
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API.",
+                          "type": "text/plain"
+                        },
+                        "key": "REST-Framework-Version",
+                        "value": "5"
+                      },
+                      {
+                        "disabled": false,
+                        "description": {
+                          "content": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\".",
+                          "type": "text/plain"
+                        },
+                        "key": "Metadata-Context",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "method": "GET",
+                    "body": {}
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Metadata-Context",
+                      "value": ""
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "REST-Framework-Version",
+                      "value": ""
+                    }
+                  ],
+                  "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"describe\",\n      \"rel\": \"custom\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"other\",\n      \"rel\": \"lov\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": \"<string>\"\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\",\n  \"items\": [\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DateEffectivityEnabled\": \"N\",\n      \"IsPublic\": \"N\",\n      \"links\": [\n        {\n          \"kind\": \"describe\",\n          \"rel\": \"action\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"MatrixClassName\": \"<string>\",\n      \"ContextConsumer\": \"<string>\",\n      \"CanAddNewDimensions\": \"N\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"dimensions\": [\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"DimensionType\": \"<string>\",\n          \"ComparisonOperator\": \"E\",\n          \"DisplaySequence\": \"<integer>\",\n          \"NullInRuleIsWildCard\": \"N\",\n          \"CompareToEntity\": \"<string>\",\n          \"MatrixDimensionId\": \"<long>\",\n          \"DomainType\": \"NONE\",\n          \"IsRequired\": \"N\",\n          \"DefaultValueDate\": \"<date>\",\n          \"MatrixClassId\": \"<long>\",\n          \"DefaultValueNumber\": \"<number>\",\n          \"DataType\": \"STRING\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CompareToAttr\": \"<string>\",\n          \"DefaultIsFixedValue\": \"N\",\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"IsNullable\": \"N\",\n          \"DefaultValueString\": \"<string>\",\n          \"ShowDefaultValueDimensionInRules\": \"N\",\n          \"SourceCodeName\": \"<string>\",\n          \"MatrixDimensionName\": \"<string>\",\n          \"DefaultValueTimestamp\": \"<dateTime>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"DimensionType\": \"<string>\",\n          \"ComparisonOperator\": \"E\",\n          \"DisplaySequence\": \"<integer>\",\n          \"NullInRuleIsWildCard\": \"N\",\n          \"CompareToEntity\": \"<string>\",\n          \"MatrixDimensionId\": \"<long>\",\n          \"DomainType\": \"NONE\",\n          \"IsRequired\": \"N\",\n          \"DefaultValueDate\": \"<date>\",\n          \"MatrixClassId\": \"<long>\",\n          \"DefaultValueNumber\": \"<number>\",\n          \"DataType\": \"STRING\",\n          \"links\": [\n            {\n              \"kind\": \"other\",\n              \"rel\": \"canonical\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"enclosure\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CompareToAttr\": \"<string>\",\n          \"DefaultIsFixedValue\": \"N\",\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"IsNullable\": \"N\",\n          \"DefaultValueString\": \"<string>\",\n          \"ShowDefaultValueDimensionInRules\": \"N\",\n          \"SourceCodeName\": \"<string>\",\n          \"MatrixDimensionName\": \"<string>\",\n          \"DefaultValueTimestamp\": \"<dateTime>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ]\n    },\n    {\n      \"LastUpdatedBy\": \"<string>\",\n      \"CreationDate\": \"<dateTime>\",\n      \"CreatedBy\": \"<string>\",\n      \"MatrixClassId\": \"<long>\",\n      \"DateEffectivityEnabled\": \"N\",\n      \"IsPublic\": \"N\",\n      \"links\": [\n        {\n          \"kind\": \"item\",\n          \"rel\": \"enclosure\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        },\n        {\n          \"kind\": \"collection\",\n          \"rel\": \"lov\",\n          \"name\": \"<string>\",\n          \"href\": \"<string>\",\n          \"properties\": {\n            \"changeIndicator\": \"<string>\"\n          }\n        }\n      ],\n      \"MatrixClassName\": \"<string>\",\n      \"ContextConsumer\": \"<string>\",\n      \"CanAddNewDimensions\": \"N\",\n      \"LastUpdateDate\": \"<dateTime>\",\n      \"dimensions\": [\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"DimensionType\": \"<string>\",\n          \"ComparisonOperator\": \"E\",\n          \"DisplaySequence\": \"<integer>\",\n          \"NullInRuleIsWildCard\": \"N\",\n          \"CompareToEntity\": \"<string>\",\n          \"MatrixDimensionId\": \"<long>\",\n          \"DomainType\": \"NONE\",\n          \"IsRequired\": \"N\",\n          \"DefaultValueDate\": \"<date>\",\n          \"MatrixClassId\": \"<long>\",\n          \"DefaultValueNumber\": \"<number>\",\n          \"DataType\": \"STRING\",\n          \"links\": [\n            {\n              \"kind\": \"item\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"collection\",\n              \"rel\": \"self\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CompareToAttr\": \"<string>\",\n          \"DefaultIsFixedValue\": \"N\",\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"IsNullable\": \"N\",\n          \"DefaultValueString\": \"<string>\",\n          \"ShowDefaultValueDimensionInRules\": \"N\",\n          \"SourceCodeName\": \"<string>\",\n          \"MatrixDimensionName\": \"<string>\",\n          \"DefaultValueTimestamp\": \"<dateTime>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        },\n        {\n          \"CreationDate\": \"<dateTime>\",\n          \"DimensionType\": \"<string>\",\n          \"ComparisonOperator\": \"E\",\n          \"DisplaySequence\": \"<integer>\",\n          \"NullInRuleIsWildCard\": \"N\",\n          \"CompareToEntity\": \"<string>\",\n          \"MatrixDimensionId\": \"<long>\",\n          \"DomainType\": \"NONE\",\n          \"IsRequired\": \"N\",\n          \"DefaultValueDate\": \"<date>\",\n          \"MatrixClassId\": \"<long>\",\n          \"DefaultValueNumber\": \"<number>\",\n          \"DataType\": \"STRING\",\n          \"links\": [\n            {\n              \"kind\": \"describe\",\n              \"rel\": \"custom\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            },\n            {\n              \"kind\": \"other\",\n              \"rel\": \"lov\",\n              \"name\": \"<string>\",\n              \"href\": \"<string>\",\n              \"properties\": {\n                \"changeIndicator\": \"<string>\"\n              }\n            }\n          ],\n          \"CompareToAttr\": \"<string>\",\n          \"DefaultIsFixedValue\": \"N\",\n          \"LastUpdatedBy\": \"<string>\",\n          \"CreatedBy\": \"<string>\",\n          \"IsNullable\": \"N\",\n          \"DefaultValueString\": \"<string>\",\n          \"ShowDefaultValueDimensionInRules\": \"N\",\n          \"SourceCodeName\": \"<string>\",\n          \"MatrixDimensionName\": \"<string>\",\n          \"DefaultValueTimestamp\": \"<dateTime>\",\n          \"LastUpdateDate\": \"<dateTime>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "cookie": [],
+                  "_postman_previewlanguage": "json"
+                }
+              ],
+              "event": [],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
