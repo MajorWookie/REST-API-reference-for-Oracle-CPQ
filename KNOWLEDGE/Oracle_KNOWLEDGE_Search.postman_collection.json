@@ -1,0 +1,795 @@
+{
+    "info": {
+        "_postman_id": "581915ce-f240-4a7a-8fc1-4732f3d3104e",
+        "name": "Oracle Knowledge Management - Search",
+        "description": "REST API collection for Oracle Knowledge Management — Search module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Search",
+            "item": [
+                {
+                    "name": "Search",
+                    "item": [
+                        {
+                            "name": "Srt/Api/V1/Search",
+                            "item": [
+                                {
+                                    "name": "Answer",
+                                    "item": [
+                                        {
+                                            "name": "Answer",
+                                            "request": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/answer?priorTransactionId=<integer>&answerId=<integer>&trackClickFlag=<boolean>&highlightFlag=<boolean>",
+                                                    "host": [
+                                                        "{{KNOWLEDGE Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "srt",
+                                                        "api",
+                                                        "v1",
+                                                        "search",
+                                                        "answer"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "priorTransactionId",
+                                                            "value": "<integer>",
+                                                            "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                        },
+                                                        {
+                                                            "key": "answerId",
+                                                            "value": "<integer>",
+                                                            "description": "The Id of the answer that user clicked"
+                                                        },
+                                                        {
+                                                            "key": "trackClickFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "Whether the service should track the click or not."
+                                                        },
+                                                        {
+                                                            "key": "highlightFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "Whether the service should do sentence highlighting on the returned answer."
+                                                        },
+                                                        {
+                                                            "key": "trackedUrl",
+                                                            "value": "<string>",
+                                                            "description": "The exact URL that should be tracked",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "highlightInfo",
+                                                            "value": "<string>",
+                                                            "description": "The highlightInfo",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "pdfFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "The pdfFlag",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "unstructuredFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "The unstructuredFlag",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": " <p>This method returns a record of clicks on answer results with sentence highlighting which helps you find the section that matches your search query. This method also provides a click-through URI, highlighted document, and action tracking for analytics and billing purposes. All parameters in the Search request are mandatory values.</p> <p class='simple-resource-header'>Example URI</p> <p>The example URI for this method is as follows:</p> <ul><li><code> http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/answer?priorTransactionId=12345&answerId=16777216&trackClickFlag=true&highlightFlag=true</code> <p>The request provides a record of clicks on answer results for the specified transaction ID. The result list appears with sentence highlighting.</p></li> </ul> "
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "OK.",
+                                                    "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/answer?priorTransactionId=<integer>&answerId=<integer>&trackClickFlag=<boolean>&highlightFlag=<boolean>",
+                                                            "host": [
+                                                                "{{KNOWLEDGE Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "srt",
+                                                                "api",
+                                                                "v1",
+                                                                "search",
+                                                                "answer"
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "priorTransactionId",
+                                                                    "value": "<integer>",
+                                                                    "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                                },
+                                                                {
+                                                                    "key": "answerId",
+                                                                    "value": "<integer>",
+                                                                    "description": "The Id of the answer that user clicked"
+                                                                },
+                                                                {
+                                                                    "key": "trackClickFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "Whether the service should track the click or not."
+                                                                },
+                                                                {
+                                                                    "key": "highlightFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "Whether the service should do sentence highlighting on the returned answer."
+                                                                },
+                                                                {
+                                                                    "key": "trackedUrl",
+                                                                    "value": "<string>",
+                                                                    "description": "The exact URL that should be tracked",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "highlightInfo",
+                                                                    "value": "<string>",
+                                                                    "description": "The highlightInfo",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "pdfFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The pdfFlag",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "unstructuredFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The unstructuredFlag",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"priorTransactionId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"url\": \"<string>\",\n  \"documentType\": \"<string>\",\n  \"HttpPassThrough\": \"<string>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Initial Screen",
+                                    "item": [
+                                        {
+                                            "name": "Initial screen",
+                                            "request": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/initialScreen",
+                                                    "host": [
+                                                        "{{KNOWLEDGE Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "srt",
+                                                        "api",
+                                                        "v1",
+                                                        "search",
+                                                        "initialScreen"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": "<p>This method creates a new search session and returns the ID of the session. All subsequent requests must use the returned session ID as their session attribute to perform and track the user's actions.</p> <p class='simple-resource-header'>Example URI </p> <p>The example URI for this method is as follows:</p> <ul><li> <code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/initialScreen</code> <p>The request creates a new search session and returns a session ID.</p> </li></ul>  "
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "OK.",
+                                                    "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/initialScreen",
+                                                            "host": [
+                                                                "{{KNOWLEDGE Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "srt",
+                                                                "api",
+                                                                "v1",
+                                                                "search",
+                                                                "initialScreen"
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"constraints\": {\n    \"baseURL\": \"<string>\",\n    \"language\": \"<string>\",\n    \"resultLanguages\": \"<string>\",\n    \"domainGroup\": \"<string>\",\n    \"navigationApplicationId\": \"<string>\",\n    \"segment\": \"<string>\",\n    \"querySource\": \"<string>\",\n    \"uiMode\": \"<string>\",\n    \"requestSource\": \"<string>\",\n    \"subject\": \"<string>\"\n  },\n  \"results\": {\n    \"results\": [\n      {}\n    ],\n    \"facets\": [\n      {}\n    ],\n    \"message\": \"<string>\",\n    \"messageCode\": \"<string>\"\n  },\n  \"query\": {\n    \"interactive\": \"<boolean>\",\n    \"original\": \"<string>\",\n    \"paraphrase\": \"<string>\",\n    \"spellchecked\": {\n      \"corrections\": {}\n    }\n  },\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"priorTransactionId\": \"<integer>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Navigation",
+                                    "item": [
+                                        {
+                                            "name": "Navigate",
+                                            "request": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/navigation?priorTransactionId=<integer>&facet=<string>&facetShowAllFlag=<boolean>",
+                                                    "host": [
+                                                        "{{KNOWLEDGE Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "srt",
+                                                        "api",
+                                                        "v1",
+                                                        "search",
+                                                        "navigation"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "priorTransactionId",
+                                                            "value": "<integer>",
+                                                            "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                        },
+                                                        {
+                                                            "key": "facet",
+                                                            "value": "<string>",
+                                                            "description": "The facet or category which should be used in narrowing down the search results. The maximum number of facets recommended is 12."
+                                                        },
+                                                        {
+                                                            "key": "facetShowAllFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "Returns all the children of the selected facet and the specified facet remains selected."
+                                                        },
+                                                        {
+                                                            "key": "multiFacets",
+                                                            "value": "<string>",
+                                                            "description": "If the newly added multiFacets parameter is not passed in or the value is not set, then the last facet of the same facet type is used to ensure API backward compatibility.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": "<p>This method filters the current set of results based on the specified facet. The faceted navigation helps you narrow the search results within a subset of results. For example, from the results list you can choose to display only the results that are tagged as Articles. The current result set includes the maximum number of results as defined in the Search Configuration.</p> <p class='simple-resource-header'>Example URI</p> <p>The example URI for this method is as follows:</p> <ul>   <li>   <code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/navigation?priorTransactionId=12345&facet=CMS-PRODUCT.TENANT.TABLETS</code>   <p>The request returns a filtered list of search results for the specified facet. The filtering is done based on the specified facet CMS-PRODUCT.TENANT.TABLETS.</p>   </li> <li>  <code>http://<SEARCH_REST_API_HOST>/srt/api/v1/search/navigation?priorTransactionId=12345&facet=CMS-PRODUCT.RN_PRODUCT_1,CMS-PRODUCT.RN_PRODUCT_2&multiFacets=OR</code>  <p>The request returns a set of pre-filtered search results for the specified products RN_PRODUCT_1 or RN_PRODUCT_2.</p> </li> </ul>        "
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "OK.",
+                                                    "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/navigation?priorTransactionId=<integer>&facet=<string>&facetShowAllFlag=<boolean>",
+                                                            "host": [
+                                                                "{{KNOWLEDGE Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "srt",
+                                                                "api",
+                                                                "v1",
+                                                                "search",
+                                                                "navigation"
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "priorTransactionId",
+                                                                    "value": "<integer>",
+                                                                    "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                                },
+                                                                {
+                                                                    "key": "facet",
+                                                                    "value": "<string>",
+                                                                    "description": "The facet or category which should be used in narrowing down the search results. The maximum number of facets recommended is 12."
+                                                                },
+                                                                {
+                                                                    "key": "facetShowAllFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "Returns all the children of the selected facet and the specified facet remains selected."
+                                                                },
+                                                                {
+                                                                    "key": "multiFacets",
+                                                                    "value": "<string>",
+                                                                    "description": "If the newly added multiFacets parameter is not passed in or the value is not set, then the last facet of the same facet type is used to ensure API backward compatibility.",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"constraints\": {\n    \"baseURL\": \"<string>\",\n    \"language\": \"<string>\",\n    \"resultLanguages\": \"<string>\",\n    \"domainGroup\": \"<string>\",\n    \"navigationApplicationId\": \"<string>\",\n    \"segment\": \"<string>\",\n    \"querySource\": \"<string>\",\n    \"uiMode\": \"<string>\",\n    \"requestSource\": \"<string>\",\n    \"subject\": \"<string>\"\n  },\n  \"results\": {\n    \"results\": [\n      {}\n    ],\n    \"facets\": [\n      {}\n    ],\n    \"message\": \"<string>\",\n    \"messageCode\": \"<string>\"\n  },\n  \"query\": {\n    \"interactive\": \"<boolean>\",\n    \"original\": \"<string>\",\n    \"paraphrase\": \"<string>\",\n    \"spellchecked\": {\n      \"corrections\": {}\n    }\n  },\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"priorTransactionId\": \"<integer>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Pagination",
+                                    "item": [
+                                        {
+                                            "name": "Page results",
+                                            "request": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/pagination?priorTransactionId=<integer>&purposeName=<string>&pageDirection=<string>",
+                                                    "host": [
+                                                        "{{KNOWLEDGE Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "srt",
+                                                        "api",
+                                                        "v1",
+                                                        "search",
+                                                        "pagination"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "priorTransactionId",
+                                                            "value": "<integer>",
+                                                            "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                        },
+                                                        {
+                                                            "key": "purposeName",
+                                                            "value": "<string>",
+                                                            "description": "Purpose name indicates the component of the result. Search results use purpose 'ANSWER'. Possible values are TOOLTIP, FEATURE_CONTENT."
+                                                        },
+                                                        {
+                                                            "key": "pageDirection",
+                                                            "value": "<string>",
+                                                            "description": "pageDirection can have next and previous as possible values depending on whether the user is navigating forward or backwards"
+                                                        },
+                                                        {
+                                                            "key": "newPageSize",
+                                                            "value": "<integer>",
+                                                            "description": "Integer value, the number of results a page should have.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "pageNumber",
+                                                            "value": "<integer>",
+                                                            "description": "Integer value, which contains current page number starting at 0",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": "   This method returns a new page of search results from the current result set. The current result set includes the maximum number of results as defined in the Search Configuration.  <p class='simple-resource-header'>Example URI</p> <p>The example URI for this method is as follows:</p> <ul><li> <code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/pagination?priorTransactionId=12345&purposeName=ANSWER&pageDirection=next&pageNumber=0</code> <p>This request returns a paginated list of answers to the specified transaction ID. The list is paginated according to prior transaction ID and purpose name. As the page direction is set to next and page number is set 0,the answers in the paginated list start from page number 0 and continue to the next page until the last results page.</p> </li> </ul> <p>Response Errors</p> <p>The possible error responses for this method are as follows:</p> <ul> <li>OK-GEN0003 <p>The error occurs when the specified query parameters in the request URL are invalid or empty.</p> </li> </ul>      "
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "OK.",
+                                                    "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/pagination?priorTransactionId=<integer>&purposeName=<string>&pageDirection=<string>",
+                                                            "host": [
+                                                                "{{KNOWLEDGE Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "srt",
+                                                                "api",
+                                                                "v1",
+                                                                "search",
+                                                                "pagination"
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "priorTransactionId",
+                                                                    "value": "<integer>",
+                                                                    "description": "This ID relates to the current result set. This includes the displayed results plus any result up to the max number of results, as defined in the search configuration. If the request is for pagination or navigation, it applies pagination or navigation only to the current result set and doesn't retrieve new results."
+                                                                },
+                                                                {
+                                                                    "key": "purposeName",
+                                                                    "value": "<string>",
+                                                                    "description": "Purpose name indicates the component of the result. Search results use purpose 'ANSWER'. Possible values are TOOLTIP, FEATURE_CONTENT."
+                                                                },
+                                                                {
+                                                                    "key": "pageDirection",
+                                                                    "value": "<string>",
+                                                                    "description": "pageDirection can have next and previous as possible values depending on whether the user is navigating forward or backwards"
+                                                                },
+                                                                {
+                                                                    "key": "newPageSize",
+                                                                    "value": "<integer>",
+                                                                    "description": "Integer value, the number of results a page should have.",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "pageNumber",
+                                                                    "value": "<integer>",
+                                                                    "description": "Integer value, which contains current page number starting at 0",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"constraints\": {\n    \"baseURL\": \"<string>\",\n    \"language\": \"<string>\",\n    \"resultLanguages\": \"<string>\",\n    \"domainGroup\": \"<string>\",\n    \"navigationApplicationId\": \"<string>\",\n    \"segment\": \"<string>\",\n    \"querySource\": \"<string>\",\n    \"uiMode\": \"<string>\",\n    \"requestSource\": \"<string>\",\n    \"subject\": \"<string>\"\n  },\n  \"results\": {\n    \"results\": [\n      {}\n    ],\n    \"facets\": [\n      {}\n    ],\n    \"message\": \"<string>\",\n    \"messageCode\": \"<string>\"\n  },\n  \"query\": {\n    \"interactive\": \"<boolean>\",\n    \"original\": \"<string>\",\n    \"paraphrase\": \"<string>\",\n    \"spellchecked\": {\n      \"corrections\": {}\n    }\n  },\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"priorTransactionId\": \"<integer>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Question",
+                                    "item": [
+                                        {
+                                            "name": "Ask question",
+                                            "request": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/question?question=<string>&startOverFlag=<boolean>",
+                                                    "host": [
+                                                        "{{KNOWLEDGE Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "srt",
+                                                        "api",
+                                                        "v1",
+                                                        "search",
+                                                        "question"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "question",
+                                                            "value": "<string>",
+                                                            "description": "The question asked or the search made(by the end user)."
+                                                        },
+                                                        {
+                                                            "key": "startOverFlag",
+                                                            "value": "<boolean>",
+                                                            "description": "Should search state be reset to start all over from beginning."
+                                                        },
+                                                        {
+                                                            "key": "facet",
+                                                            "value": "<string>",
+                                                            "description": "The facet or category which should be used in narrowing down the search results. The maximum number of facets recommended is 12.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "pageSize",
+                                                            "value": "<integer>",
+                                                            "description": "Integer value, the number of results a page should have.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "multiFacets",
+                                                            "value": "<string>",
+                                                            "description": "If the newly added multiFacets parameter is not passed in or the value is not set, then the last facet of the same facet type is used to ensure API backward compatibility.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": " <p>This method returns a set of search results for the specified question.</p> <p class='simple-resource-header'>Example URI </p> <p>The example URI for this method is as follows:</p> <ul> <li><code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/question?question=how+do+i+upgrade+my+device</code> <p>The request returns a set of search results for the specified question.</p></li> <li><code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/question?question=how+do+i+upgrade+my+device&facet=Collections.OKKB-FAQ</code> <p>The request returns a set of pre-filtered search results for the specified content-type, FAQ.</p></li> <li><code>http://&lt;SEARCH_REST_API_HOST&gt;/srt/api/v1/search/question?question=how+do+i+upgrade+my+device&facet=CMS-PRODUCT.RN_PRODUCT_1,CMS-PRODUCT.RN_PRODUCT_2&multiFacets=OR</code> <p>The request returns a set of pre-filtered search results for the specified products RN_PRODUCT_1 or RN_PRODUCT_2.</p></li> </ul> <p>Response Errors</p> <p>The possible error responses for this method are as follows:</p> <ul> <li>OK-GEN0003 <p>The error occurs when the specified query parameters in the request URL are invalid or empty.</p> </li> </ul>    <div class='simple-resource-header'> <a name='SessionObject'>Session Object</a> </div> <div class='resource-desc'> <p>A session object stores the session information of a transaction. The session information includes  information about the current result set, page tracking, and navigation activity. The implementing agent must store  and return the session information back and forth during runtime for each subsequent request.</p> </div> <div class='simple-resource-header'> <a name='Facets'>Facets</a> </div> <div class='resource-desc'> <p>Facets are a way of categorizing the content. They help you categorize information to enhance the search capabilities. Facet based search allows you to apply multiple filters while searching for information. If you are an author in Information Manger console, you can assign categories to the content and find the facets assigned to the content by referring the assigned categories.</p> </div>   "
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "OK.",
+                                                    "originalRequest": {
+                                                        "method": "POST",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{KNOWLEDGE Site URL}}/srt/api/v1/search/question?question=<string>&startOverFlag=<boolean>",
+                                                            "host": [
+                                                                "{{KNOWLEDGE Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "srt",
+                                                                "api",
+                                                                "v1",
+                                                                "search",
+                                                                "question"
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "question",
+                                                                    "value": "<string>",
+                                                                    "description": "The question asked or the search made(by the end user)."
+                                                                },
+                                                                {
+                                                                    "key": "startOverFlag",
+                                                                    "value": "<boolean>",
+                                                                    "description": "Should search state be reset to start all over from beginning."
+                                                                },
+                                                                {
+                                                                    "key": "facet",
+                                                                    "value": "<string>",
+                                                                    "description": "The facet or category which should be used in narrowing down the search results. The maximum number of facets recommended is 12.",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "pageSize",
+                                                                    "value": "<integer>",
+                                                                    "description": "Integer value, the number of results a page should have.",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "multiFacets",
+                                                                    "value": "<string>",
+                                                                    "description": "If the newly added multiFacets parameter is not passed in or the value is not set, then the last facet of the same facet type is used to ensure API backward compatibility.",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"facetPriorTransactionId\": \"<integer>\",\n  \"baseURL\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"resultLocales\": \"<string>\",\n  \"domainGroup\": \"<string>\",\n  \"navigationApplicationId\": \"<string>\",\n  \"segment\": \"<string>\",\n  \"querySource\": \"<string>\",\n  \"uiMode\": \"<string>\",\n  \"requestSource\": \"<string>\",\n  \"subject\": \"<string>\",\n  \"isDeflection\": \"<boolean>\",\n  \"clientInfo\": {\n    \"agentAddress\": \"<string>\",\n    \"extSessionId\": \"<string>\",\n    \"referrer\": \"<string>\",\n    \"cookies\": \"<string>\",\n    \"address\": \"<string>\",\n    \"host\": \"<string>\",\n    \"requestHeaders\": [\n      {}\n    ],\n    \"requestParameters\": [\n      {}\n    ],\n    \"requestAttributes\": [\n      {}\n    ]\n  },\n  \"ccaInfo\": {\n    \"name\": \"<string>\",\n    \"connected\": \"<boolean>\",\n    \"caseDescription\": \"<string>\",\n    \"extSolutionList\": \"<string>\",\n    \"SRKey\": \"<string>\",\n    \"system\": \"<string>\",\n    \"contentIds\": \"<string>\",\n    \"answerSolutionList\": \"<string>\",\n    \"types\": \"<string>\"\n  },\n  \"pageSize\": \"<integer>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"constraints\": {\n    \"baseURL\": \"<string>\",\n    \"language\": \"<string>\",\n    \"resultLanguages\": \"<string>\",\n    \"domainGroup\": \"<string>\",\n    \"navigationApplicationId\": \"<string>\",\n    \"segment\": \"<string>\",\n    \"querySource\": \"<string>\",\n    \"uiMode\": \"<string>\",\n    \"requestSource\": \"<string>\",\n    \"subject\": \"<string>\"\n  },\n  \"results\": {\n    \"results\": [\n      {}\n    ],\n    \"facets\": [\n      {}\n    ],\n    \"message\": \"<string>\",\n    \"messageCode\": \"<string>\"\n  },\n  \"query\": {\n    \"interactive\": \"<boolean>\",\n    \"original\": \"<string>\",\n    \"paraphrase\": \"<string>\",\n    \"spellchecked\": {\n      \"corrections\": {}\n    }\n  },\n  \"session\": \"<string>\",\n  \"transactionId\": \"<integer>\",\n  \"priorTransactionId\": \"<integer>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": " <p>This method returns an HTTP response containing the Allow and Link header.</p> "
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{KNOWLEDGE Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{KNOWLEDGE UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}
