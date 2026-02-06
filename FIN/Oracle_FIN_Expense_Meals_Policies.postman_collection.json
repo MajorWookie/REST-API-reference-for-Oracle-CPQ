@@ -1,0 +1,835 @@
+{
+    "info": {
+        "_postman_id": "2ab17ab9-7c3d-4dbb-bb7b-3537430b389b",
+        "name": "Oracle Fusion Cloud FIN - Expense Meals Policies",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Expense Meals Policies module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Expense Meals Policies",
+            "item": [
+                {
+                    "name": "Expense Meals Policies",
+                    "item": [
+                        {
+                            "name": "{MealsPolicyId}",
+                            "item": [
+                                {
+                                    "name": "Get a single expense meals policy record for a meals policy identifier",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMealsPolicies",
+                                                ":MealsPolicyId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "MealsPolicyId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMealsPolicies",
+                                                        ":MealsPolicyId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MealsPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"CurrencyOption\": \"<string>\",\n  \"CurrencyOptionCode\": \"<string>\",\n  \"DailyLimitFlag\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"DispWarningToUserFlag\": \"<boolean>\",\n  \"EnabledLocationFlag\": \"<boolean>\",\n  \"EnabledRoleFlag\": \"<boolean>\",\n  \"ErrorTolerance\": \"<number>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"LocationType\": \"<string>\",\n  \"LocationTypeCode\": \"<string>\",\n  \"MealsPolicyId\": \"<integer>\",\n  \"MealsRateSource\": \"<string>\",\n  \"MealsRateSourceCode\": \"<string>\",\n  \"PolicyEnforcement\": \"<string>\",\n  \"PolicyEnforcementCode\": \"<string>\",\n  \"PolicyName\": \"<string>\",\n  \"PolicyRole\": \"<string>\",\n  \"PolicyRoleCode\": \"<string>\",\n  \"PolicyViolationFlag\": \"<boolean>\",\n  \"PreventSubmissionFlag\": \"<boolean>\",\n  \"RateIncludeMealsFlag\": \"<boolean>\",\n  \"RateIncludeOtherFlag\": \"<boolean>\",\n  \"RatesSourceCode\": \"<string>\",\n  \"SingleInstanceLimitFlag\": \"<boolean>\",\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"WarningTolerance\": \"<number>\",\n  \"ZoneType\": \"<string>\",\n  \"ZoneTypeCode\": \"<string>\",\n  \"expenseMealsPolicyLines\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"DailyLimit\": \"<number>\",\n      \"EndDate\": \"<string>\",\n      \"GeographyId\": \"<integer>\",\n      \"GeolocName\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"MealsPolicyId\": \"<integer>\",\n      \"PolicyLineId\": \"<integer>\",\n      \"RawCity\": \"<string>\",\n      \"RawCountry\": \"<string>\",\n      \"RawCounty\": \"<string>\",\n      \"RawState\": \"<string>\",\n      \"RoleId\": \"<integer>\",\n      \"RoleName\": \"<string>\",\n      \"SingleInstanceLimit\": \"<number>\",\n      \"StartDate\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"TypeOfRateCode\": \"<string>\",\n      \"Zone\": \"<string>\",\n      \"ZoneCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all expense meals policy records",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/expenseMealsPolicies",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "expenseMealsPolicies"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date when the meals expense policy record was created.</li><li>Currency; string; Currency of a meals expense policy when rates are defined in a single currency.</li><li>CurrencyCode; string; Code associated with a currency.</li><li>CurrencyOption; string; Currency option selected for the rate definition, such as single or multiple currency. Valid values are from the lookup EXM_CURRENCY_OPTION.</li><li>CurrencyOptionCode; string; Code associated with a currency option.</li><li>DailyLimitFlag; boolean; Indicates whether daily amount limit of meals expenses is enforced. Possible values are Yes or No.</li><li>Description; string; Description of the meals expense policy.</li><li>DispWarningToUserFlag; boolean; Indicates whether a meals expense policy warning is displayed to the user.</li><li>EnabledLocationFlag; boolean; Indicates whether meal rates vary by location.</li><li>EnabledRoleFlag; boolean; Indicates whether meal rates vary based on the role of an employee.</li><li>ErrorTolerance; number; Percentage that, when added to a meals expense policy amount limit, defines the maximum allowable limit that results in prevention of the expense report submission.</li><li>LastUpdateDate; string; Date and time when the meals expense policy row was last updated.</li><li>LastUpdateLogin; string; Session login that is associated with the user who last updated the meals expense policy row.</li><li>LastUpdatedBy; string; User who last updated the meals expense policy row.</li><li>LocationType; string; Type of location that determines meal rates, such as Geographical Location and Zone. Valid values are from the lookup EXM_LOCATION_TYPE.</li><li>LocationTypeCode; string; Code associated with the location type.</li><li>MealsPolicyId; integer; Value that uniquely identifies a meals expense policy.</li><li>MealsRateSource; string; Meal rates that are based on local rates or proportional rates.</li><li>MealsRateSourceCode; string; Code associated with the meals rate source.</li><li>PolicyEnforcement; string; Type of meals expense policy enforcement applied. Values are from lookup EXM_POLICY_ENFORCEMENT.</li><li>PolicyEnforcementCode; string; Code associated with the enforcement of a meals expense policy.</li><li>PolicyName; string; Name of the meals expense policy.</li><li>PolicyRole; string; Role type that determines the policy rate, such as Job, Grade, or Position. Values are from the lookup EXM_POLICY_ROLE.</li><li>PolicyRoleCode; string; Code associated with a policy role.</li><li>PolicyViolationFlag; boolean; Indicates whether employees are warned when they submit expenses that exceed the meals expense policy rate limit.</li><li>PreventSubmissionFlag; boolean; Indicates whether an expense report submission is prevented if a meals expense policy violation occurs.</li><li>RateIncludeMealsFlag; boolean; Indicates whether the meals allowance defined for the meals expense policy includes meals.</li><li>RateIncludeOtherFlag; boolean; Indicates whether the meals reimbursement defined for the meals expense policy includes other expenses.</li><li>RatesSourceCode; string; Code that is associated with a meals expense policy based on rates entered by the user or from rates uploaded from a CONUS or OCONUS file.</li><li>SingleInstanceLimitFlag; boolean; Indicates whether meals expense policy limits are enforced by each submitted instance of a meals expense item.</li><li>Status; string; Status of the meals expense policy, such as Draft or Active. Valid values are from the lookup EXM_POLICY_STATUS.</li><li>StatusCode; string; Code that is associated with the status of a meals expense policy.</li><li>WarningTolerance; number; Percentage that, when added to a meals expense policy amount limit, defines the maximum allowable limit that results in a policy warning violation.</li><li>ZoneType; string; Applicable zone types for this meals expense policy. Values are from the lookup EXM_ZONE_TYPE.</li><li>ZoneTypeCode; string; Code associated with a zone type.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the expense meals policy record using a meals policy identifier that matches the primary key criteria specified.\n\n<br>Finder Variables: <ul><li>MealsPolicyId; integer; Identifier of a meals policy for a meals policy record.\n\n</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMealsPolicies",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMealsPolicies"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date when the meals expense policy record was created.</li><li>Currency; string; Currency of a meals expense policy when rates are defined in a single currency.</li><li>CurrencyCode; string; Code associated with a currency.</li><li>CurrencyOption; string; Currency option selected for the rate definition, such as single or multiple currency. Valid values are from the lookup EXM_CURRENCY_OPTION.</li><li>CurrencyOptionCode; string; Code associated with a currency option.</li><li>DailyLimitFlag; boolean; Indicates whether daily amount limit of meals expenses is enforced. Possible values are Yes or No.</li><li>Description; string; Description of the meals expense policy.</li><li>DispWarningToUserFlag; boolean; Indicates whether a meals expense policy warning is displayed to the user.</li><li>EnabledLocationFlag; boolean; Indicates whether meal rates vary by location.</li><li>EnabledRoleFlag; boolean; Indicates whether meal rates vary based on the role of an employee.</li><li>ErrorTolerance; number; Percentage that, when added to a meals expense policy amount limit, defines the maximum allowable limit that results in prevention of the expense report submission.</li><li>LastUpdateDate; string; Date and time when the meals expense policy row was last updated.</li><li>LastUpdateLogin; string; Session login that is associated with the user who last updated the meals expense policy row.</li><li>LastUpdatedBy; string; User who last updated the meals expense policy row.</li><li>LocationType; string; Type of location that determines meal rates, such as Geographical Location and Zone. Valid values are from the lookup EXM_LOCATION_TYPE.</li><li>LocationTypeCode; string; Code associated with the location type.</li><li>MealsPolicyId; integer; Value that uniquely identifies a meals expense policy.</li><li>MealsRateSource; string; Meal rates that are based on local rates or proportional rates.</li><li>MealsRateSourceCode; string; Code associated with the meals rate source.</li><li>PolicyEnforcement; string; Type of meals expense policy enforcement applied. Values are from lookup EXM_POLICY_ENFORCEMENT.</li><li>PolicyEnforcementCode; string; Code associated with the enforcement of a meals expense policy.</li><li>PolicyName; string; Name of the meals expense policy.</li><li>PolicyRole; string; Role type that determines the policy rate, such as Job, Grade, or Position. Values are from the lookup EXM_POLICY_ROLE.</li><li>PolicyRoleCode; string; Code associated with a policy role.</li><li>PolicyViolationFlag; boolean; Indicates whether employees are warned when they submit expenses that exceed the meals expense policy rate limit.</li><li>PreventSubmissionFlag; boolean; Indicates whether an expense report submission is prevented if a meals expense policy violation occurs.</li><li>RateIncludeMealsFlag; boolean; Indicates whether the meals allowance defined for the meals expense policy includes meals.</li><li>RateIncludeOtherFlag; boolean; Indicates whether the meals reimbursement defined for the meals expense policy includes other expenses.</li><li>RatesSourceCode; string; Code that is associated with a meals expense policy based on rates entered by the user or from rates uploaded from a CONUS or OCONUS file.</li><li>SingleInstanceLimitFlag; boolean; Indicates whether meals expense policy limits are enforced by each submitted instance of a meals expense item.</li><li>Status; string; Status of the meals expense policy, such as Draft or Active. Valid values are from the lookup EXM_POLICY_STATUS.</li><li>StatusCode; string; Code that is associated with the status of a meals expense policy.</li><li>WarningTolerance; number; Percentage that, when added to a meals expense policy amount limit, defines the maximum allowable limit that results in a policy warning violation.</li><li>ZoneType; string; Applicable zone types for this meals expense policy. Values are from the lookup EXM_ZONE_TYPE.</li><li>ZoneTypeCode; string; Code associated with a zone type.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the expense meals policy record using a meals policy identifier that matches the primary key criteria specified.\n\n<br>Finder Variables: <ul><li>MealsPolicyId; integer; Identifier of a meals policy for a meals policy record.\n\n</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"CurrencyOption\": \"<string>\",\n      \"CurrencyOptionCode\": \"<string>\",\n      \"DailyLimitFlag\": \"<boolean>\",\n      \"Description\": \"<string>\",\n      \"DispWarningToUserFlag\": \"<boolean>\",\n      \"EnabledLocationFlag\": \"<boolean>\",\n      \"EnabledRoleFlag\": \"<boolean>\",\n      \"ErrorTolerance\": \"<number>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"LocationType\": \"<string>\",\n      \"LocationTypeCode\": \"<string>\",\n      \"MealsPolicyId\": \"<integer>\",\n      \"MealsRateSource\": \"<string>\",\n      \"MealsRateSourceCode\": \"<string>\",\n      \"PolicyEnforcement\": \"<string>\",\n      \"PolicyEnforcementCode\": \"<string>\",\n      \"PolicyName\": \"<string>\",\n      \"PolicyRole\": \"<string>\",\n      \"PolicyRoleCode\": \"<string>\",\n      \"PolicyViolationFlag\": \"<boolean>\",\n      \"PreventSubmissionFlag\": \"<boolean>\",\n      \"RateIncludeMealsFlag\": \"<boolean>\",\n      \"RateIncludeOtherFlag\": \"<boolean>\",\n      \"RatesSourceCode\": \"<string>\",\n      \"SingleInstanceLimitFlag\": \"<boolean>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"WarningTolerance\": \"<number>\",\n      \"ZoneType\": \"<string>\",\n      \"ZoneTypeCode\": \"<string>\",\n      \"expenseMealsPolicyLines\": [\n        {}\n      ],\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Expense Meals Policy Lines",
+                    "item": [
+                        {
+                            "name": "Expense Meals Policies/{MealsPolicyId}/Child/Expense Meals Policy Lines",
+                            "item": [
+                                {
+                                    "name": "{PolicyLineId}",
+                                    "item": [
+                                        {
+                                            "name": "Get a single expense meals policy line record for a meals policy rate line identifier",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId/child/expenseMealsPolicyLines/:PolicyLineId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMealsPolicies",
+                                                        ":MealsPolicyId",
+                                                        "child",
+                                                        "expenseMealsPolicyLines",
+                                                        ":PolicyLineId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MealsPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                        },
+                                                        {
+                                                            "key": "PolicyLineId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Value that uniquely identifies a policy rate line."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId/child/expenseMealsPolicyLines/:PolicyLineId",
+                                                            "host": [
+                                                                "{{FIN Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "expenseMealsPolicies",
+                                                                ":MealsPolicyId",
+                                                                "child",
+                                                                "expenseMealsPolicyLines",
+                                                                ":PolicyLineId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "MealsPolicyId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                                },
+                                                                {
+                                                                    "key": "PolicyLineId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) Value that uniquely identifies a policy rate line."
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"DailyLimit\": \"<number>\",\n  \"EndDate\": \"<string>\",\n  \"GeographyId\": \"<integer>\",\n  \"GeolocName\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"MealsPolicyId\": \"<integer>\",\n  \"PolicyLineId\": \"<integer>\",\n  \"RawCity\": \"<string>\",\n  \"RawCountry\": \"<string>\",\n  \"RawCounty\": \"<string>\",\n  \"RawState\": \"<string>\",\n  \"RoleId\": \"<integer>\",\n  \"RoleName\": \"<string>\",\n  \"SingleInstanceLimit\": \"<number>\",\n  \"StartDate\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"TypeOfRateCode\": \"<string>\",\n  \"Zone\": \"<string>\",\n  \"ZoneCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all expense meals policy line records",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId/child/expenseMealsPolicyLines",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMealsPolicies",
+                                                ":MealsPolicyId",
+                                                "child",
+                                                "expenseMealsPolicyLines"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "MealsPolicyId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the meals expense policy rate line.</li><li>CreationDate; string; Date when the meals expense policy rate line record was created.</li><li>Currency; string; Description of the currency code.</li><li>CurrencyCode; string; Code that is associated with a currency for a meals expense policy.</li><li>DailyLimit; number; Daily amount limit of meals expenses. Possible values are Yes or No.</li><li>EndDate; string; Date when the meals rate ends.</li><li>GeographyId; integer; Value that uniquely identifies a geography for which a meals rate is applicable.</li><li>GeolocName; string; Name of the geographic location for which the meals rate is applicable.</li><li>LastUpdateDate; string; Date and time when the meals expense policy rate line was last updated.</li><li>LastUpdateLogin; string; Session login that is associated with the user who last updated the meals expense policy rate line.</li><li>LastUpdatedBy; string; User who last updated the meals expense policy rate line.</li><li>MealsPolicyId; integer; Value that uniquely identifies a meals expense policy for which rates are defined.</li><li>PolicyLineId; integer; Value that uniquely identifies a policy rate line.</li><li>RawCity; string; City where the meals rate is applicable.</li><li>RawCountry; string; Country where the meals rate is applicable.</li><li>RawCounty; string; County where the meals rate is applicable.</li><li>RawState; string; State where the meals rate is applicable.</li><li>RoleId; integer; Value that uniquely identifies a role for which a meals rate is applicable.</li><li>RoleName; string; Name of role for which the meals rate is applicable, such as Director or Engineer.</li><li>SingleInstanceLimit; number; A meals expense policy limit that is enforced by each submitted instance of a meals expense item.</li><li>StartDate; string; Date when the meals rate starts.</li><li>Status; string; Status of the meals rate, such as Valid, Active, or Invalid. Values are from the lookup EXM_POLICY_STATUS.</li><li>StatusCode; string; Code that is associated with the status of a meals expense policy line rate.</li><li>TypeOfRateCode; string; Code associated with a type of rate, such as a base meals rate.</li><li>Zone; string; Description of a zone code.</li><li>ZoneCode; string; Zone code for which a meals rate is applicable, such as Geographical Location or Zone.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the expense meals policy line record using a meals policy rate line identifier that matches the primary key criteria specified.\n\n\n<br>Finder Variables: <ul><li>PolicyLineId; integer; Identifier of a meals policy rate line for a meals policy line record\n\n</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMealsPolicies/:MealsPolicyId/child/expenseMealsPolicyLines",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMealsPolicies",
+                                                        ":MealsPolicyId",
+                                                        "child",
+                                                        "expenseMealsPolicyLines"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MealsPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Value that uniquely identifies a meals expense policy."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the meals expense policy rate line.</li><li>CreationDate; string; Date when the meals expense policy rate line record was created.</li><li>Currency; string; Description of the currency code.</li><li>CurrencyCode; string; Code that is associated with a currency for a meals expense policy.</li><li>DailyLimit; number; Daily amount limit of meals expenses. Possible values are Yes or No.</li><li>EndDate; string; Date when the meals rate ends.</li><li>GeographyId; integer; Value that uniquely identifies a geography for which a meals rate is applicable.</li><li>GeolocName; string; Name of the geographic location for which the meals rate is applicable.</li><li>LastUpdateDate; string; Date and time when the meals expense policy rate line was last updated.</li><li>LastUpdateLogin; string; Session login that is associated with the user who last updated the meals expense policy rate line.</li><li>LastUpdatedBy; string; User who last updated the meals expense policy rate line.</li><li>MealsPolicyId; integer; Value that uniquely identifies a meals expense policy for which rates are defined.</li><li>PolicyLineId; integer; Value that uniquely identifies a policy rate line.</li><li>RawCity; string; City where the meals rate is applicable.</li><li>RawCountry; string; Country where the meals rate is applicable.</li><li>RawCounty; string; County where the meals rate is applicable.</li><li>RawState; string; State where the meals rate is applicable.</li><li>RoleId; integer; Value that uniquely identifies a role for which a meals rate is applicable.</li><li>RoleName; string; Name of role for which the meals rate is applicable, such as Director or Engineer.</li><li>SingleInstanceLimit; number; A meals expense policy limit that is enforced by each submitted instance of a meals expense item.</li><li>StartDate; string; Date when the meals rate starts.</li><li>Status; string; Status of the meals rate, such as Valid, Active, or Invalid. Values are from the lookup EXM_POLICY_STATUS.</li><li>StatusCode; string; Code that is associated with the status of a meals expense policy line rate.</li><li>TypeOfRateCode; string; Code associated with a type of rate, such as a base meals rate.</li><li>Zone; string; Description of a zone code.</li><li>ZoneCode; string; Zone code for which a meals rate is applicable, such as Geographical Location or Zone.</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the expense meals policy line record using a meals policy rate line identifier that matches the primary key criteria specified.\n\n\n<br>Finder Variables: <ul><li>PolicyLineId; integer; Identifier of a meals policy rate line for a meals policy line record\n\n</li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"DailyLimit\": \"<number>\",\n      \"EndDate\": \"<string>\",\n      \"GeographyId\": \"<integer>\",\n      \"GeolocName\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"MealsPolicyId\": \"<integer>\",\n      \"PolicyLineId\": \"<integer>\",\n      \"RawCity\": \"<string>\",\n      \"RawCountry\": \"<string>\",\n      \"RawCounty\": \"<string>\",\n      \"RawState\": \"<string>\",\n      \"RoleId\": \"<integer>\",\n      \"RoleName\": \"<string>\",\n      \"SingleInstanceLimit\": \"<number>\",\n      \"StartDate\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"TypeOfRateCode\": \"<string>\",\n      \"Zone\": \"<string>\",\n      \"ZoneCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The expense meals policy lines resource is used to get all meals expense policy line records."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

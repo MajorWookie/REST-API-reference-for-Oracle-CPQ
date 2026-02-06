@@ -1,0 +1,1203 @@
+{
+    "info": {
+        "_postman_id": "b90496a8-f27a-4c4d-9124-40e80a9a5ae1",
+        "name": "Oracle Field Service - Statistics",
+        "description": "REST API collection for Oracle Field Service — Statistics module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Statistics",
+            "item": [
+                {
+                    "name": "Activity Duration",
+                    "item": [
+                        {
+                            "name": "Rest/Ofsc Statistics/V1/Activity Duration Stats",
+                            "item": [
+                                {
+                                    "name": "Get activity duration statistics",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "activityDurationStats"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "resourceId",
+                                                    "value": "<string>",
+                                                    "description": "The external identifier of the resource. To fetch the activity duration statistics at the company level, provide '' (single quotes) as the value for this parameter.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "includeChildren",
+                                                    "value": "<boolean>",
+                                                    "description": "Contains one of the following values: true or false. If true, then the details of child resources are included in the response. If false, then the details of child resources are not included in the response. The default value is 'true'.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "akey",
+                                                    "value": "<string>",
+                                                    "description": "The value of the activity duration key. It appears as 'Appointment Key' in the report.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "The number of records to be returned in the response.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        },
+                                        "description": "<p>This operation retrieves a collection of activity duration statistics. The maximum number of records that can be retrieved in a single response is 10000. If there are more than 10000 records, the remaining records can be accessed using the 'next' link available at the bottom of the response.</p><p>This operation can be used only when the following conditions are satisfied:</p><ul><li>The customer must have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The required application must have permission to access the Statistics API. To grant the permission, navigate to <b>Configuration</b> > <b>Applications</b> screen. For the required application, in the <b>API access</b> section, click <b>Add new</b> and select <b>Statistics API</b>.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation. The response contains the collection of activity duration statistics. If neither the 'resourceId' nor the 'akey' is specified as a parameter, the application returns the records for all the applicable values.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityDurationStats"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "resourceId",
+                                                            "value": "<string>",
+                                                            "description": "The external identifier of the resource. To fetch the activity duration statistics at the company level, provide '' (single quotes) as the value for this parameter.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "includeChildren",
+                                                            "value": "<boolean>",
+                                                            "description": "Contains one of the following values: true or false. If true, then the details of child resources are included in the response. If false, then the details of child resources are not included in the response. The default value is 'true'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "akey",
+                                                            "value": "<string>",
+                                                            "description": "The value of the activity duration key. It appears as 'Appointment Key' in the report.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"items\": [\n    {\n      \"resourceId\": \"<string>\",\n      \"akey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"avg\": \"<integer>\",\n      \"dev\": \"<integer>\",\n      \"count\": \"<integer>\",\n      \"level\": \"<string>\"\n    }\n  ]\n}"
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityDurationStats"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "resourceId",
+                                                            "value": "<string>",
+                                                            "description": "The external identifier of the resource. To fetch the activity duration statistics at the company level, provide '' (single quotes) as the value for this parameter.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "includeChildren",
+                                                            "value": "<boolean>",
+                                                            "description": "Contains one of the following values: true or false. If true, then the details of child resources are included in the response. If false, then the details of child resources are not included in the response. The default value is 'true'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "akey",
+                                                            "value": "<string>",
+                                                            "description": "The value of the activity duration key. It appears as 'Appointment Key' in the report.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update activity duration statistics",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "activityDurationStats"
+                                            ]
+                                        },
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"items\": [\n    {\n      \"resourceId\": \"<string>\",\n      \"akey\": \"<string>\",\n      \"override\": \"<integer>\"\n    }\n  ]\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "description": "<p>This operation updates the activity duration override for the activity duration key that is currently active.</p><p>It is possible to override the activity duration either at the company level, bucket level or at the technician level. To override the activity duration at the company level, the 'resourceId' field must be empty.</p><p>If there are multiple activity duration keys configured in the application, the overrides are applicable only to the activity duration key that is currently active. If the activity duration key is modified, then the overrides for that key are deleted from the application. However, the overrides persist if another activity duration key is active, with the old key in the application being inactive state. If the inactive key is set to active again, the overrides that were set corresponding to that key become applicable for the duration estimates.</p><p>For the activity duration key that is currently active, the override value is stored in the application along with the statistically learned value. For activity duration estimates, if an override is specified, then the override value is used instead of the statistically learned value. However, the statistically learned value is updated based on the new durations reported. At any point of time, it is possible to stop using the overrides by importing the data again with value 0 in the 'override' field. In such cases, the application starts using the statistically learned value for the duration estimates. If a part of the key contains properties to be considered as case-insensitive, the value specified for that part of the key should be in smaller case in the API request. </p><p>Note: <li>When the Statistics API is used to make activity duration changes, the changes are reflected for all future activities in the application only after the next run of the statistics agent. The statistics agent is run once a day, usually in the early morning hours.</li><li>The limit for each API request is 10000 records. To update more records, multiple requests can be used.</li></p><p>The operation can be used only when the following conditions are satisfied:</p><ul><li>The customer must have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The required application must have permission to access the Statistics API. To grant the permission, navigate to <b>Configuration</b>, <b>Applications</b> screen. For the required application, click <b>Add new</b> in the <b>API access</b> section, and select <b>Statistics API</b>.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation. ",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityDurationStats"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"resourceId\": \"<string>\",\n      \"akey\": \"<string>\",\n      \"override\": \"<integer>\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"results\": {\n    \"status\": \"<string>\",\n    \"updatedRecords\": \"<integer>\"\n  }\n}"
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityDurationStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityDurationStats"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"resourceId\": \"<string>\",\n      \"akey\": \"<string>\",\n      \"override\": \"<integer>\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Activity Travel",
+                    "item": [
+                        {
+                            "name": "Rest/Ofsc Statistics/V1/Activity Travel Stats",
+                            "item": [
+                                {
+                                    "name": "Get activity travel statistics",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "activityTravelStats"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "region",
+                                                    "value": "<string>",
+                                                    "description": "The label for the region. For example, 'xyz_enterprise'.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "tkey",
+                                                    "value": "<string>",
+                                                    "description": "The travel key value corresponding to the destination of the travel. For example, '11 AY'.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fkey",
+                                                    "value": "<string>",
+                                                    "description": "The travel key value corresponding to the starting location of the travel. For example, 'SRT D3'.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "The number of records to be returned in the response.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "keyId",
+                                                    "value": "<integer>",
+                                                    "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel key pairs will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel key pairs of the corresponding Key ID.</li><li>If 'keyId' is specified but if does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        },
+                                        "description": "<p>This operation retrieves a collection of activity travel statistics at the company level. The maximum number of records that can be retrieved in a single response is 10000. If there are more than 10000 records, the remaining records can be accessed using the 'next' link available at the bottom of the response.</p><p>This operation can be used only when the following conditions are satisfied:</p><ul><li>The customer must have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The required application must have permission to access the Statistics API. To grant the permission, navigate to <b>Configuration</b> > <b>Applications</b> screen. For the required application, in the <b>API access</b> section, click <b>Add new</b> and select <b>Statistics API</b>.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation. The response contains the collection of activity travel statistics. If any of the listed request parameters are not specified, all the available records are returned.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityTravelStats"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "region",
+                                                            "value": "<string>",
+                                                            "description": "The label for the region. For example, 'xyz_enterprise'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "tkey",
+                                                            "value": "<string>",
+                                                            "description": "The travel key value corresponding to the destination of the travel. For example, '11 AY'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fkey",
+                                                            "value": "<string>",
+                                                            "description": "The travel key value corresponding to the starting location of the travel. For example, 'SRT D3'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "keyId",
+                                                            "value": "<integer>",
+                                                            "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel key pairs will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel key pairs of the corresponding Key ID.</li><li>If 'keyId' is specified but if does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"items\": [\n    {\n      \"tkey\": \"<string>\",\n      \"fkey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"avg\": \"<integer>\",\n      \"dev\": \"<integer>\",\n      \"count\": \"<integer>\",\n      \"region\": \"<string>\",\n      \"keyId\": \"<integer>\",\n      \"org\": [\n        {}\n      ]\n    }\n  ]\n}"
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityTravelStats"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "region",
+                                                            "value": "<string>",
+                                                            "description": "The label for the region. For example, 'xyz_enterprise'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "tkey",
+                                                            "value": "<string>",
+                                                            "description": "The travel key value corresponding to the destination of the travel. For example, '11 AY'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fkey",
+                                                            "value": "<string>",
+                                                            "description": "The travel key value corresponding to the starting location of the travel. For example, 'SRT D3'.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "keyId",
+                                                            "value": "<integer>",
+                                                            "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel key pairs will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel key pairs of the corresponding Key ID.</li><li>If 'keyId' is specified but if does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update activity travel statistics",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "activityTravelStats"
+                                            ]
+                                        },
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"items\": [\n    {\n      \"fkey\": \"<string>\",\n      \"tkey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"keyId\": \"<integer>\"\n    }\n  ]\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "description": "<p>This operation updates the travel duration override for the travel keys that are currently active. However, it is possible to override the travel durations only at the company level and not at any of the lower levels. </p><p>The override value is stored in the application in addition to the statistically learned value. For travel duration estimates, if an override is specified, then the override value is used instead of the statistically learned value. However, the statistically learned value is kept updated based on new reported durations. At any point of time, it is possible to stop using the overrides by importing the data again with value 0 in the 'override' field. In such cases, the application starts using the statistically learned value for duration estimates. If a part of the key contains properties to be considered as case-insensitive, the value specified for that part of the key should be in smaller case in the API request. </p><p>Note: <li>When the Statistics API is used to make travel duration changes, the changes are reflected for all future travels in the application only after the next run of the statistics agent. The statistics agent is run once a day, usually in the early morning hours.</li><li>The limit for each API request is 10000 records. To update more records, multiple requests can be used.</li></p><p>This operation can be used only when the following conditions are satisfied:</p><ul><li>The customer must have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The required application must have permission to access the Statistics API. To grant the permission, navigate to <b>Configuration</b>, <b>Applications</b> screen. For the required application, click <b>Add new</b> in the <b>API access</b> section, and select <b>Statistics API</b>.</li><li>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this API cannot be used.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityTravelStats"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"fkey\": \"<string>\",\n      \"tkey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"keyId\": \"<integer>\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"results\": {\n    \"status\": \"<string>\",\n    \"updatedRecords\": \"<integer>\"\n  }\n}"
+                                        },
+                                        {
+                                            "name": "The API returns the HTTP 409 status code error with the description, 'Cannot override travel statistics if Activity Travel Keys are detected automatically' if 'Detect activity travel keys automatically' is checked in Statistics configuration.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityTravelStats"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"fkey\": \"<string>\",\n      \"tkey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"keyId\": \"<integer>\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Conflict",
+                                            "code": 409,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": ""
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/activityTravelStats",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "activityTravelStats"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"fkey\": \"<string>\",\n      \"tkey\": \"<string>\",\n      \"override\": \"<integer>\",\n      \"keyId\": \"<integer>\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Airline Distance Based Travel",
+                    "item": [
+                        {
+                            "name": "Rest/Ofsc Statistics/V1/Airline Distance Based Travel",
+                            "item": [
+                                {
+                                    "name": "Get airline distance based travel",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "airlineDistanceBasedTravel"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "level",
+                                                    "value": "<string>",
+                                                    "description": "<p>Specifies where the data needs to be retrieved at the company level or travel key level. For company level use 'company' and for travel key level use 'travelkey' as the value for this parameter.</p><p>If no value is provided, data for both company as well as travel key level will be retrieved.</p>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "key",
+                                                    "value": "<string>",
+                                                    "description": "The value of the travel key. It appears as 'Start Location' and 'End Location' in the Travel Statistics report.<p>If 'key' is provided in request and :<ul><li>If 'key' is present in the application, the application estimated and override values for travel time of the travel key is retrieved.</li><li>If 'key' is not present in the application, HTTP Code 404 response is displayed.</li></ul></p><p>If 'key' is not provided in request, the application estimated and override values for travel time of all the travel keys are retrieved. If none of the travel keys have application estimated or override values, then HTTP Code 404 response is displayed.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "distance",
+                                                    "value": "<string>",
+                                                    "description": "The list of comma separated distances (in km) for which the statistically estimated and override travel time at the travel key level has to be retrieved. Maximum number of distances allowed is 5. If no distance is specified, the application retrieves values for the distances 1, 5, 10, 20, 50.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "keyId",
+                                                    "value": "<integer>",
+                                                    "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel keys will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel keys of the corresponding Key ID.</li><li>If 'keyId' is specified but if it does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "The number of records to be returned in the response.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        },
+                                        "description": "<p>This operation retrieves a collection of statistically estimated and override values of airline distance based travel time (in minutes) at the company as well as the travel key level for the specified distances (in km). Up to five distances can be specified in the request. If no distances are specified, the operation retrieves data for 1 km, 5 kms, 10 kms, 20 kms and 50 kms. The level at which the data needs to be retrieved - either company or travel key - can also be specified in the request. If the level is set as travel key and no travel key is specified, the operation retrieves data for all possible travel keys. The maximum number of records that can be retrieved in a single response is 10000. If there are more than 10000 records, you can use the 'next' link available at the bottom of the response to access the remaining records.</p><p>Before you use this operation, ensure that:</p><ul><li>You have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The application has the permission to access the Statistics API. To grant the permission, navigate to <b>Configuration</b> > <b>Applications</b> screen. For the required application, in the <b>API access</b> section, click <b>Add new</b> and select <b>Statistics API</b>.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation. The response contains the collection of application estimated and override values for travel time for the specified list of distances. If 'key' is not specified as a parameter, the application returns company level record and the records for all the travel keys that have either application estimated or override values or both for travel time.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "airlineDistanceBasedTravel"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "level",
+                                                            "value": "<string>",
+                                                            "description": "<p>Specifies where the data needs to be retrieved at the company level or travel key level. For company level use 'company' and for travel key level use 'travelkey' as the value for this parameter.</p><p>If no value is provided, data for both company as well as travel key level will be retrieved.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "key",
+                                                            "value": "<string>",
+                                                            "description": "The value of the travel key. It appears as 'Start Location' and 'End Location' in the Travel Statistics report.<p>If 'key' is provided in request and :<ul><li>If 'key' is present in the application, the application estimated and override values for travel time of the travel key is retrieved.</li><li>If 'key' is not present in the application, HTTP Code 404 response is displayed.</li></ul></p><p>If 'key' is not provided in request, the application estimated and override values for travel time of all the travel keys are retrieved. If none of the travel keys have application estimated or override values, then HTTP Code 404 response is displayed.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "distance",
+                                                            "value": "<string>",
+                                                            "description": "The list of comma separated distances (in km) for which the statistically estimated and override travel time at the travel key level has to be retrieved. Maximum number of distances allowed is 5. If no distance is specified, the application retrieves values for the distances 1, 5, 10, 20, 50.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "keyId",
+                                                            "value": "<integer>",
+                                                            "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel keys will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel keys of the corresponding Key ID.</li><li>If 'keyId' is specified but if it does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"items\": [\n    {\n      \"level\": \"company\",\n      \"key\": \"<string>\",\n      \"data\": [\n        {}\n      ],\n      \"keyId\": \"<integer>\",\n      \"org\": [\n        {}\n      ]\n    }\n  ]\n}"
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "airlineDistanceBasedTravel"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "level",
+                                                            "value": "<string>",
+                                                            "description": "<p>Specifies where the data needs to be retrieved at the company level or travel key level. For company level use 'company' and for travel key level use 'travelkey' as the value for this parameter.</p><p>If no value is provided, data for both company as well as travel key level will be retrieved.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "key",
+                                                            "value": "<string>",
+                                                            "description": "The value of the travel key. It appears as 'Start Location' and 'End Location' in the Travel Statistics report.<p>If 'key' is provided in request and :<ul><li>If 'key' is present in the application, the application estimated and override values for travel time of the travel key is retrieved.</li><li>If 'key' is not present in the application, HTTP Code 404 response is displayed.</li></ul></p><p>If 'key' is not provided in request, the application estimated and override values for travel time of all the travel keys are retrieved. If none of the travel keys have application estimated or override values, then HTTP Code 404 response is displayed.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "distance",
+                                                            "value": "<string>",
+                                                            "description": "The list of comma separated distances (in km) for which the statistically estimated and override travel time at the travel key level has to be retrieved. Maximum number of distances allowed is 5. If no distance is specified, the application retrieves values for the distances 1, 5, 10, 20, 50.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "keyId",
+                                                            "value": "<integer>",
+                                                            "description": "<p>Key ID of one of the configured travel keys.</p><ul><li>If the parameter 'keyId' is not specified, data for all travel keys will be retrieved.</li><li>If 'keyId' is specified and if it exists in the system, data will be retrieved for the travel keys of the corresponding Key ID.</li><li>If 'keyId' is specified but if it does not exist in the system, an error message will be returned</li></ul><p>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this parameter will be ignored.</p><p>This parameter is not applicable if the level is specified as 'company'.</p>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "The number of records to be returned in the response.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "The record number from which the retrieval starts. The default value is zero. If no value is specified, then it defaults to zero. The value zero indicates that the retrieval will start from the beginning of the collection.",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update airline distance based travel",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                            "host": [
+                                                "{{OFS Site URL}}"
+                                            ],
+                                            "path": [
+                                                "rest",
+                                                "ofscStatistics",
+                                                "v1",
+                                                "airlineDistanceBasedTravel"
+                                            ]
+                                        },
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"items\": [\n    {\n      \"key\": \"<string>\",\n      \"data\": [\n        {}\n      ],\n      \"keyId\": \"<integer>\",\n      \"level\": \"company\"\n    }\n  ]\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "description": "<p>This operation overrides the airline distance based travel time (in minutes) at the company and travel key level.</p><p>For the company level or the travel key, if specified, the application considers the provided pair of distances (in km) and override values (in minutes) to calculate the corresponding override values for all possible distances. Airline distance based travel time will based on these values, instead of the estimated values. The override values are stored in the application along with the corresponding statistically estimated values. If overrides are specified, then the override values are used instead of the statistically estimated values. However, the statistically estimated value is updated based on the new travels reported. At any point of time, you can stop using the overrides by importing the data again with value '-1' in one of the 'override' fields. In such cases, the application uses the statistically estimated value for the airline distance based travel time estimates for the travel key.</p><p>The limit for each API request is 10000 records. To update more records, you can use multiple requests. If a part of the key contains properties to be considered as case-insensitive, the value specified for that part of the key should be in smaller case in the API request. </p><p><b>Note: </b>When the Statistics API is used to make airline distance based travel changes, the changes are reflected for all future travels in the application only after the next run of the statistics agent. The statistics agent is run once a day, usually in the early morning hours.</p><p>Before you use this operation, ensure that:</p><ul><li>You have a subscription to Oracle Field Service Professional or Enterprise Cloud Service.</li><li>The application has the permission to access the Statistics API. To grant the permission, navigate to <b>Configuration > Applications</b> screen. For the required application, in the <b>API access</b> section, click <b>Add new</b> and select <b>Statistics API</b>.</li><li>If 'Detect activity travel keys automatically' is checked in Statistics configuration, then this API cannot be used.</li></ul>"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "This section describes the 200 status response for this operation. ",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "airlineDistanceBasedTravel"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"key\": \"<string>\",\n      \"data\": [\n        {}\n      ],\n      \"keyId\": \"<integer>\",\n      \"level\": \"company\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"results\": {\n    \"status\": \"<string>\",\n    \"updatedRecords\": \"<integer>\"\n  }\n}"
+                                        },
+                                        {
+                                            "name": "The API returns the HTTP 409 status code error with the description, 'Cannot override airline distance based travel time if Activity Travel Keys are detected automatically' if 'Detect activity travel keys automatically' is checked in Statistics configuration.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "airlineDistanceBasedTravel"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"key\": \"<string>\",\n      \"data\": [\n        {}\n      ],\n      \"keyId\": \"<integer>\",\n      \"level\": \"company\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "Conflict",
+                                            "code": 409,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": ""
+                                        },
+                                        {
+                                            "name": "This section describes the default error response for this operation.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{OFS Site URL}}/rest/ofscStatistics/v1/airlineDistanceBasedTravel",
+                                                    "host": [
+                                                        "{{OFS Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "rest",
+                                                        "ofscStatistics",
+                                                        "v1",
+                                                        "airlineDistanceBasedTravel"
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"items\": [\n    {\n      \"key\": \"<string>\",\n      \"data\": [\n        {}\n      ],\n      \"keyId\": \"<integer>\",\n      \"level\": \"company\"\n    }\n  ]\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<string>\",\n  \"detail\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The activity duration resource is used to view and modify the activity durations in Oracle Field Service. There might be scenarios where the customer has a specific activity duration they want to use to achieve some business objective. In such cases, they can use this operation to view and override the system estimated durations."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{OFS Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{OFS UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

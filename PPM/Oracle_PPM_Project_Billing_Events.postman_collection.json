@@ -1,0 +1,1376 @@
+{
+    "info": {
+        "_postman_id": "d18bf922-825e-4694-b5b5-de1975960a88",
+        "name": "Oracle Fusion Cloud PPM - Project Billing Events",
+        "description": "REST API collection for Oracle Fusion Cloud Project Management — Project Billing Events module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Project Billing Events",
+            "item": [
+                {
+                    "name": "Project Billing Event Descriptive Flexfields",
+                    "item": [
+                        {
+                            "name": "Project Billing Events/{projectBillingEventsUniqID}/Child/Billing Event Dff",
+                            "item": [
+                                {
+                                    "name": "{EventId}",
+                                    "item": [
+                                        {
+                                            "name": "Get a project billing event descriptive flexfield",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF/:EventId",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID",
+                                                        "child",
+                                                        "billingEventDFF",
+                                                        ":EventId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        },
+                                                        {
+                                                            "key": "EventId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Identifier of the event."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF/:EventId",
+                                                            "host": [
+                                                                "{{PPM Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "projectBillingEvents",
+                                                                ":projectBillingEventsUniqID",
+                                                                "child",
+                                                                "billingEventDFF",
+                                                                ":EventId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "projectBillingEventsUniqID",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                                },
+                                                                {
+                                                                    "key": "EventId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) Identifier of the event."
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"EventId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Update a project billing event descriptive flexfield",
+                                            "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF/:EventId",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID",
+                                                        "child",
+                                                        "billingEventDFF",
+                                                        ":EventId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        },
+                                                        {
+                                                            "key": "EventId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Identifier of the event."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF/:EventId",
+                                                            "host": [
+                                                                "{{PPM Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "projectBillingEvents",
+                                                                ":projectBillingEventsUniqID",
+                                                                "child",
+                                                                "billingEventDFF",
+                                                                ":EventId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "projectBillingEventsUniqID",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                                },
+                                                                {
+                                                                    "key": "EventId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) Identifier of the event."
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"EventId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Create a project billing event descriptive flexfield",
+                                    "request": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents",
+                                                ":projectBillingEventsUniqID",
+                                                "child",
+                                                "billingEventDFF"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "projectBillingEventsUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Upsert-Mode",
+                                                        "value": "<string>",
+                                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID",
+                                                        "child",
+                                                        "billingEventDFF"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"EventId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all project billing event descriptive flexfields",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents",
+                                                ":projectBillingEventsUniqID",
+                                                "child",
+                                                "billingEventDFF"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "projectBillingEventsUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>EventId; integer; Identifier of the event.</li><li>__FLEX_Context; string; Context of the descriptive flexfield.</li><li>__FLEX_Context_DisplayValue; string; Context Prompt</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the list of billing event descriptive flexfields for a billing event with the specified primary key.<br>Finder Variables: <ul><li>EventId; integer; Unique identifier of the billing event descriptive flexfield.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID/child/billingEventDFF",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID",
+                                                        "child",
+                                                        "billingEventDFF"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>EventId; integer; Identifier of the event.</li><li>__FLEX_Context; string; Context of the descriptive flexfield.</li><li>__FLEX_Context_DisplayValue; string; Context Prompt</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the list of billing event descriptive flexfields for a billing event with the specified primary key.<br>Finder Variables: <ul><li>EventId; integer; Unique identifier of the billing event descriptive flexfield.</li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"EventId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Project Billing Events",
+                    "item": [
+                        {
+                            "name": "{projectBillingEventsUniqID}",
+                            "item": [
+                                {
+                                    "name": "Delete a project billing event",
+                                    "request": {
+                                        "method": "DELETE",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            },
+                                            {
+                                                "key": "Effective-Of",
+                                                "value": "<string>",
+                                                "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents",
+                                                ":projectBillingEventsUniqID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "projectBillingEventsUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "No Content. This task does not return elements in the response body.",
+                                            "originalRequest": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    },
+                                                    {
+                                                        "key": "Effective-Of",
+                                                        "value": "<string>",
+                                                        "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get a project billing event",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            },
+                                            {
+                                                "key": "Effective-Of",
+                                                "value": "<string>",
+                                                "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents",
+                                                ":projectBillingEventsUniqID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "projectBillingEventsUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    },
+                                                    {
+                                                        "key": "Effective-Of",
+                                                        "value": "<string>",
+                                                        "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"AdjustedEventId\": \"<integer>\",\n  \"Automatic\": \"<string>\",\n  \"BillCurrencyOptCode\": \"<string>\",\n  \"BillHold\": \"<string>\",\n  \"BillHoldMeaning\": \"<string>\",\n  \"BillTrnsAmount\": \"<number>\",\n  \"BillTrnsCurrencyCode\": \"<string>\",\n  \"BillingResource\": \"<string>\",\n  \"BillingResourceId\": \"<integer>\",\n  \"BusinessUnitId\": \"<integer>\",\n  \"BusinessUnitName\": \"<string>\",\n  \"CompletionDate\": \"<string>\",\n  \"ContractCurrencyAmount\": \"<number>\",\n  \"ContractCurrencyCode\": \"<string>\",\n  \"ContractCurrencyExchgDate\": \"<string>\",\n  \"ContractCurrencyExchgRate\": \"<number>\",\n  \"ContractCurrencyRateType\": \"<string>\",\n  \"ContractId\": \"<integer>\",\n  \"ContractLineId\": \"<integer>\",\n  \"ContractLineNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractRateDateType\": \"<string>\",\n  \"ContractRateDateTypeMeaning\": \"<string>\",\n  \"ContractTypeId\": \"<integer>\",\n  \"ContractTypeName\": \"<string>\",\n  \"ConversionRateTypeMeaning\": \"<string>\",\n  \"CreatedRequestId\": \"<integer>\",\n  \"EventDescription\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"EventNumber\": \"<integer>\",\n  \"EventNumberReversed\": \"<integer>\",\n  \"EventTypeCode\": \"<string>\",\n  \"EventTypeId\": \"<integer>\",\n  \"EventTypeName\": \"<string>\",\n  \"InvCurrencyDateTypeMeaning\": \"<string>\",\n  \"InvCurrencyRateTypeMeaning\": \"<string>\",\n  \"InventoryItemId\": \"<integer>\",\n  \"InvoiceCurrencyCode\": \"<string>\",\n  \"InvoiceCurrencyDateType\": \"<string>\",\n  \"InvoiceCurrencyExchgDate\": \"<string>\",\n  \"InvoiceCurrencyExchgRate\": \"<number>\",\n  \"InvoiceCurrencyRateType\": \"<string>\",\n  \"InvoiceException\": \"<string>\",\n  \"InvoicePotentialAmount\": \"<number>\",\n  \"InvoiceStatusMeaning\": \"<string>\",\n  \"Invoiced\": \"<string>\",\n  \"InvoicedAmount\": \"<number>\",\n  \"InvoicedPercentage\": \"<number>\",\n  \"ItemEventFlag\": \"<boolean>\",\n  \"ItemNumber\": \"<string>\",\n  \"ItemOrganizationId\": \"<integer>\",\n  \"LedgerCurrencyCode\": \"<string>\",\n  \"LedgerInvoiceAmount\": \"<number>\",\n  \"LedgerRevenueAmount\": \"<number>\",\n  \"LinkedTaskId\": \"<integer>\",\n  \"OrganizationId\": \"<integer>\",\n  \"OrganizationName\": \"<string>\",\n  \"PrePayAppliedAmountInInvCurrency\": \"<number>\",\n  \"PrePayBalanceAmountInInvCurrency\": \"<number>\",\n  \"PrePayRequestAmountInInvCurrency\": \"<number>\",\n  \"PrepaymentApplicationFlag\": \"<boolean>\",\n  \"PrepaymentRequestEventId\": \"<integer>\",\n  \"PrepaymentRequestEventNumber\": \"<integer>\",\n  \"PrepaymentRequestFlag\": \"<boolean>\",\n  \"ProjectCurrencyCode\": \"<string>\",\n  \"ProjectId\": \"<integer>\",\n  \"ProjectInvoiceAmount\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"ProjectRevenueAmount\": \"<number>\",\n  \"Quantity\": \"<number>\",\n  \"QuantityBilled\": \"<number>\",\n  \"QuantityRevenueRecognzd\": \"<number>\",\n  \"RevenueAmount\": \"<number>\",\n  \"RevenueCurrencyCode\": \"<string>\",\n  \"RevenueException\": \"<string>\",\n  \"RevenueHold\": \"<string>\",\n  \"RevenueHoldMeaning\": \"<string>\",\n  \"RevenueRecognized\": \"<string>\",\n  \"RevenueRecognizedPercentage\": \"<number>\",\n  \"RevenueStatusMeaning\": \"<string>\",\n  \"ReverseAccrual\": \"<string>\",\n  \"SourceName\": \"<string>\",\n  \"SourceReference\": \"<string>\",\n  \"TaskId\": \"<integer>\",\n  \"TaskNumber\": \"<string>\",\n  \"UOMCode\": \"<string>\",\n  \"UOMName\": \"<string>\",\n  \"UnitPrice\": \"<number>\",\n  \"UnitPriceCurrency\": \"<string>\",\n  \"Version\": \"<integer>\",\n  \"billingEventDFF\": [\n    {\n      \"EventId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update a project billing event",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            },
+                                            {
+                                                "key": "Effective-Of",
+                                                "value": "<string>",
+                                                "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents",
+                                                ":projectBillingEventsUniqID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "projectBillingEventsUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    },
+                                                    {
+                                                        "key": "Effective-Of",
+                                                        "value": "<string>",
+                                                        "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{PPM Site URL}}/projectBillingEvents/:projectBillingEventsUniqID",
+                                                    "host": [
+                                                        "{{PPM Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "projectBillingEvents",
+                                                        ":projectBillingEventsUniqID"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "projectBillingEventsUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Project Billing Events resource and used to uniquely identify an instance of Project Billing Events. The client should not generate the hash key value. Instead, the client should query on the Project Billing Events collection resource in order to navigate to a specific instance of Project Billing Events to get the hash key."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"AdjustedEventId\": \"<integer>\",\n  \"Automatic\": \"<string>\",\n  \"BillCurrencyOptCode\": \"<string>\",\n  \"BillHold\": \"<string>\",\n  \"BillHoldMeaning\": \"<string>\",\n  \"BillTrnsAmount\": \"<number>\",\n  \"BillTrnsCurrencyCode\": \"<string>\",\n  \"BillingResource\": \"<string>\",\n  \"BillingResourceId\": \"<integer>\",\n  \"BusinessUnitId\": \"<integer>\",\n  \"BusinessUnitName\": \"<string>\",\n  \"CompletionDate\": \"<string>\",\n  \"ContractCurrencyAmount\": \"<number>\",\n  \"ContractCurrencyCode\": \"<string>\",\n  \"ContractCurrencyExchgDate\": \"<string>\",\n  \"ContractCurrencyExchgRate\": \"<number>\",\n  \"ContractCurrencyRateType\": \"<string>\",\n  \"ContractId\": \"<integer>\",\n  \"ContractLineId\": \"<integer>\",\n  \"ContractLineNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractRateDateType\": \"<string>\",\n  \"ContractRateDateTypeMeaning\": \"<string>\",\n  \"ContractTypeId\": \"<integer>\",\n  \"ContractTypeName\": \"<string>\",\n  \"ConversionRateTypeMeaning\": \"<string>\",\n  \"CreatedRequestId\": \"<integer>\",\n  \"EventDescription\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"EventNumber\": \"<integer>\",\n  \"EventNumberReversed\": \"<integer>\",\n  \"EventTypeCode\": \"<string>\",\n  \"EventTypeId\": \"<integer>\",\n  \"EventTypeName\": \"<string>\",\n  \"InvCurrencyDateTypeMeaning\": \"<string>\",\n  \"InvCurrencyRateTypeMeaning\": \"<string>\",\n  \"InventoryItemId\": \"<integer>\",\n  \"InvoiceCurrencyCode\": \"<string>\",\n  \"InvoiceCurrencyDateType\": \"<string>\",\n  \"InvoiceCurrencyExchgDate\": \"<string>\",\n  \"InvoiceCurrencyExchgRate\": \"<number>\",\n  \"InvoiceCurrencyRateType\": \"<string>\",\n  \"InvoiceException\": \"<string>\",\n  \"InvoicePotentialAmount\": \"<number>\",\n  \"InvoiceStatusMeaning\": \"<string>\",\n  \"Invoiced\": \"<string>\",\n  \"InvoicedAmount\": \"<number>\",\n  \"InvoicedPercentage\": \"<number>\",\n  \"ItemEventFlag\": \"<boolean>\",\n  \"ItemNumber\": \"<string>\",\n  \"ItemOrganizationId\": \"<integer>\",\n  \"LedgerCurrencyCode\": \"<string>\",\n  \"LedgerInvoiceAmount\": \"<number>\",\n  \"LedgerRevenueAmount\": \"<number>\",\n  \"LinkedTaskId\": \"<integer>\",\n  \"OrganizationId\": \"<integer>\",\n  \"OrganizationName\": \"<string>\",\n  \"PrePayAppliedAmountInInvCurrency\": \"<number>\",\n  \"PrePayBalanceAmountInInvCurrency\": \"<number>\",\n  \"PrePayRequestAmountInInvCurrency\": \"<number>\",\n  \"PrepaymentApplicationFlag\": \"<boolean>\",\n  \"PrepaymentRequestEventId\": \"<integer>\",\n  \"PrepaymentRequestEventNumber\": \"<integer>\",\n  \"PrepaymentRequestFlag\": \"<boolean>\",\n  \"ProjectCurrencyCode\": \"<string>\",\n  \"ProjectId\": \"<integer>\",\n  \"ProjectInvoiceAmount\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"ProjectRevenueAmount\": \"<number>\",\n  \"Quantity\": \"<number>\",\n  \"QuantityBilled\": \"<number>\",\n  \"QuantityRevenueRecognzd\": \"<number>\",\n  \"RevenueAmount\": \"<number>\",\n  \"RevenueCurrencyCode\": \"<string>\",\n  \"RevenueException\": \"<string>\",\n  \"RevenueHold\": \"<string>\",\n  \"RevenueHoldMeaning\": \"<string>\",\n  \"RevenueRecognized\": \"<string>\",\n  \"RevenueRecognizedPercentage\": \"<number>\",\n  \"RevenueStatusMeaning\": \"<string>\",\n  \"ReverseAccrual\": \"<string>\",\n  \"SourceName\": \"<string>\",\n  \"SourceReference\": \"<string>\",\n  \"TaskId\": \"<integer>\",\n  \"TaskNumber\": \"<string>\",\n  \"UOMCode\": \"<string>\",\n  \"UOMName\": \"<string>\",\n  \"UnitPrice\": \"<number>\",\n  \"UnitPriceCurrency\": \"<string>\",\n  \"Version\": \"<integer>\",\n  \"billingEventDFF\": [\n    {\n      \"EventId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create a project billing event",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Upsert-Mode",
+                                        "value": "<string>",
+                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    },
+                                    {
+                                        "key": "Effective-Of",
+                                        "value": "<string>",
+                                        "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{PPM Site URL}}/projectBillingEvents",
+                                    "host": [
+                                        "{{PPM Site URL}}"
+                                    ],
+                                    "path": [
+                                        "projectBillingEvents"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            },
+                                            {
+                                                "key": "Effective-Of",
+                                                "value": "<string>",
+                                                "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"AdjustedEventId\": \"<integer>\",\n  \"Automatic\": \"<string>\",\n  \"BillCurrencyOptCode\": \"<string>\",\n  \"BillHold\": \"<string>\",\n  \"BillHoldMeaning\": \"<string>\",\n  \"BillTrnsAmount\": \"<number>\",\n  \"BillTrnsCurrencyCode\": \"<string>\",\n  \"BillingResource\": \"<string>\",\n  \"BillingResourceId\": \"<integer>\",\n  \"BusinessUnitId\": \"<integer>\",\n  \"BusinessUnitName\": \"<string>\",\n  \"CompletionDate\": \"<string>\",\n  \"ContractCurrencyAmount\": \"<number>\",\n  \"ContractCurrencyCode\": \"<string>\",\n  \"ContractCurrencyExchgDate\": \"<string>\",\n  \"ContractCurrencyExchgRate\": \"<number>\",\n  \"ContractCurrencyRateType\": \"<string>\",\n  \"ContractId\": \"<integer>\",\n  \"ContractLineId\": \"<integer>\",\n  \"ContractLineNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"ContractRateDateType\": \"<string>\",\n  \"ContractRateDateTypeMeaning\": \"<string>\",\n  \"ContractTypeId\": \"<integer>\",\n  \"ContractTypeName\": \"<string>\",\n  \"ConversionRateTypeMeaning\": \"<string>\",\n  \"CreatedRequestId\": \"<integer>\",\n  \"EventDescription\": \"<string>\",\n  \"EventId\": \"<integer>\",\n  \"EventNumber\": \"<integer>\",\n  \"EventNumberReversed\": \"<integer>\",\n  \"EventTypeCode\": \"<string>\",\n  \"EventTypeId\": \"<integer>\",\n  \"EventTypeName\": \"<string>\",\n  \"InvCurrencyDateTypeMeaning\": \"<string>\",\n  \"InvCurrencyRateTypeMeaning\": \"<string>\",\n  \"InventoryItemId\": \"<integer>\",\n  \"InvoiceCurrencyCode\": \"<string>\",\n  \"InvoiceCurrencyDateType\": \"<string>\",\n  \"InvoiceCurrencyExchgDate\": \"<string>\",\n  \"InvoiceCurrencyExchgRate\": \"<number>\",\n  \"InvoiceCurrencyRateType\": \"<string>\",\n  \"InvoiceException\": \"<string>\",\n  \"InvoicePotentialAmount\": \"<number>\",\n  \"InvoiceStatusMeaning\": \"<string>\",\n  \"Invoiced\": \"<string>\",\n  \"InvoicedAmount\": \"<number>\",\n  \"InvoicedPercentage\": \"<number>\",\n  \"ItemEventFlag\": \"<boolean>\",\n  \"ItemNumber\": \"<string>\",\n  \"ItemOrganizationId\": \"<integer>\",\n  \"LedgerCurrencyCode\": \"<string>\",\n  \"LedgerInvoiceAmount\": \"<number>\",\n  \"LedgerRevenueAmount\": \"<number>\",\n  \"LinkedTaskId\": \"<integer>\",\n  \"OrganizationId\": \"<integer>\",\n  \"OrganizationName\": \"<string>\",\n  \"PrePayAppliedAmountInInvCurrency\": \"<number>\",\n  \"PrePayBalanceAmountInInvCurrency\": \"<number>\",\n  \"PrePayRequestAmountInInvCurrency\": \"<number>\",\n  \"PrepaymentApplicationFlag\": \"<boolean>\",\n  \"PrepaymentRequestEventId\": \"<integer>\",\n  \"PrepaymentRequestEventNumber\": \"<integer>\",\n  \"PrepaymentRequestFlag\": \"<boolean>\",\n  \"ProjectCurrencyCode\": \"<string>\",\n  \"ProjectId\": \"<integer>\",\n  \"ProjectInvoiceAmount\": \"<number>\",\n  \"ProjectNumber\": \"<string>\",\n  \"ProjectRevenueAmount\": \"<number>\",\n  \"Quantity\": \"<number>\",\n  \"QuantityBilled\": \"<number>\",\n  \"QuantityRevenueRecognzd\": \"<number>\",\n  \"RevenueAmount\": \"<number>\",\n  \"RevenueCurrencyCode\": \"<string>\",\n  \"RevenueException\": \"<string>\",\n  \"RevenueHold\": \"<string>\",\n  \"RevenueHoldMeaning\": \"<string>\",\n  \"RevenueRecognized\": \"<string>\",\n  \"RevenueRecognizedPercentage\": \"<number>\",\n  \"RevenueStatusMeaning\": \"<string>\",\n  \"ReverseAccrual\": \"<string>\",\n  \"SourceName\": \"<string>\",\n  \"SourceReference\": \"<string>\",\n  \"TaskId\": \"<integer>\",\n  \"TaskNumber\": \"<string>\",\n  \"UOMCode\": \"<string>\",\n  \"UOMName\": \"<string>\",\n  \"UnitPrice\": \"<number>\",\n  \"UnitPriceCurrency\": \"<string>\",\n  \"Version\": \"<integer>\",\n  \"billingEventDFF\": [\n    {\n      \"EventId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all project billing events",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    },
+                                    {
+                                        "key": "Effective-Of",
+                                        "value": "<string>",
+                                        "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{PPM Site URL}}/projectBillingEvents",
+                                    "host": [
+                                        "{{PPM Site URL}}"
+                                    ],
+                                    "path": [
+                                        "projectBillingEvents"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustedEventId; integer; Unique identifier of the adjusted event if the billing event is an adjustment of another billing event. This value is automatically populated when the application creates an adjustment billing event.</li><li>Automatic; string; Indicates that the event is created automatically by the application.</li><li>BillCurrencyOptCode; string; Indicates the code for the classification of the billing currency that is used for invoicing. The billing currency can be contract currency, transaction currency, or user currency. It is defined on the bill plan attached to the contract line selected for the event.</li><li>BillHold; string; Indicates that the event is held from invoicing. Mandatory for POST and PATCH operations. Valid values are Y - Indefinitely, N - No, and O - Once. The default value is N.</li><li>BillHoldMeaning; string; Displays the meaning of the value in the Hold Invoice attribute. Valid values are No, Once, or Indefinitely.</li><li>BillTrnsAmount; number; Amount of the billing event in the transaction currency. Mandatory for all POST and PATCH operations.</li><li>BillTrnsCurrencyCode; string; Indicates the code of the transaction currency for the billing event. Mandatory for POST and PATCH operations. Defaults to the contract currency if you only provide the contract number.</li><li>BillingResource; string; Name of the billing resource for the billing event. This attribute is automatically populated based on the setup of the Manage Planning and Billing Resource Breakdown Structures.</li><li>BillingResourceId; integer; Unique identifier of the billing resource. This attribute is automatically derived based on the attributes on the event and the resource breakdown structure.</li><li>BusinessUnitId; integer; Unique identifier of the business unit for the event. Mandatory for POST operation and derived based on the Business Unit Name attribute.</li><li>BusinessUnitName; string; Name of the business unit for the event. Mandatory for POST operation. Valid values include any business unit to which a user has access.</li><li>CompletionDate; string; The date on which the event is complete and on or after which the event is processed for revenue accrual and invoicing. Not mandatory for creating a billing event but mandatory for processing the event. Mandatory for creating a reversal event if the Reverse This Event in the Next Period attribute is set to Y.</li><li>ContractCurrencyAmount; number; The potential amount of the billing event in the currency of the contract when the event is created or the Amount in Bill Transaction Currency is updated. When the billing event is invoiced or recognized for revenue, this attribute is updated with the actual amount.</li><li>ContractCurrencyCode; string; Indicates the code of the currency for the contract entered on the event.</li><li>ContractCurrencyExchgDate; string; The exchange date of contract currency used to convert the billing event amount.</li><li>ContractCurrencyExchgRate; number; The exchange rate of contract currency used to convert the billing event amount.</li><li>ContractCurrencyRateType; string; A classification of conversion rates that is used to convert the billing event amount to contract currency.</li><li>ContractId; integer; Unique identifier of the contract for the event. The Contract ID is mandatory and it is automatically derived based on the Contract Number attribute during POST and PATCH operations.</li><li>ContractLineId; integer; Unique identifier of the contract line for the event. Mandatory for POST and PATCH operations and automatically derived based on the Contract Line Number attribute.</li><li>ContractLineNumber; string; Number that identifies the contract line on the event. Mandatory for POST operation.The Contract Line ID attribute is derived from this attribute. Valid values are any line number that exists on the contract specified in the Contract Number attribute and associated to a bill plan.</li><li>ContractNumber; string; Number that uniquely identifies the contract for the event. Mandatory attribute that is used to derive the Contract ID attribute. Valid values are all contracts that belong to the business unit populated on the event in the Business Unit Name attribute and are not in Closed or Cancel status.</li><li>ContractRateDateType; string; A classification of conversion dates that is used to convert the billing event amount to contract currency.</li><li>ContractRateDateTypeMeaning; string; Displays the meaning for the Rate Date Type attribute.</li><li>ContractTypeId; integer; Identifier of the type of contract on the billing event. This attribute is populated based on the value selected in the Contact Type Name attribute on the event during POST and PATCH operations.</li><li>ContractTypeName; string; Name of the type of contract that is assigned to the billing event. Valid values are all the contract types defined in the application.</li><li>ConversionRateTypeMeaning; string; Displays the meaning of the value in the Conversion Rate Type attribute. Valid values are Spot, Corporate, User, and Fixed.</li><li>CreatedRequestId; integer; Unique identifier of the latest request.</li><li>EventDescription; string; The description of the event. For billing events, the description is displayed as the invoice line description. Mandatory attribute that is automatically populated during POST and PATCH operations based on the selected event type name if a value is not provided.</li><li>EventId; integer; Unique identifier of the billing event. Mandatory for POST operation and  automatically generated during the operation.</li><li>EventNumber; integer; Number that identifies the event.This number is automatically populated sequentially as events are created for the selected contract line.</li><li>EventNumberReversed; integer; Number of the reversed billing event. This occurs when a billing event is cancelled and cannot be deleted and as a result, the event is cancelled by reversing the original event.</li><li>EventTypeCode; string; Indicates the code for classification of the event. Valid values are R - Revenue only, I - Invoice only, and B - Both invoice and revenue.</li><li>EventTypeId; integer; Identifier of the event type.This attribute is derived during POST or PATCH operations based on the value selected in the Event Type Name attribute. Valid values are all active event types.</li><li>EventTypeName; string; Name of the event type that classifies the event by category and identifies whether the event is to be used for revenue only, invoice only, or both invoice and revenue. Mandatory for POST operation. Mandatory for PATCH operation if you specify the Contract Line attribute.</li><li>InvCurrencyDateTypeMeaning; string; Displays the meaning for the value of the Invoice Currency Date Type attribute.</li><li>InvCurrencyRateTypeMeaning; string; Displays the meaning of the value in the Invoice Currency Rate Type attribute.</li><li>InventoryItemId; integer; Unique identifier of the item number.</li><li>InvoiceCurrencyCode; string; Indicates the code of the currency used for the invoice amount of the billing event.</li><li>InvoiceCurrencyDateType; string; Indicates the invoice currency date type that is used when the amounts are calculated for the invoice.</li><li>InvoiceCurrencyExchgDate; string; Indicates the exchange date for the conversion of the invoice currency.</li><li>InvoiceCurrencyExchgRate; number; Indicates the exchange rate used to convert to the invoice currency.</li><li>InvoiceCurrencyRateType; string; Indicates the rate type used to calculate the invoice revenue currency.</li><li>InvoiceException; string; Indicates whether exception occurred on the event during invoice generation.</li><li>InvoicePotentialAmount; number; Indicates the potential amount in invoice currency.</li><li>InvoiceStatusMeaning; string; Indicates that invoice is generated for the event.</li><li>Invoiced; string; Indicates the invoice generation status on the event. Valid values are P - Partial, U - Uninvoiced, F - Fully Invoiced, and A - Pending Adjustment.</li><li>InvoicedAmount; number; Indicates the potential event amount in invoice currency.</li><li>InvoicedPercentage; number; Indicates the percent of the total event amount which has been invoiced.</li><li>ItemEventFlag; boolean; Indicates an item based event.</li><li>ItemNumber; string; Number that identifies the item on the event.</li><li>ItemOrganizationId; integer; Unique identifier of the organization to which the item is associated.</li><li>LedgerCurrencyCode; string; Indicates the currency used for accounting and reporting in a ledger, often referred to as the accounting currency, base currency, or functional currency.</li><li>LedgerInvoiceAmount; number; Indicates the invoice amount in ledger currency.</li><li>LedgerRevenueAmount; number; Indicates the revenue amount is ledger currency.</li><li>LinkedTaskId; integer; Unique identifier of the linked task when task level linkage is present on the billing event.</li><li>OrganizationId; integer; Unique identifier of the organization for the event. Mandatory attribute that is automatically populated based on the value in the Organization attribute.</li><li>OrganizationName; string; Name of the organization for the event. Mandatory for POST operation and defaults to the organization associated to the contract on the event. For a PATCH operation the default value is also set to organization on the contract if a value is not provided.</li><li>PrePayAppliedAmountInInvCurrency; number; The invoice amount in invoice currency from prepayment application invoice distributions that refers to the prepayment application billing events cross-referring to the prepayment request billing event.</li><li>PrePayBalanceAmountInInvCurrency; number; It is a derived measure based on the prepayment request amount minus the prepayment applied amount in invoice currency.</li><li>PrePayRequestAmountInInvCurrency; number; The invoice amount in invoice currency from prepayment request invoice distributions that refers to the prepayment request billing event.</li><li>PrepaymentRequestEventId; integer; Identifier of prepayment request billing event specified on a prepayment application billing event.</li><li>PrepaymentRequestEventNumber; integer; Reference of prepayment request billing event specified on a prepayment application billing event.</li><li>ProjectCurrencyCode; string; Indicates the code of the currency of the project for the billing event.</li><li>ProjectId; integer; Unique identifier of the project for the event. This attribute is populated based on the value in the Project Name attribute for POST and PATCH operations. Mandatory if the Require Project on Event profile option is set to Yes.</li><li>ProjectInvoiceAmount; number; Invoice amount in project currency.</li><li>ProjectNumber; string; Identifier of the project on the event. Valid values are the project numbers associated to the contract line. Mandatory if the Require Project on Event profile option is set to Yes. This attribute can be populated during POST and PATCH operations.</li><li>ProjectRevenueAmount; number; The revenue amount in project currency. This is calculated by applying the project currency setup conversion rules to the bill transaction base revenue amount during revenue generation.</li><li>Quantity; number; Quantity of the item on the item based event.</li><li>QuantityBilled; number; Quantity of item invoiced.</li><li>QuantityRevenueRecognzd; number; Quantity of item for which revenue is recognized.</li><li>RevenueAmount; number; Indicates the recognized revenue amount in contract currency.</li><li>RevenueCurrencyCode; string; Indicates the code of the currency for the revenue amount.</li><li>RevenueException; string; Indicates whether exception occured on the event during revenue generation.</li><li>RevenueHold; string; Indicates that the event is held from recognizing revenue. Mandatory for POST and PATCH operations. Valid values are Y - Indefinitely, N - No, and O - Once. The default value is N.</li><li>RevenueHoldMeaning; string; Displays the meaning of the value in the Hold Revenue attribute. Valid values are No, Once, or Indefinitely.</li><li>RevenueRecognized; string; Indicates if revenue is generated on the event. Valid values are P - Partial, U - Unrecognized, F - Fully, A - Pending Adjustment.</li><li>RevenueRecognizedPercentage; number; Indicates the percent of the total event amount which has been recognized as revenue.</li><li>RevenueStatusMeaning; string; Indicates revenue is generated for the event.</li><li>ReverseAccrual; string; Indicates if the event should automatically reverse in the next period. Default value is N. Set the value to Y to have the application automatically create a reversal event. The Completion Date is also mandatory to create a reversal event.</li><li>SourceName; string; Name of the source application from which the event originated.</li><li>SourceReference; string; Identifier of the event in the source application.</li><li>TaskId; integer; Unique identifier of the task for the event.</li><li>TaskNumber; string; Identifier of the transaction task on the event. Valid values are tasks that are associated to the contract line and any sub task of an associated task. This attribute can be populated during POST and PATCH operations.</li><li>UOMCode; string; Unit of measure code.</li><li>UnitPrice; number; Price of each unit of item.</li><li>UnitPriceCurrency; string; Currency in which the unit price of item is mentioned.</li><li>Version; integer; Indicates the previously active version of the contract or the current version if there is no previously active version.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the billing event with the specified primary key.<br>Finder Variables: <ul><li>EventId; integer; Unique identifier of the billing event.</li></ul></li><li>UnprocessedEventsFinder: Finds list of billing events which have not been processed for invoicing or revenue generation.<br>Finder Variables: <ul></ul></li><li>UntargetedEventsFinder: Finds list of billing events without a completion date.<br>Finder Variables: <ul></ul></li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "effectiveDate",
+                                            "value": "<string>",
+                                            "description": "This query parameter is used to fetch resources which are effective dated as of the specified start date. The value of this query parameter is a string having a date in yyyy-MM-dd format",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            },
+                                            {
+                                                "key": "Effective-Of",
+                                                "value": "<string>",
+                                                "description": "This header accepts a string value. The string is a semi-colon separated list of <parameter-name>=<parameter-value>. It is used to perform effective date range operations. The accepted parameters are RangeMode, RangeSpan, RangeStartDate, RangeEndDate, RangeStartSequence and RangeEndSequence. The parameter values are always strings. The possible values for RangeMode are SET_LOGICAL_START, SET_LOGICAL_END, END_DATE, SET_EFFECTIVE_START, SET_EFFECTIVE_END, REPLACE_CORRECTION, REPLACE_UPDATE, RECONCILE_CORRECTION, CORRECTION, RECONCILE_UPDATE, UPDATE, ZAP and DELETE_CHANGES. The possible values for RangeSpan are PHYSICAL_ROW_END_DATE and LOGICAL_ROW_END_DATE. The values for RangeStartDate and RangeEndDate have to be a string representation of a date in yyyy-MM-dd format. The value for RangeStartSequence and RangeEndSequence must be strings such that when parsed they yield positive integers."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{PPM Site URL}}/projectBillingEvents",
+                                            "host": [
+                                                "{{PPM Site URL}}"
+                                            ],
+                                            "path": [
+                                                "projectBillingEvents"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AdjustedEventId; integer; Unique identifier of the adjusted event if the billing event is an adjustment of another billing event. This value is automatically populated when the application creates an adjustment billing event.</li><li>Automatic; string; Indicates that the event is created automatically by the application.</li><li>BillCurrencyOptCode; string; Indicates the code for the classification of the billing currency that is used for invoicing. The billing currency can be contract currency, transaction currency, or user currency. It is defined on the bill plan attached to the contract line selected for the event.</li><li>BillHold; string; Indicates that the event is held from invoicing. Mandatory for POST and PATCH operations. Valid values are Y - Indefinitely, N - No, and O - Once. The default value is N.</li><li>BillHoldMeaning; string; Displays the meaning of the value in the Hold Invoice attribute. Valid values are No, Once, or Indefinitely.</li><li>BillTrnsAmount; number; Amount of the billing event in the transaction currency. Mandatory for all POST and PATCH operations.</li><li>BillTrnsCurrencyCode; string; Indicates the code of the transaction currency for the billing event. Mandatory for POST and PATCH operations. Defaults to the contract currency if you only provide the contract number.</li><li>BillingResource; string; Name of the billing resource for the billing event. This attribute is automatically populated based on the setup of the Manage Planning and Billing Resource Breakdown Structures.</li><li>BillingResourceId; integer; Unique identifier of the billing resource. This attribute is automatically derived based on the attributes on the event and the resource breakdown structure.</li><li>BusinessUnitId; integer; Unique identifier of the business unit for the event. Mandatory for POST operation and derived based on the Business Unit Name attribute.</li><li>BusinessUnitName; string; Name of the business unit for the event. Mandatory for POST operation. Valid values include any business unit to which a user has access.</li><li>CompletionDate; string; The date on which the event is complete and on or after which the event is processed for revenue accrual and invoicing. Not mandatory for creating a billing event but mandatory for processing the event. Mandatory for creating a reversal event if the Reverse This Event in the Next Period attribute is set to Y.</li><li>ContractCurrencyAmount; number; The potential amount of the billing event in the currency of the contract when the event is created or the Amount in Bill Transaction Currency is updated. When the billing event is invoiced or recognized for revenue, this attribute is updated with the actual amount.</li><li>ContractCurrencyCode; string; Indicates the code of the currency for the contract entered on the event.</li><li>ContractCurrencyExchgDate; string; The exchange date of contract currency used to convert the billing event amount.</li><li>ContractCurrencyExchgRate; number; The exchange rate of contract currency used to convert the billing event amount.</li><li>ContractCurrencyRateType; string; A classification of conversion rates that is used to convert the billing event amount to contract currency.</li><li>ContractId; integer; Unique identifier of the contract for the event. The Contract ID is mandatory and it is automatically derived based on the Contract Number attribute during POST and PATCH operations.</li><li>ContractLineId; integer; Unique identifier of the contract line for the event. Mandatory for POST and PATCH operations and automatically derived based on the Contract Line Number attribute.</li><li>ContractLineNumber; string; Number that identifies the contract line on the event. Mandatory for POST operation.The Contract Line ID attribute is derived from this attribute. Valid values are any line number that exists on the contract specified in the Contract Number attribute and associated to a bill plan.</li><li>ContractNumber; string; Number that uniquely identifies the contract for the event. Mandatory attribute that is used to derive the Contract ID attribute. Valid values are all contracts that belong to the business unit populated on the event in the Business Unit Name attribute and are not in Closed or Cancel status.</li><li>ContractRateDateType; string; A classification of conversion dates that is used to convert the billing event amount to contract currency.</li><li>ContractRateDateTypeMeaning; string; Displays the meaning for the Rate Date Type attribute.</li><li>ContractTypeId; integer; Identifier of the type of contract on the billing event. This attribute is populated based on the value selected in the Contact Type Name attribute on the event during POST and PATCH operations.</li><li>ContractTypeName; string; Name of the type of contract that is assigned to the billing event. Valid values are all the contract types defined in the application.</li><li>ConversionRateTypeMeaning; string; Displays the meaning of the value in the Conversion Rate Type attribute. Valid values are Spot, Corporate, User, and Fixed.</li><li>CreatedRequestId; integer; Unique identifier of the latest request.</li><li>EventDescription; string; The description of the event. For billing events, the description is displayed as the invoice line description. Mandatory attribute that is automatically populated during POST and PATCH operations based on the selected event type name if a value is not provided.</li><li>EventId; integer; Unique identifier of the billing event. Mandatory for POST operation and  automatically generated during the operation.</li><li>EventNumber; integer; Number that identifies the event.This number is automatically populated sequentially as events are created for the selected contract line.</li><li>EventNumberReversed; integer; Number of the reversed billing event. This occurs when a billing event is cancelled and cannot be deleted and as a result, the event is cancelled by reversing the original event.</li><li>EventTypeCode; string; Indicates the code for classification of the event. Valid values are R - Revenue only, I - Invoice only, and B - Both invoice and revenue.</li><li>EventTypeId; integer; Identifier of the event type.This attribute is derived during POST or PATCH operations based on the value selected in the Event Type Name attribute. Valid values are all active event types.</li><li>EventTypeName; string; Name of the event type that classifies the event by category and identifies whether the event is to be used for revenue only, invoice only, or both invoice and revenue. Mandatory for POST operation. Mandatory for PATCH operation if you specify the Contract Line attribute.</li><li>InvCurrencyDateTypeMeaning; string; Displays the meaning for the value of the Invoice Currency Date Type attribute.</li><li>InvCurrencyRateTypeMeaning; string; Displays the meaning of the value in the Invoice Currency Rate Type attribute.</li><li>InventoryItemId; integer; Unique identifier of the item number.</li><li>InvoiceCurrencyCode; string; Indicates the code of the currency used for the invoice amount of the billing event.</li><li>InvoiceCurrencyDateType; string; Indicates the invoice currency date type that is used when the amounts are calculated for the invoice.</li><li>InvoiceCurrencyExchgDate; string; Indicates the exchange date for the conversion of the invoice currency.</li><li>InvoiceCurrencyExchgRate; number; Indicates the exchange rate used to convert to the invoice currency.</li><li>InvoiceCurrencyRateType; string; Indicates the rate type used to calculate the invoice revenue currency.</li><li>InvoiceException; string; Indicates whether exception occurred on the event during invoice generation.</li><li>InvoicePotentialAmount; number; Indicates the potential amount in invoice currency.</li><li>InvoiceStatusMeaning; string; Indicates that invoice is generated for the event.</li><li>Invoiced; string; Indicates the invoice generation status on the event. Valid values are P - Partial, U - Uninvoiced, F - Fully Invoiced, and A - Pending Adjustment.</li><li>InvoicedAmount; number; Indicates the potential event amount in invoice currency.</li><li>InvoicedPercentage; number; Indicates the percent of the total event amount which has been invoiced.</li><li>ItemEventFlag; boolean; Indicates an item based event.</li><li>ItemNumber; string; Number that identifies the item on the event.</li><li>ItemOrganizationId; integer; Unique identifier of the organization to which the item is associated.</li><li>LedgerCurrencyCode; string; Indicates the currency used for accounting and reporting in a ledger, often referred to as the accounting currency, base currency, or functional currency.</li><li>LedgerInvoiceAmount; number; Indicates the invoice amount in ledger currency.</li><li>LedgerRevenueAmount; number; Indicates the revenue amount is ledger currency.</li><li>LinkedTaskId; integer; Unique identifier of the linked task when task level linkage is present on the billing event.</li><li>OrganizationId; integer; Unique identifier of the organization for the event. Mandatory attribute that is automatically populated based on the value in the Organization attribute.</li><li>OrganizationName; string; Name of the organization for the event. Mandatory for POST operation and defaults to the organization associated to the contract on the event. For a PATCH operation the default value is also set to organization on the contract if a value is not provided.</li><li>PrePayAppliedAmountInInvCurrency; number; The invoice amount in invoice currency from prepayment application invoice distributions that refers to the prepayment application billing events cross-referring to the prepayment request billing event.</li><li>PrePayBalanceAmountInInvCurrency; number; It is a derived measure based on the prepayment request amount minus the prepayment applied amount in invoice currency.</li><li>PrePayRequestAmountInInvCurrency; number; The invoice amount in invoice currency from prepayment request invoice distributions that refers to the prepayment request billing event.</li><li>PrepaymentRequestEventId; integer; Identifier of prepayment request billing event specified on a prepayment application billing event.</li><li>PrepaymentRequestEventNumber; integer; Reference of prepayment request billing event specified on a prepayment application billing event.</li><li>ProjectCurrencyCode; string; Indicates the code of the currency of the project for the billing event.</li><li>ProjectId; integer; Unique identifier of the project for the event. This attribute is populated based on the value in the Project Name attribute for POST and PATCH operations. Mandatory if the Require Project on Event profile option is set to Yes.</li><li>ProjectInvoiceAmount; number; Invoice amount in project currency.</li><li>ProjectNumber; string; Identifier of the project on the event. Valid values are the project numbers associated to the contract line. Mandatory if the Require Project on Event profile option is set to Yes. This attribute can be populated during POST and PATCH operations.</li><li>ProjectRevenueAmount; number; The revenue amount in project currency. This is calculated by applying the project currency setup conversion rules to the bill transaction base revenue amount during revenue generation.</li><li>Quantity; number; Quantity of the item on the item based event.</li><li>QuantityBilled; number; Quantity of item invoiced.</li><li>QuantityRevenueRecognzd; number; Quantity of item for which revenue is recognized.</li><li>RevenueAmount; number; Indicates the recognized revenue amount in contract currency.</li><li>RevenueCurrencyCode; string; Indicates the code of the currency for the revenue amount.</li><li>RevenueException; string; Indicates whether exception occured on the event during revenue generation.</li><li>RevenueHold; string; Indicates that the event is held from recognizing revenue. Mandatory for POST and PATCH operations. Valid values are Y - Indefinitely, N - No, and O - Once. The default value is N.</li><li>RevenueHoldMeaning; string; Displays the meaning of the value in the Hold Revenue attribute. Valid values are No, Once, or Indefinitely.</li><li>RevenueRecognized; string; Indicates if revenue is generated on the event. Valid values are P - Partial, U - Unrecognized, F - Fully, A - Pending Adjustment.</li><li>RevenueRecognizedPercentage; number; Indicates the percent of the total event amount which has been recognized as revenue.</li><li>RevenueStatusMeaning; string; Indicates revenue is generated for the event.</li><li>ReverseAccrual; string; Indicates if the event should automatically reverse in the next period. Default value is N. Set the value to Y to have the application automatically create a reversal event. The Completion Date is also mandatory to create a reversal event.</li><li>SourceName; string; Name of the source application from which the event originated.</li><li>SourceReference; string; Identifier of the event in the source application.</li><li>TaskId; integer; Unique identifier of the task for the event.</li><li>TaskNumber; string; Identifier of the transaction task on the event. Valid values are tasks that are associated to the contract line and any sub task of an associated task. This attribute can be populated during POST and PATCH operations.</li><li>UOMCode; string; Unit of measure code.</li><li>UnitPrice; number; Price of each unit of item.</li><li>UnitPriceCurrency; string; Currency in which the unit price of item is mentioned.</li><li>Version; integer; Indicates the previously active version of the contract or the current version if there is no previously active version.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the billing event with the specified primary key.<br>Finder Variables: <ul><li>EventId; integer; Unique identifier of the billing event.</li></ul></li><li>UnprocessedEventsFinder: Finds list of billing events which have not been processed for invoicing or revenue generation.<br>Finder Variables: <ul></ul></li><li>UntargetedEventsFinder: Finds list of billing events without a completion date.<br>Finder Variables: <ul></ul></li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "effectiveDate",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter is used to fetch resources which are effective dated as of the specified start date. The value of this query parameter is a string having a date in yyyy-MM-dd format",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"AdjustedEventId\": \"<integer>\",\n      \"Automatic\": \"<string>\",\n      \"BillCurrencyOptCode\": \"<string>\",\n      \"BillHold\": \"<string>\",\n      \"BillHoldMeaning\": \"<string>\",\n      \"BillTrnsAmount\": \"<number>\",\n      \"BillTrnsCurrencyCode\": \"<string>\",\n      \"BillingResource\": \"<string>\",\n      \"BillingResourceId\": \"<integer>\",\n      \"BusinessUnitId\": \"<integer>\",\n      \"BusinessUnitName\": \"<string>\",\n      \"CompletionDate\": \"<string>\",\n      \"ContractCurrencyAmount\": \"<number>\",\n      \"ContractCurrencyCode\": \"<string>\",\n      \"ContractCurrencyExchgDate\": \"<string>\",\n      \"ContractCurrencyExchgRate\": \"<number>\",\n      \"ContractCurrencyRateType\": \"<string>\",\n      \"ContractId\": \"<integer>\",\n      \"ContractLineId\": \"<integer>\",\n      \"ContractLineNumber\": \"<string>\",\n      \"ContractNumber\": \"<string>\",\n      \"ContractRateDateType\": \"<string>\",\n      \"ContractRateDateTypeMeaning\": \"<string>\",\n      \"ContractTypeId\": \"<integer>\",\n      \"ContractTypeName\": \"<string>\",\n      \"ConversionRateTypeMeaning\": \"<string>\",\n      \"CreatedRequestId\": \"<integer>\",\n      \"EventDescription\": \"<string>\",\n      \"EventId\": \"<integer>\",\n      \"EventNumber\": \"<integer>\",\n      \"EventNumberReversed\": \"<integer>\",\n      \"EventTypeCode\": \"<string>\",\n      \"EventTypeId\": \"<integer>\",\n      \"EventTypeName\": \"<string>\",\n      \"InvCurrencyDateTypeMeaning\": \"<string>\",\n      \"InvCurrencyRateTypeMeaning\": \"<string>\",\n      \"InventoryItemId\": \"<integer>\",\n      \"InvoiceCurrencyCode\": \"<string>\",\n      \"InvoiceCurrencyDateType\": \"<string>\",\n      \"InvoiceCurrencyExchgDate\": \"<string>\",\n      \"InvoiceCurrencyExchgRate\": \"<number>\",\n      \"InvoiceCurrencyRateType\": \"<string>\",\n      \"InvoiceException\": \"<string>\",\n      \"InvoicePotentialAmount\": \"<number>\",\n      \"InvoiceStatusMeaning\": \"<string>\",\n      \"Invoiced\": \"<string>\",\n      \"InvoicedAmount\": \"<number>\",\n      \"InvoicedPercentage\": \"<number>\",\n      \"ItemEventFlag\": \"<boolean>\",\n      \"ItemNumber\": \"<string>\",\n      \"ItemOrganizationId\": \"<integer>\",\n      \"LedgerCurrencyCode\": \"<string>\",\n      \"LedgerInvoiceAmount\": \"<number>\",\n      \"LedgerRevenueAmount\": \"<number>\",\n      \"LinkedTaskId\": \"<integer>\",\n      \"OrganizationId\": \"<integer>\",\n      \"OrganizationName\": \"<string>\",\n      \"PrePayAppliedAmountInInvCurrency\": \"<number>\",\n      \"PrePayBalanceAmountInInvCurrency\": \"<number>\",\n      \"PrePayRequestAmountInInvCurrency\": \"<number>\",\n      \"PrepaymentApplicationFlag\": \"<boolean>\",\n      \"PrepaymentRequestEventId\": \"<integer>\",\n      \"PrepaymentRequestEventNumber\": \"<integer>\",\n      \"PrepaymentRequestFlag\": \"<boolean>\",\n      \"ProjectCurrencyCode\": \"<string>\",\n      \"ProjectId\": \"<integer>\",\n      \"ProjectInvoiceAmount\": \"<number>\",\n      \"ProjectNumber\": \"<string>\",\n      \"ProjectRevenueAmount\": \"<number>\",\n      \"Quantity\": \"<number>\",\n      \"QuantityBilled\": \"<number>\",\n      \"QuantityRevenueRecognzd\": \"<number>\",\n      \"RevenueAmount\": \"<number>\",\n      \"RevenueCurrencyCode\": \"<string>\",\n      \"RevenueException\": \"<string>\",\n      \"RevenueHold\": \"<string>\",\n      \"RevenueHoldMeaning\": \"<string>\",\n      \"RevenueRecognized\": \"<string>\",\n      \"RevenueRecognizedPercentage\": \"<number>\",\n      \"RevenueStatusMeaning\": \"<string>\",\n      \"ReverseAccrual\": \"<string>\",\n      \"SourceName\": \"<string>\",\n      \"SourceReference\": \"<string>\",\n      \"TaskId\": \"<integer>\",\n      \"TaskNumber\": \"<string>\",\n      \"UOMCode\": \"<string>\",\n      \"UOMName\": \"<string>\",\n      \"UnitPrice\": \"<number>\",\n      \"UnitPriceCurrency\": \"<string>\",\n      \"Version\": \"<integer>\",\n      \"billingEventDFF\": [\n        {}\n      ],\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "A listing of all the descriptive flexfields available for project billing events."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{PPM Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{PPM UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

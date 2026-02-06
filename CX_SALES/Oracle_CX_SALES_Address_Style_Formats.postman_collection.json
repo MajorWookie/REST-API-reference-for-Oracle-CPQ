@@ -1,0 +1,835 @@
+{
+    "info": {
+        "_postman_id": "1cfd0a07-963a-4b0d-9db8-db109ccecbad",
+        "name": "Oracle Fusion Cloud CX Sales - Address Style Formats",
+        "description": "REST API collection for Oracle Fusion Cloud Sales and Service — Address Style Formats module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Address Style Formats",
+            "item": [
+                {
+                    "name": "Address Style Format Layouts",
+                    "item": [
+                        {
+                            "name": "Address Style Formats/{CountryCode}/Child/Address Style Format Layout",
+                            "item": [
+                                {
+                                    "name": "{AddressStyleFormatLayoutUniqID}",
+                                    "item": [
+                                        {
+                                            "name": "Get an address format layout",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode/child/AddressStyleFormatLayout/:AddressStyleFormatLayoutUniqID",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "addressStyleFormats",
+                                                        ":CountryCode",
+                                                        "child",
+                                                        "AddressStyleFormatLayout",
+                                                        ":AddressStyleFormatLayoutUniqID"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "CountryCode",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                        },
+                                                        {
+                                                            "key": "AddressStyleFormatLayoutUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key for the Address Style Format Layouts resource and used to uniquely identify an instance of Address Style Format Layouts. The client should not generate the hash key value. Instead, the client should query on the Address Style Format Layouts collection resource in order to navigate to a specific instance of Address Style Format Layouts to get the hash key."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode/child/AddressStyleFormatLayout/:AddressStyleFormatLayoutUniqID",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "addressStyleFormats",
+                                                                ":CountryCode",
+                                                                "child",
+                                                                "AddressStyleFormatLayout",
+                                                                ":AddressStyleFormatLayoutUniqID"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "CountryCode",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                                },
+                                                                {
+                                                                    "key": "AddressStyleFormatLayoutUniqID",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key for the Address Style Format Layouts resource and used to uniquely identify an instance of Address Style Format Layouts. The client should not generate the hash key value. Instead, the client should query on the Address Style Format Layouts collection resource in order to navigate to a specific instance of Address Style Format Layouts to get the hash key."
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"AttributeLabel\": \"<string>\",\n  \"AttributeName\": \"<string>\",\n  \"DelimiterAfter\": \"<string>\",\n  \"DelimiterBefore\": \"<string>\",\n  \"GeographyLevel\": \"<integer>\",\n  \"GeographyType\": \"<string>\",\n  \"LineNumber\": \"<integer>\",\n  \"MandatoryFlag\": \"<boolean>\",\n  \"Position\": \"<integer>\",\n  \"UppercaseFlag\": \"<boolean>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all address format layouts",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode/child/AddressStyleFormatLayout",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "addressStyleFormats",
+                                                ":CountryCode",
+                                                "child",
+                                                "AddressStyleFormatLayout"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "CountryCode",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>DelimiterAfter; string; Indicates that one or more characters to be placed after attribute if attribute is not null.</li><li>DelimiterBefore; string; Indicates that one or more characters to be placed before attribute if attribute is not null.</li><li>LineNumber; integer; The line on which the attribute should be formatted.</li><li>Position; integer; The position on the line where the attribute should be placed.</li><li>UppercaseFlag; boolean; Indicates whether attribute should be translated to uppercase or not.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode/child/AddressStyleFormatLayout",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "addressStyleFormats",
+                                                        ":CountryCode",
+                                                        "child",
+                                                        "AddressStyleFormatLayout"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "CountryCode",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>DelimiterAfter; string; Indicates that one or more characters to be placed after attribute if attribute is not null.</li><li>DelimiterBefore; string; Indicates that one or more characters to be placed before attribute if attribute is not null.</li><li>LineNumber; integer; The line on which the attribute should be formatted.</li><li>Position; integer; The position on the line where the attribute should be placed.</li><li>UppercaseFlag; boolean; Indicates whether attribute should be translated to uppercase or not.</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"AttributeLabel\": \"<string>\",\n      \"AttributeName\": \"<string>\",\n      \"DelimiterAfter\": \"<string>\",\n      \"DelimiterBefore\": \"<string>\",\n      \"GeographyLevel\": \"<integer>\",\n      \"GeographyType\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"MandatoryFlag\": \"<boolean>\",\n      \"Position\": \"<integer>\",\n      \"UppercaseFlag\": \"<boolean>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Address Style Formats",
+                    "item": [
+                        {
+                            "name": "{CountryCode}",
+                            "item": [
+                                {
+                                    "name": "Get an address style format",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "addressStyleFormats",
+                                                ":CountryCode"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "CountryCode",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/addressStyleFormats/:CountryCode",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "addressStyleFormats",
+                                                        ":CountryCode"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "CountryCode",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"AddressStyleFormatLayout\": [\n    {\n      \"AttributeLabel\": \"<string>\",\n      \"AttributeName\": \"<string>\",\n      \"DelimiterAfter\": \"<string>\",\n      \"DelimiterBefore\": \"<string>\",\n      \"GeographyLevel\": \"<integer>\",\n      \"GeographyType\": \"<string>\",\n      \"LineNumber\": \"<integer>\",\n      \"MandatoryFlag\": \"<boolean>\",\n      \"Position\": \"<integer>\",\n      \"UppercaseFlag\": \"<boolean>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"CountryCode\": \"<string>\",\n  \"CountryName\": \"<string>\",\n  \"StyleFormatCode\": \"<string>\",\n  \"StyleFormatName\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all address style formats",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{CX_SALES Site URL}}/addressStyleFormats",
+                                    "host": [
+                                        "{{CX_SALES Site URL}}"
+                                    ],
+                                    "path": [
+                                        "addressStyleFormats"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CountryCode; string; The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds address style format with the specified identifier.<br>Finder Variables: <ul><li>CountryCode; string; Unique code identifier for a country.</li></ul></li><li>StyleFormatFilter: Finds address style format with the specified style code and country code.<br>Finder Variables: <ul><li>BindCountryCode; string; The country code for the address style format.</li><li>BindStyleCode; string; The style code for the address style format.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/addressStyleFormats",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "addressStyleFormats"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CountryCode; string; The country code for the address style format. This value can be added by the user or left blank. Ifmanually added, the address style format for a country code will be returned, else, if left blank, the entire list of available address style  formats will be returned.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds address style format with the specified identifier.<br>Finder Variables: <ul><li>CountryCode; string; Unique code identifier for a country.</li></ul></li><li>StyleFormatFilter: Finds address style format with the specified style code and country code.<br>Finder Variables: <ul><li>BindCountryCode; string; The country code for the address style format.</li><li>BindStyleCode; string; The style code for the address style format.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"AddressStyleFormatLayout\": [\n        {}\n      ],\n      \"CountryCode\": \"<string>\",\n      \"CountryName\": \"<string>\",\n      \"StyleFormatCode\": \"<string>\",\n      \"StyleFormatName\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The address style formats resource is used to view the different styles in which an address can be formatted. There are multiple address formats such as general address, rural address, military address, and so on.\n\nAll responses for the address style formats resource will include a response header Cache-Control. The Cache-Control header indicates the amount of time for which the results are cached in the browser. For example, Cache-Control: \"private, max-age=3600\" indicates that the response is cached in the browser for 1 hour (3600 seconds)."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{CX_SALES Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{CX_SALES UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

@@ -1,0 +1,418 @@
+{
+    "info": {
+        "_postman_id": "127e87a6-8181-483c-8372-1966fb486126",
+        "name": "Oracle Fusion Cloud FIN - Payables Options",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Payables Options module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Payables Options",
+            "item": [
+                {
+                    "name": "Payables Options",
+                    "item": [
+                        {
+                            "name": "{businessUnitId}",
+                            "item": [
+                                {
+                                    "name": "Get payables options for a business unit",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/payablesOptions/:businessUnitId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "payablesOptions",
+                                                ":businessUnitId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "businessUnitId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) Indicates the business unit ID for the Payables options."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/payablesOptions/:businessUnitId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "payablesOptions",
+                                                        ":businessUnitId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "businessUnitId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) Indicates the business unit ID for the Payables options."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"AccountingDateBasis\": \"<string>\",\n  \"IncomeTaxCombinedFilingProgram\": \"<string>\",\n  \"USSGLTransactionCode\": \"<string>\",\n  \"USSGLTrxDescriptiveFlexfieldContext\": \"<string>\",\n  \"accountForPayment\": \"<string>\",\n  \"allowAddressChange\": \"<string>\",\n  \"allowAdjustmentsToPaidInvoicesFlag\": \"<boolean>\",\n  \"allowFinalMatchingFlag\": \"<boolean>\",\n  \"allowForceApprovalFlag\": \"<boolean>\",\n  \"allowInvoiceBackdatingForSelfServiceInvoicesFlag\": \"<boolean>\",\n  \"allowInvoiceDocumentCategoryOverrideFlag\": \"<boolean>\",\n  \"allowMatchingDistributionOverrideFlag\": \"<boolean>\",\n  \"allowOverrideOfSupplierSiteBankAccountFlag\": \"<boolean>\",\n  \"allowPayeeOverrideForThirdPartyPaymentsFlag\": \"<boolean>\",\n  \"allowPaymentDateBeforeTheSystemDateFlag\": \"<boolean>\",\n  \"allowPaymentDocumentCategoryOverrideFlag\": \"<boolean>\",\n  \"allowRemitToSupplierOverrideForThirdPartyPaymentsFlag\": \"<boolean>\",\n  \"allowUnitPriceChangeForQuantityBasedMatchesForSelfServiceInvoices\": \"<string>\",\n  \"alwaysTakeDiscFlag\": \"<boolean>\",\n  \"amountTolerances\": \"<string>\",\n  \"attachmentMandatoryForSelfServiceInvoicesFlag\": \"<boolean>\",\n  \"bankChargeDeductionType\": \"<string>\",\n  \"budgetDateBasis\": \"<string>\",\n  \"businessUnitId\": \"<integer>\",\n  \"businessUnitName\": \"<string>\",\n  \"createInterestInvoicesFlag\": \"<boolean>\",\n  \"createdBy\": \"<string>\",\n  \"creationDate\": \"<string>\",\n  \"disallowAttachmentDeleteFlag\": \"<boolean>\",\n  \"discountAllocationMethod\": \"<string>\",\n  \"enableInvoiceAccountCodingWorkflowFlag\": \"<boolean>\",\n  \"enableInvoiceApprovalFlag\": \"<boolean>\",\n  \"excludeFreightFromDiscountCalculationFlag\": \"<boolean>\",\n  \"excludeTaxFromDiscountCalculationFlag\": \"<boolean>\",\n  \"federalIdentificationNumber\": \"<string>\",\n  \"glDateFromReceiptFlag\": \"<boolean>\",\n  \"includeWitholdingDistInIncometaxreports\": \"<string>\",\n  \"incomeTaxRegion\": \"<string>\",\n  \"interestAllocationMethodFlag\": \"<boolean>\",\n  \"interestExpenseDistribution\": \"<string>\",\n  \"invoiceCurrency\": \"<string>\",\n  \"lastUpdateDate\": \"<string>\",\n  \"lastUpdateLogin\": \"<string>\",\n  \"lastUpdatedBy\": \"<string>\",\n  \"ledgerCurrency\": \"<string>\",\n  \"ledgerId\": \"<integer>\",\n  \"limitInvoiceToSinglePurchaseOrderForSelfServiceInvoicesFlag\": \"<boolean>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"locationId\": \"<integer>\",\n  \"minimumInterestAmount\": \"<number>\",\n  \"payDateBasis\": \"<string>\",\n  \"payGroup\": \"<string>\",\n  \"paymentCurrency\": \"<string>\",\n  \"paymentPriority\": \"<integer>\",\n  \"paymentRequestPayGroup\": \"<string>\",\n  \"paymentRequestPaymentPriority\": \"<integer>\",\n  \"paymentRequestPaymentTerms\": \"<string>\",\n  \"paymentTerms\": \"<string>\",\n  \"prepaymentPaymentTerms\": \"<string>\",\n  \"quantityTolerances\": \"<string>\",\n  \"recalculateInvoiceInstallmentsFlag\": \"<boolean>\",\n  \"receiptAcceptanceDays\": \"<integer>\",\n  \"requireAccountingBeforeApproval\": \"<string>\",\n  \"requireConversionRateEntryForPaymentsFlag\": \"<boolean>\",\n  \"requireInvoiceGroup\": \"<string>\",\n  \"requireValidationBeforeApprovalFlag\": \"<boolean>\",\n  \"settlementDays\": \"<integer>\",\n  \"showAvailablePrepaymentsDuringInvoiceEntryFlag\": \"<boolean>\",\n  \"supplierTaxRegion\": \"<string>\",\n  \"termsDateBasis\": \"<string>\",\n  \"transferPOdistributionAdditionalInformationFlag\": \"<boolean>\",\n  \"useDistributionFromPurchaseOrderFlag\": \"<boolean>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get payables options for all business units",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/payablesOptions",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "payablesOptions"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccountingDateBasis; string; The date based on which accounting date is set during invoice entry.</li><li>IncomeTaxCombinedFilingProgram; string; Indicates whether the organization participates in the Combined Filing Program for income tax reporting.</li><li>USSGLTransactionCode; string; The USSGL Transaction Code for automatically generated interest invoices.</li><li>USSGLTrxDescriptiveFlexfieldContext; string; The USSGL Transaction Code descriptive flexfield context column.</li><li>accountForPayment; string; Defines when the accounting entries for payments will be created.</li><li>allowAddressChange; string; Indicates if changes to the supplier payment address on manual payments or quick payments is allowed.</li><li>allowAdjustmentsToPaidInvoicesFlag; boolean; Indicates whether adjustments to paid invoices is allowed.</li><li>allowFinalMatchingFlag; boolean; Indicates whether final matching to purchase orders is allowed.</li><li>allowForceApprovalFlag; boolean; Indicates the payables processors overrides the workflow and can manually approve invoices.</li><li>allowInvoiceBackdatingForSelfServiceInvoicesFlag; boolean; Indicates whether a self-service invoice can have an invoice date prior to the system date.</li><li>allowInvoiceDocumentCategoryOverrideFlag; boolean; Indicates whether users can override the default document category assigned to an invoice.</li><li>allowMatchingDistributionOverrideFlag; boolean; Indicates whether the users can override the matching Accounting Flexfield for an invoice distribution matched to a purchase order distribution line.</li><li>allowOverrideOfSupplierSiteBankAccountFlag; boolean; Indicate whether a user can charge the remit-to bank at the payment creation time.</li><li>allowPayeeOverrideForThirdPartyPaymentsFlag; boolean; Allow override of remit-to supplier and address for third-party payments.</li><li>allowPaymentDateBeforeTheSystemDateFlag; boolean; Indicates if the payment date can be prior to the system date.</li><li>allowPaymentDocumentCategoryOverrideFlag; boolean; Indicates whether users can override the default document category (Sequential Numbering) for payments.</li><li>allowRemitToSupplierOverrideForThirdPartyPaymentsFlag; boolean; Allow override of remit-to supplier and address for third-party payments.</li><li>allowUnitPriceChangeForQuantityBasedMatchesForSelfServiceInvoices; string; A setting that indicates whether the unit price change is allowed for purchase orders matched to self-service invoices.</li><li>alwaysTakeDiscFlag; boolean; Indicates if an available discount for the supplier will be taken, regardless of when the invoice is paid.</li><li>amountTolerances; string; Services tolerance template identifier.</li><li>attachmentMandatoryForSelfServiceInvoicesFlag; boolean; Makes attachments mandatory for invoices created through the supplier portal.</li><li>bankChargeDeductionType; string; The type of deduction for bank charges. Valid values are Standard, Negotiated, or None.</li><li>budgetDateBasis; string; The date based on which the budget date will be derived whether it is the accounting date, invoice date, or system date.</li><li>businessUnitId; integer; Indicates the business unit ID for the Payables options.</li><li>businessUnitName; string; Indicates the business unit name for the Payables and Procurement options.</li><li>createInterestInvoicesFlag; boolean; Indicates whether interest invoices are automatically created for past due invoice payments.</li><li>createdBy; string; The user who created the record.</li><li>creationDate; string; The date when the record was created.</li><li>disallowAttachmentDeleteFlag; boolean; Prevents the deletion of attachments for approved or validated invoices.</li><li>discountAllocationMethod; string; The method for distributing discount amounts taken on invoice payments.</li><li>enableInvoiceAccountCodingWorkflowFlag; boolean; Indicates the Invoice Routing option is enabled for the business unit.</li><li>enableInvoiceApprovalFlag; boolean; Indicates whether invoice approval is enabled.</li><li>excludeFreightFromDiscountCalculationFlag; boolean; Indicates that freight is excluded from the calculation when identifying the discount.</li><li>excludeTaxFromDiscountCalculationFlag; boolean; Indicates the tax amount is to be excluded from the invoice amount when the invoice amount has an applicable discount calculated.</li><li>federalIdentificationNumber; string; The Federal Tax Identification number of the company.</li><li>glDateFromReceiptFlag; boolean; The date used as the accounting date during invoice entry.</li><li>includeWitholdingDistInIncometaxreports; string; Indicates whether or not to include withholding distribution in income tax reports.</li><li>incomeTaxRegion; string; The default income tax region assigned to invoice lines for 1099 suppliers.</li><li>interestAllocationMethodFlag; boolean; The method used to display the interest allocation in the accounting option label. The value Y indicates that the interest allocation method is all invoice lines and the value N indicates that the interest allocation method is single distribution.</li><li>interestExpenseDistribution; string; The Accounting Flexfield identifier for the interest expense account.</li><li>invoiceCurrency; string; The invoice currency code that defaults on the invoices associated with the business unit.</li><li>lastUpdateDate; string; The date when the record was last updated.</li><li>lastUpdateLogin; string; The session login associated to the user who last updated the record.</li><li>lastUpdatedBy; string; The user who last updated the record.</li><li>ledgerCurrency; string; The currency of the ledger that the business unit is associated.</li><li>ledgerId; integer; The name of the ledger that the business unit is associated.</li><li>limitInvoiceToSinglePurchaseOrderForSelfServiceInvoicesFlag; boolean; Indicates whether a self-service invoice can be matched to multiple purchase orders.</li><li>locationId; integer; The identifier for the headquarters location of your company.</li><li>minimumInterestAmount; number; The minimum interest amount owed on a past due invoice for an interest invoice to be automatically created.</li><li>payDateBasis; string; The date used for selecting invoices for payment.</li><li>payGroup; string; The default pay group code used to group a category of suppliers or invoices into a single pay run. For example: employees, merchandise, nonmerchandise, government, domestic, and international.</li><li>paymentCurrency; string; The payment currency code that defaults on the invoices associated with the business unit.</li><li>paymentPriority; integer; A unique number between 1 (high) and 99 (low) that represents the priority of payment.</li><li>paymentRequestPayGroup; string; The default pay group code for payment requests. It is used to group a category of invoices into a single pay run. Invoices could be sorted into groups for payment such as employees, merchandise, nonmerchandise, government, domestic, and international.</li><li>paymentRequestPaymentPriority; integer; A unique number between 1 being high and 99 being low, that represents the priority of payment.</li><li>paymentRequestPaymentTerms; string; The default payment terms identifier for payment requests.</li><li>paymentTerms; string; The payment terms identifier that defaults on the supplier sites associated with the business unit.</li><li>prepaymentPaymentTerms; string; The default payment terms for a prepayment. For example, a company may want to have immediate payment terms for all their prepayment type invoices.</li><li>quantityTolerances; string; A unique identifier for a tolerance template that is used for goods tolerance.</li><li>recalculateInvoiceInstallmentsFlag; boolean; Indicates the ability to recalculate payment installments.</li><li>receiptAcceptanceDays; integer; The number of days in a receipt acceptance period.</li><li>requireAccountingBeforeApproval; string; Indicates the accounting preference when invoice approval is enabled. The value N indicates that the accounting will happen regardless of approval status. The value Y indicates accounting is required before approval and the value A indicates that the approval is required before accounting.</li><li>requireConversionRateEntryForPaymentsFlag; boolean; Indicates if conversion rates must be entered for multiple currency payments.</li><li>requireInvoiceGroup; string; The setting that indicates whether an invoice group is mandatory during invoice entry.</li><li>requireValidationBeforeApprovalFlag; boolean; Indicates that the Invoice Approval Workflow does not select any invoice for processing unless the invoice status is Validated.</li><li>settlementDays; integer; The number of days added to the system date to calculate a settlement date for a prepayment.</li><li>showAvailablePrepaymentsDuringInvoiceEntryFlag; boolean; Indicates whether available prepayments are shown during invoice entry.</li><li>supplierTaxRegion; string; A value of Y indicates that the supplier tax region is used as the default Income Tax Region for 1099 invoice lines.</li><li>termsDateBasis; string; The date used in combination with the payment terms and the invoice amount to create an invoice scheduled payment.</li><li>transferPOdistributionAdditionalInformationFlag; boolean; A value of Y indicates the system will transfer descriptive flexfield information from a purchase order shipment to an invoice line and from the purchase order distribution to an invoice distribution during the purchase order matching.</li><li>useDistributionFromPurchaseOrderFlag; boolean; Indicates whether the prepayment account should be built or defaulted.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the payables options with the specified primary key.<br>Finder Variables: <ul><li>businessUnitId; integer; The unique business unit identifier.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/payablesOptions",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "payablesOptions"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccountingDateBasis; string; The date based on which accounting date is set during invoice entry.</li><li>IncomeTaxCombinedFilingProgram; string; Indicates whether the organization participates in the Combined Filing Program for income tax reporting.</li><li>USSGLTransactionCode; string; The USSGL Transaction Code for automatically generated interest invoices.</li><li>USSGLTrxDescriptiveFlexfieldContext; string; The USSGL Transaction Code descriptive flexfield context column.</li><li>accountForPayment; string; Defines when the accounting entries for payments will be created.</li><li>allowAddressChange; string; Indicates if changes to the supplier payment address on manual payments or quick payments is allowed.</li><li>allowAdjustmentsToPaidInvoicesFlag; boolean; Indicates whether adjustments to paid invoices is allowed.</li><li>allowFinalMatchingFlag; boolean; Indicates whether final matching to purchase orders is allowed.</li><li>allowForceApprovalFlag; boolean; Indicates the payables processors overrides the workflow and can manually approve invoices.</li><li>allowInvoiceBackdatingForSelfServiceInvoicesFlag; boolean; Indicates whether a self-service invoice can have an invoice date prior to the system date.</li><li>allowInvoiceDocumentCategoryOverrideFlag; boolean; Indicates whether users can override the default document category assigned to an invoice.</li><li>allowMatchingDistributionOverrideFlag; boolean; Indicates whether the users can override the matching Accounting Flexfield for an invoice distribution matched to a purchase order distribution line.</li><li>allowOverrideOfSupplierSiteBankAccountFlag; boolean; Indicate whether a user can charge the remit-to bank at the payment creation time.</li><li>allowPayeeOverrideForThirdPartyPaymentsFlag; boolean; Allow override of remit-to supplier and address for third-party payments.</li><li>allowPaymentDateBeforeTheSystemDateFlag; boolean; Indicates if the payment date can be prior to the system date.</li><li>allowPaymentDocumentCategoryOverrideFlag; boolean; Indicates whether users can override the default document category (Sequential Numbering) for payments.</li><li>allowRemitToSupplierOverrideForThirdPartyPaymentsFlag; boolean; Allow override of remit-to supplier and address for third-party payments.</li><li>allowUnitPriceChangeForQuantityBasedMatchesForSelfServiceInvoices; string; A setting that indicates whether the unit price change is allowed for purchase orders matched to self-service invoices.</li><li>alwaysTakeDiscFlag; boolean; Indicates if an available discount for the supplier will be taken, regardless of when the invoice is paid.</li><li>amountTolerances; string; Services tolerance template identifier.</li><li>attachmentMandatoryForSelfServiceInvoicesFlag; boolean; Makes attachments mandatory for invoices created through the supplier portal.</li><li>bankChargeDeductionType; string; The type of deduction for bank charges. Valid values are Standard, Negotiated, or None.</li><li>budgetDateBasis; string; The date based on which the budget date will be derived whether it is the accounting date, invoice date, or system date.</li><li>businessUnitId; integer; Indicates the business unit ID for the Payables options.</li><li>businessUnitName; string; Indicates the business unit name for the Payables and Procurement options.</li><li>createInterestInvoicesFlag; boolean; Indicates whether interest invoices are automatically created for past due invoice payments.</li><li>createdBy; string; The user who created the record.</li><li>creationDate; string; The date when the record was created.</li><li>disallowAttachmentDeleteFlag; boolean; Prevents the deletion of attachments for approved or validated invoices.</li><li>discountAllocationMethod; string; The method for distributing discount amounts taken on invoice payments.</li><li>enableInvoiceAccountCodingWorkflowFlag; boolean; Indicates the Invoice Routing option is enabled for the business unit.</li><li>enableInvoiceApprovalFlag; boolean; Indicates whether invoice approval is enabled.</li><li>excludeFreightFromDiscountCalculationFlag; boolean; Indicates that freight is excluded from the calculation when identifying the discount.</li><li>excludeTaxFromDiscountCalculationFlag; boolean; Indicates the tax amount is to be excluded from the invoice amount when the invoice amount has an applicable discount calculated.</li><li>federalIdentificationNumber; string; The Federal Tax Identification number of the company.</li><li>glDateFromReceiptFlag; boolean; The date used as the accounting date during invoice entry.</li><li>includeWitholdingDistInIncometaxreports; string; Indicates whether or not to include withholding distribution in income tax reports.</li><li>incomeTaxRegion; string; The default income tax region assigned to invoice lines for 1099 suppliers.</li><li>interestAllocationMethodFlag; boolean; The method used to display the interest allocation in the accounting option label. The value Y indicates that the interest allocation method is all invoice lines and the value N indicates that the interest allocation method is single distribution.</li><li>interestExpenseDistribution; string; The Accounting Flexfield identifier for the interest expense account.</li><li>invoiceCurrency; string; The invoice currency code that defaults on the invoices associated with the business unit.</li><li>lastUpdateDate; string; The date when the record was last updated.</li><li>lastUpdateLogin; string; The session login associated to the user who last updated the record.</li><li>lastUpdatedBy; string; The user who last updated the record.</li><li>ledgerCurrency; string; The currency of the ledger that the business unit is associated.</li><li>ledgerId; integer; The name of the ledger that the business unit is associated.</li><li>limitInvoiceToSinglePurchaseOrderForSelfServiceInvoicesFlag; boolean; Indicates whether a self-service invoice can be matched to multiple purchase orders.</li><li>locationId; integer; The identifier for the headquarters location of your company.</li><li>minimumInterestAmount; number; The minimum interest amount owed on a past due invoice for an interest invoice to be automatically created.</li><li>payDateBasis; string; The date used for selecting invoices for payment.</li><li>payGroup; string; The default pay group code used to group a category of suppliers or invoices into a single pay run. For example: employees, merchandise, nonmerchandise, government, domestic, and international.</li><li>paymentCurrency; string; The payment currency code that defaults on the invoices associated with the business unit.</li><li>paymentPriority; integer; A unique number between 1 (high) and 99 (low) that represents the priority of payment.</li><li>paymentRequestPayGroup; string; The default pay group code for payment requests. It is used to group a category of invoices into a single pay run. Invoices could be sorted into groups for payment such as employees, merchandise, nonmerchandise, government, domestic, and international.</li><li>paymentRequestPaymentPriority; integer; A unique number between 1 being high and 99 being low, that represents the priority of payment.</li><li>paymentRequestPaymentTerms; string; The default payment terms identifier for payment requests.</li><li>paymentTerms; string; The payment terms identifier that defaults on the supplier sites associated with the business unit.</li><li>prepaymentPaymentTerms; string; The default payment terms for a prepayment. For example, a company may want to have immediate payment terms for all their prepayment type invoices.</li><li>quantityTolerances; string; A unique identifier for a tolerance template that is used for goods tolerance.</li><li>recalculateInvoiceInstallmentsFlag; boolean; Indicates the ability to recalculate payment installments.</li><li>receiptAcceptanceDays; integer; The number of days in a receipt acceptance period.</li><li>requireAccountingBeforeApproval; string; Indicates the accounting preference when invoice approval is enabled. The value N indicates that the accounting will happen regardless of approval status. The value Y indicates accounting is required before approval and the value A indicates that the approval is required before accounting.</li><li>requireConversionRateEntryForPaymentsFlag; boolean; Indicates if conversion rates must be entered for multiple currency payments.</li><li>requireInvoiceGroup; string; The setting that indicates whether an invoice group is mandatory during invoice entry.</li><li>requireValidationBeforeApprovalFlag; boolean; Indicates that the Invoice Approval Workflow does not select any invoice for processing unless the invoice status is Validated.</li><li>settlementDays; integer; The number of days added to the system date to calculate a settlement date for a prepayment.</li><li>showAvailablePrepaymentsDuringInvoiceEntryFlag; boolean; Indicates whether available prepayments are shown during invoice entry.</li><li>supplierTaxRegion; string; A value of Y indicates that the supplier tax region is used as the default Income Tax Region for 1099 invoice lines.</li><li>termsDateBasis; string; The date used in combination with the payment terms and the invoice amount to create an invoice scheduled payment.</li><li>transferPOdistributionAdditionalInformationFlag; boolean; A value of Y indicates the system will transfer descriptive flexfield information from a purchase order shipment to an invoice line and from the purchase order distribution to an invoice distribution during the purchase order matching.</li><li>useDistributionFromPurchaseOrderFlag; boolean; Indicates whether the prepayment account should be built or defaulted.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the payables options with the specified primary key.<br>Finder Variables: <ul><li>businessUnitId; integer; The unique business unit identifier.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"AccountingDateBasis\": \"<string>\",\n      \"IncomeTaxCombinedFilingProgram\": \"<string>\",\n      \"USSGLTransactionCode\": \"<string>\",\n      \"USSGLTrxDescriptiveFlexfieldContext\": \"<string>\",\n      \"accountForPayment\": \"<string>\",\n      \"allowAddressChange\": \"<string>\",\n      \"allowAdjustmentsToPaidInvoicesFlag\": \"<boolean>\",\n      \"allowFinalMatchingFlag\": \"<boolean>\",\n      \"allowForceApprovalFlag\": \"<boolean>\",\n      \"allowInvoiceBackdatingForSelfServiceInvoicesFlag\": \"<boolean>\",\n      \"allowInvoiceDocumentCategoryOverrideFlag\": \"<boolean>\",\n      \"allowMatchingDistributionOverrideFlag\": \"<boolean>\",\n      \"allowOverrideOfSupplierSiteBankAccountFlag\": \"<boolean>\",\n      \"allowPayeeOverrideForThirdPartyPaymentsFlag\": \"<boolean>\",\n      \"allowPaymentDateBeforeTheSystemDateFlag\": \"<boolean>\",\n      \"allowPaymentDocumentCategoryOverrideFlag\": \"<boolean>\",\n      \"allowRemitToSupplierOverrideForThirdPartyPaymentsFlag\": \"<boolean>\",\n      \"allowUnitPriceChangeForQuantityBasedMatchesForSelfServiceInvoices\": \"<string>\",\n      \"alwaysTakeDiscFlag\": \"<boolean>\",\n      \"amountTolerances\": \"<string>\",\n      \"attachmentMandatoryForSelfServiceInvoicesFlag\": \"<boolean>\",\n      \"bankChargeDeductionType\": \"<string>\",\n      \"budgetDateBasis\": \"<string>\",\n      \"businessUnitId\": \"<integer>\",\n      \"businessUnitName\": \"<string>\",\n      \"createInterestInvoicesFlag\": \"<boolean>\",\n      \"createdBy\": \"<string>\",\n      \"creationDate\": \"<string>\",\n      \"disallowAttachmentDeleteFlag\": \"<boolean>\",\n      \"discountAllocationMethod\": \"<string>\",\n      \"enableInvoiceAccountCodingWorkflowFlag\": \"<boolean>\",\n      \"enableInvoiceApprovalFlag\": \"<boolean>\",\n      \"excludeFreightFromDiscountCalculationFlag\": \"<boolean>\",\n      \"excludeTaxFromDiscountCalculationFlag\": \"<boolean>\",\n      \"federalIdentificationNumber\": \"<string>\",\n      \"glDateFromReceiptFlag\": \"<boolean>\",\n      \"includeWitholdingDistInIncometaxreports\": \"<string>\",\n      \"incomeTaxRegion\": \"<string>\",\n      \"interestAllocationMethodFlag\": \"<boolean>\",\n      \"interestExpenseDistribution\": \"<string>\",\n      \"invoiceCurrency\": \"<string>\",\n      \"lastUpdateDate\": \"<string>\",\n      \"lastUpdateLogin\": \"<string>\",\n      \"lastUpdatedBy\": \"<string>\",\n      \"ledgerCurrency\": \"<string>\",\n      \"ledgerId\": \"<integer>\",\n      \"limitInvoiceToSinglePurchaseOrderForSelfServiceInvoicesFlag\": \"<boolean>\",\n      \"links\": [\n        {}\n      ],\n      \"locationId\": \"<integer>\",\n      \"minimumInterestAmount\": \"<number>\",\n      \"payDateBasis\": \"<string>\",\n      \"payGroup\": \"<string>\",\n      \"paymentCurrency\": \"<string>\",\n      \"paymentPriority\": \"<integer>\",\n      \"paymentRequestPayGroup\": \"<string>\",\n      \"paymentRequestPaymentPriority\": \"<integer>\",\n      \"paymentRequestPaymentTerms\": \"<string>\",\n      \"paymentTerms\": \"<string>\",\n      \"prepaymentPaymentTerms\": \"<string>\",\n      \"quantityTolerances\": \"<string>\",\n      \"recalculateInvoiceInstallmentsFlag\": \"<boolean>\",\n      \"receiptAcceptanceDays\": \"<integer>\",\n      \"requireAccountingBeforeApproval\": \"<string>\",\n      \"requireConversionRateEntryForPaymentsFlag\": \"<boolean>\",\n      \"requireInvoiceGroup\": \"<string>\",\n      \"requireValidationBeforeApprovalFlag\": \"<boolean>\",\n      \"settlementDays\": \"<integer>\",\n      \"showAvailablePrepaymentsDuringInvoiceEntryFlag\": \"<boolean>\",\n      \"supplierTaxRegion\": \"<string>\",\n      \"termsDateBasis\": \"<string>\",\n      \"transferPOdistributionAdditionalInformationFlag\": \"<boolean>\",\n      \"useDistributionFromPurchaseOrderFlag\": \"<boolean>\"\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The payables options resource is used to manage the details about the parameters and defaults for operating the Payables application. The resource contains information such as the ledger, the functional currency of the ledger, and the defaults such as payment terms. This resource also contains information to determine default values that cascade down to the invoice entry."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

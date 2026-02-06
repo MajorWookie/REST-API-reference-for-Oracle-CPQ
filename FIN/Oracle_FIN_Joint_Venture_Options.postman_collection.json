@@ -1,0 +1,1223 @@
+{
+    "info": {
+        "_postman_id": "d8ce22d9-1c51-4ba6-a178-a85dce21575c",
+        "name": "Oracle Fusion Cloud FIN - Joint Venture Options",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Joint Venture Options module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Joint Venture Options",
+            "item": [
+                {
+                    "name": "Joint Venture Options",
+                    "item": [
+                        {
+                            "name": "{applicationId}",
+                            "item": [
+                                {
+                                    "name": "Get joint venture options",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions",
+                                                ":applicationId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "applicationId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"applicationId\": \"<integer>\",\n  \"carriedInterestEnabledFlag\": \"<boolean>\",\n  \"createdBy\": \"<string>\",\n  \"creationDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDateDescription\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDate\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDateDescription\": \"<string>\",\n  \"emailBody\": \"<string>\",\n  \"emailSubject\": \"<string>\",\n  \"excludeNonDistributableTransactionsFlag\": \"<boolean>\",\n  \"generalLedgerReferenceDescription\": \"<string>\",\n  \"generalLedgerTransactionDateReference\": \"<string>\",\n  \"lastUpdateDate\": \"<string>\",\n  \"lastUpdatedBy\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"optionsDFF\": [\n    {\n      \"ApplicationId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"overrideExpenditureType\": \"<string>\",\n  \"overrideExpenditureTypeDescription\": \"<string>\",\n  \"overrideTaskNumber\": \"<string>\",\n  \"primarySegmentLabelCode\": \"<string>\",\n  \"primarySegmentLabelDescription\": \"<string>\",\n  \"primarySegmentLabelName\": \"<string>\",\n  \"projectAttribute\": \"<string>\",\n  \"projectAttributeAPIName\": \"<string>\",\n  \"projectAttributeSegment\": \"<string>\",\n  \"stakeholderReportingEnabledFlag\": \"<boolean>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReference\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceName\": \"<string>\",\n  \"subledgerAccountingProjectIdReference\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceName\": \"<string>\",\n  \"subledgerAccountingReferenceDescription\": \"<string>\",\n  \"subledgerAccountingReferenceName\": \"<string>\",\n  \"subledgerAccountingTaskIdReference\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceName\": \"<string>\",\n  \"subledgerAccountingTransactionDateReference\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update joint venture options",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions",
+                                                ":applicationId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "applicationId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"applicationId\": \"<integer>\",\n  \"carriedInterestEnabledFlag\": \"<boolean>\",\n  \"createdBy\": \"<string>\",\n  \"creationDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDateDescription\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDate\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDateDescription\": \"<string>\",\n  \"emailBody\": \"<string>\",\n  \"emailSubject\": \"<string>\",\n  \"excludeNonDistributableTransactionsFlag\": \"<boolean>\",\n  \"generalLedgerReferenceDescription\": \"<string>\",\n  \"generalLedgerTransactionDateReference\": \"<string>\",\n  \"lastUpdateDate\": \"<string>\",\n  \"lastUpdatedBy\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"optionsDFF\": [\n    {\n      \"ApplicationId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"overrideExpenditureType\": \"<string>\",\n  \"overrideExpenditureTypeDescription\": \"<string>\",\n  \"overrideTaskNumber\": \"<string>\",\n  \"primarySegmentLabelCode\": \"<string>\",\n  \"primarySegmentLabelDescription\": \"<string>\",\n  \"primarySegmentLabelName\": \"<string>\",\n  \"projectAttribute\": \"<string>\",\n  \"projectAttributeAPIName\": \"<string>\",\n  \"projectAttributeSegment\": \"<string>\",\n  \"stakeholderReportingEnabledFlag\": \"<boolean>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReference\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceName\": \"<string>\",\n  \"subledgerAccountingProjectIdReference\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceName\": \"<string>\",\n  \"subledgerAccountingReferenceDescription\": \"<string>\",\n  \"subledgerAccountingReferenceName\": \"<string>\",\n  \"subledgerAccountingTaskIdReference\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceName\": \"<string>\",\n  \"subledgerAccountingTransactionDateReference\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create joint venture options",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Upsert-Mode",
+                                        "value": "<string>",
+                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/jointVentureOptions",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "jointVentureOptions"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"applicationId\": \"<integer>\",\n  \"carriedInterestEnabledFlag\": \"<boolean>\",\n  \"createdBy\": \"<string>\",\n  \"creationDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDate\": \"<string>\",\n  \"defaultGeneralLedgerTransactionDateDescription\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDate\": \"<string>\",\n  \"defaultSubledgerAccountingTransactionDateDescription\": \"<string>\",\n  \"emailBody\": \"<string>\",\n  \"emailSubject\": \"<string>\",\n  \"excludeNonDistributableTransactionsFlag\": \"<boolean>\",\n  \"generalLedgerReferenceDescription\": \"<string>\",\n  \"generalLedgerTransactionDateReference\": \"<string>\",\n  \"lastUpdateDate\": \"<string>\",\n  \"lastUpdatedBy\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"optionsDFF\": [\n    {\n      \"ApplicationId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"overrideExpenditureType\": \"<string>\",\n  \"overrideExpenditureTypeDescription\": \"<string>\",\n  \"overrideTaskNumber\": \"<string>\",\n  \"primarySegmentLabelCode\": \"<string>\",\n  \"primarySegmentLabelDescription\": \"<string>\",\n  \"primarySegmentLabelName\": \"<string>\",\n  \"projectAttribute\": \"<string>\",\n  \"projectAttributeAPIName\": \"<string>\",\n  \"projectAttributeSegment\": \"<string>\",\n  \"stakeholderReportingEnabledFlag\": \"<boolean>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureBusinessUnitIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReference\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureItemDateReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureOrganizationIdReferenceName\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReference\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingExpenditureTypeIdReferenceName\": \"<string>\",\n  \"subledgerAccountingProjectIdReference\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingProjectIdReferenceName\": \"<string>\",\n  \"subledgerAccountingReferenceDescription\": \"<string>\",\n  \"subledgerAccountingReferenceName\": \"<string>\",\n  \"subledgerAccountingTaskIdReference\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceDescription\": \"<string>\",\n  \"subledgerAccountingTaskIdReferenceName\": \"<string>\",\n  \"subledgerAccountingTransactionDateReference\": \"<string>\"\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all joint venture options",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/jointVentureOptions",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "jointVentureOptions"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>applicationId; integer; The unique identifier of the Joint Venture Management functional area.</li><li>carriedInterestEnabledFlag; boolean; Indicates whether carried interest processing is enabled for Joint Venture Management.</li><li>createdBy; string; The user who created the joint venture options.</li><li>creationDate; string; The date and time when the joint venture options were created.</li><li>defaultGeneralLedgerTransactionDate; string; The default transaction date to assign to joint venture transactions when the date from the general ledger transaction date reference isn't found.</li><li>defaultGeneralLedgerTransactionDateDescription; string; The description of the default general ledger transaction date.</li><li>defaultSubledgerAccountingTransactionDate; string; The default transaction date to assign to joint venture transactions when the date from the subledger accounting transaction date reference isn't found.</li><li>defaultSubledgerAccountingTransactionDateDescription; string; The description of the default subledger accounting transaction date.</li><li>emailBody; string; The body of the email used to deliver Joint Interest Billing reports.</li><li>emailSubject; string; The subject line of the email used to deliver Joint Interest Billing reports.</li><li>excludeNonDistributableTransactionsFlag; boolean; Indicates whether to exclude transactions identified as not distributable from Joint Venture Management.</li><li>generalLedgerTransactionDateReference; string; The general ledger date to assign to joint venture transactions as the transaction date.</li><li>lastUpdateDate; string; The date and time when the joint venture options were last updated.</li><li>lastUpdatedBy; string; The user who last updated the joint venture options.</li><li>overrideTaskNumber; string; The overriding task number associated with all joint ventures and applied to joint venture distributions sent to Project Costing as cost adjustments.</li><li>primarySegmentLabelCode; string; The segment label code used to identify the primary segment that Joint Venture Management uses to identify transactions.</li><li>primarySegmentLabelDescription; string; The description of the primary segment label code.</li><li>projectAttribute; string; The attribute configured in a project's descriptive flexfields that stores the joint venture short name.</li><li>stakeholderReportingEnabledFlag; boolean; Indicates whether financial reporting by stakeholder is enabled in Joint Venture Management.</li><li>subledgerAccountingExpenditureBusinessUnitIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure business unit ID from Project Costing.</li><li>subledgerAccountingExpenditureBusinessUnitIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure business unit ID.</li><li>subledgerAccountingExpenditureBusinessUnitIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure business unit ID.</li><li>subledgerAccountingExpenditureItemDateReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure item date from Project Costing.</li><li>subledgerAccountingExpenditureItemDateReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure item date.</li><li>subledgerAccountingExpenditureItemDateReferenceName; string; The name of the subledger accounting supporting reference for expenditure item date.</li><li>subledgerAccountingExpenditureOrganizationIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure organization ID from Project Costing.</li><li>subledgerAccountingExpenditureOrganizationIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure organization ID.</li><li>subledgerAccountingExpenditureOrganizationIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure organization ID.</li><li>subledgerAccountingExpenditureTypeIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure type ID from Project Costing.</li><li>subledgerAccountingExpenditureTypeIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure type ID.</li><li>subledgerAccountingExpenditureTypeIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure type ID.</li><li>subledgerAccountingProjectIdReference; string; The short name of the supporting reference for subledger accounting that derives a project ID from Project Costing.</li><li>subledgerAccountingProjectIdReferenceDescription; string; The description of the subledger accounting supporting reference for project ID.</li><li>subledgerAccountingProjectIdReferenceName; string; The name of the subledger accounting supporting reference for project ID.</li><li>subledgerAccountingReferenceDescription; string; The description of the subledger accounting supporting reference.</li><li>subledgerAccountingReferenceName; string; The name of the subledger accounting supporting reference.</li><li>subledgerAccountingTaskIdReference; string; The short name of the supporting reference for subledger accounting that derives a task ID from Project Costing.</li><li>subledgerAccountingTaskIdReferenceDescription; string; The description of the subledger accounting supporting reference for task ID.</li><li>subledgerAccountingTaskIdReferenceName; string; The name of the subledger accounting supporting reference for task ID.</li><li>subledgerAccountingTransactionDateReference; string; The short name of the supporting reference for subledger accounting that derives a transaction date for joint venture transactions.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the set of joint venture options that matches the primary key criteria specified. <br>Finder Variables <ul><li>applicationId; integer;  The unique identifier of the Joint Venture Management functional area. </li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>applicationId; integer; The unique identifier of the Joint Venture Management functional area.</li><li>carriedInterestEnabledFlag; boolean; Indicates whether carried interest processing is enabled for Joint Venture Management.</li><li>createdBy; string; The user who created the joint venture options.</li><li>creationDate; string; The date and time when the joint venture options were created.</li><li>defaultGeneralLedgerTransactionDate; string; The default transaction date to assign to joint venture transactions when the date from the general ledger transaction date reference isn't found.</li><li>defaultGeneralLedgerTransactionDateDescription; string; The description of the default general ledger transaction date.</li><li>defaultSubledgerAccountingTransactionDate; string; The default transaction date to assign to joint venture transactions when the date from the subledger accounting transaction date reference isn't found.</li><li>defaultSubledgerAccountingTransactionDateDescription; string; The description of the default subledger accounting transaction date.</li><li>emailBody; string; The body of the email used to deliver Joint Interest Billing reports.</li><li>emailSubject; string; The subject line of the email used to deliver Joint Interest Billing reports.</li><li>excludeNonDistributableTransactionsFlag; boolean; Indicates whether to exclude transactions identified as not distributable from Joint Venture Management.</li><li>generalLedgerTransactionDateReference; string; The general ledger date to assign to joint venture transactions as the transaction date.</li><li>lastUpdateDate; string; The date and time when the joint venture options were last updated.</li><li>lastUpdatedBy; string; The user who last updated the joint venture options.</li><li>overrideTaskNumber; string; The overriding task number associated with all joint ventures and applied to joint venture distributions sent to Project Costing as cost adjustments.</li><li>primarySegmentLabelCode; string; The segment label code used to identify the primary segment that Joint Venture Management uses to identify transactions.</li><li>primarySegmentLabelDescription; string; The description of the primary segment label code.</li><li>projectAttribute; string; The attribute configured in a project's descriptive flexfields that stores the joint venture short name.</li><li>stakeholderReportingEnabledFlag; boolean; Indicates whether financial reporting by stakeholder is enabled in Joint Venture Management.</li><li>subledgerAccountingExpenditureBusinessUnitIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure business unit ID from Project Costing.</li><li>subledgerAccountingExpenditureBusinessUnitIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure business unit ID.</li><li>subledgerAccountingExpenditureBusinessUnitIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure business unit ID.</li><li>subledgerAccountingExpenditureItemDateReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure item date from Project Costing.</li><li>subledgerAccountingExpenditureItemDateReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure item date.</li><li>subledgerAccountingExpenditureItemDateReferenceName; string; The name of the subledger accounting supporting reference for expenditure item date.</li><li>subledgerAccountingExpenditureOrganizationIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure organization ID from Project Costing.</li><li>subledgerAccountingExpenditureOrganizationIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure organization ID.</li><li>subledgerAccountingExpenditureOrganizationIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure organization ID.</li><li>subledgerAccountingExpenditureTypeIdReference; string; The short name of the supporting reference for subledger accounting that derives an expenditure type ID from Project Costing.</li><li>subledgerAccountingExpenditureTypeIdReferenceDescription; string; The description of the subledger accounting supporting reference for expenditure type ID.</li><li>subledgerAccountingExpenditureTypeIdReferenceName; string; The name of the subledger accounting supporting reference for expenditure type ID.</li><li>subledgerAccountingProjectIdReference; string; The short name of the supporting reference for subledger accounting that derives a project ID from Project Costing.</li><li>subledgerAccountingProjectIdReferenceDescription; string; The description of the subledger accounting supporting reference for project ID.</li><li>subledgerAccountingProjectIdReferenceName; string; The name of the subledger accounting supporting reference for project ID.</li><li>subledgerAccountingReferenceDescription; string; The description of the subledger accounting supporting reference.</li><li>subledgerAccountingReferenceName; string; The name of the subledger accounting supporting reference.</li><li>subledgerAccountingTaskIdReference; string; The short name of the supporting reference for subledger accounting that derives a task ID from Project Costing.</li><li>subledgerAccountingTaskIdReferenceDescription; string; The description of the subledger accounting supporting reference for task ID.</li><li>subledgerAccountingTaskIdReferenceName; string; The name of the subledger accounting supporting reference for task ID.</li><li>subledgerAccountingTransactionDateReference; string; The short name of the supporting reference for subledger accounting that derives a transaction date for joint venture transactions.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the set of joint venture options that matches the primary key criteria specified. <br>Finder Variables <ul><li>applicationId; integer;  The unique identifier of the Joint Venture Management functional area. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"applicationId\": \"<integer>\",\n      \"carriedInterestEnabledFlag\": \"<boolean>\",\n      \"createdBy\": \"<string>\",\n      \"creationDate\": \"<string>\",\n      \"defaultGeneralLedgerTransactionDate\": \"<string>\",\n      \"defaultGeneralLedgerTransactionDateDescription\": \"<string>\",\n      \"defaultSubledgerAccountingTransactionDate\": \"<string>\",\n      \"defaultSubledgerAccountingTransactionDateDescription\": \"<string>\",\n      \"emailBody\": \"<string>\",\n      \"emailSubject\": \"<string>\",\n      \"excludeNonDistributableTransactionsFlag\": \"<boolean>\",\n      \"generalLedgerReferenceDescription\": \"<string>\",\n      \"generalLedgerTransactionDateReference\": \"<string>\",\n      \"lastUpdateDate\": \"<string>\",\n      \"lastUpdatedBy\": \"<string>\",\n      \"links\": [\n        {}\n      ],\n      \"optionsDFF\": [\n        {}\n      ],\n      \"overrideExpenditureType\": \"<string>\",\n      \"overrideExpenditureTypeDescription\": \"<string>\",\n      \"overrideTaskNumber\": \"<string>\",\n      \"primarySegmentLabelCode\": \"<string>\",\n      \"primarySegmentLabelDescription\": \"<string>\",\n      \"primarySegmentLabelName\": \"<string>\",\n      \"projectAttribute\": \"<string>\",\n      \"projectAttributeAPIName\": \"<string>\",\n      \"projectAttributeSegment\": \"<string>\",\n      \"stakeholderReportingEnabledFlag\": \"<boolean>\",\n      \"subledgerAccountingExpenditureBusinessUnitIdReference\": \"<string>\",\n      \"subledgerAccountingExpenditureBusinessUnitIdReferenceDescription\": \"<string>\",\n      \"subledgerAccountingExpenditureBusinessUnitIdReferenceName\": \"<string>\",\n      \"subledgerAccountingExpenditureItemDateReference\": \"<string>\",\n      \"subledgerAccountingExpenditureItemDateReferenceDescription\": \"<string>\",\n      \"subledgerAccountingExpenditureItemDateReferenceName\": \"<string>\",\n      \"subledgerAccountingExpenditureOrganizationIdReference\": \"<string>\",\n      \"subledgerAccountingExpenditureOrganizationIdReferenceDescription\": \"<string>\",\n      \"subledgerAccountingExpenditureOrganizationIdReferenceName\": \"<string>\",\n      \"subledgerAccountingExpenditureTypeIdReference\": \"<string>\",\n      \"subledgerAccountingExpenditureTypeIdReferenceDescription\": \"<string>\",\n      \"subledgerAccountingExpenditureTypeIdReferenceName\": \"<string>\",\n      \"subledgerAccountingProjectIdReference\": \"<string>\",\n      \"subledgerAccountingProjectIdReferenceDescription\": \"<string>\",\n      \"subledgerAccountingProjectIdReferenceName\": \"<string>\",\n      \"subledgerAccountingReferenceDescription\": \"<string>\",\n      \"subledgerAccountingReferenceName\": \"<string>\",\n      \"subledgerAccountingTaskIdReference\": \"<string>\",\n      \"subledgerAccountingTaskIdReferenceDescription\": \"<string>\",\n      \"subledgerAccountingTaskIdReferenceName\": \"<string>\",\n      \"subledgerAccountingTransactionDateReference\": \"<string>\"\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Joint Venture Options Descriptive Flexfields",
+                    "item": [
+                        {
+                            "name": "Joint Venture Options/{applicationId}/Child/Options Dff",
+                            "item": [
+                                {
+                                    "name": "{ApplicationId}",
+                                    "item": [
+                                        {
+                                            "name": "Get descriptive flexfields for joint venture options",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF/:ApplicationId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId",
+                                                        "child",
+                                                        "optionsDFF",
+                                                        ":ApplicationId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "ApplicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF/:ApplicationId",
+                                                            "host": [
+                                                                "{{FIN Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "jointVentureOptions",
+                                                                ":applicationId",
+                                                                "child",
+                                                                "optionsDFF",
+                                                                ":ApplicationId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "applicationId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "ApplicationId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"ApplicationId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Update descriptive flexfields for joint venture options",
+                                            "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF/:ApplicationId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId",
+                                                        "child",
+                                                        "optionsDFF",
+                                                        ":ApplicationId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "ApplicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF/:ApplicationId",
+                                                            "host": [
+                                                                "{{FIN Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "jointVentureOptions",
+                                                                ":applicationId",
+                                                                "child",
+                                                                "optionsDFF",
+                                                                ":ApplicationId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "applicationId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "ApplicationId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"ApplicationId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Create the set of descriptive flexfields for joint venture options",
+                                    "request": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions",
+                                                ":applicationId",
+                                                "child",
+                                                "optionsDFF"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "applicationId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Upsert-Mode",
+                                                        "value": "<string>",
+                                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId",
+                                                        "child",
+                                                        "optionsDFF"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"ApplicationId\": \"<integer>\",\n  \"__FLEX_Context\": \"<string>\",\n  \"__FLEX_Context_DisplayValue\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all descriptive flexfields for joint venture options",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "jointVentureOptions",
+                                                ":applicationId",
+                                                "child",
+                                                "optionsDFF"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "applicationId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplicationId; integer</li><li>__FLEX_Context; string; Context Segment</li><li>__FLEX_Context_DisplayValue; string; Context Segment</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey  <br>Finder Variables <ul><li>ApplicationId; integer;   </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/jointVentureOptions/:applicationId/child/optionsDFF",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "jointVentureOptions",
+                                                        ":applicationId",
+                                                        "child",
+                                                        "optionsDFF"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "applicationId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplicationId; integer</li><li>__FLEX_Context; string; Context Segment</li><li>__FLEX_Context_DisplayValue; string; Context Segment</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey  <br>Finder Variables <ul><li>ApplicationId; integer;   </li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"ApplicationId\": \"<integer>\",\n      \"__FLEX_Context\": \"<string>\",\n      \"__FLEX_Context_DisplayValue\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The operations from the Joint Venture Options/Joint Venture Options Descriptive Flexfields category."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

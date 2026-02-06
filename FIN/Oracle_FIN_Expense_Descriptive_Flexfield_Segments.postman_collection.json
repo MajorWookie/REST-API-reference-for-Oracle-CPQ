@@ -1,0 +1,418 @@
+{
+    "info": {
+        "_postman_id": "e105dbc7-862f-4330-8ecd-8b9666bff6bf",
+        "name": "Oracle Fusion Cloud FIN - Expense Descriptive Flexfield Segments",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Expense Descriptive Flexfield Segments module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Expense Descriptive Flexfield Segments",
+            "item": [
+                {
+                    "name": "Expense Dff Segments",
+                    "item": [
+                        {
+                            "name": "{RowIdentifier}",
+                            "item": [
+                                {
+                                    "name": "Get a descriptive flexfield segment for expenses and expense reports",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseDffSegments/:RowIdentifier",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseDffSegments",
+                                                ":RowIdentifier"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "RowIdentifier",
+                                                    "value": "<string>",
+                                                    "description": "(Required) Value that uniquely identifies a descriptive flexfield segment."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseDffSegments/:RowIdentifier",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseDffSegments",
+                                                        ":RowIdentifier"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "RowIdentifier",
+                                                            "value": "<string>",
+                                                            "description": "(Required) Value that uniquely identifies a descriptive flexfield segment."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"ApplicationId\": \"<integer>\",\n  \"BiEnabledFlag\": \"<boolean>\",\n  \"BiEqualizationTag\": \"<string>\",\n  \"CheckboxCheckedValue\": \"<string>\",\n  \"CheckboxUncheckedValue\": \"<string>\",\n  \"ColumnName\": \"<string>\",\n  \"ContextCode\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"DefaultType\": \"<string>\",\n  \"DefaultValue\": \"<string>\",\n  \"DefaultValueDate\": \"<string>\",\n  \"DefaultValueNumber\": \"<number>\",\n  \"DefaultValueTimestamp\": \"<string>\",\n  \"DerivationValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"DescriptiveFlexfieldCode\": \"<string>\",\n  \"DisplayHeight\": \"<integer>\",\n  \"DisplayType\": \"<string>\",\n  \"DisplayWidth\": \"<integer>\",\n  \"DynamicURL\": \"<string>\",\n  \"EnabledFlag\": \"<boolean>\",\n  \"InFieldHelpText\": \"<string>\",\n  \"IndexedFlag\": \"<boolean>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"MultirowUniqueKeyFlag\": \"<boolean>\",\n  \"Name\": \"<string>\",\n  \"Prompt\": \"<string>\",\n  \"RangeType\": \"<string>\",\n  \"ReadOnlyFlag\": \"<boolean>\",\n  \"RequiredFlag\": \"<boolean>\",\n  \"RowIdentifier\": \"<string>\",\n  \"SegmentCode\": \"<string>\",\n  \"SegmentIdentifier\": \"<string>\",\n  \"SequenceNumber\": \"<integer>\",\n  \"ShortPrompt\": \"<string>\",\n  \"ShowValueDescription\": \"<string>\",\n  \"TerminologyHelpText\": \"<string>\",\n  \"UOMClass\": \"<string>\",\n  \"ValueSetId\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all descriptive flexfield segments for expenses and expense reports",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/expenseDffSegments",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "expenseDffSegments"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplicationId; integer; Value that uniquely identifies the Expenses application.</li><li>BiEnabledFlag; boolean; Option that indicates whether the descriptive flexfield segment is available in Oracle Business Intelligence applications.</li><li>BiEqualizationTag; string; Tag for descriptive flexfield segments enabled in Oracle Business Intelligence applications.</li><li>CheckboxCheckedValue; string; Value of a descriptive flexfield segment field when the check box is selected.</li><li>CheckboxUncheckedValue; string; Value of a descriptive flexfield segment field when the check box is deselected.</li><li>ColumnName; string; Name of the database column associated with the descriptive flexfield segment. The application stores the value captured for this descriptive flexfield segment in this column.</li><li>ContextCode; string; Code that identifies the context of a descriptive flexfield segment, such as global context or context dependent on expense types.</li><li>CreatedBy; string; User who created the descriptive flexfield segment record.</li><li>CreationDate; string; Date when the descriptive flexfield segment record was created.</li><li>DefaultType; string; Value that specifies how the default type is derived for the descriptive flexfield segment, such as SQL or a Groovy expression.</li><li>DefaultValue; string; Default value for the descriptive flexfield segment when the data type is a string.</li><li>DefaultValueDate; string; Default value for the descriptive flexfield segment when the data type is a string.</li><li>DefaultValueNumber; number; Default value for the descriptive flexfield segment when the data type is a number.</li><li>DefaultValueTimestamp; string; Default value for the descriptive flexfield segment when the data type is a time stamp.</li><li>DerivationValue; string; Field that derives the default value for the descriptive flexfield segment.</li><li>Description; string; Detailed definition information about the descriptive flexfield segment.</li><li>DescriptiveFlexfieldCode; string; Code that identifies a descriptive flexfield segment definition.</li><li>DisplayHeight; integer; Height of a descriptive flexfield segment on a UI.</li><li>DisplayType; string; Type of display that specifies how the application renders a descriptive flexfield segment on a UI.</li><li>DisplayWidth; integer; Width of a descriptive flexfield segment on a UI.</li><li>DynamicURL; string; Dynamic URL for the descriptive flexfield segment field.</li><li>EnabledFlag; boolean; Option that indicates whether the descriptive flexfield segment is enabled. If disabled, the descriptive flexfield segment is not displayed.</li><li>InFieldHelpText; string; Help text that displays when the user hovers over a descriptive flexfield segment field.</li><li>IndexedFlag; boolean; Option that indicates whether the descriptive flexfield segment is indexed.</li><li>LastUpdateDate; string; Date when the descriptive flexfield segment record was last updated.</li><li>LastUpdateLogin; string; Session sign in of the user who last updated the descriptive flexfield segment record.</li><li>LastUpdatedBy; string; User who last updated the descriptive flexfield segment.</li><li>MultirowUniqueKeyFlag; boolean; Option that indicates whether a multirow descriptive flexfield segment has a unique key. An indicator that specifies if a multirow segment has a unique key.</li><li>Name; string; Name of the descriptive flexfield segment field as displayed on the application.</li><li>Prompt; string; Name of the descriptive flexfield segment field as displayed on the application.</li><li>RangeType; string; Type of range that specifies whether a value is set to the lower or higher end of the range.</li><li>ReadOnlyFlag; boolean; An indicator that specifies if the field can be modified.</li><li>RequiredFlag; boolean; Option that indicates whether the descriptive flexfield segment is mandatory.</li><li>RowIdentifier; string; Value that uniquely identifies a descriptive flexfield segment.</li><li>SegmentCode; string; Code that identifies the descriptive flexfield segment.</li><li>SegmentIdentifier; string; Value that uniquely identifies the descriptive flexfield segment.</li><li>SequenceNumber; integer; Order in which descriptive flexfield segments are displayed on the Create Expense Item page and on the Create Expense Report page.</li><li>ShortPrompt; string; Alternate prompt for the descriptive flexfield segment that is displayed on the UI.</li><li>ShowValueDescription; string; Description that displays when hovering over the descriptive flexfield segment.</li><li>TerminologyHelpText; string; Help text that displays when the user hovers over the label of a descriptive flexfield segment.</li><li>UOMClass; string; Category of a unit of measurement in the metric system, that displays as a descriptive flexfield segment, such as meter that measures length, second that measures time, and kilogram that measures mass.</li><li>ValueSetId; integer; Value set that uniquely identifies the list of possible values and the data types for the descriptive flexfield segment.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the descriptive flexfield segment using an identifier that matches the primary key criteria specified.<br>Finder Variables: <ul><li>RowIdentifier; string; Row identifier of the expense and expense report descriptive flexfield segment record.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseDffSegments",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseDffSegments"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplicationId; integer; Value that uniquely identifies the Expenses application.</li><li>BiEnabledFlag; boolean; Option that indicates whether the descriptive flexfield segment is available in Oracle Business Intelligence applications.</li><li>BiEqualizationTag; string; Tag for descriptive flexfield segments enabled in Oracle Business Intelligence applications.</li><li>CheckboxCheckedValue; string; Value of a descriptive flexfield segment field when the check box is selected.</li><li>CheckboxUncheckedValue; string; Value of a descriptive flexfield segment field when the check box is deselected.</li><li>ColumnName; string; Name of the database column associated with the descriptive flexfield segment. The application stores the value captured for this descriptive flexfield segment in this column.</li><li>ContextCode; string; Code that identifies the context of a descriptive flexfield segment, such as global context or context dependent on expense types.</li><li>CreatedBy; string; User who created the descriptive flexfield segment record.</li><li>CreationDate; string; Date when the descriptive flexfield segment record was created.</li><li>DefaultType; string; Value that specifies how the default type is derived for the descriptive flexfield segment, such as SQL or a Groovy expression.</li><li>DefaultValue; string; Default value for the descriptive flexfield segment when the data type is a string.</li><li>DefaultValueDate; string; Default value for the descriptive flexfield segment when the data type is a string.</li><li>DefaultValueNumber; number; Default value for the descriptive flexfield segment when the data type is a number.</li><li>DefaultValueTimestamp; string; Default value for the descriptive flexfield segment when the data type is a time stamp.</li><li>DerivationValue; string; Field that derives the default value for the descriptive flexfield segment.</li><li>Description; string; Detailed definition information about the descriptive flexfield segment.</li><li>DescriptiveFlexfieldCode; string; Code that identifies a descriptive flexfield segment definition.</li><li>DisplayHeight; integer; Height of a descriptive flexfield segment on a UI.</li><li>DisplayType; string; Type of display that specifies how the application renders a descriptive flexfield segment on a UI.</li><li>DisplayWidth; integer; Width of a descriptive flexfield segment on a UI.</li><li>DynamicURL; string; Dynamic URL for the descriptive flexfield segment field.</li><li>EnabledFlag; boolean; Option that indicates whether the descriptive flexfield segment is enabled. If disabled, the descriptive flexfield segment is not displayed.</li><li>InFieldHelpText; string; Help text that displays when the user hovers over a descriptive flexfield segment field.</li><li>IndexedFlag; boolean; Option that indicates whether the descriptive flexfield segment is indexed.</li><li>LastUpdateDate; string; Date when the descriptive flexfield segment record was last updated.</li><li>LastUpdateLogin; string; Session sign in of the user who last updated the descriptive flexfield segment record.</li><li>LastUpdatedBy; string; User who last updated the descriptive flexfield segment.</li><li>MultirowUniqueKeyFlag; boolean; Option that indicates whether a multirow descriptive flexfield segment has a unique key. An indicator that specifies if a multirow segment has a unique key.</li><li>Name; string; Name of the descriptive flexfield segment field as displayed on the application.</li><li>Prompt; string; Name of the descriptive flexfield segment field as displayed on the application.</li><li>RangeType; string; Type of range that specifies whether a value is set to the lower or higher end of the range.</li><li>ReadOnlyFlag; boolean; An indicator that specifies if the field can be modified.</li><li>RequiredFlag; boolean; Option that indicates whether the descriptive flexfield segment is mandatory.</li><li>RowIdentifier; string; Value that uniquely identifies a descriptive flexfield segment.</li><li>SegmentCode; string; Code that identifies the descriptive flexfield segment.</li><li>SegmentIdentifier; string; Value that uniquely identifies the descriptive flexfield segment.</li><li>SequenceNumber; integer; Order in which descriptive flexfield segments are displayed on the Create Expense Item page and on the Create Expense Report page.</li><li>ShortPrompt; string; Alternate prompt for the descriptive flexfield segment that is displayed on the UI.</li><li>ShowValueDescription; string; Description that displays when hovering over the descriptive flexfield segment.</li><li>TerminologyHelpText; string; Help text that displays when the user hovers over the label of a descriptive flexfield segment.</li><li>UOMClass; string; Category of a unit of measurement in the metric system, that displays as a descriptive flexfield segment, such as meter that measures length, second that measures time, and kilogram that measures mass.</li><li>ValueSetId; integer; Value set that uniquely identifies the list of possible values and the data types for the descriptive flexfield segment.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey: Finds the descriptive flexfield segment using an identifier that matches the primary key criteria specified.<br>Finder Variables: <ul><li>RowIdentifier; string; Row identifier of the expense and expense report descriptive flexfield segment record.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"ApplicationId\": \"<integer>\",\n      \"BiEnabledFlag\": \"<boolean>\",\n      \"BiEqualizationTag\": \"<string>\",\n      \"CheckboxCheckedValue\": \"<string>\",\n      \"CheckboxUncheckedValue\": \"<string>\",\n      \"ColumnName\": \"<string>\",\n      \"ContextCode\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"DefaultType\": \"<string>\",\n      \"DefaultValue\": \"<string>\",\n      \"DefaultValueDate\": \"<string>\",\n      \"DefaultValueNumber\": \"<number>\",\n      \"DefaultValueTimestamp\": \"<string>\",\n      \"DerivationValue\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"DescriptiveFlexfieldCode\": \"<string>\",\n      \"DisplayHeight\": \"<integer>\",\n      \"DisplayType\": \"<string>\",\n      \"DisplayWidth\": \"<integer>\",\n      \"DynamicURL\": \"<string>\",\n      \"EnabledFlag\": \"<boolean>\",\n      \"InFieldHelpText\": \"<string>\",\n      \"IndexedFlag\": \"<boolean>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"MultirowUniqueKeyFlag\": \"<boolean>\",\n      \"Name\": \"<string>\",\n      \"Prompt\": \"<string>\",\n      \"RangeType\": \"<string>\",\n      \"ReadOnlyFlag\": \"<boolean>\",\n      \"RequiredFlag\": \"<boolean>\",\n      \"RowIdentifier\": \"<string>\",\n      \"SegmentCode\": \"<string>\",\n      \"SegmentIdentifier\": \"<string>\",\n      \"SequenceNumber\": \"<integer>\",\n      \"ShortPrompt\": \"<string>\",\n      \"ShowValueDescription\": \"<string>\",\n      \"TerminologyHelpText\": \"<string>\",\n      \"UOMClass\": \"<string>\",\n      \"ValueSetId\": \"<integer>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The expense descriptive flexfield segments resource is used for expenses and expense reports."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

@@ -1,0 +1,1540 @@
+{
+    "info": {
+        "_postman_id": "7fd15154-e75b-4bcd-99cc-55e677734eff",
+        "name": "Oracle Fusion Cloud CX Sales - Survey Requests",
+        "description": "REST API collection for Oracle Fusion Cloud Sales and Service — Survey Requests module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Survey Requests",
+            "item": [
+                {
+                    "name": "Survey Requests",
+                    "item": [
+                        {
+                            "name": "{SurveyRequestId}",
+                            "item": [
+                                {
+                                    "name": "Get a survey request",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests",
+                                                ":SurveyRequestId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "SurveyRequestId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"InterviewNumber\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectId\": \"<integer>\",\n  \"ObjectTypeCd\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"OwnerId\": \"<integer>\",\n  \"PartyId\": \"<integer>\",\n  \"RespondedFlag\": \"<boolean>\",\n  \"ResponseDate\": \"<string>\",\n  \"SurveyId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyTemplateName\": \"<string>\",\n  \"VendorRequestId\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"responses\": [\n    {\n      \"Answer\": \"<string>\",\n      \"AnswerId\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"Question\": \"<string>\",\n      \"QuestionId\": \"<integer>\",\n      \"SurveyRequestId\": \"<integer>\",\n      \"SurveyResponseId\": \"<integer>\",\n      \"Text\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update a survey request",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests",
+                                                ":SurveyRequestId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "SurveyRequestId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"InterviewNumber\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectId\": \"<integer>\",\n  \"ObjectTypeCd\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"OwnerId\": \"<integer>\",\n  \"PartyId\": \"<integer>\",\n  \"RespondedFlag\": \"<boolean>\",\n  \"ResponseDate\": \"<string>\",\n  \"SurveyId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyTemplateName\": \"<string>\",\n  \"VendorRequestId\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"responses\": [\n    {\n      \"Answer\": \"<string>\",\n      \"AnswerId\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"Question\": \"<string>\",\n      \"QuestionId\": \"<integer>\",\n      \"SurveyRequestId\": \"<integer>\",\n      \"SurveyResponseId\": \"<integer>\",\n      \"Text\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create a survey request",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Upsert-Mode",
+                                        "value": "<string>",
+                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{CX_SALES Site URL}}/surveyRequests",
+                                    "host": [
+                                        "{{CX_SALES Site URL}}"
+                                    ],
+                                    "path": [
+                                        "surveyRequests"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"InterviewNumber\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectId\": \"<integer>\",\n  \"ObjectTypeCd\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"OwnerId\": \"<integer>\",\n  \"PartyId\": \"<integer>\",\n  \"RespondedFlag\": \"<boolean>\",\n  \"ResponseDate\": \"<string>\",\n  \"SurveyId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyTemplateName\": \"<string>\",\n  \"VendorRequestId\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"responses\": [\n    {\n      \"Answer\": \"<string>\",\n      \"AnswerId\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"Question\": \"<string>\",\n      \"QuestionId\": \"<integer>\",\n      \"SurveyRequestId\": \"<integer>\",\n      \"SurveyResponseId\": \"<integer>\",\n      \"Text\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all survey requests",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{CX_SALES Site URL}}/surveyRequests",
+                                    "host": [
+                                        "{{CX_SALES Site URL}}"
+                                    ],
+                                    "path": [
+                                        "surveyRequests"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; The user who created the survey request.</li><li>CreationDate; string; The date when the survey request was created.</li><li>LastUpdateDate; string; The date the survey request was last updated.</li><li>LastUpdateLogin; string; The login details of the user who last updated the survey request.</li><li>LastUpdatedBy; string; The user who last updated the survey request.</li><li>ObjectId; integer; The identifier of the object for which the survey will be assigned. Example Service Request ID.</li><li>ObjectTypeCd; string; The type of the object for which the survey will be assigned. Example Service Request, Account.</li><li>OwnerId; integer; The person who owns the survey responses.</li><li>PartyId; integer; The identifier of the contact who will receive the survey.</li><li>RespondedFlag; boolean; The indicator that indicates whether survey is answered.</li><li>ResponseDate; string; The date when survey was answered.</li><li>SurveyId; integer; The key identifier of the survey.</li><li>SurveyRequestId; integer; The key identifier of the survey request.</li><li>SurveyTemplateName; string; The name of the survey template associated with the survey request.</li><li>VendorRequestId; string; The key identifier of the external survey product request.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>AltKey Finds a survey request by alternate key. <br>Finder Variables <ul><li>ObjectId; integer;  The object identification number of the object associate with the survey. </li><li>ObjectTypeCd; string;  The object type of the object associate with the survey. </li><li>SurveyId; integer;  The survey identification number. </li></ul></li><li>PrimaryKey Finds a survey request by primary key. <br>Finder Variables <ul><li>SurveyRequestId; integer;  Finds a survey request with a specified survey request identification number. </li></ul></li><li>VendorAltKey Finds a survey request by survey template and external product survey request key. <br>Finder Variables <ul><li>SurveyId; integer;  The survey identification number. </li><li>VendorRequestId; string;  The key identifier of the external survey product request. </li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; The user who created the survey request.</li><li>CreationDate; string; The date when the survey request was created.</li><li>LastUpdateDate; string; The date the survey request was last updated.</li><li>LastUpdateLogin; string; The login details of the user who last updated the survey request.</li><li>LastUpdatedBy; string; The user who last updated the survey request.</li><li>ObjectId; integer; The identifier of the object for which the survey will be assigned. Example Service Request ID.</li><li>ObjectTypeCd; string; The type of the object for which the survey will be assigned. Example Service Request, Account.</li><li>OwnerId; integer; The person who owns the survey responses.</li><li>PartyId; integer; The identifier of the contact who will receive the survey.</li><li>RespondedFlag; boolean; The indicator that indicates whether survey is answered.</li><li>ResponseDate; string; The date when survey was answered.</li><li>SurveyId; integer; The key identifier of the survey.</li><li>SurveyRequestId; integer; The key identifier of the survey request.</li><li>SurveyTemplateName; string; The name of the survey template associated with the survey request.</li><li>VendorRequestId; string; The key identifier of the external survey product request.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>AltKey Finds a survey request by alternate key. <br>Finder Variables <ul><li>ObjectId; integer;  The object identification number of the object associate with the survey. </li><li>ObjectTypeCd; string;  The object type of the object associate with the survey. </li><li>SurveyId; integer;  The survey identification number. </li></ul></li><li>PrimaryKey Finds a survey request by primary key. <br>Finder Variables <ul><li>SurveyRequestId; integer;  Finds a survey request with a specified survey request identification number. </li></ul></li><li>VendorAltKey Finds a survey request by survey template and external product survey request key. <br>Finder Variables <ul><li>SurveyId; integer;  The survey identification number. </li><li>VendorRequestId; string;  The key identifier of the external survey product request. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"InterviewNumber\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectId\": \"<integer>\",\n      \"ObjectTypeCd\": \"<string>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"OwnerId\": \"<integer>\",\n      \"PartyId\": \"<integer>\",\n      \"RespondedFlag\": \"<boolean>\",\n      \"ResponseDate\": \"<string>\",\n      \"SurveyId\": \"<integer>\",\n      \"SurveyRequestId\": \"<integer>\",\n      \"SurveyTemplateName\": \"<string>\",\n      \"VendorRequestId\": \"<string>\",\n      \"links\": [\n        {}\n      ],\n      \"responses\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Survey Responses",
+                    "item": [
+                        {
+                            "name": "Survey Requests/{SurveyRequestId}/Child/Responses",
+                            "item": [
+                                {
+                                    "name": "{SurveyResponseId}",
+                                    "item": [
+                                        {
+                                            "name": "Get a survey response",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses",
+                                                        ":SurveyResponseId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "SurveyResponseId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "surveyRequests",
+                                                                ":SurveyRequestId",
+                                                                "child",
+                                                                "responses",
+                                                                ":SurveyResponseId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "SurveyRequestId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "SurveyResponseId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"Answer\": \"<string>\",\n  \"AnswerId\": \"<integer>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"QuestionId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyResponseId\": \"<integer>\",\n  \"Text\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Update a survey response",
+                                            "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses",
+                                                        ":SurveyResponseId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "SurveyResponseId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "surveyRequests",
+                                                                ":SurveyRequestId",
+                                                                "child",
+                                                                "responses",
+                                                                ":SurveyResponseId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "SurveyRequestId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "SurveyResponseId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"Answer\": \"<string>\",\n  \"AnswerId\": \"<integer>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"QuestionId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyResponseId\": \"<integer>\",\n  \"Text\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Create a survey response",
+                                    "request": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests",
+                                                ":SurveyRequestId",
+                                                "child",
+                                                "responses"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "SurveyRequestId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Upsert-Mode",
+                                                        "value": "<string>",
+                                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"Answer\": \"<string>\",\n  \"AnswerId\": \"<integer>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectVersionNumber\": \"<integer>\",\n  \"Question\": \"<string>\",\n  \"QuestionId\": \"<integer>\",\n  \"SurveyRequestId\": \"<integer>\",\n  \"SurveyResponseId\": \"<integer>\",\n  \"Text\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all survey responses",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "surveyRequests",
+                                                ":SurveyRequestId",
+                                                "child",
+                                                "responses"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "SurveyRequestId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AnswerId; integer; The key identifier of the answer choice.</li><li>CreatedBy; string; The user who created the survey responses.</li><li>CreationDate; string; The date when the survey response was created.</li><li>LastUpdateDate; string; The date the survey response was last updated.</li><li>LastUpdateLogin; string; The login details of the user who last updated the survey response.</li><li>LastUpdatedBy; string; The user who last updated the survey response.</li><li>QuestionId; integer; The question identification number of the question for this response.</li><li>SurveyRequestId; integer; The survey request identification number for this response.</li><li>SurveyResponseId; integer; The identification number of a survey response.</li><li>Text; string; The text response included in the survey.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>AltKey Find a survey response by alternate identifier. <br>Finder Variables <ul><li>AnswerId; integer;  The survey answer identification number. </li><li>QuestionId; integer;  The survey question identification number. </li><li>SurveyRequestId; integer;  The survey request identification number. </li></ul></li><li>PrimaryKey Finds a survey response by primary key. <br>Finder Variables <ul><li>SurveyResponseId; integer;  The survey response identification number. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AnswerId; integer; The key identifier of the answer choice.</li><li>CreatedBy; string; The user who created the survey responses.</li><li>CreationDate; string; The date when the survey response was created.</li><li>LastUpdateDate; string; The date the survey response was last updated.</li><li>LastUpdateLogin; string; The login details of the user who last updated the survey response.</li><li>LastUpdatedBy; string; The user who last updated the survey response.</li><li>QuestionId; integer; The question identification number of the question for this response.</li><li>SurveyRequestId; integer; The survey request identification number for this response.</li><li>SurveyResponseId; integer; The identification number of a survey response.</li><li>Text; string; The text response included in the survey.</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>AltKey Find a survey response by alternate identifier. <br>Finder Variables <ul><li>AnswerId; integer;  The survey answer identification number. </li><li>QuestionId; integer;  The survey question identification number. </li><li>SurveyRequestId; integer;  The survey request identification number. </li></ul></li><li>PrimaryKey Finds a survey response by primary key. <br>Finder Variables <ul><li>SurveyResponseId; integer;  The survey response identification number. </li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"Answer\": \"<string>\",\n      \"AnswerId\": \"<integer>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectVersionNumber\": \"<integer>\",\n      \"Question\": \"<string>\",\n      \"QuestionId\": \"<integer>\",\n      \"SurveyRequestId\": \"<integer>\",\n      \"SurveyResponseId\": \"<integer>\",\n      \"Text\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Survey Responses",
+                    "item": [
+                        {
+                            "name": "Large Object (Lob) Attributes - Text",
+                            "item": [
+                                {
+                                    "name": "Survey Requests/{SurveyRequestId}/Child/Responses/{SurveyResponseId}/Enclosure/Text",
+                                    "item": [
+                                        {
+                                            "name": "Delete a Text",
+                                            "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses",
+                                                        ":SurveyResponseId",
+                                                        "enclosure",
+                                                        "Text"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "SurveyResponseId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                },
+                                                "description": "Delete a Text"
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "No Content. This task does not return elements in the response body.",
+                                                    "originalRequest": {
+                                                        "method": "DELETE",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "surveyRequests",
+                                                                ":SurveyRequestId",
+                                                                "child",
+                                                                "responses",
+                                                                ":SurveyResponseId",
+                                                                "enclosure",
+                                                                "Text"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "SurveyRequestId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "SurveyResponseId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": ""
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Get a Text",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/octet-stream"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses",
+                                                        ":SurveyResponseId",
+                                                        "enclosure",
+                                                        "Text"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "SurveyResponseId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                },
+                                                "description": "Get a Text"
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/octet-stream"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "surveyRequests",
+                                                                ":SurveyRequestId",
+                                                                "child",
+                                                                "responses",
+                                                                ":SurveyResponseId",
+                                                                "enclosure",
+                                                                "Text"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "SurveyRequestId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "SurveyResponseId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": ""
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Replace a Text",
+                                            "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/octet-stream"
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "surveyRequests",
+                                                        ":SurveyRequestId",
+                                                        "child",
+                                                        "responses",
+                                                        ":SurveyResponseId",
+                                                        "enclosure",
+                                                        "Text"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "SurveyRequestId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "SurveyResponseId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "\"<string>\"",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "description": "Replace a Text"
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "No Content. This task does not return elements in the response body.",
+                                                    "originalRequest": {
+                                                        "method": "PUT",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/octet-stream"
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{CX_SALES Site URL}}/surveyRequests/:SurveyRequestId/child/responses/:SurveyResponseId/enclosure/Text",
+                                                            "host": [
+                                                                "{{CX_SALES Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "surveyRequests",
+                                                                ":SurveyRequestId",
+                                                                "child",
+                                                                "responses",
+                                                                ":SurveyResponseId",
+                                                                "enclosure",
+                                                                "Text"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "SurveyRequestId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "SurveyResponseId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "\"<string>\"",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": ""
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The request resource is used to view and update the survey requests."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{CX_SALES Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{CX_SALES UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

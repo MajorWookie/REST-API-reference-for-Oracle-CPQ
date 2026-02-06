@@ -1,0 +1,1696 @@
+{
+    "info": {
+        "_postman_id": "ca766b48-25df-4400-8019-72e5d3c45a93",
+        "name": "Oracle Fusion Cloud COMMON - Value Sets",
+        "description": "REST API collection for Oracle Fusion Cloud Applications Common — Value Sets module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Value Sets",
+            "item": [
+                {
+                    "name": "<Servername>/Fscm Rest Api/Resources/11.13.18.05/Value Sets",
+                    "item": [
+                        {
+                            "name": "{valueSets_Id}",
+                            "item": [
+                                {
+                                    "name": "Get a value set",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id",
+                                            "host": [
+                                                "{{COMMON Site URL}}"
+                                            ],
+                                            "path": [
+                                                "<servername>",
+                                                "fscmRestApi",
+                                                "resources",
+                                                "11.13.18.05",
+                                                "valueSets",
+                                                ":valueSets_Id"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "valueSets_Id",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"links\": [\n    {}\n  ],\n  \"ValueSetId\": \"<integer>\",\n  \"ModuleId\": \"<string>\",\n  \"ValueSetCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"ValidationType\": \"<string>\",\n  \"ValueDataType\": \"<string>\",\n  \"ValueSubtype\": \"<string>\",\n  \"ProtectedFlag\": \"<string>\",\n  \"MaximumLength\": \"<integer>\",\n  \"Precision\": \"<integer>\",\n  \"Scale\": \"<integer>\",\n  \"UppercaseOnlyFlag\": \"<string>\",\n  \"ZeroFillFlag\": \"<string>\",\n  \"SecurityEnabledFlag\": \"<string>\",\n  \"DataSecurityObjectName\": \"<string>\",\n  \"MinimumValue\": \"<string>\",\n  \"MinimumValueNumber\": \"<number>\",\n  \"MinimumValueDate\": \"<string>\",\n  \"MinimumValueTimestamp\": \"<string>\",\n  \"MaximumValue\": \"<string>\",\n  \"MaximumValueNumber\": \"<number>\",\n  \"MaximumValueDate\": \"<string>\",\n  \"MaximumValueTimestamp\": \"<string>\",\n  \"IndependentValueSetId\": \"<integer>\",\n  \"IndependentValueSetCode\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"validationTable\": [\n    {}\n  ],\n  \"values\": [\n    {}\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all value sets",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets",
+                                    "host": [
+                                        "{{COMMON Site URL}}"
+                                    ],
+                                    "path": [
+                                        "<servername>",
+                                        "fscmRestApi",
+                                        "resources",
+                                        "11.13.18.05",
+                                        "valueSets"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueSetId  </li></ul></li><li>ValueSetCodeFinder  <br>Finder Variables: <ul><li>ValueSetCode  </li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets",
+                                            "host": [
+                                                "{{COMMON Site URL}}"
+                                            ],
+                                            "path": [
+                                                "<servername>",
+                                                "fscmRestApi",
+                                                "resources",
+                                                "11.13.18.05",
+                                                "valueSets"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueSetId  </li></ul></li><li>ValueSetCodeFinder  <br>Finder Variables: <ul><li>ValueSetCode  </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"totalResults\": \"<integer>\",\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"links\": [\n    {}\n  ],\n  \"items\": [\n    {}\n  ]\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Table-Validated Value Sets",
+                    "item": [
+                        {
+                            "name": "<Servername>/Fscm Rest Api/Resources/11.13.18.05/Value Sets/{valueSets_Id}/Child/Validation Table",
+                            "item": [
+                                {
+                                    "name": "{valueSets_validationTable_Id}",
+                                    "item": [
+                                        {
+                                            "name": "Get a table-validated value set",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/validationTable/:valueSets_validationTable_Id",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "validationTable",
+                                                        ":valueSets_validationTable_Id"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "valueSets_validationTable_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/validationTable/:valueSets_validationTable_Id",
+                                                            "host": [
+                                                                "{{COMMON Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "<servername>",
+                                                                "fscmRestApi",
+                                                                "resources",
+                                                                "11.13.18.05",
+                                                                "valueSets",
+                                                                ":valueSets_Id",
+                                                                "child",
+                                                                "validationTable",
+                                                                ":valueSets_validationTable_Id"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "valueSets_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "valueSets_validationTable_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"links\": [\n    {}\n  ],\n  \"ValueSetId\": \"<integer>\",\n  \"FromClause\": \"<string>\",\n  \"WhereClause\": \"<string>\",\n  \"OrderByClause\": \"<string>\",\n  \"ValueColumnName\": \"<string>\",\n  \"ValueColumnLength\": \"<integer>\",\n  \"ValueColumnType\": \"<string>\",\n  \"IdColumnName\": \"<string>\",\n  \"IdColumnLength\": \"<integer>\",\n  \"IdColumnType\": \"<string>\",\n  \"DescriptionColumnName\": \"<string>\",\n  \"DescriptionColumnLength\": \"<integer>\",\n  \"DescriptionColumnType\": \"<string>\",\n  \"EnabledFlagColumnName\": \"<string>\",\n  \"StartDateColumnName\": \"<string>\",\n  \"EndDateColumnName\": \"<string>\",\n  \"ValueAttributesTableAlias\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all table-validated of a value set",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/validationTable",
+                                            "host": [
+                                                "{{COMMON Site URL}}"
+                                            ],
+                                            "path": [
+                                                "<servername>",
+                                                "fscmRestApi",
+                                                "resources",
+                                                "11.13.18.05",
+                                                "valueSets",
+                                                ":valueSets_Id",
+                                                "child",
+                                                "validationTable"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "valueSets_Id",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueSetId  </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        },
+                                        "description": "get"
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/validationTable",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "validationTable"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueSetId  </li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"totalResults\": \"<integer>\",\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"links\": [\n    {}\n  ],\n  \"items\": [\n    {}\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Values",
+                    "item": [
+                        {
+                            "name": "<Servername>/Fscm Rest Api/Resources/11.13.18.05/Value Sets/{valueSets_Id}/Child/Values",
+                            "item": [
+                                {
+                                    "name": "{valueSets_values_Id}",
+                                    "item": [
+                                        {
+                                            "name": "Delete values of a value set",
+                                            "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "values",
+                                                        ":valueSets_values_Id"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "valueSets_values_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "No Content. This task does not return elements in the response body.",
+                                                    "originalRequest": {
+                                                        "method": "DELETE",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                            "host": [
+                                                                "{{COMMON Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "<servername>",
+                                                                "fscmRestApi",
+                                                                "resources",
+                                                                "11.13.18.05",
+                                                                "valueSets",
+                                                                ":valueSets_Id",
+                                                                "child",
+                                                                "values",
+                                                                ":valueSets_values_Id"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "valueSets_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "valueSets_values_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": ""
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Get a value of a value set",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "values",
+                                                        ":valueSets_values_Id"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "valueSets_values_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                            "host": [
+                                                                "{{COMMON Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "<servername>",
+                                                                "fscmRestApi",
+                                                                "resources",
+                                                                "11.13.18.05",
+                                                                "valueSets",
+                                                                ":valueSets_Id",
+                                                                "child",
+                                                                "values",
+                                                                ":valueSets_values_Id"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "valueSets_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "valueSets_values_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"links\": [\n    {}\n  ],\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "Update values of a value set",
+                                            "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "values",
+                                                        ":valueSets_values_Id"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "valueSets_values_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "PATCH",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                            },
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values/:valueSets_values_Id",
+                                                            "host": [
+                                                                "{{COMMON Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "<servername>",
+                                                                "fscmRestApi",
+                                                                "resources",
+                                                                "11.13.18.05",
+                                                                "valueSets",
+                                                                ":valueSets_Id",
+                                                                "child",
+                                                                "values",
+                                                                ":valueSets_values_Id"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "valueSets_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "valueSets_values_Id",
+                                                                    "value": "<string>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"links\": [\n    {}\n  ],\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Create values of a value set",
+                                    "request": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                            },
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/vnd.oracle.adf.resourceitem+json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "When set to true, the server will perform an Upsert operation instead of a Create. In an Upsert operation the server attempts to find an existing resource that matches the payload. If found, the server updates the existing resource instead of creating a new one. If not found, or when set to false (the default), a Create is performed."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values",
+                                            "host": [
+                                                "{{COMMON Site URL}}"
+                                            ],
+                                            "path": [
+                                                "<servername>",
+                                                "fscmRestApi",
+                                                "resources",
+                                                "11.13.18.05",
+                                                "valueSets",
+                                                ":valueSets_Id",
+                                                "child",
+                                                "values"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "valueSets_Id",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ]
+                                        },
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "POST",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/vnd.oracle.adf.resourceitem+json"
+                                                    },
+                                                    {
+                                                        "key": "Upsert-Mode",
+                                                        "value": "<string>",
+                                                        "description": "When set to true, the server will perform an Upsert operation instead of a Create. In an Upsert operation the server attempts to find an existing resource that matches the payload. If found, the server updates the existing resource instead of creating a new one. If not found, or when set to false (the default), a Create is performed."
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "values"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ]
+                                                },
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"links\": [\n    {}\n  ],\n  \"ValueId\": \"<integer>\",\n  \"IndependentValue\": \"<string>\",\n  \"IndependentValueNumber\": \"<number>\",\n  \"IndependentValueDate\": \"<string>\",\n  \"IndependentValueTimestamp\": \"<string>\",\n  \"Value\": \"<string>\",\n  \"ValueNumber\": \"<number>\",\n  \"ValueDate\": \"<string>\",\n  \"ValueTimestamp\": \"<string>\",\n  \"TranslatedValue\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EnabledFlag\": \"<string>\",\n  \"StartDateActive\": \"<string>\",\n  \"EndDateActive\": \"<string>\",\n  \"SortOrder\": \"<integer>\",\n  \"SummaryFlag\": \"<string>\",\n  \"DetailPostingAllowed\": \"<string>\",\n  \"DetailBudgetingAllowed\": \"<string>\",\n  \"AccountType\": \"<string>\",\n  \"ControlAccount\": \"<string>\",\n  \"ReconciliationFlag\": \"<string>\",\n  \"FinancialCategory\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\"\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all values of a value sets",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values",
+                                            "host": [
+                                                "{{COMMON Site URL}}"
+                                            ],
+                                            "path": [
+                                                "<servername>",
+                                                "fscmRestApi",
+                                                "resources",
+                                                "11.13.18.05",
+                                                "valueSets",
+                                                ":valueSets_Id",
+                                                "child",
+                                                "values"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "valueSets_Id",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueId  </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/vnd.oracle.adf.resourcecollection+json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{COMMON Site URL}}/<servername>/fscmRestApi/resources/11.13.18.05/valueSets/:valueSets_Id/child/values",
+                                                    "host": [
+                                                        "{{COMMON Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "<servername>",
+                                                        "fscmRestApi",
+                                                        "resources",
+                                                        "11.13.18.05",
+                                                        "valueSets",
+                                                        ":valueSets_Id",
+                                                        "child",
+                                                        "values"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "valueSets_Id",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>PrimaryKey  <br>Finder Variables: <ul><li>ValueId  </li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"totalResults\": \"<integer>\",\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"links\": [\n    {}\n  ],\n  \"items\": [\n    {}\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "This resource is used to view the value sets. A value set is a group of valid values that you create and configure for business object attributes."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{COMMON Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{COMMON UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

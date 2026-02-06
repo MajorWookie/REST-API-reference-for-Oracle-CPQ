@@ -1,0 +1,493 @@
+{
+    "info": {
+        "_postman_id": "49d74f94-bbe7-4f8f-9082-494a4d92c313",
+        "name": "Oracle Fusion Cloud FIN - ERP Integrations",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — ERP Integrations module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Erp Integrations",
+            "item": [
+                {
+                    "name": "Erpintegrations",
+                    "item": [
+                        {
+                            "name": "{OperationName}",
+                            "item": [
+                                {
+                                    "name": "Get job details",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/erpintegrations/:OperationName",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "erpintegrations",
+                                                ":OperationName"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "OperationName",
+                                                    "value": "<string>",
+                                                    "description": "(Required) The name of the ERP Integration Service operations used to manage inbound and outbound data flows."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/erpintegrations/:OperationName",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "erpintegrations",
+                                                        ":OperationName"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "OperationName",
+                                                            "value": "<string>",
+                                                            "description": "(Required) The name of the ERP Integration Service operations used to manage inbound and outbound data flows."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CallbackURL\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"DocumentAccount\": \"<string>\",\n  \"DocumentContent\": \"<string>\",\n  \"DocumentId\": \"<string>\",\n  \"ESSParameters\": \"<string>\",\n  \"FileName\": \"<string>\",\n  \"FileType\": \"<string>\",\n  \"JobDefName\": \"<string>\",\n  \"JobName\": \"<string>\",\n  \"JobOptions\": \"<string>\",\n  \"JobPackageName\": \"<string>\",\n  \"LoadRequestId\": \"<string>\",\n  \"NotificationCode\": \"<string>\",\n  \"OperationName\": \"<string>\",\n  \"ParameterList\": \"<string>\",\n  \"ProcessName\": \"<string>\",\n  \"ReqstId\": \"<string>\",\n  \"RequestStatus\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create an inbound or outbound set of data",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/erpintegrations",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "erpintegrations"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/erpintegrations",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "erpintegrations"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"CallbackURL\": \"<string>\",\n  \"Comments\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"DocumentAccount\": \"<string>\",\n  \"DocumentContent\": \"<string>\",\n  \"DocumentId\": \"<string>\",\n  \"ESSParameters\": \"<string>\",\n  \"FileName\": \"<string>\",\n  \"FileType\": \"<string>\",\n  \"JobDefName\": \"<string>\",\n  \"JobName\": \"<string>\",\n  \"JobOptions\": \"<string>\",\n  \"JobPackageName\": \"<string>\",\n  \"LoadRequestId\": \"<string>\",\n  \"NotificationCode\": \"<string>\",\n  \"OperationName\": \"<string>\",\n  \"ParameterList\": \"<string>\",\n  \"ProcessName\": \"<string>\",\n  \"ReqstId\": \"<string>\",\n  \"RequestStatus\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all job details",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/erpintegrations",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "erpintegrations"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CallbackURL; string; The callback URL of the service implemented by a customer to receive the job status of an Enterprise Scheduling Service job upon its completion.</li><li>Comments; string; The action that appends the specified comments to a file.</li><li>ContentType; string; The type of content within a data file to be processed by the ERP Integration Service.</li><li>DocumentAccount; string; The account parameter to search for files corresponding to a specified security account.</li><li>DocumentContent; string; The content of the file in Base64 encoded format.</li><li>DocumentId; string; The unique identifier of a file associated with the row.</li><li>ESSParameters; string; The list of parameters used to run the Enterprise Scheduling Service job. The list determines the order of the parameters. The corresponding entry in the list should be blank when a given parameter is not passed.</li><li>FileName; string; The name of the data file to be processed by the ERP Integration Service.</li><li>FileType; string; The file type that determines the execution details to be downloaded. Specify LOG as the file type to download the log and output file. Specify OUT as the file type to download only the output file. If no file type is specified, both the log files and output files are downloaded.</li><li>JobDefName; string; The name of the Enterprise Scheduling Service job definition that must be submitted.</li><li>JobName; string; The job name and job package name separated by a comma.</li><li>JobOptions; string; A web service operation input parameter. It specifies the inbound bulk data processing variation and the output file type that is generated when the data is processed.</li><li>JobPackageName; string; The name of the Enterprise Scheduling Service job package that must be submitted.</li><li>LoadRequestId; string; The unique identifier of the load process that populates data in a product interface table.</li><li>NotificationCode; string; The two-digit code that determines the notification type and when the notification should be sent. Currently the bell and email notifications are supported only for loadAndImportData, ImportBulkData, ExportBulkData, and extractAndPurge operations.</li><li>OperationName; string; The name of the ERP Integration Service operations used to manage inbound and outbound data flows.</li><li>ParameterList; string; The list of parameters used to run the Enterprise Scheduling Service job. The list determines the order of the parameters. The corresponding entry in the list must be blank when a given parameter is not passed.</li><li>ProcessName; string; The name of a particular business application's data import process.</li><li>ReqstId; string; The unique identifier of the submitted Enterprise Scheduling Service job request.</li><li>RequestStatus; string; The current status of the Enterprise Scheduling Service job.</li><li>StatusCode; string; The code representing the current status of the Enterprise Scheduling Service job.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>DocumentIdsByFilePrefixRF: Finds all the document IDs of documents that match the specified file prefix and document account, excluding the documents with specified comments.<br>Finder Variables: <ul><li>comment; string; Comment for the documents in UCM.</li><li>docAccount; string; The document account in UCM.</li><li>filePrefix; string; The file prefix for the documents in UCM.</li></ul></li><li>DocumentRF: Finds all the document content for the specified document ID.<br>Finder Variables: <ul><li>docId; string; The unique identifier for any document in UCM.</li></ul></li><li>ESSExecutionDetailsRF: Finds the execution details pf the Enterprise Scheduling Service job for the specified request ID.<br>Finder Variables: <ul><li>jobOptions; string; The parameters provided for operation in future use.</li><li>requestId; string; The unique identifier of an Enterprise Scheduling Service job.</li></ul></li><li>ESSJobExecutionDetailsRF: Finds all the Enterprise Scheduling Service job execution details for the specified request ID and file type.<br>Finder Variables: <ul><li>fileType; string; The file type associated with the job execution details.</li><li>requestId; string; The unique identifier of an Enterprise Scheduling Service job.</li></ul></li><li>ESSJobStatusRF: Finds the status of the Enterprise Scheduling Service job for the specified request ID.<br>Finder Variables: <ul><li>requestId; string; The unique identifier of the status of an Enterprise Scheduling Service job.</li></ul></li><li>PrimaryKey: Finds the ERP interface options for the specified operation name.<br>Finder Variables: <ul><li>OperationName; string; The name of the web service operation that is executed.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/erpintegrations",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "erpintegrations"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CallbackURL; string; The callback URL of the service implemented by a customer to receive the job status of an Enterprise Scheduling Service job upon its completion.</li><li>Comments; string; The action that appends the specified comments to a file.</li><li>ContentType; string; The type of content within a data file to be processed by the ERP Integration Service.</li><li>DocumentAccount; string; The account parameter to search for files corresponding to a specified security account.</li><li>DocumentContent; string; The content of the file in Base64 encoded format.</li><li>DocumentId; string; The unique identifier of a file associated with the row.</li><li>ESSParameters; string; The list of parameters used to run the Enterprise Scheduling Service job. The list determines the order of the parameters. The corresponding entry in the list should be blank when a given parameter is not passed.</li><li>FileName; string; The name of the data file to be processed by the ERP Integration Service.</li><li>FileType; string; The file type that determines the execution details to be downloaded. Specify LOG as the file type to download the log and output file. Specify OUT as the file type to download only the output file. If no file type is specified, both the log files and output files are downloaded.</li><li>JobDefName; string; The name of the Enterprise Scheduling Service job definition that must be submitted.</li><li>JobName; string; The job name and job package name separated by a comma.</li><li>JobOptions; string; A web service operation input parameter. It specifies the inbound bulk data processing variation and the output file type that is generated when the data is processed.</li><li>JobPackageName; string; The name of the Enterprise Scheduling Service job package that must be submitted.</li><li>LoadRequestId; string; The unique identifier of the load process that populates data in a product interface table.</li><li>NotificationCode; string; The two-digit code that determines the notification type and when the notification should be sent. Currently the bell and email notifications are supported only for loadAndImportData, ImportBulkData, ExportBulkData, and extractAndPurge operations.</li><li>OperationName; string; The name of the ERP Integration Service operations used to manage inbound and outbound data flows.</li><li>ParameterList; string; The list of parameters used to run the Enterprise Scheduling Service job. The list determines the order of the parameters. The corresponding entry in the list must be blank when a given parameter is not passed.</li><li>ProcessName; string; The name of a particular business application's data import process.</li><li>ReqstId; string; The unique identifier of the submitted Enterprise Scheduling Service job request.</li><li>RequestStatus; string; The current status of the Enterprise Scheduling Service job.</li><li>StatusCode; string; The code representing the current status of the Enterprise Scheduling Service job.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>DocumentIdsByFilePrefixRF: Finds all the document IDs of documents that match the specified file prefix and document account, excluding the documents with specified comments.<br>Finder Variables: <ul><li>comment; string; Comment for the documents in UCM.</li><li>docAccount; string; The document account in UCM.</li><li>filePrefix; string; The file prefix for the documents in UCM.</li></ul></li><li>DocumentRF: Finds all the document content for the specified document ID.<br>Finder Variables: <ul><li>docId; string; The unique identifier for any document in UCM.</li></ul></li><li>ESSExecutionDetailsRF: Finds the execution details pf the Enterprise Scheduling Service job for the specified request ID.<br>Finder Variables: <ul><li>jobOptions; string; The parameters provided for operation in future use.</li><li>requestId; string; The unique identifier of an Enterprise Scheduling Service job.</li></ul></li><li>ESSJobExecutionDetailsRF: Finds all the Enterprise Scheduling Service job execution details for the specified request ID and file type.<br>Finder Variables: <ul><li>fileType; string; The file type associated with the job execution details.</li><li>requestId; string; The unique identifier of an Enterprise Scheduling Service job.</li></ul></li><li>ESSJobStatusRF: Finds the status of the Enterprise Scheduling Service job for the specified request ID.<br>Finder Variables: <ul><li>requestId; string; The unique identifier of the status of an Enterprise Scheduling Service job.</li></ul></li><li>PrimaryKey: Finds the ERP interface options for the specified operation name.<br>Finder Variables: <ul><li>OperationName; string; The name of the web service operation that is executed.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CallbackURL\": \"<string>\",\n      \"Comments\": \"<string>\",\n      \"ContentType\": \"<string>\",\n      \"DocumentAccount\": \"<string>\",\n      \"DocumentContent\": \"<string>\",\n      \"DocumentId\": \"<string>\",\n      \"ESSParameters\": \"<string>\",\n      \"FileName\": \"<string>\",\n      \"FileType\": \"<string>\",\n      \"JobDefName\": \"<string>\",\n      \"JobName\": \"<string>\",\n      \"JobOptions\": \"<string>\",\n      \"JobPackageName\": \"<string>\",\n      \"LoadRequestId\": \"<string>\",\n      \"NotificationCode\": \"<string>\",\n      \"OperationName\": \"<string>\",\n      \"ParameterList\": \"<string>\",\n      \"ProcessName\": \"<string>\",\n      \"ReqstId\": \"<string>\",\n      \"RequestStatus\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The ERP integrations resource automates bulk data import and export flows. It also provides key features such as callback and error notifications, as part of these flows."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

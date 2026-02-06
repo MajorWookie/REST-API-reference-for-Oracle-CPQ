@@ -1,0 +1,493 @@
+{
+    "info": {
+        "_postman_id": "f77fc4bc-37fe-4d3c-97c8-13afd4307a80",
+        "name": "Oracle Fusion Cloud FIN - Federal Transaction Data",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Federal Transaction Data module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Federal Transaction Data",
+            "item": [
+                {
+                    "name": "Fed Ipactransaction Data",
+                    "item": [
+                        {
+                            "name": "{TransactionDataId}",
+                            "item": [
+                                {
+                                    "name": "Get an IPAC transaction record",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/fedIPACTransactionData/:TransactionDataId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "fedIPACTransactionData",
+                                                ":TransactionDataId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "TransactionDataId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/fedIPACTransactionData/:TransactionDataId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "fedIPACTransactionData",
+                                                        ":TransactionDataId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "TransactionDataId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"ACRN\": \"<string>\",\n  \"ACTTraceNumber\": \"<integer>\",\n  \"AccomplishedDate\": \"<string>\",\n  \"Accounted\": \"<string>\",\n  \"AccountingClassificationCode\": \"<string>\",\n  \"AccountingDate\": \"<string>\",\n  \"CLIN\": \"<string>\",\n  \"ContactEmailAddress\": \"<string>\",\n  \"ContactName\": \"<string>\",\n  \"ContactPhoneNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreditDebitCode\": \"<string>\",\n  \"CustomerALC\": \"<string>\",\n  \"CustomerId\": \"<integer>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerTransactionId\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"DetailAmount\": \"<number>\",\n  \"DetailLineNumber\": \"<integer>\",\n  \"DoDAAC\": \"<string>\",\n  \"DocumentId\": \"<integer>\",\n  \"FSNAAAADSN\": \"<integer>\",\n  \"FYObligationId\": \"<integer>\",\n  \"IPACBillingId\": \"<integer>\",\n  \"IPACDocumentReferenceNumber\": \"<integer>\",\n  \"InvoiceAmount\": \"<number>\",\n  \"InvoiceNumber\": \"<string>\",\n  \"JASNumber\": \"<string>\",\n  \"JobProjectNumber\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"LoadDate\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"MiscellaneousInformation\": \"<string>\",\n  \"NumberOfDetailItems\": \"<integer>\",\n  \"ObligatingDocumentNumber\": \"<string>\",\n  \"OriginalAccomplishedDate\": \"<string>\",\n  \"OriginalAccountingDate\": \"<string>\",\n  \"OriginalDoSymbolALC\": \"<string>\",\n  \"OriginalDocumentReferenceNumber\": \"<integer>\",\n  \"OriginalTransactionType\": \"<string>\",\n  \"OriginatorALC\": \"<string>\",\n  \"PaymentCode\": \"<string>\",\n  \"ProcessDate\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"ReceiverBETC\": \"<string>\",\n  \"ReceiverDUNSorUEI\": \"<string>\",\n  \"ReceiverDUNSplus4OrEFT\": \"<string>\",\n  \"ReceiverDepartmentCode\": \"<string>\",\n  \"ReceiverTreasuryAccountSymbol\": \"<string>\",\n  \"RecordType\": \"<string>\",\n  \"RequisitionNumber\": \"<string>\",\n  \"SenderBETC\": \"<string>\",\n  \"SenderDUNSorUEI\": \"<string>\",\n  \"SenderDUNSplus4OrEFT\": \"<string>\",\n  \"SenderDoSymbolALC\": \"<string>\",\n  \"SenderTreasuryAccountSymbol\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SubmitterALC\": \"<string>\",\n  \"TaxpayerNumber\": \"<string>\",\n  \"TransactionContactEmailAddress\": \"<string>\",\n  \"TransactionContactPhone\": \"<string>\",\n  \"TransactionDataId\": \"<integer>\",\n  \"TransactionId\": \"<integer>\",\n  \"TransactionSetId\": \"<string>\",\n  \"TransactionType\": \"<string>\",\n  \"USSGLTransactionCode\": \"<string>\",\n  \"UnitOfIssue\": \"<string>\",\n  \"UnitPrice\": \"<number>\",\n  \"UserAttribute1\": \"<string>\",\n  \"UserAttribute10\": \"<string>\",\n  \"UserAttribute11\": \"<string>\",\n  \"UserAttribute12\": \"<string>\",\n  \"UserAttribute13\": \"<string>\",\n  \"UserAttribute14\": \"<string>\",\n  \"UserAttribute15\": \"<string>\",\n  \"UserAttribute2\": \"<string>\",\n  \"UserAttribute3\": \"<string>\",\n  \"UserAttribute4\": \"<string>\",\n  \"UserAttribute5\": \"<string>\",\n  \"UserAttribute6\": \"<string>\",\n  \"UserAttribute7\": \"<string>\",\n  \"UserAttribute8\": \"<string>\",\n  \"UserAttribute9\": \"<string>\",\n  \"VoucherNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create all IPAC transaction records",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/fedIPACTransactionData",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "fedIPACTransactionData"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/fedIPACTransactionData",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "fedIPACTransactionData"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"ACRN\": \"<string>\",\n  \"ACTTraceNumber\": \"<integer>\",\n  \"AccomplishedDate\": \"<string>\",\n  \"Accounted\": \"<string>\",\n  \"AccountingClassificationCode\": \"<string>\",\n  \"AccountingDate\": \"<string>\",\n  \"CLIN\": \"<string>\",\n  \"ContactEmailAddress\": \"<string>\",\n  \"ContactName\": \"<string>\",\n  \"ContactPhoneNumber\": \"<string>\",\n  \"ContractNumber\": \"<string>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreditDebitCode\": \"<string>\",\n  \"CustomerALC\": \"<string>\",\n  \"CustomerId\": \"<integer>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerTransactionId\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"DetailAmount\": \"<number>\",\n  \"DetailLineNumber\": \"<integer>\",\n  \"DoDAAC\": \"<string>\",\n  \"DocumentId\": \"<integer>\",\n  \"FSNAAAADSN\": \"<integer>\",\n  \"FYObligationId\": \"<integer>\",\n  \"IPACBillingId\": \"<integer>\",\n  \"IPACDocumentReferenceNumber\": \"<integer>\",\n  \"InvoiceAmount\": \"<number>\",\n  \"InvoiceNumber\": \"<string>\",\n  \"JASNumber\": \"<string>\",\n  \"JobProjectNumber\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"LoadDate\": \"<string>\",\n  \"Message\": \"<string>\",\n  \"MiscellaneousInformation\": \"<string>\",\n  \"NumberOfDetailItems\": \"<integer>\",\n  \"ObligatingDocumentNumber\": \"<string>\",\n  \"OriginalAccomplishedDate\": \"<string>\",\n  \"OriginalAccountingDate\": \"<string>\",\n  \"OriginalDoSymbolALC\": \"<string>\",\n  \"OriginalDocumentReferenceNumber\": \"<integer>\",\n  \"OriginalTransactionType\": \"<string>\",\n  \"OriginatorALC\": \"<string>\",\n  \"PaymentCode\": \"<string>\",\n  \"ProcessDate\": \"<string>\",\n  \"PurchaseOrderNumber\": \"<string>\",\n  \"Quantity\": \"<number>\",\n  \"ReceiverBETC\": \"<string>\",\n  \"ReceiverDUNSorUEI\": \"<string>\",\n  \"ReceiverDUNSplus4OrEFT\": \"<string>\",\n  \"ReceiverDepartmentCode\": \"<string>\",\n  \"ReceiverTreasuryAccountSymbol\": \"<string>\",\n  \"RecordType\": \"<string>\",\n  \"RequisitionNumber\": \"<string>\",\n  \"SenderBETC\": \"<string>\",\n  \"SenderDUNSorUEI\": \"<string>\",\n  \"SenderDUNSplus4OrEFT\": \"<string>\",\n  \"SenderDoSymbolALC\": \"<string>\",\n  \"SenderTreasuryAccountSymbol\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"SubmitterALC\": \"<string>\",\n  \"TaxpayerNumber\": \"<string>\",\n  \"TransactionContactEmailAddress\": \"<string>\",\n  \"TransactionContactPhone\": \"<string>\",\n  \"TransactionDataId\": \"<integer>\",\n  \"TransactionId\": \"<integer>\",\n  \"TransactionSetId\": \"<string>\",\n  \"TransactionType\": \"<string>\",\n  \"USSGLTransactionCode\": \"<string>\",\n  \"UnitOfIssue\": \"<string>\",\n  \"UnitPrice\": \"<number>\",\n  \"UserAttribute1\": \"<string>\",\n  \"UserAttribute10\": \"<string>\",\n  \"UserAttribute11\": \"<string>\",\n  \"UserAttribute12\": \"<string>\",\n  \"UserAttribute13\": \"<string>\",\n  \"UserAttribute14\": \"<string>\",\n  \"UserAttribute15\": \"<string>\",\n  \"UserAttribute2\": \"<string>\",\n  \"UserAttribute3\": \"<string>\",\n  \"UserAttribute4\": \"<string>\",\n  \"UserAttribute5\": \"<string>\",\n  \"UserAttribute6\": \"<string>\",\n  \"UserAttribute7\": \"<string>\",\n  \"UserAttribute8\": \"<string>\",\n  \"UserAttribute9\": \"<string>\",\n  \"VoucherNumber\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all IPAC transaction records",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/fedIPACTransactionData",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "fedIPACTransactionData"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ACRN; string; The Accounting Classification Reference Number that identifies a line of accounting on a contract.</li><li>ACTTraceNumber; integer; The Accounting Trace (ACT) number for the transaction being processed.</li><li>AccomplishedDate; string; The date on which the transaction occurred.</li><li>Accounted; string; Value that identifies whether the transaction is accounted.</li><li>AccountingClassificationCode; string; Accounting classification code for the transaction.</li><li>AccountingDate; string; Date on which the transaction was accounted in the system.</li><li>CLIN; string; The Contract Line Item Number (CLIN) of the transaction.</li><li>ContactEmailAddress; string; The email address of the contact person.</li><li>ContactName; string; The name of the contact person for the transaction.</li><li>ContactPhoneNumber; string; The phone number of the contact person.</li><li>ContractNumber; string; A unique number used to identify a contract between two trading partners.</li><li>CreatedBy; string; The user who created the row.</li><li>CreationDate; string; The date and time of the creation of the row.</li><li>CreditDebitCode; string; Identifier for the type of transaction whether it's a credit transaction or a debit transaction.</li><li>CustomerALC; string; The agency location code of the customer.</li><li>CustomerId; integer; Unique identifier of the customer.</li><li>CustomerName; string; Name of the customer involved in the transaction.</li><li>CustomerTransactionId; integer; Identifier for the customer transaction.</li><li>Description; string; Additional information to describe and support the transaction.</li><li>DetailAmount; number; The detail amount of the transaction.</li><li>DetailLineNumber; integer; The transaction detail line number.</li><li>DoDAAC; string; Identifier for a Department of Defense activity location.</li><li>DocumentId; integer; Used to store a unique identifier value which can be used for drill-down or reconciling flexibility.</li><li>FSNAAAADSN; integer; The accountable station code which is a combination of the Fiscal Station Number (FSN), the Authorization Accounting Activity (AAA), and the Accounting and Disbursing Station Number (ADSN). This is a subdivision of the agency location code (ALC).</li><li>FYObligationId; integer; The obligation identifier for the fiscal year.</li><li>IPACBillingId; integer; Billing identification number for the transaction.</li><li>IPACDocumentReferenceNumber; integer; Document reference number for a transaction.</li><li>InvoiceAmount; number; Invoice amount of the transaction.</li><li>InvoiceNumber; string; Invoice number of the transaction.</li><li>JASNumber; string; A number that's a combination of the Job Order Number, Accounting Classification Record Number, and Site-ID for the transaction being processed.</li><li>JobProjectNumber; string; The job number of the transaction being processed.</li><li>LastUpdateDate; string; The date and time of the last update of the row.</li><li>LastUpdateLogin; string; The session login associated to the user who last updated the row.</li><li>LastUpdatedBy; string; The user who last updated the row.</li><li>LoadDate; string; The date on which the transaction data was loaded into Oracle Fusion Financials tables.</li><li>Message; string; Additional description for the transaction activity.</li><li>MiscellaneousInformation; string; Additional miscellaneous transaction information.</li><li>NumberOfDetailItems; integer; Number of detail lines in the transaction.</li><li>ObligatingDocumentNumber; string; The billing agency's internal accounting document associated with a specific bill or disbursement.</li><li>OriginalAccomplishedDate; string; The original accomplished date of the transaction.</li><li>OriginalAccountingDate; string; The original accounting date of the transaction.</li><li>OriginalDoSymbolALC; string; The IPAC Disbursing Office Symbol (DOS) of the sender of the original payment or collection transaction.</li><li>OriginalDocumentReferenceNumber; integer; The original document reference number for the transaction.</li><li>OriginalTransactionType; string; The type of the transaction from the original transaction.</li><li>OriginatorALC; string; The agency location code (ALC) of the originator.</li><li>PaymentCode; string; Indicates whether the payment for the transaction line amount is full or partial.</li><li>ProcessDate; string; The date on which the IPAC outbound process was run.</li><li>PurchaseOrderNumber; string; The purchase order number of the transaction.</li><li>Quantity; number; The number of items in the transaction.</li><li>ReceiverBETC; string; The receiver's type of activity.</li><li>ReceiverDUNSorUEI; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number of the receiver.</li><li>ReceiverDUNSplus4OrEFT; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number plus 4 of the receiver.</li><li>ReceiverDepartmentCode; string; The department code of the receiver.</li><li>ReceiverTreasuryAccountSymbol; string; The receiver's treasury account symbol.</li><li>RecordType; string; The code for the IPAC transaction record type that indicates whether the transaction is inbound or outbound.</li><li>RequisitionNumber; string; The requisition number of the transaction.</li><li>SenderBETC; string; The Identifier of the sender's type of activity.</li><li>SenderDUNSorUEI; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number of the sender.</li><li>SenderDUNSplus4OrEFT; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number plus 4 of the sender.</li><li>SenderDoSymbolALC; string; The IPAC Disbursing Office Symbol (DOS) for the agency location code (ALC) sending the transaction.</li><li>SenderTreasuryAccountSymbol; string; The sender's treasury account symbol.</li><li>Status; string; The status of the record being loaded.</li><li>SubmitterALC; string; The agency location code (ALC) of the submitter.</li><li>TaxpayerNumber; string; Taxpayer number of the transaction.</li><li>TransactionContactEmailAddress; string; The email address of the IPAC transaction contact of the seller agency.</li><li>TransactionContactPhone; string; The phone number of the IPAC transaction contact of the seller agency.</li><li>TransactionDataId; integer; The unique identifier of the IPAC transaction data.</li><li>TransactionId; integer; The unique identifier of the IPAC transaction.</li><li>TransactionSetId; string; The code that identifies the transaction set.</li><li>TransactionType; string; The type of the transaction being processed.</li><li>USSGLTransactionCode; string; USSGL transaction code for outbound transactions.</li><li>UnitOfIssue; string; The number of items that are being issued.</li><li>UnitPrice; number; The unit price of an item in the transaction.</li><li>UserAttribute1; string; Used for storing User Attribute 8.</li><li>UserAttribute10; string; Used for storing User Attribute 11.</li><li>UserAttribute11; string; Used for storing User Attribute 15</li><li>UserAttribute12; string; Used for storing User Attribute 5.</li><li>UserAttribute13; string; Used for storing User Attribute 4.</li><li>UserAttribute14; string; Used for storing User Attribute 14.</li><li>UserAttribute15; string; Used for storing User Attribute 9.</li><li>UserAttribute2; string; Used for storing User Attribute 1.</li><li>UserAttribute3; string; Used for storing User Attribute 7.</li><li>UserAttribute4; string; Used for storing User Attribute 6.</li><li>UserAttribute5; string; Used for storing User Attribute 10.</li><li>UserAttribute6; string; Used for storing User Attribute 13.</li><li>UserAttribute7; string; Used for storing User Attribute 3.</li><li>UserAttribute8; string; Used for storing User Attribute 12.</li><li>UserAttribute9; string; Used for storing User Attribute 2.</li><li>VoucherNumber; string; The voucher number for the transaction.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the federal IPAC transaction record that matches the specified primary key criteria. <br>Finder Variables <ul><li>TransactionDataId; integer;  The unique identifier of the IPAC transaction data. </li></ul></li><li>RecordTypeFinder Finds the federal IPAC transaction record that match the specified RecordType; string;  finder search criteria. <br>Finder Variables <ul><li>RecordType; string;  Finds the federal IPAC transaction record that match the specified RecordType; string;  finder search criteria. </li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/fedIPACTransactionData",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "fedIPACTransactionData"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ACRN; string; The Accounting Classification Reference Number that identifies a line of accounting on a contract.</li><li>ACTTraceNumber; integer; The Accounting Trace (ACT) number for the transaction being processed.</li><li>AccomplishedDate; string; The date on which the transaction occurred.</li><li>Accounted; string; Value that identifies whether the transaction is accounted.</li><li>AccountingClassificationCode; string; Accounting classification code for the transaction.</li><li>AccountingDate; string; Date on which the transaction was accounted in the system.</li><li>CLIN; string; The Contract Line Item Number (CLIN) of the transaction.</li><li>ContactEmailAddress; string; The email address of the contact person.</li><li>ContactName; string; The name of the contact person for the transaction.</li><li>ContactPhoneNumber; string; The phone number of the contact person.</li><li>ContractNumber; string; A unique number used to identify a contract between two trading partners.</li><li>CreatedBy; string; The user who created the row.</li><li>CreationDate; string; The date and time of the creation of the row.</li><li>CreditDebitCode; string; Identifier for the type of transaction whether it's a credit transaction or a debit transaction.</li><li>CustomerALC; string; The agency location code of the customer.</li><li>CustomerId; integer; Unique identifier of the customer.</li><li>CustomerName; string; Name of the customer involved in the transaction.</li><li>CustomerTransactionId; integer; Identifier for the customer transaction.</li><li>Description; string; Additional information to describe and support the transaction.</li><li>DetailAmount; number; The detail amount of the transaction.</li><li>DetailLineNumber; integer; The transaction detail line number.</li><li>DoDAAC; string; Identifier for a Department of Defense activity location.</li><li>DocumentId; integer; Used to store a unique identifier value which can be used for drill-down or reconciling flexibility.</li><li>FSNAAAADSN; integer; The accountable station code which is a combination of the Fiscal Station Number (FSN), the Authorization Accounting Activity (AAA), and the Accounting and Disbursing Station Number (ADSN). This is a subdivision of the agency location code (ALC).</li><li>FYObligationId; integer; The obligation identifier for the fiscal year.</li><li>IPACBillingId; integer; Billing identification number for the transaction.</li><li>IPACDocumentReferenceNumber; integer; Document reference number for a transaction.</li><li>InvoiceAmount; number; Invoice amount of the transaction.</li><li>InvoiceNumber; string; Invoice number of the transaction.</li><li>JASNumber; string; A number that's a combination of the Job Order Number, Accounting Classification Record Number, and Site-ID for the transaction being processed.</li><li>JobProjectNumber; string; The job number of the transaction being processed.</li><li>LastUpdateDate; string; The date and time of the last update of the row.</li><li>LastUpdateLogin; string; The session login associated to the user who last updated the row.</li><li>LastUpdatedBy; string; The user who last updated the row.</li><li>LoadDate; string; The date on which the transaction data was loaded into Oracle Fusion Financials tables.</li><li>Message; string; Additional description for the transaction activity.</li><li>MiscellaneousInformation; string; Additional miscellaneous transaction information.</li><li>NumberOfDetailItems; integer; Number of detail lines in the transaction.</li><li>ObligatingDocumentNumber; string; The billing agency's internal accounting document associated with a specific bill or disbursement.</li><li>OriginalAccomplishedDate; string; The original accomplished date of the transaction.</li><li>OriginalAccountingDate; string; The original accounting date of the transaction.</li><li>OriginalDoSymbolALC; string; The IPAC Disbursing Office Symbol (DOS) of the sender of the original payment or collection transaction.</li><li>OriginalDocumentReferenceNumber; integer; The original document reference number for the transaction.</li><li>OriginalTransactionType; string; The type of the transaction from the original transaction.</li><li>OriginatorALC; string; The agency location code (ALC) of the originator.</li><li>PaymentCode; string; Indicates whether the payment for the transaction line amount is full or partial.</li><li>ProcessDate; string; The date on which the IPAC outbound process was run.</li><li>PurchaseOrderNumber; string; The purchase order number of the transaction.</li><li>Quantity; number; The number of items in the transaction.</li><li>ReceiverBETC; string; The receiver's type of activity.</li><li>ReceiverDUNSorUEI; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number of the receiver.</li><li>ReceiverDUNSplus4OrEFT; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number plus 4 of the receiver.</li><li>ReceiverDepartmentCode; string; The department code of the receiver.</li><li>ReceiverTreasuryAccountSymbol; string; The receiver's treasury account symbol.</li><li>RecordType; string; The code for the IPAC transaction record type that indicates whether the transaction is inbound or outbound.</li><li>RequisitionNumber; string; The requisition number of the transaction.</li><li>SenderBETC; string; The Identifier of the sender's type of activity.</li><li>SenderDUNSorUEI; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number of the sender.</li><li>SenderDUNSplus4OrEFT; string; The Dun and Bradstreet Data Universal Numbering System (D-U-N-S) number plus 4 of the sender.</li><li>SenderDoSymbolALC; string; The IPAC Disbursing Office Symbol (DOS) for the agency location code (ALC) sending the transaction.</li><li>SenderTreasuryAccountSymbol; string; The sender's treasury account symbol.</li><li>Status; string; The status of the record being loaded.</li><li>SubmitterALC; string; The agency location code (ALC) of the submitter.</li><li>TaxpayerNumber; string; Taxpayer number of the transaction.</li><li>TransactionContactEmailAddress; string; The email address of the IPAC transaction contact of the seller agency.</li><li>TransactionContactPhone; string; The phone number of the IPAC transaction contact of the seller agency.</li><li>TransactionDataId; integer; The unique identifier of the IPAC transaction data.</li><li>TransactionId; integer; The unique identifier of the IPAC transaction.</li><li>TransactionSetId; string; The code that identifies the transaction set.</li><li>TransactionType; string; The type of the transaction being processed.</li><li>USSGLTransactionCode; string; USSGL transaction code for outbound transactions.</li><li>UnitOfIssue; string; The number of items that are being issued.</li><li>UnitPrice; number; The unit price of an item in the transaction.</li><li>UserAttribute1; string; Used for storing User Attribute 8.</li><li>UserAttribute10; string; Used for storing User Attribute 11.</li><li>UserAttribute11; string; Used for storing User Attribute 15</li><li>UserAttribute12; string; Used for storing User Attribute 5.</li><li>UserAttribute13; string; Used for storing User Attribute 4.</li><li>UserAttribute14; string; Used for storing User Attribute 14.</li><li>UserAttribute15; string; Used for storing User Attribute 9.</li><li>UserAttribute2; string; Used for storing User Attribute 1.</li><li>UserAttribute3; string; Used for storing User Attribute 7.</li><li>UserAttribute4; string; Used for storing User Attribute 6.</li><li>UserAttribute5; string; Used for storing User Attribute 10.</li><li>UserAttribute6; string; Used for storing User Attribute 13.</li><li>UserAttribute7; string; Used for storing User Attribute 3.</li><li>UserAttribute8; string; Used for storing User Attribute 12.</li><li>UserAttribute9; string; Used for storing User Attribute 2.</li><li>VoucherNumber; string; The voucher number for the transaction.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the federal IPAC transaction record that matches the specified primary key criteria. <br>Finder Variables <ul><li>TransactionDataId; integer;  The unique identifier of the IPAC transaction data. </li></ul></li><li>RecordTypeFinder Finds the federal IPAC transaction record that match the specified RecordType; string;  finder search criteria. <br>Finder Variables <ul><li>RecordType; string;  Finds the federal IPAC transaction record that match the specified RecordType; string;  finder search criteria. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"ACRN\": \"<string>\",\n      \"ACTTraceNumber\": \"<integer>\",\n      \"AccomplishedDate\": \"<string>\",\n      \"Accounted\": \"<string>\",\n      \"AccountingClassificationCode\": \"<string>\",\n      \"AccountingDate\": \"<string>\",\n      \"CLIN\": \"<string>\",\n      \"ContactEmailAddress\": \"<string>\",\n      \"ContactName\": \"<string>\",\n      \"ContactPhoneNumber\": \"<string>\",\n      \"ContractNumber\": \"<string>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"CreditDebitCode\": \"<string>\",\n      \"CustomerALC\": \"<string>\",\n      \"CustomerId\": \"<integer>\",\n      \"CustomerName\": \"<string>\",\n      \"CustomerTransactionId\": \"<integer>\",\n      \"Description\": \"<string>\",\n      \"DetailAmount\": \"<number>\",\n      \"DetailLineNumber\": \"<integer>\",\n      \"DoDAAC\": \"<string>\",\n      \"DocumentId\": \"<integer>\",\n      \"FSNAAAADSN\": \"<integer>\",\n      \"FYObligationId\": \"<integer>\",\n      \"IPACBillingId\": \"<integer>\",\n      \"IPACDocumentReferenceNumber\": \"<integer>\",\n      \"InvoiceAmount\": \"<number>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"JASNumber\": \"<string>\",\n      \"JobProjectNumber\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"LoadDate\": \"<string>\",\n      \"Message\": \"<string>\",\n      \"MiscellaneousInformation\": \"<string>\",\n      \"NumberOfDetailItems\": \"<integer>\",\n      \"ObligatingDocumentNumber\": \"<string>\",\n      \"OriginalAccomplishedDate\": \"<string>\",\n      \"OriginalAccountingDate\": \"<string>\",\n      \"OriginalDoSymbolALC\": \"<string>\",\n      \"OriginalDocumentReferenceNumber\": \"<integer>\",\n      \"OriginalTransactionType\": \"<string>\",\n      \"OriginatorALC\": \"<string>\",\n      \"PaymentCode\": \"<string>\",\n      \"ProcessDate\": \"<string>\",\n      \"PurchaseOrderNumber\": \"<string>\",\n      \"Quantity\": \"<number>\",\n      \"ReceiverBETC\": \"<string>\",\n      \"ReceiverDUNSorUEI\": \"<string>\",\n      \"ReceiverDUNSplus4OrEFT\": \"<string>\",\n      \"ReceiverDepartmentCode\": \"<string>\",\n      \"ReceiverTreasuryAccountSymbol\": \"<string>\",\n      \"RecordType\": \"<string>\",\n      \"RequisitionNumber\": \"<string>\",\n      \"SenderBETC\": \"<string>\",\n      \"SenderDUNSorUEI\": \"<string>\",\n      \"SenderDUNSplus4OrEFT\": \"<string>\",\n      \"SenderDoSymbolALC\": \"<string>\",\n      \"SenderTreasuryAccountSymbol\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"SubmitterALC\": \"<string>\",\n      \"TaxpayerNumber\": \"<string>\",\n      \"TransactionContactEmailAddress\": \"<string>\",\n      \"TransactionContactPhone\": \"<string>\",\n      \"TransactionDataId\": \"<integer>\",\n      \"TransactionId\": \"<integer>\",\n      \"TransactionSetId\": \"<string>\",\n      \"TransactionType\": \"<string>\",\n      \"USSGLTransactionCode\": \"<string>\",\n      \"UnitOfIssue\": \"<string>\",\n      \"UnitPrice\": \"<number>\",\n      \"UserAttribute1\": \"<string>\",\n      \"UserAttribute10\": \"<string>\",\n      \"UserAttribute11\": \"<string>\",\n      \"UserAttribute12\": \"<string>\",\n      \"UserAttribute13\": \"<string>\",\n      \"UserAttribute14\": \"<string>\",\n      \"UserAttribute15\": \"<string>\",\n      \"UserAttribute2\": \"<string>\",\n      \"UserAttribute3\": \"<string>\",\n      \"UserAttribute4\": \"<string>\",\n      \"UserAttribute5\": \"<string>\",\n      \"UserAttribute6\": \"<string>\",\n      \"UserAttribute7\": \"<string>\",\n      \"UserAttribute8\": \"<string>\",\n      \"UserAttribute9\": \"<string>\",\n      \"VoucherNumber\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The federal IPAC transaction data resource enables users to manage IPAC transaction data."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

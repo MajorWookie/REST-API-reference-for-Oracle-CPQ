@@ -1,0 +1,418 @@
+{
+    "info": {
+        "_postman_id": "99834621-e9ed-4b6a-b0d3-6e8dfe8e9029",
+        "name": "Oracle Fusion Cloud CX Sales - Incentive Compensation Earnings",
+        "description": "REST API collection for Oracle Fusion Cloud Sales and Service — Incentive Compensation Earnings module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Incentive Compensation Earnings",
+            "item": [
+                {
+                    "name": "Incentive Compensation Earnings",
+                    "item": [
+                        {
+                            "name": "{EarningId}",
+                            "item": [
+                                {
+                                    "name": "Get an earning",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/incentiveCompensationEarnings/:EarningId",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "incentiveCompensationEarnings",
+                                                ":EarningId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "EarningId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The unique identifier of the earnings."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{CX_SALES Site URL}}/incentiveCompensationEarnings/:EarningId",
+                                                    "host": [
+                                                        "{{CX_SALES Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "incentiveCompensationEarnings",
+                                                        ":EarningId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "EarningId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The unique identifier of the earnings."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CalculationCurrency\": \"<string>\",\n  \"CommissionValue\": \"<number>\",\n  \"CompensationPlanId\": \"<integer>\",\n  \"CompensationPlanName\": \"<string>\",\n  \"ConversionRate\": \"<number>\",\n  \"CreatedBy\": \"<string>\",\n  \"CreatedDuring\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"CreditAmount\": \"<number>\",\n  \"CreditedParticipantId\": \"<integer>\",\n  \"EarningAmount\": \"<number>\",\n  \"EarningId\": \"<integer>\",\n  \"EarningType\": \"<string>\",\n  \"EarningTypeId\": \"<integer>\",\n  \"EligibleCatId\": \"<integer>\",\n  \"ErrorReason\": \"<string>\",\n  \"FormulaEcatId\": \"<integer>\",\n  \"FormulaId\": \"<integer>\",\n  \"FormulaWeight\": \"<number>\",\n  \"HomeCurrencyCode\": \"<string>\",\n  \"HomeCurrencyConversionRate\": \"<number>\",\n  \"HomeEarningAmount\": \"<number>\",\n  \"InputAchieved\": \"<number>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"ObjectStatus\": \"<string>\",\n  \"OperatingEarningAmount\": \"<number>\",\n  \"OrgId\": \"<integer>\",\n  \"OutputAchieved\": \"<number>\",\n  \"ParticipantId\": \"<integer>\",\n  \"ParticipantName\": \"<string>\",\n  \"PayPeriodId\": \"<integer>\",\n  \"PlanComponentId\": \"<integer>\",\n  \"PlanComponentName\": \"<string>\",\n  \"PostingStatus\": \"<string>\",\n  \"ProcessCode\": \"<string>\",\n  \"SourceEventDate\": \"<string>\",\n  \"SourceEventPeriodId\": \"<integer>\",\n  \"SourceOrgId\": \"<integer>\",\n  \"SourceTrxNumber\": \"<string>\",\n  \"SplitPct\": \"<number>\",\n  \"SrpAlternatePayeeId\": \"<integer>\",\n  \"SrpCompensationPlanId\": \"<integer>\",\n  \"TierSplits\": \"<integer>\",\n  \"TransactionAmount\": \"<number>\",\n  \"TransactionId\": \"<integer>\",\n  \"TransactionType\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all earnings",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{CX_SALES Site URL}}/incentiveCompensationEarnings",
+                                    "host": [
+                                        "{{CX_SALES Site URL}}"
+                                    ],
+                                    "path": [
+                                        "incentiveCompensationEarnings"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CalculationCurrency; string; The code indicating the processing currency for the earning amounts. The processing currency is selected as either the operating currency or the participant home currency for the business unit. Review the processing currency parameter using the Setup and Maintenance work area, Manage Parameters task.</li><li>CommissionValue; number; The incentive rate table amount, or percent, that was used to calculate the earning amount.</li><li>CompensationPlanId; integer; The unique identifier of the compensation plan.</li><li>CompensationPlanName; string; The name of the  compensation plan for which the earnings are calculated.</li><li>ConversionRate; number; The exchange rate to convert the processing currency into operating currency.</li><li>CreatedBy; string; The user who created the incentive compensation earning.</li><li>CreatedDuring; string; The lookup code indicating when this earning record was created. The possible values include ELIGIBLE  and CALCULATION. A list of acceptable values is defined in the lookup CN_TP_EARNING_CREATED_DURING.</li><li>CreationDate; string; The date when the earning was created.</li><li>CreditAmount; number; The credit amount expressed in processing currency.</li><li>CreditedParticipantId; integer; The unique identifier of the participant.</li><li>EarningAmount; number; The amount earned expressed in processing currency.</li><li>EarningId; integer; The unique identifier of the earnings.</li><li>EarningType; string; The name of the earning type for the plan component. This values is used to classify earnings into monetary and nonmonetary categories.</li><li>EarningTypeId; integer; The unique identifier of the type of earning.</li><li>EligibleCatId; integer; The unique identifier of the credit category.</li><li>ErrorReason; string; The reason explaining why the earning is in error status.</li><li>FormulaEcatId; integer; The unique identifier representing the credit category for a plan component.</li><li>FormulaId; integer; The unique identifier for the incentive formula.</li><li>FormulaWeight; number; The percentage of influence a plan component has on the compensation plan. It is also called target incentive percent.</li><li>HomeCurrencyCode; string; The participant home currency code that is in effect as of the source event date of the payment transaction. Review the effective participant attributes using the Participant Snapshot work area, Manage Participant Detail page.</li><li>HomeCurrencyConversionRate; number; The exchange rate to convert the processing currency into home currency.</li><li>HomeEarningAmount; number; The amount earned expressed in participant home currency.</li><li>InputAchieved; number; The amount passed to the rate table to calculate the earnings based on the input expression defined in the plan component.</li><li>LastUpdatedBy; string; The user who last updated the earning.</li><li>ObjectStatus; string; The lookup code indicating the current status of the earnings record, such as calculated, calculation error, eligible, or reversed. Review the available lookup codes for the lookup type CN_TP_EARNING_OBJECT_STATUS using the Setup and Maintenance, Manage Incentive Compensation Lookups task.</li><li>OperatingEarningAmount; number; The amount earned expressed in business unit operating currency.</li><li>OrgId; integer; The unique identifier of the business unit.</li><li>OutputAchieved; number; The amount calculated by the earnings expression of an incentive formula.</li><li>ParticipantId; integer; The unique identifier of the incentive compensation participant who received direct credit for the source transaction.</li><li>ParticipantName; string; The name of the incentive compensation credit receiver.</li><li>PayPeriodId; integer; The unique identifier of the pay period. The period number represents the calendar period the paysheet and payment batch is for. The period numbers are generated when you define your incentive compensation calendar using the Setup and Maintenance work area, Manage Calendars task. For example, the period number 2018001 represents the first period in the year 2018.</li><li>PlanComponentId; integer; The unique identifier of the plan component.</li><li>PlanComponentName; string; The name of the plan component for which the earnings are calculated.</li><li>PostingStatus; string; The status code indicating if the earning was included in the payment process. If true then the earning was included in the payment. Possible values include false and true.</li><li>ProcessCode; string; The process code provided in the source transaction to override classification, crediting, and rollup processing.</li><li>SourceEventDate; string; The date of the earning event. The event date is either the source transaction event date or the calculation grouping event date which resulted in the incentive earning.</li><li>SourceEventPeriodId; integer; The unique identifier of the calendar period in which the transaction event date falls.</li><li>SourceOrgId; integer; The unique identifier of the source business unit of the transaction.</li><li>SourceTrxNumber; string; The transaction number which resulted in the  incentive earnings.</li><li>SplitPct; number; The percentage number applied against the transaction amount to calculate the credit amount.</li><li>SrpAlternatePayeeId; integer; The unique identifier of the alternate person who is eligible to receive payment for this earnings.</li><li>SrpCompensationPlanId; integer; The unique identifier of the assignment of the compensation plan to the participant.</li><li>TierSplits; integer; The number of rate tiers used to calculate the earning rate.</li><li>TransactionAmount; number; The transaction amount expressed in processing currency.</li><li>TransactionId; integer; The unique identifier of the transaction.</li><li>TransactionType; string; The type of the transaction. This value indicates the source of the transaction, such as order, invoice, or credit memo. Review the available lookup codes for the lookup type CN_TP_TRANSACTION_TYPE using the Setup and Maintenance, Manage Incentive Compensation Lookups task.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>EarningsSearchFinder: Finds the earnings within the specified date range for a plan component and a credit receiver. <br>Finder Variables: <ul><li>bCreditReceiver; string; The name of the incentive compensation credit receiver.</li><li>bFromDate; string; The date when an earning period starts.</li><li>bPlanComponent; string; The name of the plan component for which the earnings are calculated.</li><li>bToDate; string; The date when an earning period ends.</li><li>bTransactionNumber; string; The transaction number which resulted in the incentive earnings.</li></ul></li><li>PrimaryKey: Finds an earning with the specified identifier.<br>Finder Variables: <ul><li>EarningId; integer; The unique identifier of the earnings.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{CX_SALES Site URL}}/incentiveCompensationEarnings",
+                                            "host": [
+                                                "{{CX_SALES Site URL}}"
+                                            ],
+                                            "path": [
+                                                "incentiveCompensationEarnings"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CalculationCurrency; string; The code indicating the processing currency for the earning amounts. The processing currency is selected as either the operating currency or the participant home currency for the business unit. Review the processing currency parameter using the Setup and Maintenance work area, Manage Parameters task.</li><li>CommissionValue; number; The incentive rate table amount, or percent, that was used to calculate the earning amount.</li><li>CompensationPlanId; integer; The unique identifier of the compensation plan.</li><li>CompensationPlanName; string; The name of the  compensation plan for which the earnings are calculated.</li><li>ConversionRate; number; The exchange rate to convert the processing currency into operating currency.</li><li>CreatedBy; string; The user who created the incentive compensation earning.</li><li>CreatedDuring; string; The lookup code indicating when this earning record was created. The possible values include ELIGIBLE  and CALCULATION. A list of acceptable values is defined in the lookup CN_TP_EARNING_CREATED_DURING.</li><li>CreationDate; string; The date when the earning was created.</li><li>CreditAmount; number; The credit amount expressed in processing currency.</li><li>CreditedParticipantId; integer; The unique identifier of the participant.</li><li>EarningAmount; number; The amount earned expressed in processing currency.</li><li>EarningId; integer; The unique identifier of the earnings.</li><li>EarningType; string; The name of the earning type for the plan component. This values is used to classify earnings into monetary and nonmonetary categories.</li><li>EarningTypeId; integer; The unique identifier of the type of earning.</li><li>EligibleCatId; integer; The unique identifier of the credit category.</li><li>ErrorReason; string; The reason explaining why the earning is in error status.</li><li>FormulaEcatId; integer; The unique identifier representing the credit category for a plan component.</li><li>FormulaId; integer; The unique identifier for the incentive formula.</li><li>FormulaWeight; number; The percentage of influence a plan component has on the compensation plan. It is also called target incentive percent.</li><li>HomeCurrencyCode; string; The participant home currency code that is in effect as of the source event date of the payment transaction. Review the effective participant attributes using the Participant Snapshot work area, Manage Participant Detail page.</li><li>HomeCurrencyConversionRate; number; The exchange rate to convert the processing currency into home currency.</li><li>HomeEarningAmount; number; The amount earned expressed in participant home currency.</li><li>InputAchieved; number; The amount passed to the rate table to calculate the earnings based on the input expression defined in the plan component.</li><li>LastUpdatedBy; string; The user who last updated the earning.</li><li>ObjectStatus; string; The lookup code indicating the current status of the earnings record, such as calculated, calculation error, eligible, or reversed. Review the available lookup codes for the lookup type CN_TP_EARNING_OBJECT_STATUS using the Setup and Maintenance, Manage Incentive Compensation Lookups task.</li><li>OperatingEarningAmount; number; The amount earned expressed in business unit operating currency.</li><li>OrgId; integer; The unique identifier of the business unit.</li><li>OutputAchieved; number; The amount calculated by the earnings expression of an incentive formula.</li><li>ParticipantId; integer; The unique identifier of the incentive compensation participant who received direct credit for the source transaction.</li><li>ParticipantName; string; The name of the incentive compensation credit receiver.</li><li>PayPeriodId; integer; The unique identifier of the pay period. The period number represents the calendar period the paysheet and payment batch is for. The period numbers are generated when you define your incentive compensation calendar using the Setup and Maintenance work area, Manage Calendars task. For example, the period number 2018001 represents the first period in the year 2018.</li><li>PlanComponentId; integer; The unique identifier of the plan component.</li><li>PlanComponentName; string; The name of the plan component for which the earnings are calculated.</li><li>PostingStatus; string; The status code indicating if the earning was included in the payment process. If true then the earning was included in the payment. Possible values include false and true.</li><li>ProcessCode; string; The process code provided in the source transaction to override classification, crediting, and rollup processing.</li><li>SourceEventDate; string; The date of the earning event. The event date is either the source transaction event date or the calculation grouping event date which resulted in the incentive earning.</li><li>SourceEventPeriodId; integer; The unique identifier of the calendar period in which the transaction event date falls.</li><li>SourceOrgId; integer; The unique identifier of the source business unit of the transaction.</li><li>SourceTrxNumber; string; The transaction number which resulted in the  incentive earnings.</li><li>SplitPct; number; The percentage number applied against the transaction amount to calculate the credit amount.</li><li>SrpAlternatePayeeId; integer; The unique identifier of the alternate person who is eligible to receive payment for this earnings.</li><li>SrpCompensationPlanId; integer; The unique identifier of the assignment of the compensation plan to the participant.</li><li>TierSplits; integer; The number of rate tiers used to calculate the earning rate.</li><li>TransactionAmount; number; The transaction amount expressed in processing currency.</li><li>TransactionId; integer; The unique identifier of the transaction.</li><li>TransactionType; string; The type of the transaction. This value indicates the source of the transaction, such as order, invoice, or credit memo. Review the available lookup codes for the lookup type CN_TP_TRANSACTION_TYPE using the Setup and Maintenance, Manage Incentive Compensation Lookups task.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>EarningsSearchFinder: Finds the earnings within the specified date range for a plan component and a credit receiver. <br>Finder Variables: <ul><li>bCreditReceiver; string; The name of the incentive compensation credit receiver.</li><li>bFromDate; string; The date when an earning period starts.</li><li>bPlanComponent; string; The name of the plan component for which the earnings are calculated.</li><li>bToDate; string; The date when an earning period ends.</li><li>bTransactionNumber; string; The transaction number which resulted in the incentive earnings.</li></ul></li><li>PrimaryKey: Finds an earning with the specified identifier.<br>Finder Variables: <ul><li>EarningId; integer; The unique identifier of the earnings.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CalculationCurrency\": \"<string>\",\n      \"CommissionValue\": \"<number>\",\n      \"CompensationPlanId\": \"<integer>\",\n      \"CompensationPlanName\": \"<string>\",\n      \"ConversionRate\": \"<number>\",\n      \"CreatedBy\": \"<string>\",\n      \"CreatedDuring\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"CreditAmount\": \"<number>\",\n      \"CreditedParticipantId\": \"<integer>\",\n      \"EarningAmount\": \"<number>\",\n      \"EarningId\": \"<integer>\",\n      \"EarningType\": \"<string>\",\n      \"EarningTypeId\": \"<integer>\",\n      \"EligibleCatId\": \"<integer>\",\n      \"ErrorReason\": \"<string>\",\n      \"FormulaEcatId\": \"<integer>\",\n      \"FormulaId\": \"<integer>\",\n      \"FormulaWeight\": \"<number>\",\n      \"HomeCurrencyCode\": \"<string>\",\n      \"HomeCurrencyConversionRate\": \"<number>\",\n      \"HomeEarningAmount\": \"<number>\",\n      \"InputAchieved\": \"<number>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"ObjectStatus\": \"<string>\",\n      \"OperatingEarningAmount\": \"<number>\",\n      \"OrgId\": \"<integer>\",\n      \"OutputAchieved\": \"<number>\",\n      \"ParticipantId\": \"<integer>\",\n      \"ParticipantName\": \"<string>\",\n      \"PayPeriodId\": \"<integer>\",\n      \"PlanComponentId\": \"<integer>\",\n      \"PlanComponentName\": \"<string>\",\n      \"PostingStatus\": \"<string>\",\n      \"ProcessCode\": \"<string>\",\n      \"SourceEventDate\": \"<string>\",\n      \"SourceEventPeriodId\": \"<integer>\",\n      \"SourceOrgId\": \"<integer>\",\n      \"SourceTrxNumber\": \"<string>\",\n      \"SplitPct\": \"<number>\",\n      \"SrpAlternatePayeeId\": \"<integer>\",\n      \"SrpCompensationPlanId\": \"<integer>\",\n      \"TierSplits\": \"<integer>\",\n      \"TransactionAmount\": \"<number>\",\n      \"TransactionId\": \"<integer>\",\n      \"TransactionType\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The incentive compensation earnings resource is used to view the details of the participant earnings for a transaction, or a pay period. Incentive compensation earnings store the earnings amount, the compensation plan, and the plan component for which it was earned."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{CX_SALES Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{CX_SALES UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

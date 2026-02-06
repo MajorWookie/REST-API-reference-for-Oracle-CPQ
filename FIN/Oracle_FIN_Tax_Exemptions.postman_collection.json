@@ -1,0 +1,594 @@
+{
+    "info": {
+        "_postman_id": "aa13469e-486a-404d-b8e7-ffa342485c9f",
+        "name": "Oracle Fusion Cloud FIN - Tax Exemptions",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Tax Exemptions module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Tax Exemptions",
+            "item": [
+                {
+                    "name": "Tax Exemptions",
+                    "item": [
+                        {
+                            "name": "{TaxExemptionId}",
+                            "item": [
+                                {
+                                    "name": "Get a tax exemption",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/taxExemptions/:TaxExemptionId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "taxExemptions",
+                                                ":TaxExemptionId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "TaxExemptionId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The unique identifier of the system-generated primary key column."
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/taxExemptions/:TaxExemptionId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "taxExemptions",
+                                                        ":TaxExemptionId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "TaxExemptionId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The unique identifier of the system-generated primary key column."
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"ApplyToLowerLevelsFlag\": \"<boolean>\",\n  \"ClauseReference\": \"<string>\",\n  \"ContentOwner\": \"<string>\",\n  \"ContentOwnerId\": \"<integer>\",\n  \"Country\": \"<string>\",\n  \"CustomChargeFlag\": \"<boolean>\",\n  \"CustomerAccountId\": \"<integer>\",\n  \"DetFactorTemplCode\": \"<string>\",\n  \"EffectiveFrom\": \"<string>\",\n  \"EffectiveTo\": \"<string>\",\n  \"ExemptCertificateNumber\": \"<string>\",\n  \"ExemptReasonCode\": \"<string>\",\n  \"ExemptionStatusCode\": \"<string>\",\n  \"ExemptionTypeCode\": \"<string>\",\n  \"ExemptionUsageCode\": \"<string>\",\n  \"InventoryOrgId\": \"<integer>\",\n  \"IssueDate\": \"<string>\",\n  \"IssueFlag\": \"<boolean>\",\n  \"IssuingTaxAuthority\": \"<string>\",\n  \"IssuingTaxAuthorityId\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"LimitAmount\": \"<number>\",\n  \"Organization\": \"<string>\",\n  \"PartyName\": \"<string>\",\n  \"PartyNumber\": \"<string>\",\n  \"PartySiteNumber\": \"<string>\",\n  \"PartyTaxAllowOffsetTaxFlag\": \"<boolean>\",\n  \"PartyTaxClassificationCode\": \"<string>\",\n  \"PartyTaxInclusiveTaxFlag\": \"<boolean>\",\n  \"PartyTaxProcessForApplicabilityFlag\": \"<boolean>\",\n  \"PartyTaxProfileId\": \"<integer>\",\n  \"PartyTaxRoundingLevelCode\": \"<string>\",\n  \"PartyTaxRoundingRuleCode\": \"<string>\",\n  \"PartyType\": \"<string>\",\n  \"PartyTypeCode\": \"<string>\",\n  \"PartyTypeFlag\": \"<boolean>\",\n  \"PartyUsage\": \"<string>\",\n  \"PrintFlag\": \"<boolean>\",\n  \"ProductId\": \"<integer>\",\n  \"RateModifier\": \"<number>\",\n  \"RecordTypeCode\": \"<string>\",\n  \"RecordingDate\": \"<string>\",\n  \"RegimeTypeFlag\": \"<boolean>\",\n  \"ReportingCodeChar\": \"<string>\",\n  \"ReportingCodeId\": \"<integer>\",\n  \"ReportingCodeName\": \"<string>\",\n  \"ReportingTypeId\": \"<integer>\",\n  \"ReportingTypeName\": \"<string>\",\n  \"SiteUseId\": \"<integer>\",\n  \"SuspendFromDate\": \"<string>\",\n  \"SuspendToDate\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"TaxExemptionId\": \"<integer>\",\n  \"TaxJurisdictionCode\": \"<string>\",\n  \"TaxJurisdictionId\": \"<integer>\",\n  \"TaxRateCode\": \"<string>\",\n  \"TaxRegimeCode\": \"<string>\",\n  \"TaxStatusCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Update a tax exemption",
+                                    "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/taxExemptions/:TaxExemptionId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "taxExemptions",
+                                                ":TaxExemptionId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "TaxExemptionId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The unique identifier of the system-generated primary key column."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/taxExemptions/:TaxExemptionId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "taxExemptions",
+                                                        ":TaxExemptionId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "TaxExemptionId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The unique identifier of the system-generated primary key column."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"ApplyToLowerLevelsFlag\": \"<boolean>\",\n  \"ClauseReference\": \"<string>\",\n  \"ContentOwner\": \"<string>\",\n  \"ContentOwnerId\": \"<integer>\",\n  \"Country\": \"<string>\",\n  \"CustomChargeFlag\": \"<boolean>\",\n  \"CustomerAccountId\": \"<integer>\",\n  \"DetFactorTemplCode\": \"<string>\",\n  \"EffectiveFrom\": \"<string>\",\n  \"EffectiveTo\": \"<string>\",\n  \"ExemptCertificateNumber\": \"<string>\",\n  \"ExemptReasonCode\": \"<string>\",\n  \"ExemptionStatusCode\": \"<string>\",\n  \"ExemptionTypeCode\": \"<string>\",\n  \"ExemptionUsageCode\": \"<string>\",\n  \"InventoryOrgId\": \"<integer>\",\n  \"IssueDate\": \"<string>\",\n  \"IssueFlag\": \"<boolean>\",\n  \"IssuingTaxAuthority\": \"<string>\",\n  \"IssuingTaxAuthorityId\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"LimitAmount\": \"<number>\",\n  \"Organization\": \"<string>\",\n  \"PartyName\": \"<string>\",\n  \"PartyNumber\": \"<string>\",\n  \"PartySiteNumber\": \"<string>\",\n  \"PartyTaxAllowOffsetTaxFlag\": \"<boolean>\",\n  \"PartyTaxClassificationCode\": \"<string>\",\n  \"PartyTaxInclusiveTaxFlag\": \"<boolean>\",\n  \"PartyTaxProcessForApplicabilityFlag\": \"<boolean>\",\n  \"PartyTaxProfileId\": \"<integer>\",\n  \"PartyTaxRoundingLevelCode\": \"<string>\",\n  \"PartyTaxRoundingRuleCode\": \"<string>\",\n  \"PartyType\": \"<string>\",\n  \"PartyTypeCode\": \"<string>\",\n  \"PartyTypeFlag\": \"<boolean>\",\n  \"PartyUsage\": \"<string>\",\n  \"PrintFlag\": \"<boolean>\",\n  \"ProductId\": \"<integer>\",\n  \"RateModifier\": \"<number>\",\n  \"RecordTypeCode\": \"<string>\",\n  \"RecordingDate\": \"<string>\",\n  \"RegimeTypeFlag\": \"<boolean>\",\n  \"ReportingCodeChar\": \"<string>\",\n  \"ReportingCodeId\": \"<integer>\",\n  \"ReportingCodeName\": \"<string>\",\n  \"ReportingTypeId\": \"<integer>\",\n  \"ReportingTypeName\": \"<string>\",\n  \"SiteUseId\": \"<integer>\",\n  \"SuspendFromDate\": \"<string>\",\n  \"SuspendToDate\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"TaxExemptionId\": \"<integer>\",\n  \"TaxJurisdictionCode\": \"<string>\",\n  \"TaxJurisdictionId\": \"<integer>\",\n  \"TaxRateCode\": \"<string>\",\n  \"TaxRegimeCode\": \"<string>\",\n  \"TaxStatusCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Create a tax exemption",
+                            "request": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Upsert-Mode",
+                                        "value": "<string>",
+                                        "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/taxExemptions",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "taxExemptions"
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Upsert-Mode",
+                                                "value": "<string>",
+                                                "description": "Contains one of the following values: true or false. If true, the server performs an Upsert operation instead of a Create operation. During an Upsert operation, the server attempts to find an existing resource that matches the payload. If a match is found, the server updates the existing resource instead of creating a new one. If not found or false (default), the server performs a Create operation. Note that the Upsert operation isn't supported for date-effective REST resources."
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/taxExemptions",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "taxExemptions"
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"ApplyToLowerLevelsFlag\": \"<boolean>\",\n  \"ClauseReference\": \"<string>\",\n  \"ContentOwner\": \"<string>\",\n  \"ContentOwnerId\": \"<integer>\",\n  \"Country\": \"<string>\",\n  \"CustomChargeFlag\": \"<boolean>\",\n  \"CustomerAccountId\": \"<integer>\",\n  \"DetFactorTemplCode\": \"<string>\",\n  \"EffectiveFrom\": \"<string>\",\n  \"EffectiveTo\": \"<string>\",\n  \"ExemptCertificateNumber\": \"<string>\",\n  \"ExemptReasonCode\": \"<string>\",\n  \"ExemptionStatusCode\": \"<string>\",\n  \"ExemptionTypeCode\": \"<string>\",\n  \"ExemptionUsageCode\": \"<string>\",\n  \"InventoryOrgId\": \"<integer>\",\n  \"IssueDate\": \"<string>\",\n  \"IssueFlag\": \"<boolean>\",\n  \"IssuingTaxAuthority\": \"<string>\",\n  \"IssuingTaxAuthorityId\": \"<integer>\",\n  \"ItemNumber\": \"<string>\",\n  \"LimitAmount\": \"<number>\",\n  \"Organization\": \"<string>\",\n  \"PartyName\": \"<string>\",\n  \"PartyNumber\": \"<string>\",\n  \"PartySiteNumber\": \"<string>\",\n  \"PartyTaxAllowOffsetTaxFlag\": \"<boolean>\",\n  \"PartyTaxClassificationCode\": \"<string>\",\n  \"PartyTaxInclusiveTaxFlag\": \"<boolean>\",\n  \"PartyTaxProcessForApplicabilityFlag\": \"<boolean>\",\n  \"PartyTaxProfileId\": \"<integer>\",\n  \"PartyTaxRoundingLevelCode\": \"<string>\",\n  \"PartyTaxRoundingRuleCode\": \"<string>\",\n  \"PartyType\": \"<string>\",\n  \"PartyTypeCode\": \"<string>\",\n  \"PartyTypeFlag\": \"<boolean>\",\n  \"PartyUsage\": \"<string>\",\n  \"PrintFlag\": \"<boolean>\",\n  \"ProductId\": \"<integer>\",\n  \"RateModifier\": \"<number>\",\n  \"RecordTypeCode\": \"<string>\",\n  \"RecordingDate\": \"<string>\",\n  \"RegimeTypeFlag\": \"<boolean>\",\n  \"ReportingCodeChar\": \"<string>\",\n  \"ReportingCodeId\": \"<integer>\",\n  \"ReportingCodeName\": \"<string>\",\n  \"ReportingTypeId\": \"<integer>\",\n  \"ReportingTypeName\": \"<string>\",\n  \"SiteUseId\": \"<integer>\",\n  \"SuspendFromDate\": \"<string>\",\n  \"SuspendToDate\": \"<string>\",\n  \"Tax\": \"<string>\",\n  \"TaxExemptionId\": \"<integer>\",\n  \"TaxJurisdictionCode\": \"<string>\",\n  \"TaxJurisdictionId\": \"<integer>\",\n  \"TaxRateCode\": \"<string>\",\n  \"TaxRegimeCode\": \"<string>\",\n  \"TaxStatusCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all tax exemptions",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/taxExemptions",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "taxExemptions"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplyToLowerLevelsFlag; boolean; The action to apply a tax exemption to all taxes that use this tax as the tax exemptions source. For example, if a STATE tax is configured as the tax exemption source for both the COUNTY and CITY tax, then checking this box applies the tax exemption at both of the COUNTY and CITY tax levels.</li><li>ClauseReference; string; The legal tax clause on the basis of which the Letter of Intent applies to suppliers or customers.</li><li>ContentOwner; string; The configuration owner associated with a tax exemption.</li><li>ContentOwnerId; integer; The unique identifier of the content owner associated with a tax exemption.</li><li>Country; string; The country in the party address for which the tax exemption applies.</li><li>CustomChargeFlag; boolean; Indicates whether a Letter of Intent should be addressed to the local customs office.</li><li>CustomerAccountId; integer; The unique identifier of the customer account associated with a tax exemption.</li><li>DetFactorTemplCode; string; The determining factor template code associated with a tax exemption.</li><li>EffectiveFrom; string; The date when the tax exemptions start being effective.</li><li>EffectiveTo; string; The date when the tax exemptions stop being effective.</li><li>ExemptCertificateNumber; string; The exemption certificate number associated with a tax exemption granted by a tax authority.</li><li>ExemptReasonCode; string; The exemption reason code associated with a tax exemption.</li><li>ExemptionStatusCode; string; The exemption status code indicates the approval status of an exemption. The valid values are PRIMARY, MANUAL, DISCONTINUED, REJECTED, and UNAPPROVED.</li><li>ExemptionTypeCode; string; The lookup code that indicates the exemption type. Possible values are DISCOUNT, SURCHARGE, and SPECIAL RATE. The exemption rate type attribute represents the method of calculating the tax exemption percentage.</li><li>ExemptionUsageCode; string; The exemption usage code that identifies the activity for which a tax exemption is granted by a tax authority.</li><li>InventoryOrgId; integer; The unique identifier of the inventory organization associated with an item referenced in a tax exemption.</li><li>IssueDate; string; The date when a tax exemption is issued.</li><li>IssueFlag; boolean; Indicates whether to create or register the Letter of Intent based on the party type chosen. The Letter of Intent is issued to indicate the VAT exemption limit applicable to a supplier or customer.</li><li>IssuingTaxAuthority; string; The tax authority that issued an exemption.</li><li>IssuingTaxAuthorityId; integer; The unique identifier of the issuing tax authority that has granted a tax exemption.</li><li>ItemNumber; string; The inventory item number for which a tax exemption applies.</li><li>LimitAmount; number; The dollar amount limit for a granted tax exemption.</li><li>Organization; string; The name of the corresponding inventory organization for an item that is eligible for a tax exemption. This is applicable for product-specific tax exemptions.</li><li>PartyName; string; The party name associated with a tax exemption.</li><li>PartyNumber; string; The party number associated with a tax exemption.</li><li>PartySiteNumber; string; The party site number associated with a tax exemption.</li><li>PartyTaxAllowOffsetTaxFlag; boolean; Indicates whether the party tax profile has been configured to allow offset tax calculation. The default value is NO.</li><li>PartyTaxClassificationCode; string; The tax classification code for the party tax profile associated with a tax exemption.</li><li>PartyTaxInclusiveTaxFlag; boolean; Indicates whether the party tax profile has been configured to allow inclusive tax calculation.</li><li>PartyTaxProcessForApplicabilityFlag; boolean; Indicates whether the party tax profile definition is applied as part of the tax determination process.</li><li>PartyTaxProfileId; integer; The unique identifier of the party tax profile associated with a tax exemption.</li><li>PartyTaxRoundingLevelCode; string; The value that specifies the rounding to be applied to party tax amounts on a transaction.</li><li>PartyTaxRoundingRuleCode; string; The rounding rule code for the party tax profile associated with a tax exemption.</li><li>PartyType; string; The party type associated with a tax exemption.</li><li>PartyTypeCode; string; The party type code associated with a tax exemption.</li><li>PartyTypeFlag; boolean; Indicates whether a tax exemption party type is a customer or a supplier. The default value is CUSTOMER.</li><li>PartyUsage; string; Indicates whether a third-party tax exemption is applicable to a customer or supplier.</li><li>PrintFlag; boolean; Indicates whether a tax exemption letter of intent is ready to print. The default value is NO.</li><li>ProductId; integer; The unique identifier of the product for which a tax exemption applies.</li><li>RateModifier; number; The exemption percentage associated with a tax exemption.</li><li>RecordTypeCode; string; The record type code of a tax exemption.</li><li>RecordingDate; string; The date when a tax exemption is recorded.</li><li>RegimeTypeFlag; boolean; Indicates the type of the tax regime. Possible values are W for Withholding, I for Indirect, and NULL for Indirect.</li><li>ReportingCodeName; string; The name of the reporting code associated with a tax exemption.</li><li>ReportingTypeName; string; The name of the reporting type associated with a tax exemption.</li><li>SiteUseId; integer; The unique identifier of the site use associated with a tax exemption.</li><li>SuspendFromDate; string; The date from which the status of an existing tax exemption is set to REJECTED.</li><li>SuspendToDate; string; The date to which the status of an existing tax exemption is set to either REJECTED or DISCONTINUED.</li><li>Tax; string; A specific tax for which an existing tax exemption is applied.</li><li>TaxExemptionId; integer; The unique identifier of the system-generated primary key column.</li><li>TaxJurisdictionCode; string; The tax jurisdiction code that identifies the location for which a tax exemption has been granted by a tax authority.</li><li>TaxJurisdictionId; integer; The unique identifier of the tax jurisdiction for which the tax exemption applies.</li><li>TaxRateCode; string; A specific tax rate for which an existing tax exemption is applied.</li><li>TaxRegimeCode; string; A specific tax regime for which an existing tax exemption is applied.</li><li>TaxStatusCode; string; A specific tax status for which an existing tax exemption is applied.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ManageTaxExemptionsRF: Finds all tax exemptions that match the specified party number, party name, party type code, and country.<br>Finder Variables: <ul><li>country; string; The country associated with a tax exemption.</li><li>partyName; string; The party name associated with a tax exemption.</li><li>partyNumber; string; The party number associated with a tax exemption.</li><li>partyTypeCode; string; The party type code associated with a tax exemption.</li></ul></li><li>PrimaryKey: Finds all tax exemptions that match the specified exemption identifier.<br>Finder Variables: <ul><li>TaxExemptionId; integer; The unique identifier of the tax exemption.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/taxExemptions",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "taxExemptions"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>ApplyToLowerLevelsFlag; boolean; The action to apply a tax exemption to all taxes that use this tax as the tax exemptions source. For example, if a STATE tax is configured as the tax exemption source for both the COUNTY and CITY tax, then checking this box applies the tax exemption at both of the COUNTY and CITY tax levels.</li><li>ClauseReference; string; The legal tax clause on the basis of which the Letter of Intent applies to suppliers or customers.</li><li>ContentOwner; string; The configuration owner associated with a tax exemption.</li><li>ContentOwnerId; integer; The unique identifier of the content owner associated with a tax exemption.</li><li>Country; string; The country in the party address for which the tax exemption applies.</li><li>CustomChargeFlag; boolean; Indicates whether a Letter of Intent should be addressed to the local customs office.</li><li>CustomerAccountId; integer; The unique identifier of the customer account associated with a tax exemption.</li><li>DetFactorTemplCode; string; The determining factor template code associated with a tax exemption.</li><li>EffectiveFrom; string; The date when the tax exemptions start being effective.</li><li>EffectiveTo; string; The date when the tax exemptions stop being effective.</li><li>ExemptCertificateNumber; string; The exemption certificate number associated with a tax exemption granted by a tax authority.</li><li>ExemptReasonCode; string; The exemption reason code associated with a tax exemption.</li><li>ExemptionStatusCode; string; The exemption status code indicates the approval status of an exemption. The valid values are PRIMARY, MANUAL, DISCONTINUED, REJECTED, and UNAPPROVED.</li><li>ExemptionTypeCode; string; The lookup code that indicates the exemption type. Possible values are DISCOUNT, SURCHARGE, and SPECIAL RATE. The exemption rate type attribute represents the method of calculating the tax exemption percentage.</li><li>ExemptionUsageCode; string; The exemption usage code that identifies the activity for which a tax exemption is granted by a tax authority.</li><li>InventoryOrgId; integer; The unique identifier of the inventory organization associated with an item referenced in a tax exemption.</li><li>IssueDate; string; The date when a tax exemption is issued.</li><li>IssueFlag; boolean; Indicates whether to create or register the Letter of Intent based on the party type chosen. The Letter of Intent is issued to indicate the VAT exemption limit applicable to a supplier or customer.</li><li>IssuingTaxAuthority; string; The tax authority that issued an exemption.</li><li>IssuingTaxAuthorityId; integer; The unique identifier of the issuing tax authority that has granted a tax exemption.</li><li>ItemNumber; string; The inventory item number for which a tax exemption applies.</li><li>LimitAmount; number; The dollar amount limit for a granted tax exemption.</li><li>Organization; string; The name of the corresponding inventory organization for an item that is eligible for a tax exemption. This is applicable for product-specific tax exemptions.</li><li>PartyName; string; The party name associated with a tax exemption.</li><li>PartyNumber; string; The party number associated with a tax exemption.</li><li>PartySiteNumber; string; The party site number associated with a tax exemption.</li><li>PartyTaxAllowOffsetTaxFlag; boolean; Indicates whether the party tax profile has been configured to allow offset tax calculation. The default value is NO.</li><li>PartyTaxClassificationCode; string; The tax classification code for the party tax profile associated with a tax exemption.</li><li>PartyTaxInclusiveTaxFlag; boolean; Indicates whether the party tax profile has been configured to allow inclusive tax calculation.</li><li>PartyTaxProcessForApplicabilityFlag; boolean; Indicates whether the party tax profile definition is applied as part of the tax determination process.</li><li>PartyTaxProfileId; integer; The unique identifier of the party tax profile associated with a tax exemption.</li><li>PartyTaxRoundingLevelCode; string; The value that specifies the rounding to be applied to party tax amounts on a transaction.</li><li>PartyTaxRoundingRuleCode; string; The rounding rule code for the party tax profile associated with a tax exemption.</li><li>PartyType; string; The party type associated with a tax exemption.</li><li>PartyTypeCode; string; The party type code associated with a tax exemption.</li><li>PartyTypeFlag; boolean; Indicates whether a tax exemption party type is a customer or a supplier. The default value is CUSTOMER.</li><li>PartyUsage; string; Indicates whether a third-party tax exemption is applicable to a customer or supplier.</li><li>PrintFlag; boolean; Indicates whether a tax exemption letter of intent is ready to print. The default value is NO.</li><li>ProductId; integer; The unique identifier of the product for which a tax exemption applies.</li><li>RateModifier; number; The exemption percentage associated with a tax exemption.</li><li>RecordTypeCode; string; The record type code of a tax exemption.</li><li>RecordingDate; string; The date when a tax exemption is recorded.</li><li>RegimeTypeFlag; boolean; Indicates the type of the tax regime. Possible values are W for Withholding, I for Indirect, and NULL for Indirect.</li><li>ReportingCodeName; string; The name of the reporting code associated with a tax exemption.</li><li>ReportingTypeName; string; The name of the reporting type associated with a tax exemption.</li><li>SiteUseId; integer; The unique identifier of the site use associated with a tax exemption.</li><li>SuspendFromDate; string; The date from which the status of an existing tax exemption is set to REJECTED.</li><li>SuspendToDate; string; The date to which the status of an existing tax exemption is set to either REJECTED or DISCONTINUED.</li><li>Tax; string; A specific tax for which an existing tax exemption is applied.</li><li>TaxExemptionId; integer; The unique identifier of the system-generated primary key column.</li><li>TaxJurisdictionCode; string; The tax jurisdiction code that identifies the location for which a tax exemption has been granted by a tax authority.</li><li>TaxJurisdictionId; integer; The unique identifier of the tax jurisdiction for which the tax exemption applies.</li><li>TaxRateCode; string; A specific tax rate for which an existing tax exemption is applied.</li><li>TaxRegimeCode; string; A specific tax regime for which an existing tax exemption is applied.</li><li>TaxStatusCode; string; A specific tax status for which an existing tax exemption is applied.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>ManageTaxExemptionsRF: Finds all tax exemptions that match the specified party number, party name, party type code, and country.<br>Finder Variables: <ul><li>country; string; The country associated with a tax exemption.</li><li>partyName; string; The party name associated with a tax exemption.</li><li>partyNumber; string; The party number associated with a tax exemption.</li><li>partyTypeCode; string; The party type code associated with a tax exemption.</li></ul></li><li>PrimaryKey: Finds all tax exemptions that match the specified exemption identifier.<br>Finder Variables: <ul><li>TaxExemptionId; integer; The unique identifier of the tax exemption.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"ApplyToLowerLevelsFlag\": \"<boolean>\",\n      \"ClauseReference\": \"<string>\",\n      \"ContentOwner\": \"<string>\",\n      \"ContentOwnerId\": \"<integer>\",\n      \"Country\": \"<string>\",\n      \"CustomChargeFlag\": \"<boolean>\",\n      \"CustomerAccountId\": \"<integer>\",\n      \"DetFactorTemplCode\": \"<string>\",\n      \"EffectiveFrom\": \"<string>\",\n      \"EffectiveTo\": \"<string>\",\n      \"ExemptCertificateNumber\": \"<string>\",\n      \"ExemptReasonCode\": \"<string>\",\n      \"ExemptionStatusCode\": \"<string>\",\n      \"ExemptionTypeCode\": \"<string>\",\n      \"ExemptionUsageCode\": \"<string>\",\n      \"InventoryOrgId\": \"<integer>\",\n      \"IssueDate\": \"<string>\",\n      \"IssueFlag\": \"<boolean>\",\n      \"IssuingTaxAuthority\": \"<string>\",\n      \"IssuingTaxAuthorityId\": \"<integer>\",\n      \"ItemNumber\": \"<string>\",\n      \"LimitAmount\": \"<number>\",\n      \"Organization\": \"<string>\",\n      \"PartyName\": \"<string>\",\n      \"PartyNumber\": \"<string>\",\n      \"PartySiteNumber\": \"<string>\",\n      \"PartyTaxAllowOffsetTaxFlag\": \"<boolean>\",\n      \"PartyTaxClassificationCode\": \"<string>\",\n      \"PartyTaxInclusiveTaxFlag\": \"<boolean>\",\n      \"PartyTaxProcessForApplicabilityFlag\": \"<boolean>\",\n      \"PartyTaxProfileId\": \"<integer>\",\n      \"PartyTaxRoundingLevelCode\": \"<string>\",\n      \"PartyTaxRoundingRuleCode\": \"<string>\",\n      \"PartyType\": \"<string>\",\n      \"PartyTypeCode\": \"<string>\",\n      \"PartyTypeFlag\": \"<boolean>\",\n      \"PartyUsage\": \"<string>\",\n      \"PrintFlag\": \"<boolean>\",\n      \"ProductId\": \"<integer>\",\n      \"RateModifier\": \"<number>\",\n      \"RecordTypeCode\": \"<string>\",\n      \"RecordingDate\": \"<string>\",\n      \"RegimeTypeFlag\": \"<boolean>\",\n      \"ReportingCodeChar\": \"<string>\",\n      \"ReportingCodeId\": \"<integer>\",\n      \"ReportingCodeName\": \"<string>\",\n      \"ReportingTypeId\": \"<integer>\",\n      \"ReportingTypeName\": \"<string>\",\n      \"SiteUseId\": \"<integer>\",\n      \"SuspendFromDate\": \"<string>\",\n      \"SuspendToDate\": \"<string>\",\n      \"Tax\": \"<string>\",\n      \"TaxExemptionId\": \"<integer>\",\n      \"TaxJurisdictionCode\": \"<string>\",\n      \"TaxJurisdictionId\": \"<integer>\",\n      \"TaxRateCode\": \"<string>\",\n      \"TaxRegimeCode\": \"<string>\",\n      \"TaxStatusCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The tax exemptions resource is used to query, update, and create tax exemptions."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

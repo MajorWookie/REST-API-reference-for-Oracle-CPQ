@@ -1,0 +1,835 @@
+{
+    "info": {
+        "_postman_id": "4432b081-ae1c-43e3-ac79-49a2fc38f956",
+        "name": "Oracle Fusion Cloud FIN - Expense Miscellaneous Policies",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Expense Miscellaneous Policies module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Expense Miscellaneous Policies",
+            "item": [
+                {
+                    "name": "Expense Misc Policies",
+                    "item": [
+                        {
+                            "name": "{MiscPolicyId}",
+                            "item": [
+                                {
+                                    "name": "Get an expense miscellaneous policy",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMiscPolicies",
+                                                ":MiscPolicyId"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "MiscPolicyId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMiscPolicies",
+                                                        ":MiscPolicyId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MiscPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"CurrencyOption\": \"<string>\",\n  \"CurrencyOptionCode\": \"<string>\",\n  \"DailyLimitFlag\": \"<boolean>\",\n  \"DaysBasedItemParentFlag\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"DispWarningToUserFlag\": \"<boolean>\",\n  \"EligibilityDays\": \"<integer>\",\n  \"EnabledEligibilityFlag\": \"<boolean>\",\n  \"EnabledGenderFlag\": \"<boolean>\",\n  \"EnabledLocationFlag\": \"<boolean>\",\n  \"EnabledRoleFlag\": \"<boolean>\",\n  \"ErrorTolerance\": \"<number>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"LocationType\": \"<string>\",\n  \"LocationTypeCode\": \"<string>\",\n  \"MiscPolicyId\": \"<integer>\",\n  \"PeriodDay\": \"<integer>\",\n  \"PeriodMonth\": \"<string>\",\n  \"PolicyEnforcement\": \"<string>\",\n  \"PolicyEnforcementCode\": \"<string>\",\n  \"PolicyName\": \"<string>\",\n  \"PolicyRole\": \"<string>\",\n  \"PolicyRoleCode\": \"<string>\",\n  \"PolicyViolationFlag\": \"<boolean>\",\n  \"PreventSubmissionFlag\": \"<boolean>\",\n  \"RateType\": \"<string>\",\n  \"RateTypeCode\": \"<string>\",\n  \"SingleInstanceLimitFlag\": \"<boolean>\",\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"WarningTolerance\": \"<number>\",\n  \"YearlyLimitFlag\": \"<boolean>\",\n  \"ZoneType\": \"<string>\",\n  \"ZoneTypeCode\": \"<string>\",\n  \"expenseMiscPolicyLines\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"DailyLimit\": \"<number>\",\n      \"EndDate\": \"<string>\",\n      \"GenderCode\": \"<string>\",\n      \"GeographyId\": \"<integer>\",\n      \"GeolocName\": \"<string>\",\n      \"InvalidCode\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"MiscPolicyId\": \"<integer>\",\n      \"PolicyLineId\": \"<integer>\",\n      \"RawCity\": \"<string>\",\n      \"RawCountry\": \"<string>\",\n      \"RawCounty\": \"<string>\",\n      \"RawState\": \"<string>\",\n      \"ReimbursementPercentage\": \"<number>\",\n      \"RoleId\": \"<integer>\",\n      \"RoleName\": \"<string>\",\n      \"SingleInstanceLimit\": \"<number>\",\n      \"StartDate\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"TypeOfRateCode\": \"<string>\",\n      \"YearlyLimit\": \"<number>\",\n      \"ZoneCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all expense miscellaneous policies",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/expenseMiscPolicies",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "expenseMiscPolicies"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date and time when the row was created.</li><li>Currency; string; Currency of a miscellaneous expense policy when rates are defined in a single currency.</li><li>CurrencyCode; string; Currency code for miscellaneous expense policy.</li><li>CurrencyOption; string; Miscellaneous expense policy defined for a single currency or for multiple currencies.</li><li>CurrencyOptionCode; string; Miscellaneous expense policy defined for a single currency or for multiple currencies. Values are from the lookup EXM_CURRENCY_OPTION.</li><li>DailyLimitFlag; boolean; Indicates whether the daily amount limit of miscellaneous expenses is enforced. Valid values are Yes and No.</li><li>DaysBasedItemParentFlag; boolean; Indicates whether eligibility for miscellaneous expense reimbursement is based on number of days specified in parent line during itemization in expense entry.</li><li>Description; string; Description of miscellaneous expense policy.</li><li>DispWarningToUserFlag; boolean; Indicates whether miscellaneous expense policy warning is displayed to user.</li><li>EligibilityDays; integer; Minimum number of days before miscellaneous expense is eligible for reimbursement.</li><li>EnabledEligibilityFlag; boolean; Indicates whether a minimum number of days are required for the miscellaneous expense to be eligible for expense reimbursement.</li><li>EnabledGenderFlag; boolean; Indicates whether miscellaneous expense policy rates vary based on the gender of an employee.</li><li>EnabledLocationFlag; boolean; Indicates whether miscellaneous expense policy rates vary by location.</li><li>EnabledRoleFlag; boolean; Indicates whether miscellaneous expense policy rates vary based on employee role.</li><li>ErrorTolerance; number; Percentage added to the miscellaneous expense policy amount limit to obtain the maximum allowable limit for expense report submission.</li><li>LastUpdateDate; string; Date and time when the row was last updated</li><li>LastUpdateLogin; string; Session login of user who last updated the row.</li><li>LastUpdatedBy; string; User who last updated the row.</li><li>LocationType; string; The type of location that determines miscellaneous expense policy rates, such as Geographical Location or Zone.</li><li>LocationTypeCode; string; Indicates the location type that determines miscellaneous expense policy rates. Valid values are from the lookup EXM_LOCATION_TYPE.</li><li>MiscPolicyId; integer; The unique identifier of the miscellaneous expense policy.</li><li>PeriodDay; integer; Start date from which miscellaneous expense policy annual rate limit is counted. Values are from the lookup DAY.</li><li>PeriodMonth; string; Starting month from which miscellaneous expense policy annual rate limit is counted. Values are from the lookup MONTH.</li><li>PolicyEnforcement; string; Type of miscellaneous expense policy enforcement applied.</li><li>PolicyEnforcementCode; string; Indicates the type of miscellaneous expense policy enforcement applied. Values are from the lookup EXM_POLICY_ENFORCEMENT.</li><li>PolicyName; string; Name of the miscellaneous expense policy.</li><li>PolicyRole; string; Role type that determines the miscellaneous expense policy rate, such as Job, Grade, or Position.</li><li>PolicyRoleCode; string; Indicates the role type that determines the miscellaneous expense policy rate, such as Job, Grade, or Position. Values are from the lookup EXM_POLICY_ROLE.</li><li>PolicyViolationFlag; boolean; Indicates whether employees are warned when they submit expenses that exceed the defined miscellaneous expense policy rate limit.</li><li>PreventSubmissionFlag; boolean; Indicates whether expense report submission is prevented if a miscellaneous expense policy violation occurs.</li><li>RateType; string; Policy rate type of the miscellaneous expense policy, such as rate limit, percentage reimbursement, or percentage reimbursement with upper limit.</li><li>RateTypeCode; string; Indicates the policy rate type of the miscellaneous expense policy, such as rate limit, percentage reimbursement, or percentage reimbursement with upper limit. Values are from the lookup EXM_RATE_TYPE.</li><li>SingleInstanceLimitFlag; boolean; Indicates whether miscellaneous expense policy limits are enforced by each submitted instance of the miscellaneous expense item.</li><li>Status; string; Status of the miscellaneous expense policy, Valid values are Draft, Valid, Invalid, and Active.</li><li>StatusCode; string; Indicates the status of the miscellaneous expense policy. Values are from the lookup EXM_POLICY_STATUS.</li><li>WarningTolerance; number; Percentage added to miscellaneous expense policy amount limit to obtain the maximum allowable limit for a policy warning violation.</li><li>YearlyLimitFlag; boolean; Indicates whether miscellaneous expense policy limits are enforced by maximum permitted annual amount. Valid values are Yes and No.</li><li>ZoneType; string; Lookup that defines zone types for the miscellaneous expense policy.</li><li>ZoneTypeCode; string; Indicates the lookup that defines zone types for the miscellaneous expense policy. Values are from the lookup EXM_ZONE_TYPE.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the expense miscellaneous policy record that matches the primary key criteria specified. <br>Finder Variables <ul><li>MiscPolicyId; integer;  The unique identifier of the expense miscellaneous policy record. </li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMiscPolicies",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMiscPolicies"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date and time when the row was created.</li><li>Currency; string; Currency of a miscellaneous expense policy when rates are defined in a single currency.</li><li>CurrencyCode; string; Currency code for miscellaneous expense policy.</li><li>CurrencyOption; string; Miscellaneous expense policy defined for a single currency or for multiple currencies.</li><li>CurrencyOptionCode; string; Miscellaneous expense policy defined for a single currency or for multiple currencies. Values are from the lookup EXM_CURRENCY_OPTION.</li><li>DailyLimitFlag; boolean; Indicates whether the daily amount limit of miscellaneous expenses is enforced. Valid values are Yes and No.</li><li>DaysBasedItemParentFlag; boolean; Indicates whether eligibility for miscellaneous expense reimbursement is based on number of days specified in parent line during itemization in expense entry.</li><li>Description; string; Description of miscellaneous expense policy.</li><li>DispWarningToUserFlag; boolean; Indicates whether miscellaneous expense policy warning is displayed to user.</li><li>EligibilityDays; integer; Minimum number of days before miscellaneous expense is eligible for reimbursement.</li><li>EnabledEligibilityFlag; boolean; Indicates whether a minimum number of days are required for the miscellaneous expense to be eligible for expense reimbursement.</li><li>EnabledGenderFlag; boolean; Indicates whether miscellaneous expense policy rates vary based on the gender of an employee.</li><li>EnabledLocationFlag; boolean; Indicates whether miscellaneous expense policy rates vary by location.</li><li>EnabledRoleFlag; boolean; Indicates whether miscellaneous expense policy rates vary based on employee role.</li><li>ErrorTolerance; number; Percentage added to the miscellaneous expense policy amount limit to obtain the maximum allowable limit for expense report submission.</li><li>LastUpdateDate; string; Date and time when the row was last updated</li><li>LastUpdateLogin; string; Session login of user who last updated the row.</li><li>LastUpdatedBy; string; User who last updated the row.</li><li>LocationType; string; The type of location that determines miscellaneous expense policy rates, such as Geographical Location or Zone.</li><li>LocationTypeCode; string; Indicates the location type that determines miscellaneous expense policy rates. Valid values are from the lookup EXM_LOCATION_TYPE.</li><li>MiscPolicyId; integer; The unique identifier of the miscellaneous expense policy.</li><li>PeriodDay; integer; Start date from which miscellaneous expense policy annual rate limit is counted. Values are from the lookup DAY.</li><li>PeriodMonth; string; Starting month from which miscellaneous expense policy annual rate limit is counted. Values are from the lookup MONTH.</li><li>PolicyEnforcement; string; Type of miscellaneous expense policy enforcement applied.</li><li>PolicyEnforcementCode; string; Indicates the type of miscellaneous expense policy enforcement applied. Values are from the lookup EXM_POLICY_ENFORCEMENT.</li><li>PolicyName; string; Name of the miscellaneous expense policy.</li><li>PolicyRole; string; Role type that determines the miscellaneous expense policy rate, such as Job, Grade, or Position.</li><li>PolicyRoleCode; string; Indicates the role type that determines the miscellaneous expense policy rate, such as Job, Grade, or Position. Values are from the lookup EXM_POLICY_ROLE.</li><li>PolicyViolationFlag; boolean; Indicates whether employees are warned when they submit expenses that exceed the defined miscellaneous expense policy rate limit.</li><li>PreventSubmissionFlag; boolean; Indicates whether expense report submission is prevented if a miscellaneous expense policy violation occurs.</li><li>RateType; string; Policy rate type of the miscellaneous expense policy, such as rate limit, percentage reimbursement, or percentage reimbursement with upper limit.</li><li>RateTypeCode; string; Indicates the policy rate type of the miscellaneous expense policy, such as rate limit, percentage reimbursement, or percentage reimbursement with upper limit. Values are from the lookup EXM_RATE_TYPE.</li><li>SingleInstanceLimitFlag; boolean; Indicates whether miscellaneous expense policy limits are enforced by each submitted instance of the miscellaneous expense item.</li><li>Status; string; Status of the miscellaneous expense policy, Valid values are Draft, Valid, Invalid, and Active.</li><li>StatusCode; string; Indicates the status of the miscellaneous expense policy. Values are from the lookup EXM_POLICY_STATUS.</li><li>WarningTolerance; number; Percentage added to miscellaneous expense policy amount limit to obtain the maximum allowable limit for a policy warning violation.</li><li>YearlyLimitFlag; boolean; Indicates whether miscellaneous expense policy limits are enforced by maximum permitted annual amount. Valid values are Yes and No.</li><li>ZoneType; string; Lookup that defines zone types for the miscellaneous expense policy.</li><li>ZoneTypeCode; string; Indicates the lookup that defines zone types for the miscellaneous expense policy. Values are from the lookup EXM_ZONE_TYPE.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the expense miscellaneous policy record that matches the primary key criteria specified. <br>Finder Variables <ul><li>MiscPolicyId; integer;  The unique identifier of the expense miscellaneous policy record. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"CurrencyOption\": \"<string>\",\n      \"CurrencyOptionCode\": \"<string>\",\n      \"DailyLimitFlag\": \"<boolean>\",\n      \"DaysBasedItemParentFlag\": \"<boolean>\",\n      \"Description\": \"<string>\",\n      \"DispWarningToUserFlag\": \"<boolean>\",\n      \"EligibilityDays\": \"<integer>\",\n      \"EnabledEligibilityFlag\": \"<boolean>\",\n      \"EnabledGenderFlag\": \"<boolean>\",\n      \"EnabledLocationFlag\": \"<boolean>\",\n      \"EnabledRoleFlag\": \"<boolean>\",\n      \"ErrorTolerance\": \"<number>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"LocationType\": \"<string>\",\n      \"LocationTypeCode\": \"<string>\",\n      \"MiscPolicyId\": \"<integer>\",\n      \"PeriodDay\": \"<integer>\",\n      \"PeriodMonth\": \"<string>\",\n      \"PolicyEnforcement\": \"<string>\",\n      \"PolicyEnforcementCode\": \"<string>\",\n      \"PolicyName\": \"<string>\",\n      \"PolicyRole\": \"<string>\",\n      \"PolicyRoleCode\": \"<string>\",\n      \"PolicyViolationFlag\": \"<boolean>\",\n      \"PreventSubmissionFlag\": \"<boolean>\",\n      \"RateType\": \"<string>\",\n      \"RateTypeCode\": \"<string>\",\n      \"SingleInstanceLimitFlag\": \"<boolean>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"WarningTolerance\": \"<number>\",\n      \"YearlyLimitFlag\": \"<boolean>\",\n      \"ZoneType\": \"<string>\",\n      \"ZoneTypeCode\": \"<string>\",\n      \"expenseMiscPolicyLines\": [\n        {}\n      ],\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Expense Miscellaneous Policy Lines",
+                    "item": [
+                        {
+                            "name": "Expense Misc Policies/{MiscPolicyId}/Child/Expense Misc Policy Lines",
+                            "item": [
+                                {
+                                    "name": "{PolicyLineId}",
+                                    "item": [
+                                        {
+                                            "name": "Get an expense miscellaneous policy line",
+                                            "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId/child/expenseMiscPolicyLines/:PolicyLineId",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMiscPolicies",
+                                                        ":MiscPolicyId",
+                                                        "child",
+                                                        "expenseMiscPolicyLines",
+                                                        ":PolicyLineId"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MiscPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        },
+                                                        {
+                                                            "key": "PolicyLineId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "name": "The following table describes the default response for this task.",
+                                                    "originalRequest": {
+                                                        "method": "GET",
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "REST-Framework-Version",
+                                                                "value": "<string>",
+                                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                            },
+                                                            {
+                                                                "key": "Metadata-Context",
+                                                                "value": "<string>",
+                                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                            }
+                                                        ],
+                                                        "url": {
+                                                            "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId/child/expenseMiscPolicyLines/:PolicyLineId",
+                                                            "host": [
+                                                                "{{FIN Site URL}}"
+                                                            ],
+                                                            "path": [
+                                                                "expenseMiscPolicies",
+                                                                ":MiscPolicyId",
+                                                                "child",
+                                                                "expenseMiscPolicyLines",
+                                                                ":PolicyLineId"
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "key": "MiscPolicyId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                },
+                                                                {
+                                                                    "key": "PolicyLineId",
+                                                                    "value": "<integer>",
+                                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                                }
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "key": "expand",
+                                                                    "value": "<string>",
+                                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "fields",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "onlyData",
+                                                                    "value": "<boolean>",
+                                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "dependency",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                                    "disabled": true
+                                                                },
+                                                                {
+                                                                    "key": "links",
+                                                                    "value": "<string>",
+                                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                                    "disabled": true
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "status": "OK",
+                                                    "code": 200,
+                                                    "_postman_previewlanguage": "json",
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "cookie": [],
+                                                    "body": "{\n  \"CreatedBy\": \"<string>\",\n  \"CreationDate\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"CurrencyCode\": \"<string>\",\n  \"DailyLimit\": \"<number>\",\n  \"EndDate\": \"<string>\",\n  \"GenderCode\": \"<string>\",\n  \"GeographyId\": \"<integer>\",\n  \"GeolocName\": \"<string>\",\n  \"InvalidCode\": \"<string>\",\n  \"LastUpdateDate\": \"<string>\",\n  \"LastUpdateLogin\": \"<string>\",\n  \"LastUpdatedBy\": \"<string>\",\n  \"MiscPolicyId\": \"<integer>\",\n  \"PolicyLineId\": \"<integer>\",\n  \"RawCity\": \"<string>\",\n  \"RawCountry\": \"<string>\",\n  \"RawCounty\": \"<string>\",\n  \"RawState\": \"<string>\",\n  \"ReimbursementPercentage\": \"<number>\",\n  \"RoleId\": \"<integer>\",\n  \"RoleName\": \"<string>\",\n  \"SingleInstanceLimit\": \"<number>\",\n  \"StartDate\": \"<string>\",\n  \"Status\": \"<string>\",\n  \"StatusCode\": \"<string>\",\n  \"TypeOfRateCode\": \"<string>\",\n  \"YearlyLimit\": \"<number>\",\n  \"ZoneCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Get all expense miscellaneous policy lines",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId/child/expenseMiscPolicyLines",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "expenseMiscPolicies",
+                                                ":MiscPolicyId",
+                                                "child",
+                                                "expenseMiscPolicyLines"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "MiscPolicyId",
+                                                    "value": "<integer>",
+                                                    "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date and time when the row was created.</li><li>Currency; string; Currency of a miscellaneous expense policy line.</li><li>CurrencyCode; string; Currency code of a miscellaneous expense policy line.</li><li>DailyLimit; number; Daily reimbursement limit for miscellaneous expenses.</li><li>EndDate; string; Date from which the miscellaneous expense policy rate is no longer applicable.</li><li>GenderCode; string; Gender code for the miscellaneous expense policy.</li><li>GeographyId; integer; The unique identifier of the geography for which the miscellaneous expense policy rate is applicable.</li><li>GeolocName; string; Geographical location for which the miscellaneous expense policy rate is applicable.</li><li>InvalidCode; string; Indicates why the miscellaneous expense policy line has the invalid status.</li><li>LastUpdateDate; string; Date and time when the row was last updated</li><li>LastUpdateLogin; string; Session login of user who last updated the row.</li><li>LastUpdatedBy; string; User who last updated the row.</li><li>MiscPolicyId; integer; The unique identifier of the miscellaneous expense policy.</li><li>PolicyLineId; integer; The unique identifier of the miscellaneous expense policy line.</li><li>RawCity; string; City for which the miscellaneous expense policy rate is applicable.</li><li>RawCountry; string; Country for which the miscellaneous expense policy rate is applicable.</li><li>RawCounty; string; County for which the miscellaneous expense policy rate is applicable.</li><li>RawState; string; State for which the miscellaneous expense policy rate is applicable.</li><li>ReimbursementPercentage; number; Percentage of the expense amount that's reimbursed when the submitted expense amount exceeds the limit and the rate type is percentage reimbursement or percentage reimbursement with upper limit.</li><li>RoleId; integer; The unique identifier of the role for which the miscellaneous expense policy rate is applicable.</li><li>RoleName; string; Role name for which the miscellaneous expense policy rate is applicable, such as Director or Engineer.</li><li>SingleInstanceLimit; number; Indicates whether miscellaneous expense policy limits are enforced by each submitted instance of a miscellaneous expense item.</li><li>StartDate; string; Date from which the miscellaneous expense policy rate is applicable.</li><li>Status; string; Status of the miscellaneous expense policy line. Valid values are Draft, Valid, Invalid, and Active.</li><li>StatusCode; string; Indicates the status of the miscellaneous expense policy line. Values are from the lookup EXM_POLICY_STATUS.</li><li>TypeOfRateCode; string; Type of rate line, such as base miscellaneous rate or catch all.</li><li>YearlyLimit; number; Annual reimbursement limit for miscellaneous expenses.</li><li>ZoneCode; string; Zone code for which the miscellaneous expense policy rate is applicable, such as geographical locations or zones.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the expense miscellaneous policy line record that matches the primary key criteria specified. <br>Finder Variables <ul><li>PolicyLineId; integer;  The unique identifier of the expense miscellaneous policy line record. </li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/expenseMiscPolicies/:MiscPolicyId/child/expenseMiscPolicyLines",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "expenseMiscPolicies",
+                                                        ":MiscPolicyId",
+                                                        "child",
+                                                        "expenseMiscPolicyLines"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "MiscPolicyId",
+                                                            "value": "<integer>",
+                                                            "description": "(Required) The value of this parameter could be a hash of the key that is used to uniquely identify the resource item. The client should not generate the hash key value.  Instead, the client should query on the collection resource with a filter to navigate to a specific resource item. For example: products?q=InventoryItemId=<value1>"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "limit",
+                                                            "value": "<integer>",
+                                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "offset",
+                                                            "value": "<integer>",
+                                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "totalResults",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "q",
+                                                            "value": "<string>",
+                                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>CreatedBy; string; User who created the row.</li><li>CreationDate; string; Date and time when the row was created.</li><li>Currency; string; Currency of a miscellaneous expense policy line.</li><li>CurrencyCode; string; Currency code of a miscellaneous expense policy line.</li><li>DailyLimit; number; Daily reimbursement limit for miscellaneous expenses.</li><li>EndDate; string; Date from which the miscellaneous expense policy rate is no longer applicable.</li><li>GenderCode; string; Gender code for the miscellaneous expense policy.</li><li>GeographyId; integer; The unique identifier of the geography for which the miscellaneous expense policy rate is applicable.</li><li>GeolocName; string; Geographical location for which the miscellaneous expense policy rate is applicable.</li><li>InvalidCode; string; Indicates why the miscellaneous expense policy line has the invalid status.</li><li>LastUpdateDate; string; Date and time when the row was last updated</li><li>LastUpdateLogin; string; Session login of user who last updated the row.</li><li>LastUpdatedBy; string; User who last updated the row.</li><li>MiscPolicyId; integer; The unique identifier of the miscellaneous expense policy.</li><li>PolicyLineId; integer; The unique identifier of the miscellaneous expense policy line.</li><li>RawCity; string; City for which the miscellaneous expense policy rate is applicable.</li><li>RawCountry; string; Country for which the miscellaneous expense policy rate is applicable.</li><li>RawCounty; string; County for which the miscellaneous expense policy rate is applicable.</li><li>RawState; string; State for which the miscellaneous expense policy rate is applicable.</li><li>ReimbursementPercentage; number; Percentage of the expense amount that's reimbursed when the submitted expense amount exceeds the limit and the rate type is percentage reimbursement or percentage reimbursement with upper limit.</li><li>RoleId; integer; The unique identifier of the role for which the miscellaneous expense policy rate is applicable.</li><li>RoleName; string; Role name for which the miscellaneous expense policy rate is applicable, such as Director or Engineer.</li><li>SingleInstanceLimit; number; Indicates whether miscellaneous expense policy limits are enforced by each submitted instance of a miscellaneous expense item.</li><li>StartDate; string; Date from which the miscellaneous expense policy rate is applicable.</li><li>Status; string; Status of the miscellaneous expense policy line. Valid values are Draft, Valid, Invalid, and Active.</li><li>StatusCode; string; Indicates the status of the miscellaneous expense policy line. Values are from the lookup EXM_POLICY_STATUS.</li><li>TypeOfRateCode; string; Type of rate line, such as base miscellaneous rate or catch all.</li><li>YearlyLimit; number; Annual reimbursement limit for miscellaneous expenses.</li><li>ZoneCode; string; Zone code for which the miscellaneous expense policy rate is applicable, such as geographical locations or zones.</li></ul>",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "orderBy",
+                                                            "value": "<string>",
+                                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "finder",
+                                                            "value": "<string>",
+                                                            "description": "Used as a predefined finder to search the collection.<br><br>Format ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables<br><br><ul><li>PrimaryKey Finds the expense miscellaneous policy line record that matches the primary key criteria specified. <br>Finder Variables <ul><li>PolicyLineId; integer;  The unique identifier of the expense miscellaneous policy line record. </li></ul></li></ul>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"CreatedBy\": \"<string>\",\n      \"CreationDate\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyCode\": \"<string>\",\n      \"DailyLimit\": \"<number>\",\n      \"EndDate\": \"<string>\",\n      \"GenderCode\": \"<string>\",\n      \"GeographyId\": \"<integer>\",\n      \"GeolocName\": \"<string>\",\n      \"InvalidCode\": \"<string>\",\n      \"LastUpdateDate\": \"<string>\",\n      \"LastUpdateLogin\": \"<string>\",\n      \"LastUpdatedBy\": \"<string>\",\n      \"MiscPolicyId\": \"<integer>\",\n      \"PolicyLineId\": \"<integer>\",\n      \"RawCity\": \"<string>\",\n      \"RawCountry\": \"<string>\",\n      \"RawCounty\": \"<string>\",\n      \"RawState\": \"<string>\",\n      \"ReimbursementPercentage\": \"<number>\",\n      \"RoleId\": \"<integer>\",\n      \"RoleName\": \"<string>\",\n      \"SingleInstanceLimit\": \"<number>\",\n      \"StartDate\": \"<string>\",\n      \"Status\": \"<string>\",\n      \"StatusCode\": \"<string>\",\n      \"TypeOfRateCode\": \"<string>\",\n      \"YearlyLimit\": \"<number>\",\n      \"ZoneCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The expense miscellaneous policies resource is used to view miscellaneous expense policy records."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}

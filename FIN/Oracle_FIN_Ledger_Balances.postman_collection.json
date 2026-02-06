@@ -1,0 +1,418 @@
+{
+    "info": {
+        "_postman_id": "028bfece-d613-419e-bdec-45ede95b40d9",
+        "name": "Oracle Fusion Cloud FIN - Ledger Balances",
+        "description": "REST API collection for Oracle Fusion Cloud Financials — Ledger Balances module.\n\nCreated by [Adrian Anderson](https://www.linkedin.com/in/aanderson1017/) | [YouTube - Better Human Applications](https://www.youtube.com/@BetterHumanApplications)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Ledger Balances",
+            "item": [
+                {
+                    "name": "Ledger Balances",
+                    "item": [
+                        {
+                            "name": "{ledgerBalancesUniqID}",
+                            "item": [
+                                {
+                                    "name": "GET action not supported",
+                                    "request": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/ledgerBalances/:ledgerBalancesUniqID",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "ledgerBalances",
+                                                ":ledgerBalancesUniqID"
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "key": "ledgerBalancesUniqID",
+                                                    "value": "<string>",
+                                                    "description": "(Required) This is the hash key of the attributes which make up the composite key--- AccountGroupName, AccountName, LedgerSetName, LedgerName, Currency, CurrentAccountingPeriod and AccountCombination ---for the Ledger Balances resource and used to uniquely identify an instance of Ledger Balances. The client should not generate the hash key value.  Instead, the client should query on the Ledger Balances collection resource with a filter on the primary key values in order to navigate to a specific instance of Ledger Balances.<br><br>For example: ledgerBalances?q=AccountGroupName=&lt;value1&gt;;AccountName=&lt;value2&gt;;LedgerSetName=&lt;value3&gt;;LedgerName=&lt;value4&gt;;Currency=&lt;value5&gt;;CurrentAccountingPeriod=&lt;value6&gt;;AccountCombination=&lt;value7&gt;"
+                                                }
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "dependency",
+                                                    "value": "<string>",
+                                                    "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "name": "The following table describes the default response for this task.",
+                                            "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "REST-Framework-Version",
+                                                        "value": "<string>",
+                                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                                    },
+                                                    {
+                                                        "key": "Metadata-Context",
+                                                        "value": "<string>",
+                                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                                    }
+                                                ],
+                                                "url": {
+                                                    "raw": "{{FIN Site URL}}/ledgerBalances/:ledgerBalancesUniqID",
+                                                    "host": [
+                                                        "{{FIN Site URL}}"
+                                                    ],
+                                                    "path": [
+                                                        "ledgerBalances",
+                                                        ":ledgerBalancesUniqID"
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "key": "ledgerBalancesUniqID",
+                                                            "value": "<string>",
+                                                            "description": "(Required) This is the hash key of the attributes which make up the composite key--- AccountGroupName, AccountName, LedgerSetName, LedgerName, Currency, CurrentAccountingPeriod and AccountCombination ---for the Ledger Balances resource and used to uniquely identify an instance of Ledger Balances. The client should not generate the hash key value.  Instead, the client should query on the Ledger Balances collection resource with a filter on the primary key values in order to navigate to a specific instance of Ledger Balances.<br><br>For example: ledgerBalances?q=AccountGroupName=&lt;value1&gt;;AccountName=&lt;value2&gt;;LedgerSetName=&lt;value3&gt;;LedgerName=&lt;value4&gt;;Currency=&lt;value5&gt;;CurrentAccountingPeriod=&lt;value6&gt;;AccountCombination=&lt;value7&gt;"
+                                                        }
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "key": "expand",
+                                                            "value": "<string>",
+                                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "fields",
+                                                            "value": "<string>",
+                                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "onlyData",
+                                                            "value": "<boolean>",
+                                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "dependency",
+                                                            "value": "<string>",
+                                                            "description": "This parameter specifies dependencies which are fields that are set before and rolled back after generating the response. Generally they are used to preview the effects of an attribute change. The fields specified in this parameter are always set in the resource instance in question. When a child resource collection is requested and the parameter is set, the fields will be set in the parent resource instance before generating the resource collection payload. The value of this query parameter is a set of dependency fields.  Example: dependency=ProductId=2<br><br>Format: &lt;attr1&gt;=&lt;val1&gt;,&lt;attr2&gt;=&lt;value2&gt;",
+                                                            "disabled": true
+                                                        },
+                                                        {
+                                                            "key": "links",
+                                                            "value": "<string>",
+                                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                            "disabled": true
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "_postman_previewlanguage": "json",
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "cookie": [],
+                                            "body": "{\n  \"AccountCombination\": \"<string>\",\n  \"AccountGroupName\": \"<string>\",\n  \"AccountName\": \"<string>\",\n  \"ActualBalance\": \"<string>\",\n  \"AmountType\": \"<string>\",\n  \"BeginningBalance\": \"<string>\",\n  \"BudgetBalance\": \"<string>\",\n  \"Currency\": \"<string>\",\n  \"CurrencyType\": \"<string>\",\n  \"CurrentAccountingPeriod\": \"<string>\",\n  \"CurrentPeriodBalance\": \"<string>\",\n  \"DetailAccountCombination\": \"<string>\",\n  \"EndingBalance\": \"<string>\",\n  \"ErrorDetail\": \"<string>\",\n  \"LedgerName\": \"<string>\",\n  \"LedgerSetName\": \"<string>\",\n  \"PeriodActivity\": \"<string>\",\n  \"PeriodName\": \"<string>\",\n  \"Scenario\": \"<string>\",\n  \"Segment10TreeCode\": \"<string>\",\n  \"Segment11TreeCode\": \"<string>\",\n  \"Segment12TreeCode\": \"<string>\",\n  \"Segment13TreeCode\": \"<string>\",\n  \"Segment14TreeCode\": \"<string>\",\n  \"Segment15TreeCode\": \"<string>\",\n  \"Segment16TreeCode\": \"<string>\",\n  \"Segment17TreeCode\": \"<string>\",\n  \"Segment18TreeCode\": \"<string>\",\n  \"Segment19TreeCode\": \"<string>\",\n  \"Segment1TreeCode\": \"<string>\",\n  \"Segment20TreeCode\": \"<string>\",\n  \"Segment21TreeCode\": \"<string>\",\n  \"Segment22TreeCode\": \"<string>\",\n  \"Segment23TreeCode\": \"<string>\",\n  \"Segment24TreeCode\": \"<string>\",\n  \"Segment25TreeCode\": \"<string>\",\n  \"Segment26TreeCode\": \"<string>\",\n  \"Segment27TreeCode\": \"<string>\",\n  \"Segment28TreeCode\": \"<string>\",\n  \"Segment29TreeCode\": \"<string>\",\n  \"Segment2TreeCode\": \"<string>\",\n  \"Segment30TreeCode\": \"<string>\",\n  \"Segment3TreeCode\": \"<string>\",\n  \"Segment4TreeCode\": \"<string>\",\n  \"Segment5TreeCode\": \"<string>\",\n  \"Segment6TreeCode\": \"<string>\",\n  \"Segment7TreeCode\": \"<string>\",\n  \"Segment8TreeCode\": \"<string>\",\n  \"Segment9TreeCode\": \"<string>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ]\n}"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get all account balances",
+                            "request": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "REST-Framework-Version",
+                                        "value": "<string>",
+                                        "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                    },
+                                    {
+                                        "key": "Metadata-Context",
+                                        "value": "<string>",
+                                        "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{FIN Site URL}}/ledgerBalances",
+                                    "host": [
+                                        "{{FIN Site URL}}"
+                                    ],
+                                    "path": [
+                                        "ledgerBalances"
+                                    ],
+                                    "query": [
+                                        {
+                                            "key": "expand",
+                                            "value": "<string>",
+                                            "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "fields",
+                                            "value": "<string>",
+                                            "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "onlyData",
+                                            "value": "<boolean>",
+                                            "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "links",
+                                            "value": "<string>",
+                                            "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "limit",
+                                            "value": "<integer>",
+                                            "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "offset",
+                                            "value": "<integer>",
+                                            "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "totalResults",
+                                            "value": "<boolean>",
+                                            "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "<string>",
+                                            "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccountCombination; string; The concatenated segment value string that denotes the requested general ledger account, with the chart of accounts delimiter as the segment separator. A percent sign for a segment indicates that all values for that segment apply.</li><li>AccountGroupName; string; The value that uniquely identifies the account group.</li><li>AccountName; string; The name of the account defined as part of the account group.</li><li>ActualBalance; string; The actual balance for the provided budget-based account group and other criteria.</li><li>AmountType; string; The amount type requested for the account balance. Values include Base, PTD, YTD and QTD. The default value is Base.</li><li>BeginningBalance; string; The beginning account balance for the provided criteria.</li><li>BudgetBalance; string; The budget balance for the provided budget-based account group and other criteria.</li><li>Currency; string; The currency in which balances are requested.</li><li>CurrencyType; string; The currency type requested for the account balance. The default value is Total.</li><li>CurrentAccountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>CurrentPeriodBalance; string; The account balance for the requested accounting period.</li><li>DetailAccountCombination; string; The concatenated segment value string that denotes the detail general ledger account that is returned for a requested general ledger account, with the chart of accounts delimiter as the segment separator. Applicable to Detail Mode only.</li><li>EndingBalance; string; The ending account balance for the provided criteria.</li><li>ErrorDetail; string; The error message received from the Oracle Essbase server in the event of a request processing failure.</li><li>LedgerName; string; The name of the ledger for which balances are requested.</li><li>LedgerSetName; string; The name of the ledger set for which balances are requested.</li><li>PeriodActivity; string; The period account balance for the provided criteria.</li><li>PeriodName; string; The name of the accounting period for which account balances are returned. Applicable to Detail Mode only.</li><li>Scenario; string; The scenario for an account group definition with a budget-based comparison option. Valid values include Forecast Q1 and Original Budget.</li><li>Segment10TreeCode; string; The tree code for Segment 10.</li><li>Segment11TreeCode; string; The tree code for Segment 11.</li><li>Segment12TreeCode; string; The tree code for Segment 12.</li><li>Segment13TreeCode; string; The tree code for Segment 13.</li><li>Segment14TreeCode; string; The tree code for Segment 14.</li><li>Segment15TreeCode; string; The tree code for Segment 15.</li><li>Segment16TreeCode; string; The tree code for Segment 16.</li><li>Segment17TreeCode; string; The tree code for Segment 17.</li><li>Segment18TreeCode; string; The tree code for Segment 18.</li><li>Segment19TreeCode; string; The tree code for Segment 19.</li><li>Segment1TreeCode; string; The tree code for Segment 1.</li><li>Segment20TreeCode; string; The tree code for Segment 20.</li><li>Segment21TreeCode; string; The tree code for Segment 21.</li><li>Segment22TreeCode; string; The tree code for Segment 22.</li><li>Segment23TreeCode; string; The tree code for Segment 23.</li><li>Segment24TreeCode; string; The tree code for Segment 24.</li><li>Segment25TreeCode; string; The tree code for Segment 25.</li><li>Segment26TreeCode; string; The tree code for Segment 26.</li><li>Segment27TreeCode; string; The tree code for Segment 27.</li><li>Segment28TreeCode; string; The tree code for Segment 28.</li><li>Segment29TreeCode; string; The tree code for Segment 29.</li><li>Segment2TreeCode; string; The tree code for Segment 2.</li><li>Segment30TreeCode; string; The tree code for Segment 30.</li><li>Segment3TreeCode; string; The tree code for Segment 3.</li><li>Segment4TreeCode; string; The tree code for Segment 4.</li><li>Segment5TreeCode; string; The tree code for Segment 5.</li><li>Segment6TreeCode; string; The tree code for Segment 6.</li><li>Segment7TreeCode; string; The tree code for Segment 7.</li><li>Segment8TreeCode; string; The tree code for Segment 8.</li><li>Segment9TreeCode; string; The tree code for Segment 9.</li></ul>",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "orderBy",
+                                            "value": "<string>",
+                                            "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                            "disabled": true
+                                        },
+                                        {
+                                            "key": "finder",
+                                            "value": "<string>",
+                                            "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>AccountBalanceFinder: Finds the general ledger balance amount of the account that matches the account combination, ledger name, currency and accounting period.<br>Finder Variables: <ul><li>accountCombination; string; The account, or accounts if a percent sign is used for a segment.</li><li>accountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>amountType; string; The amount type, such as PTD for period-to-date.</li><li>currency; string; The currency in which balances are requested.</li><li>currencyType; string; The currency type, such as Entered.</li><li>effectiveDate; string; The effective date of the account hierarchy tree version.</li><li>ledgerName; string; The name of the ledger for which balances are requested.</li><li>ledgerSetName; string; The name of the ledger set for which balances are requested.</li><li>maxFetchLimit; string; The value (Y or N, with Y as the default), that allows for skipping the validation error when records exceed 10,000.</li><li>mode; string; The method for how account balances are retrieved, with Summary or Detail as valid values. </li><li>scenario; string; The scenario for an account group definition with a budget-based comparison option.</li><li>segment10TreeCode; string; The tree code for Segment 10.</li><li>segment11TreeCode; string; The tree code for Segment 11.</li><li>segment12TreeCode; string; The tree code for Segment 12.</li><li>segment13TreeCode; string; The tree code for Segment 13.</li><li>segment14TreeCode; string; The tree code for Segment 14.</li><li>segment15TreeCode; string; The tree code for Segment 15.</li><li>segment16TreeCode; string; The tree code for Segment 16.</li><li>segment17TreeCode; string; The tree code for Segment 17.</li><li>segment18TreeCode; string; The tree code for Segment 18.</li><li>segment19TreeCode; string; The tree code for Segment 19.</li><li>segment1TreeCode; string; The tree code for Segment 1.</li><li>segment20TreeCode; string; The tree code for Segment 20.</li><li>segment21TreeCode; string; The tree code for Segment 21.</li><li>segment22TreeCode; string; The tree code for Segment 22.</li><li>segment23TreeCode; string; The tree code for Segment 23.</li><li>segment24TreeCode; string; The tree code for Segment 24.</li><li>segment25TreeCode; string; The tree code for Segment 25.</li><li>segment26TreeCode; string; The tree code for Segment 26.</li><li>segment27TreeCode; string; The tree code for Segment 27.</li><li>segment28TreeCode; string; The tree code for Segment 28.</li><li>segment29TreeCode; string; The tree code for Segment 29.</li><li>segment2TreeCode; string; The tree code for Segment 2.</li><li>segment30TreeCode; string; The tree code for Segment 30.</li><li>segment3TreeCode; string; The tree code for Segment 3.</li><li>segment4TreeCode; string; The tree code for Segment 4.</li><li>segment5TreeCode; string; The tree code for Segment 5.</li><li>segment6TreeCode; string; The tree code for Segment 6.</li><li>segment7TreeCode; string; The tree code for Segment 7.</li><li>segment8TreeCode; string; The tree code for Segment 8.</li><li>segment9TreeCode; string; The tree code for Segment 9.</li></ul></li><li>AccountGroupBalanceFinder: Finds the general ledger balance amount of the account that matches the account group name, account name, ledger name, currency, and accounting period.<br>Finder Variables: <ul><li>accountGroupName; string; The account group name.</li><li>accountName; string; The name of the account defined as part of the account group.</li><li>accountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>currency; string; The currency in which balances are requested.</li><li>ledgerName; string; The name of the ledger for which balances are requested.</li></ul></li><li>PrimaryKey: Finds the general ledger balance amount of the account that matches the primary key criteria specified.<br>Finder Variables: <ul><li>AccountCombination; string; The concatenated segment value string that denotes the general ledger account, with the chart of accounts delimiter as the segment separator, and where a percent sign for a segment represents all values for that segment.</li><li>AccountGroupName; string; The value that uniquely identifies the account group.</li><li>AccountName; string; The name of the account defined as part of the account group.</li><li>Currency; string; The currency in which balances are requested.</li><li>CurrentAccountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>LedgerName; string; The name of the ledger for which balances are requested.</li><li>LedgerSetName; string; The name of the ledger set for which balances are requested.</li></ul></li></ul>",
+                                            "disabled": true
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "name": "The following table describes the default response for this task.",
+                                    "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "REST-Framework-Version",
+                                                "value": "<string>",
+                                                "description": "The protocol version between a REST client and service. If the client does not specify this header in the request the server will pick a default version for the API."
+                                            },
+                                            {
+                                                "key": "Metadata-Context",
+                                                "value": "<string>",
+                                                "description": "If the REST API supports runtime customizations, the shape of the service may change during runtime. The REST client may isolate itself from these changes or choose to interact with the latest version of the API by specifying this header. For example: Metadata-Context:sandbox=\"TrackEmployeeFeature\"."
+                                            }
+                                        ],
+                                        "url": {
+                                            "raw": "{{FIN Site URL}}/ledgerBalances",
+                                            "host": [
+                                                "{{FIN Site URL}}"
+                                            ],
+                                            "path": [
+                                                "ledgerBalances"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "key": "expand",
+                                                    "value": "<string>",
+                                                    "description": "When this parameter is provided, the specified children are included in the resource payload (instead of just a link). The value of this query parameter is \"all\" or \"\". More than one child can be specified using comma as a separator. Example: ?expand=Employees,Localizations. Nested children can also be provided following the format \"Child.NestedChild\" (Example: ?expand=Employees.Managers). If a nested child is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?expand=Employees.Managers\" is the same as \"?expand=Employees,Employees.Managers\" (which will expand Employees and Managers).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "fields",
+                                                    "value": "<string>",
+                                                    "description": "This parameter filters the resource fields. Only the specified fields are returned, which means that if no fields are specified, no fields are returned (useful to get only the links). If an indirect child resource is provided (Example: Employees.Managers), the missing children will be processed implicitly. For example, \"?fields=Employees.Managers:Empname\" is the same as \"?fields=;Employees:;Employees.Managers:Empname\" (which will only return the \"Empname\" field for Managers). the value of this query parameter is a list of resource fields. The attribute can be a direct (Example: Employees) or indirect (Example: Employees.Managers) child. It cannot be combined with expand query parameter. If both are provided, only fields will be considered.<br><br>Format: ?fields=Attribute1,Attribute2<br><br>Format for fields in child resource: ?fields=Accessor1:Attribute1,Attribute2",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "onlyData",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource item payload will be filtered in order to contain only data (no links section, for example).",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "links",
+                                                    "value": "<string>",
+                                                    "description": "This parameter can be used to show only certain links while accessing a singular resource or a resource collection. The parameter value format is a comma-separated list of : &lt;link_relation&gt;<br><br>Example:<br>self,canonical<br>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "limit",
+                                                    "value": "<integer>",
+                                                    "description": "This parameter restricts the number of resources returned inside the resource collection. If the limit exceeds the resource count then the framework will only return the available resources.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "offset",
+                                                    "value": "<integer>",
+                                                    "description": "Used to define the starting position of the resource collection. If offset exceeds the resource count then no resources are returned. Default value is 0.",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "totalResults",
+                                                    "value": "<boolean>",
+                                                    "description": "The resource collection representation will include the \"estimated row count\" when \"?totalResults=true\", otherwise the count is not included.  The default value is \"false\".",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "q",
+                                                    "value": "<string>",
+                                                    "description": "This query parameter defines the where clause. The resource collection will be queried using the provided expressions. The value of this query parameter is one or more expressions. Example: ?q=Deptno&gt;=10 and &lt;= 30;Loc!=NY <br><br>Format: ?q=expression1;expression2<br><br>You can use these queryable attributes to filter this collection resource using the q query parameter:<br><ul><li>AccountCombination; string; The concatenated segment value string that denotes the requested general ledger account, with the chart of accounts delimiter as the segment separator. A percent sign for a segment indicates that all values for that segment apply.</li><li>AccountGroupName; string; The value that uniquely identifies the account group.</li><li>AccountName; string; The name of the account defined as part of the account group.</li><li>ActualBalance; string; The actual balance for the provided budget-based account group and other criteria.</li><li>AmountType; string; The amount type requested for the account balance. Values include Base, PTD, YTD and QTD. The default value is Base.</li><li>BeginningBalance; string; The beginning account balance for the provided criteria.</li><li>BudgetBalance; string; The budget balance for the provided budget-based account group and other criteria.</li><li>Currency; string; The currency in which balances are requested.</li><li>CurrencyType; string; The currency type requested for the account balance. The default value is Total.</li><li>CurrentAccountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>CurrentPeriodBalance; string; The account balance for the requested accounting period.</li><li>DetailAccountCombination; string; The concatenated segment value string that denotes the detail general ledger account that is returned for a requested general ledger account, with the chart of accounts delimiter as the segment separator. Applicable to Detail Mode only.</li><li>EndingBalance; string; The ending account balance for the provided criteria.</li><li>ErrorDetail; string; The error message received from the Oracle Essbase server in the event of a request processing failure.</li><li>LedgerName; string; The name of the ledger for which balances are requested.</li><li>LedgerSetName; string; The name of the ledger set for which balances are requested.</li><li>PeriodActivity; string; The period account balance for the provided criteria.</li><li>PeriodName; string; The name of the accounting period for which account balances are returned. Applicable to Detail Mode only.</li><li>Scenario; string; The scenario for an account group definition with a budget-based comparison option. Valid values include Forecast Q1 and Original Budget.</li><li>Segment10TreeCode; string; The tree code for Segment 10.</li><li>Segment11TreeCode; string; The tree code for Segment 11.</li><li>Segment12TreeCode; string; The tree code for Segment 12.</li><li>Segment13TreeCode; string; The tree code for Segment 13.</li><li>Segment14TreeCode; string; The tree code for Segment 14.</li><li>Segment15TreeCode; string; The tree code for Segment 15.</li><li>Segment16TreeCode; string; The tree code for Segment 16.</li><li>Segment17TreeCode; string; The tree code for Segment 17.</li><li>Segment18TreeCode; string; The tree code for Segment 18.</li><li>Segment19TreeCode; string; The tree code for Segment 19.</li><li>Segment1TreeCode; string; The tree code for Segment 1.</li><li>Segment20TreeCode; string; The tree code for Segment 20.</li><li>Segment21TreeCode; string; The tree code for Segment 21.</li><li>Segment22TreeCode; string; The tree code for Segment 22.</li><li>Segment23TreeCode; string; The tree code for Segment 23.</li><li>Segment24TreeCode; string; The tree code for Segment 24.</li><li>Segment25TreeCode; string; The tree code for Segment 25.</li><li>Segment26TreeCode; string; The tree code for Segment 26.</li><li>Segment27TreeCode; string; The tree code for Segment 27.</li><li>Segment28TreeCode; string; The tree code for Segment 28.</li><li>Segment29TreeCode; string; The tree code for Segment 29.</li><li>Segment2TreeCode; string; The tree code for Segment 2.</li><li>Segment30TreeCode; string; The tree code for Segment 30.</li><li>Segment3TreeCode; string; The tree code for Segment 3.</li><li>Segment4TreeCode; string; The tree code for Segment 4.</li><li>Segment5TreeCode; string; The tree code for Segment 5.</li><li>Segment6TreeCode; string; The tree code for Segment 6.</li><li>Segment7TreeCode; string; The tree code for Segment 7.</li><li>Segment8TreeCode; string; The tree code for Segment 8.</li><li>Segment9TreeCode; string; The tree code for Segment 9.</li></ul>",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "orderBy",
+                                                    "value": "<string>",
+                                                    "description": "This parameter orders a resource collection based on the specified fields.  The parameter value is a comma-separated string of attribute names, each optionally followed by a colon and \"asc\" or \"desc\".  Specify \"asc\" for ascending and \"desc\" for descending. The default value is \"asc\".  For example, ?orderBy=field1:asc,field2:desc",
+                                                    "disabled": true
+                                                },
+                                                {
+                                                    "key": "finder",
+                                                    "value": "<string>",
+                                                    "description": "Used as a predefined finder to search the collection.<br><br>Format: ?finder=&lt;finderName&gt;;&lt;variableName&gt;=&lt;variableValue&gt;,&lt;variableName2&gt;=&lt;variableValue2&gt;<br><br>The following are the available finder names and corresponding finder variables:<br><br><ul><li>AccountBalanceFinder: Finds the general ledger balance amount of the account that matches the account combination, ledger name, currency and accounting period.<br>Finder Variables: <ul><li>accountCombination; string; The account, or accounts if a percent sign is used for a segment.</li><li>accountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>amountType; string; The amount type, such as PTD for period-to-date.</li><li>currency; string; The currency in which balances are requested.</li><li>currencyType; string; The currency type, such as Entered.</li><li>effectiveDate; string; The effective date of the account hierarchy tree version.</li><li>ledgerName; string; The name of the ledger for which balances are requested.</li><li>ledgerSetName; string; The name of the ledger set for which balances are requested.</li><li>maxFetchLimit; string; The value (Y or N, with Y as the default), that allows for skipping the validation error when records exceed 10,000.</li><li>mode; string; The method for how account balances are retrieved, with Summary or Detail as valid values. </li><li>scenario; string; The scenario for an account group definition with a budget-based comparison option.</li><li>segment10TreeCode; string; The tree code for Segment 10.</li><li>segment11TreeCode; string; The tree code for Segment 11.</li><li>segment12TreeCode; string; The tree code for Segment 12.</li><li>segment13TreeCode; string; The tree code for Segment 13.</li><li>segment14TreeCode; string; The tree code for Segment 14.</li><li>segment15TreeCode; string; The tree code for Segment 15.</li><li>segment16TreeCode; string; The tree code for Segment 16.</li><li>segment17TreeCode; string; The tree code for Segment 17.</li><li>segment18TreeCode; string; The tree code for Segment 18.</li><li>segment19TreeCode; string; The tree code for Segment 19.</li><li>segment1TreeCode; string; The tree code for Segment 1.</li><li>segment20TreeCode; string; The tree code for Segment 20.</li><li>segment21TreeCode; string; The tree code for Segment 21.</li><li>segment22TreeCode; string; The tree code for Segment 22.</li><li>segment23TreeCode; string; The tree code for Segment 23.</li><li>segment24TreeCode; string; The tree code for Segment 24.</li><li>segment25TreeCode; string; The tree code for Segment 25.</li><li>segment26TreeCode; string; The tree code for Segment 26.</li><li>segment27TreeCode; string; The tree code for Segment 27.</li><li>segment28TreeCode; string; The tree code for Segment 28.</li><li>segment29TreeCode; string; The tree code for Segment 29.</li><li>segment2TreeCode; string; The tree code for Segment 2.</li><li>segment30TreeCode; string; The tree code for Segment 30.</li><li>segment3TreeCode; string; The tree code for Segment 3.</li><li>segment4TreeCode; string; The tree code for Segment 4.</li><li>segment5TreeCode; string; The tree code for Segment 5.</li><li>segment6TreeCode; string; The tree code for Segment 6.</li><li>segment7TreeCode; string; The tree code for Segment 7.</li><li>segment8TreeCode; string; The tree code for Segment 8.</li><li>segment9TreeCode; string; The tree code for Segment 9.</li></ul></li><li>AccountGroupBalanceFinder: Finds the general ledger balance amount of the account that matches the account group name, account name, ledger name, currency, and accounting period.<br>Finder Variables: <ul><li>accountGroupName; string; The account group name.</li><li>accountName; string; The name of the account defined as part of the account group.</li><li>accountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>currency; string; The currency in which balances are requested.</li><li>ledgerName; string; The name of the ledger for which balances are requested.</li></ul></li><li>PrimaryKey: Finds the general ledger balance amount of the account that matches the primary key criteria specified.<br>Finder Variables: <ul><li>AccountCombination; string; The concatenated segment value string that denotes the general ledger account, with the chart of accounts delimiter as the segment separator, and where a percent sign for a segment represents all values for that segment.</li><li>AccountGroupName; string; The value that uniquely identifies the account group.</li><li>AccountName; string; The name of the account defined as part of the account group.</li><li>Currency; string; The currency in which balances are requested.</li><li>CurrentAccountingPeriod; string; The accounting period, quarter, or year, for which balances are requested.</li><li>LedgerName; string; The name of the ledger for which balances are requested.</li><li>LedgerSetName; string; The name of the ledger set for which balances are requested.</li></ul></li></ul>",
+                                                    "disabled": true
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "_postman_previewlanguage": "json",
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "cookie": [],
+                                    "body": "{\n  \"count\": \"<integer>\",\n  \"hasMore\": \"<boolean>\",\n  \"items\": [\n    {\n      \"AccountCombination\": \"<string>\",\n      \"AccountGroupName\": \"<string>\",\n      \"AccountName\": \"<string>\",\n      \"ActualBalance\": \"<string>\",\n      \"AmountType\": \"<string>\",\n      \"BeginningBalance\": \"<string>\",\n      \"BudgetBalance\": \"<string>\",\n      \"Currency\": \"<string>\",\n      \"CurrencyType\": \"<string>\",\n      \"CurrentAccountingPeriod\": \"<string>\",\n      \"CurrentPeriodBalance\": \"<string>\",\n      \"DetailAccountCombination\": \"<string>\",\n      \"EndingBalance\": \"<string>\",\n      \"ErrorDetail\": \"<string>\",\n      \"LedgerName\": \"<string>\",\n      \"LedgerSetName\": \"<string>\",\n      \"PeriodActivity\": \"<string>\",\n      \"PeriodName\": \"<string>\",\n      \"Scenario\": \"<string>\",\n      \"Segment10TreeCode\": \"<string>\",\n      \"Segment11TreeCode\": \"<string>\",\n      \"Segment12TreeCode\": \"<string>\",\n      \"Segment13TreeCode\": \"<string>\",\n      \"Segment14TreeCode\": \"<string>\",\n      \"Segment15TreeCode\": \"<string>\",\n      \"Segment16TreeCode\": \"<string>\",\n      \"Segment17TreeCode\": \"<string>\",\n      \"Segment18TreeCode\": \"<string>\",\n      \"Segment19TreeCode\": \"<string>\",\n      \"Segment1TreeCode\": \"<string>\",\n      \"Segment20TreeCode\": \"<string>\",\n      \"Segment21TreeCode\": \"<string>\",\n      \"Segment22TreeCode\": \"<string>\",\n      \"Segment23TreeCode\": \"<string>\",\n      \"Segment24TreeCode\": \"<string>\",\n      \"Segment25TreeCode\": \"<string>\",\n      \"Segment26TreeCode\": \"<string>\",\n      \"Segment27TreeCode\": \"<string>\",\n      \"Segment28TreeCode\": \"<string>\",\n      \"Segment29TreeCode\": \"<string>\",\n      \"Segment2TreeCode\": \"<string>\",\n      \"Segment30TreeCode\": \"<string>\",\n      \"Segment3TreeCode\": \"<string>\",\n      \"Segment4TreeCode\": \"<string>\",\n      \"Segment5TreeCode\": \"<string>\",\n      \"Segment6TreeCode\": \"<string>\",\n      \"Segment7TreeCode\": \"<string>\",\n      \"Segment8TreeCode\": \"<string>\",\n      \"Segment9TreeCode\": \"<string>\",\n      \"links\": [\n        {}\n      ]\n    }\n  ],\n  \"limit\": \"<integer>\",\n  \"links\": [\n    {\n      \"kind\": \"collection\",\n      \"rel\": \"self\",\n      \"name\": \"<string>\",\n      \"href\": \"<string>\",\n      \"properties\": {\n        \"changeIndicator\": {}\n      }\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "description": "The ledger balances resource is used to view the balance amount for any account combination or an account that is defined as part of an account group."
+        }
+    ],
+    "auth": {
+        "type": "basic",
+        "basic": [
+            {
+                "key": "password",
+                "value": "{{FIN Password}}",
+                "type": "string"
+            },
+            {
+                "key": "username",
+                "value": "{{FIN UserName}}",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": []
+}
